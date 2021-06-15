@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc} % encodage d’entrée
 \usepackage[T1]{fontenc} % encodage de sortie
 \usepackage{moreverb} % utilisation de verbatimtab
-%\usepackage{verbatim} % inclure du code source
+\usepackage{verbatim} % inclure du code source
 \usepackage{graphicx} % inclure des images
 \usepackage[final]{pdfpages} % inclure des PDFs
 \usepackage{hyperref} % inclure des adresses web
@@ -264,15 +264,75 @@ Création d’un template en LateX pour le mémoire de recherche.\\\\
 	$\Rightarrow$ Ils faudra donc les prendre en compte dans les comparaisons de transcriptions.
 	\subsection{Prise en main d’un clavier ergonomique}
 	\includegraphics[height=50mm, width=70mm]{images/clavier_ergo_0.png}\\
-	Désolé, ça prend du temps mais c’est important.\\
+	Désolé, ça prend du temps mais c’est important.
+	\newpage
 	\section{Mardi 15 juin}
 	\subsection{Description de la notation de la batterie}
 	\textit{À faire :}
 	\begin{itemize}
 		\item Petit État de l’art ;
 		\item Définition hauteur et symbole ;
-		\item Logique de la position hampe ligature
+		\item Logique de la position hampe ligature\\
 	\end{itemize}
+La définition des symboles a été faite avec lilypond avec le script suivant :
+\begin{verbatimtab}
+	$ cat description_notation_0.ly 
+	
+	\version "2.22.1"
+	\language français
+	
+	{
+		% Toutes les hauteurs sont en ut
+		\clef percussion
+		
+		% Ne pas appeler la fonction qui dessine les symboles
+		\override Staff.TimeSignature.stencil = ##f 
+		
+		% Changer la tête de note
+		\override NoteHead.style = #'cross
+		
+		% Hauteur de la note + commentaire
+		do''-"ride"
+	}
+
+	{
+		\clef percussion
+		\override Staff.TimeSignature.stencil = ##f
+		\override NoteHead.style = #'cross
+		la'-"charley main"
+	}
+
+	{
+		\clef percussion
+		\override Staff.TimeSignature.stencil = ##f
+		fa'-"tom alto"
+	}
+	
+	{
+		\clef percussion
+		\override Staff.TimeSignature.stencil = ##f
+		do'-"caisse claire"
+	}
+
+	{
+		\clef percussion
+		\override Staff.TimeSignature.stencil = ##f
+		sol-"tom basse"
+	}
+
+	{
+		\clef percussion
+		\override Staff.TimeSignature.stencil = ##f
+		mi-"grosse caisse"
+	}
+
+	{
+		\clef percussion
+		\override Staff.TimeSignature.stencil = ##f
+		\override NoteHead.style = #'cross
+		do-"charley pied"
+	}
+\end{verbatimtab}
 	\subsection{Comparaison de transcription des flas}
 	À partir des fichiers déjà collectés.\\\\
 	\newpage
