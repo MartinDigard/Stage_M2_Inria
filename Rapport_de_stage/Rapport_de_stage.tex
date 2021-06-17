@@ -10,7 +10,7 @@
 \usepackage{hyperref} % inclure des adresses web
 \newcommand\tab[1][5mm]{\hspace*{#1}}
 \parindent=0em % Supprimer les marges en début de paragraphes.
-
+\usepackage{parskip} % blank lines
 
 \begin{document}
 	\title{Rapport de stage}
@@ -268,12 +268,9 @@ Création d’un template en LateX pour le mémoire de recherche.\\\\
 	\newpage
 	\section{Mardi 15 juin}
 	\subsection{Description de la notation de la batterie}
-	\textit{À faire :}
-	\begin{itemize}
-		\item Petit État de l’art ;
-		\item Définition hauteur et symbole ;
-		\item Logique de la position hampe ligature\\
-	\end{itemize}
+	Document page suivante.\newpage
+	\input{description_notation.tex}
+	Retour au document principal page suivante.\newpage
 La définition des symboles a été faite avec lilypond avec le script suivant :
 \begin{verbatimtab}
 	$ cat description_notation_0.ly 
@@ -333,8 +330,26 @@ La définition des symboles a été faite avec lilypond avec le script suivant :
 		do-"charley pied"
 	}
 \end{verbatimtab}
-	\subsection{Comparaison de transcription des flas}
-	À partir des fichiers déjà collectés.\\\\
 	\newpage
-	\input{description_notation.tex}
+	\section{Mercredi 16 juin}
+	\subsubsection{Clavier ergonomique et bépo}
+	Dernier réglages, keybindings et dactylotest (bépo)
+	\section{Jeudi 17 juin}
+	\begin{itemize}
+		\item Installation de cmake-3.20.4 ;
+		\item Ajout de quelques idées pour la notation des ligatures\\\textit{(Voir 3.2.1 Description de la notation de la batterie)} ;
+		\item Installation d’un environnement pour le C++.
+	\end{itemize}
+\subsection{Comparaisons de transcriptions}
+\textit{À faire :}
+\begin{itemize}
+	\item Flas\\\textit{À partir des fichiers déjà collectés} ;
+	\item Autres…\\
+\end{itemize}
+Début du document sur la page suivante.\newpage
+\input{comparaisons_de_transcriptions.tex}
+Retour au document principal sur la page suivante.\newpage
+Début du document sur la page suivante.\newpage
+\input{lilyPond.tex}
+Retour au document principal sur la page suivante.\newpage
 \end{document}
