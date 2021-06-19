@@ -1,0 +1,91 @@
+\subsection{Recherche de flas dans groove}
+	Les noms des fichiers ont été normalisés avec le script suivant :
+	\begin{verbatimtab}
+	$ cat ordered_files.sh 
+	echo
+	for drummer in `ls | egrep drummer_`
+	do
+		echo $drummer
+		echo
+		for session in `ls $drummer | egrep ^session`
+		do
+			echo $session
+			echo
+			cd $drummer/$session
+			rename 's/^([0-9])_/00$1_/' *.* 
+			rename 's/^([0-9]{2})_/0$1_/' *.* 
+			ls -1 *.*
+			echo
+			cd ../..
+		done
+		echo "**********"
+		echo
+		echo
+	done
+	echo
+	\end{verbatimtab}
+	L’objectif est de les avoir dans le même ordre aussi bien dans le terminal que dans
+	l’interface graphique. C’est plus facile pour la récupération des noms lors d’une écoute.
+	\begin{verbatim}
+	« …
+	007_jazz-funk_116_fill_4-4.wav
+	008_jazz-funk_116_fill_4-4.mid
+	008_jazz-funk_116_fill_4-4.wav
+	009_jazz-funk_116_fill_4-4.mid
+	009_jazz-funk_116_fill_4-4.wav
+	010_jazz-funk_116_fill_4-4.mid
+	010_jazz-funk_116_fill_4-4.wav
+	011_jazz-funk_116_fill_4-4.mid
+	011_jazz-funk_116_fill_4-4.wav
+	… »
+	\end{verbatim}
+	\begin{verbatim}
+	\$ cat fichiers_contenant_des_flas 
+	
+	Dans drummer_01/session1 :
+	
+	003_funk_80_beat_4-4.wav
+	005_jazz-funk_116_beat_4-4
+	012_jazz-funk_116_fill_4-4
+	016_jazz-funk_116_fill_4-4
+	019_jazz-funk_116_fill_4-4
+	020_jazz-funk_116_fill_4-4
+	024_jazz-funk_116_fill_4-4
+	038_latin-samba_116_beat_4-4 (00:55)
+	039_latin-samba_116_fill_4-4
+	040_latin-samba_116_fill_4-4
+	043_latin-samba_116_fill_4-4
+	044_latin-samba_116_fill_4-4
+	045_latin-samba_116_fill_4-4
+	046_latin-samba_116_fill_4-4
+	047_jazz_102_beat_4-4
+	048_jazz_93_beat_4-4
+	049_jazz_125_beat_4-4 (cc-tom)
+	051_rock-shuffle_125_beat_4-4
+	054_jazz_125_fill_4-4 (cc-tom)
+	055_jazz_125_fill_4-4 (cc-tom)
+	073_jazz_125_fill_4-4
+	077_jazz-mediumfast_180_beat_4-4 (cc-tom, vers le milieu)
+	082_neworleans-funk_84_beat_4-4 (vers le milieu)
+	085_neworleans-funk_84_fill_4-4 (cc-tom)
+	093_neworleans-funk_84_fill_4-4
+	094_neworleans-funk_84_fill_4-4
+	095_neworleans-funk_84_fill_4-4
+	096_neworleans-funk_84_fill_4-4
+	099_neworleans-funk_84_fill_4-4
+	101_dance-disco_120_beat_4-4 (00:55)
+	102_funk_95_beat_4-4
+	107_funk_95_fill_4-4
+	108_funk_95_fill_4-4
+	111_funk_95_fill_4-4
+	112_funk_95_fill_4-4
+	113_funk_95_fill_4-4
+	114_funk_95_fill_4-4
+	115_funk_95_fill_4-4
+	116_funk_95_fill_4-4
+	118_funk_95_fill_4-4
+	119_funk_95_fill_4-4
+	120_funk_95_fill_4-4
+	123_funk_95_fill_4-4
+	124_funk_95_fill_4-4
+	\end{verbatim}

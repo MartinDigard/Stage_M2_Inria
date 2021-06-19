@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{ae,lmodern} % Polices vectorielles
+\usepackage[french]{babel} % Traitement du français
+\usepackage[utf8]{inputenc} % encodage d’entrée
+\usepackage[T1]{fontenc} % encodage de sortie
+\usepackage{moreverb} % utilisation de verbatimtab
+\usepackage{verbatim} % inclure du code source
+\usepackage{graphicx} % inclure des images
+\usepackage[final]{pdfpages} % inclure des PDFs
+\usepackage{hyperref} % inclure des adresses web
+\newcommand\tab[1][5mm]{\hspace*{#1}}
+\parindent=0em % Supprimer les marges en début de paragraphes.
+\begin{document}
+	\title{Rapport de stage}
+	\author{Martin Digard}
+	\date{}
+	\maketitle
+	\tableofcontents
+	\chapter{Présentation du jeu de données}
+	\input{dataset.tex}
+	\chapter{Description de la notation de la batterie}
+	\input{notation.tex}
+	\chapter{Les partitions avec LilyPond}
+	\input{lilyPond.tex}
+	\chapter{Transcriptions}
+	\input{transcriptions.tex}
+	\chapter{Environnement C++}
+	\input{cplusplus.tex}
+	\chapter{Mémoire de recherche}
+	\input{memoire.tex}
+	\chapter{Bibliographie}
+	\input{biblio.tex}
+\end{document}
