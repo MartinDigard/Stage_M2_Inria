@@ -1,0 +1,1 @@
+lilypond -o ouput_file_without_suffix input_file.ly
