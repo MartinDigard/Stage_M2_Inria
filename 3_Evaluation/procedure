@@ -1,0 +1,8 @@
+
+Pour une séquence midi/wave donnée :
+
+- Écrire la partition manuellement avec lilypond
+- Transcrire le midi en mei dans qparse
+- Écrire manuellement les deux arbres
+- Comparer les deux arbres
+
