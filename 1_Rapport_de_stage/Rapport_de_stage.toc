@@ -6,7 +6,7 @@
 \contentsline {chapter}{\numberline {4}Transcriptions}{12}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Partitions entières}{12}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Comparaisons de transcriptions}{12}{section.4.2}%
-\contentsline {subsubsection}{Sur la question des flas}{16}{section*.11}%
+\contentsline {subsubsection}{Sur la question des flas}{16}{section*.12}%
 \contentsline {chapter}{\numberline {5}Environnement C++}{17}{chapter.5}%
 \contentsline {chapter}{\numberline {6}Mémoire de recherche}{18}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Sujet}{18}{section.6.1}%

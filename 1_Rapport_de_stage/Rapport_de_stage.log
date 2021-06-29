@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.5.9)  28 JUN 2021 16:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.5.9)  29 JUN 2021 11:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -582,17 +582,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--36
  []
 
 [7 <./images/hampes_0.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--50
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--65
 
  []
 
 )
-Overfull \hbox (505.0pt too wide) in paragraph at lines 51--23
+Overfull \hbox (505.0pt too wide) in paragraph at lines 66--23
 \T1/lmr/m/n/10 ^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^
 ^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^
 V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V
@@ -600,12 +605,12 @@ V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V^^V
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--23
+Underfull \hbox (badness 10000) in paragraph at lines 66--23
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--23
+Underfull \hbox (badness 10000) in paragraph at lines 66--23
 
  []
 
@@ -668,7 +673,7 @@ a'' sol'' la'' si'' do'''[]
 
 LaTeX Warning: Characters dropped after `\end{verbatim}' on input line 27.
 
-<images/lilypond_0.png, id=147, 789.95125pt x 334.24875pt>
+<images/lilypond_0.png, id=149, 789.95125pt x 334.24875pt>
 File: images/lilypond_0.png Graphic file (type png)
 <use images/lilypond_0.png>
 Package pdftex.def Info: images/lilypond_0.png  used on input line 29.
@@ -714,7 +719,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
  []
 
 <images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/m
-anuel_0.png, id=159, 337.26pt x 123.46124pt>
+anuel_0.png, id=161, 337.26pt x 123.46124pt>
 File: images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sessi
 on3/manuel_0.png Graphic file (type png)
 <use images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sessio
@@ -723,7 +728,7 @@ Package pdftex.def Info: images/transcriptions_manuelles/0_prise_en_main/0_test
 s_drummer_01__session3/manuel_0.png  used on input line 11.
 (pdftex.def)             Requested size: 199.17207pt x 71.1347pt.
 <images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/m
-usescore_0.png, id=160, 289.08pt x 128.48pt>
+usescore_0.png, id=162, 289.08pt x 128.48pt>
 File: images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sessi
 on3/musescore_0.png Graphic file (type png)
 <use images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sessio
@@ -750,7 +755,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
  []
 
 <images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/m
-anuel_1.png, id=169, 101.37875pt x 139.52126pt>
+anuel_1.png, id=171, 101.37875pt x 139.52126pt>
 File: images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sessi
 on3/manuel_1.png Graphic file (type png)
 <use images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sessio
@@ -759,7 +764,7 @@ Package pdftex.def Info: images/transcriptions_manuelles/0_prise_en_main/0_test
 s_drummer_01__session3/manuel_1.png  used on input line 21.
 (pdftex.def)             Requested size: 71.13324pt x 85.36118pt.
 <images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/m
-usescore_1.png, id=170, 97.36375pt x 148.555pt>
+usescore_1.png, id=172, 97.36375pt x 148.555pt>
 File: images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sessi
 on3/musescore_1.png Graphic file (type png)
 <use images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sessio
@@ -788,7 +793,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
  []
 
 <images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/m
-anuel_2.png, id=171, 337.26pt x 143.53625pt>
+anuel_2.png, id=173, 337.26pt x 143.53625pt>
 File: images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sessi
 on3/manuel_2.png Graphic file (type png)
 <use images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sessio
@@ -797,7 +802,7 @@ Package pdftex.def Info: images/transcriptions_manuelles/0_prise_en_main/0_test
 s_drummer_01__session3/manuel_2.png  used on input line 30.
 (pdftex.def)             Requested size: 184.94293pt x 85.36021pt.
 <images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/m
-usescore_2.png, id=172, 394.47375pt x 155.58125pt>
+usescore_2.png, id=174, 394.47375pt x 155.58125pt>
 File: images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sessi
 on3/musescore_2.png Graphic file (type png)
 <use images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sessio
@@ -834,7 +839,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--39
  []
 
 <images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/s
-olution_0.png, id=182, 952.55875pt x 370.38374pt>
+olution_0.png, id=184, 952.55875pt x 370.38374pt>
 File: images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sessi
 on3/solution_0.png Graphic file (type png)
 <use images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sessio
@@ -858,7 +863,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--42
  []
 
 <images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Manuell
-e_0.png, id=185, 204.765pt x 129.48375pt>
+e_0.png, id=187, 204.765pt x 129.48375pt>
 File: images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Ma
 nuelle_0.png Graphic file (type png)
 <use images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Man
@@ -867,7 +872,7 @@ Package pdftex.def Info: images/transcriptions_manuelles/0_prise_en_main/1_drum
 mer_01__session1/Manuelle_0.png  used on input line 48.
 (pdftex.def)             Requested size: 113.81462pt x 71.13525pt.
 <images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/musesco
-re_0.png, id=186, 216.81pt x 137.51375pt>
+re_0.png, id=188, 216.81pt x 137.51375pt>
 File: images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/mu
 sescore_0.png Graphic file (type png)
 <use images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/mus
@@ -899,7 +904,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--53
  []
 
 <images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Manuell
-e_1.png, id=197, 436.63126pt x 135.50626pt>
+e_1.png, id=199, 436.63126pt x 135.50626pt>
 File: images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Ma
 nuelle_1.png Graphic file (type png)
 <use images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Man
@@ -908,7 +913,7 @@ Package pdftex.def Info: images/transcriptions_manuelles/0_prise_en_main/1_drum
 mer_01__session1/Manuelle_1.png  used on input line 57.
 (pdftex.def)             Requested size: 199.1672pt x 71.13356pt.
 <images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/MuseSco
-re_1.png, id=198, 603.25375pt x 158.5925pt>
+re_1.png, id=200, 603.25375pt x 158.5925pt>
 File: images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Mu
 seScore_1.png Graphic file (type png)
 <use images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Mus
@@ -932,7 +937,7 @@ _session1/MuseScore_0.png> <./images/transcriptions_manuelles/0_prise_en_main/1
 _drummer_01__session1/Manuelle_1.png> <./images/transcriptions_manuelles/0_pris
 e_en_main/1_drummer_01__session1/MuseScore_1.png>]
 <images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4_0.p
-ng, id=207, 1141.26375pt x 239.89626pt>
+ng, id=209, 1141.26375pt x 239.89626pt>
 File: images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-
 4_0.png Graphic file (type png)
 <use images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4
@@ -941,7 +946,7 @@ Package pdftex.def Info: images/transcriptions_manuelles/1_transcriptions_flas/
 124_funk_95_fill_4-4_0.png  used on input line 70.
 (pdftex.def)             Requested size: 227.6218pt x 56.90274pt.
 <images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4_1.p
-ng, id=208, 570.13pt x 122.4575pt>
+ng, id=210, 570.13pt x 122.4575pt>
 File: images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-
 4_1.png Graphic file (type png)
 <use images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4
@@ -969,7 +974,7 @@ _4-4_0.png> <./images/transcriptions_manuelles/1_transcriptions_flas/124_funk_9
 5_fill_4-4_1.png>]
 Chapitre 5.
 (./cplusplus.tex
-<images/cpp_env_0.png, id=218, 540.0175pt x 826.08624pt>
+<images/cpp_env_0.png, id=220, 540.0175pt x 826.08624pt>
 File: images/cpp_env_0.png Graphic file (type png)
 <use images/cpp_env_0.png>
 Package pdftex.def Info: images/cpp_env_0.png  used on input line 3.
@@ -994,7 +999,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--29
  <./images/cpp_env_0.png>]
 Chapitre 6.
 (./memoire.tex
-<images/test_memoire_0.png, id=226, 503.8825pt x 698.61pt>
+<images/test_memoire_0.png, id=228, 503.8825pt x 698.61pt>
 File: images/test_memoire_0.png Graphic file (type png)
 <use images/test_memoire_0.png>
 Package pdftex.def Info: images/test_memoire_0.png  used on input line 12.
@@ -1052,8 +1057,8 @@ Package rerunfilecheck Info: File `Rapport_de_stage.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 33.
  ) 
 Here is how much of TeX's memory you used:
- 8469 strings out of 481239
- 134026 string characters out of 5920378
+ 8470 strings out of 481239
+ 134037 string characters out of 5920378
  402695 words of memory out of 5000000
  23453 multiletter control sequences out of 15000+600000
  606453 words of font info for 63 fonts, out of 8000000 for 9000
@@ -1069,10 +1074,10 @@ s/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></u
 sr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/p
 ublic/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/sh
 are/texmf/fonts/type1/public/lm/lmtt8.pfb>
-Output written on Rapport_de_stage.pdf (21 pages, 1513265 bytes).
+Output written on Rapport_de_stage.pdf (21 pages, 1515230 bytes).
 PDF statistics:
- 301 PDF objects out of 1000 (max. 8388607)
- 219 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 500000)
+ 303 PDF objects out of 1000 (max. 8388607)
+ 221 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
  215 words of extra memory for PDF output out of 10000 (max. 10000000)
 
