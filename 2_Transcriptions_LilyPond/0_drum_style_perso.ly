@@ -1,52 +1,39 @@
 \version "2.22.1"
 \language français
 
-% Caisse claire
-cc_gst = {
-  \override NoteHead.style = #'harmonic
-  do'
-}
-cc_gst_cr = {
-  \override NoteHead.style = #'harmonic
-  do'8
-}
-cc_gst_dbl = {
-  \override NoteHead.style = #'harmonic
-  do'16
-}
+% LES TÊTES DE NOTES
 
-% Cross stick
-ccx = {
-  \override NoteHead.style = #'cross
-  do'8
-}
-
-% Grosse caisse
-gc = {
+% Standards noteheads
+o = {
   \revert NoteHead.style
-  mi4
 }
 
-% Charley
+% Cymbales, HH, or cross-stick
+x = {
+  \override NoteHead.style = #'cross
+}
 
-hh = {
-  \override NoteHead.style = #'cross
-  la'
-}
-hh_cr = {
-  \override NoteHead.style = #'cross
-  la'8
-}
-hh_op = {
+% Open HH
+c = {
   \override NoteHead.style = #'xcircle
-  la'8
-}
-hh_pd = {
-  \override NoteHead.style = #'cross
-  do4.
 }
 
-% Flas
-fla_sn = {
+% Ghost notes
+g = {
+  \override NoteHead.style = #'harmonic
+}
+
+% Caisse claire : \o + do'
+% Cross stick : \x + do'
+% Grosse caisse : \o + mi
+% Charley : \x + la'
+% Charley ouvert : \c + la'
+% Charley au pied : \x + do
+% Charley ouvert au pied : \c + do
+
+% FLAS
+
+% Flas caisse-claire
+fla_cc = {
   \appoggiatura do'8 do'4
 }

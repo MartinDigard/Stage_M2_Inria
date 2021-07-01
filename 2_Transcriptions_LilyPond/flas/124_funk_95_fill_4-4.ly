@@ -4,13 +4,13 @@
 
 up = {
   \clef percussion
-  \fla_sn r4 \fla_sn r8 \cc_gst_dbl \cc_gst_dbl
-  \ccx \cc_gst_cr \ccx \hh_op r8 \hh_cr \hh
+  \fla_cc r4 \fla_cc r8 \g do'16 do'
+  \x do'8 \g do' \x do' \c la' r8 \x la' la'
 }
 down = {
   \clef percussion
   r1
-  \hh_pd \gc \gc
+  \x do4 r8 \o mi4 mi8 r4
 }
 \score
 {
