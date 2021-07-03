@@ -1,14 +1,7 @@
-—————————————————————————————————————————————————————————————————————————————————————\\
-\begin{center}
-	\textbf{\LARGE{Lilypond}}
-\end{center}
-Endroit pour les fichiers de la drum :\\
-/home/martin/lilypond/usr/share/lilypond/current/ly/drumpitch-init.ly\\\\
-—————————————————————————————————————————————————————————————————————————————————————\\\\
-\subsection{Écriture de partitions}
+\subsection*{Écriture de partitions}
 Les partitions pour la transcription manuelle seront écrites avec LilyPond.\\\\
 Voici un exemple de code :
-\begin{verbatimtab}
+\begin{verbatim}
 	\version "2.22.1"
 	\language français
 	{
@@ -23,7 +16,7 @@ Voici un exemple de code :
 		do16 do do do do do8 do16 do do do do do do8 do16
 		mi8 mi mi mi re re re re
 	}
-\end{verbatimtab}
+\end{verbatim}
 Avec la commande :\begin{verbatim}$ lilypond fichier.ly\end{verbatim}:
 On obtient le pdf suivant :\\
 \includegraphics[height=50mm, width=110mm]{images/lilypond_0.png}\\\\
@@ -34,7 +27,7 @@ On obtient le pdf suivant :\\
 \url{http://lilypond.org/doc/v2.22/Documentation/notation/common-notation-for-percussion}
 
 La définition des symboles a été faite avec lilypond avec le script suivant :
-\begin{verbatimtab}
+\begin{verbatim}
 	$ cat description_notation_0.ly 
 	
 	\version "2.22.1"
@@ -91,4 +84,4 @@ La définition des symboles a été faite avec lilypond avec le script suivant :
 		\override NoteHead.style = #'cross
 		do-"charley pied"
 	}
-\end{verbatimtab}
+\end{verbatim}

@@ -248,11 +248,15 @@
 % =========================== Commandes diverses ===============================
 
 % Macros-commandes : appel à des fichiers extérieurs
-\input{macros_utf8} % macros diverses personnelles 
+\input{macros} % macros diverses personnelles 
 % (en-têtes et pieds de page, environnements de théorèmes) - voir macros.tex
 %\input{macrosmath} % macros mathématiques - voir le fichier macrosmath.tex
 
-
+% =========================== Commandes et paquets personnels ===============================
+%\usepackage{moreverb} % utilisation de verbatimtab
+%\usepackage{verbatim} % inclure du code source
+\newcommand\tab[1][5mm]{\hspace*{#1}} % Insérer des tabulations.
+\parindent=0em % Supprimer les marges en début de paragraphes.
 % =========================== Info du document =================================
 
 % \title{Titre du m\'emoire}
@@ -268,7 +272,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Page de garde
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\include{page-de-garde_utf8}
+\include{page-de-garde}
 
 \newpage
 
@@ -285,7 +289,7 @@
 \listoftables
 \printnomenclature
 
-\include{abstract}
+%\include{abstract}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -297,61 +301,48 @@
 \adjustmtc
 \addstarredchapter{Introduction} 
 
-%% TODO: remplacer ce contenu par le vôtre...
-\section*{Pr\'esentation g\'en\'erale}
-
-étonnant non ?
-
-Ce document donne un modèle possible pour rédiger un mémoire sous
-\LaTeX{}. Il donne quelques informations sur les commandes les plus
-utiles. Ce modèle est inspiré de celui utilisé pour les rapports de
-M2R à l'université Paris Sud, complété par des fonctionnalités
-pratiques (mini table des matières au début de chaque chapitre, liens
-cliquables et colorés pour les références, etc.). Il est évident que
-vous n'êtes pas obligés de rédiger votre mémoire sous \LaTeX{}. Si
-vous préférez le faire sous un autre éditeur de texte, c'est tout à
-fait possible.
-
-Ouvrir le fichier \og{}modele.tex\fg{} avec un éditeur de texte, et
-effectuer les modifications nécessaires (cf. lignes qui commencent par
-TODO). Les commandes pour compiler les fichiers sont dans
-\og{}lanceur.sh\fg{} (voir section~\ref{sec:compilation}).
-
-
 \section*{Plan de lecture}
 Un mémoire de recherche ou un article scientifique se composent
 généralement\footnote{Il est accepté que vous, ou votre directeur de
-  mémoire, estimiez qu'une autre organisation s'impose pour votre
-  problématique de recherche.} des chapitres suivants~:
+	mémoire, estimiez qu'une autre organisation s'impose pour votre
+	problématique de recherche.} des chapitres suivants~:
 %
 \begin{itemize}
-\item Introduction~: présentation générale du contexte et de la
-  problématique traitée, plan suivi dans le mémoire~;
-\item \'Etat de l'art (chapitre~\ref{chap:articles})~: les articles
-  qui traitent du même sujet que vous, présentés en un tout cohérent
-  \emph{(extraire de chaque article lu les points essentiels et
-    présenter dans ce chapitre le résultat de ces lectures en
-    regroupant les articles par point essentiel)}~;
-\item Corpus (chapitre~\ref{chap:corpus})~: le corpus utilisé
-  \emph{(caractéristiques, pré-traitements appliqués)}~;
-\item Méthodes (chapitre~\ref{chap:methodes})~: les méthodes
-  appliquées, avec le détail des expériences réalisées (différentes
-  configurations)~;
-\item Résultats (chapitre~\ref{chap:resultats})~: les résultats
-  obtenus sur chacune des expériences~;
-\item Discussion (chapitre~\ref{chap:discussion})~: la discussion des
-  résultats obtenus (quelle expérience a produit les meilleurs
-  résultats, de manière globale, dans le détail des catégories) avec,
-  si possible, une analyse des erreurs pour comprendre les
-  possibilités d'amélioration~;
-\item Conclusion~: la conclusion globale du mémoire.
+	\item Introduction~: présentation générale du contexte et de la
+	problématique traitée, plan suivi dans le mémoire~;
+	\item \'Etat de l'art (chapitre~\ref{chap:articles})~: les articles
+	qui traitent du même sujet que vous, présentés en un tout cohérent
+	\emph{(extraire de chaque article lu les points essentiels et
+		présenter dans ce chapitre le résultat de ces lectures en
+		regroupant les articles par point essentiel)}~;
+	\item Corpus (chapitre~\ref{chap:corpus})~: le corpus utilisé
+	\emph{(caractéristiques, pré-traitements appliqués)}~;
+	\item Méthodes (chapitre~\ref{chap:methodes})~: les méthodes
+	appliquées, avec le détail des expériences réalisées (différentes
+	configurations)~;
+	\item Résultats (chapitre~\ref{chap:resultats})~: les résultats
+	obtenus sur chacune des expériences~;
+	\item Discussion (chapitre~\ref{chap:discussion})~: la discussion des
+	résultats obtenus (quelle expérience a produit les meilleurs
+	résultats, de manière globale, dans le détail des catégories) avec,
+	si possible, une analyse des erreurs pour comprendre les
+	possibilités d'amélioration~;
+	\item Conclusion~: la conclusion globale du mémoire.
 \end{itemize}
 
 En règle générale, l'introduction et la conclusion sont les deux
 sections de contenu à ne pas être numérotées. Idéalement, chaque
 chapitre commence par une introduction rapide et se termine par une
 conclusion rapide pour aider le lecteur à mémoriser et comprendre ce
-qui a été fait.
+qui a été fait.\newpage
+
+%% TODO: remplacer ce contenu par le vôtre...
+\section*{Pr\'esentation g\'en\'erale}
+
+\input{presentation_generale}
+
+
+
 
 
 
@@ -384,30 +375,15 @@ qui a été fait.
 \adjustmtc
 \minitoc
 
-
-
-%%%
-% Introduction
-
 \section{Introduction}
 Dans ce chapitre, nous présentons...
-
-
-%%%
-% Contenu
 
 \section{Contenu}
 Une section dans ce chapitre avec un appel cliquable de référence
 bibliographique~\cite{grouin-2014jbi}.
 
-
-%%%
-% Conclusion
-
 \section{Conclusion}
 Conclusion de ce chapitre.
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -417,32 +393,21 @@ Conclusion de ce chapitre.
 
 \chapter{Méthodes}
 \label{chap:methodes}
-
 \minitoc
-
-
-%%%
-% Introduction
 
 \section{Introduction}
 Dans ce chapitre...
-
-
-%%%
-% Contenu
+\input{methodes_intro}
+\input{lilypond}
+\input{cplusplus}
 
 \section{Contenu}
 Une section dans ce chapitre...
-\include{rewriting}
-\include{separation_voix}
-
-%%%
-% Conclusion
+\input{rewriting}
+\input{separation_voix}
 
 \section{Conclusion}
 Conclusion de ce chapitre.
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -459,105 +424,59 @@ Conclusion de ce chapitre.
 
 \chapter{Corpus}
 \label{chap:corpus}
-
 \minitoc
-
-
-%%%
-% Introduction
 
 \section{Introduction}
 Dans ce chapitre...
-
-
-%%%
-% Contenu
+\input{groove}
+\input{transcriptions}
 
 \section{Contenu}
 Une section dans ce chapitre...
 
-
-%%%
-% Conclusion
-
 \section{Conclusion}
 Conclusion de ce chapitre.
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% RÉSULTATS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \chapter{Résultats}
 \label{chap:resultats}
-
 \minitoc
-
-
-%%%
-% Introduction
 
 \section{Introduction}
 Dans ce chapitre...
 
-
-%%%
-% Contenu
-
 \section{Contenu}
 Une section dans ce chapitre...
 
-
-%%%
-% Conclusion
-
 \section{Conclusion}
 Conclusion de ce chapitre.
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% DISCUSSION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \chapter{Discussion}
 \label{chap:discussion}
-
 \minitoc
-
-
-%%%
-% Introduction
 
 \section{Introduction}
 Dans ce chapitre...
 
-
-%%%
-% Contenu
-
 \section{Contenu}
 Une section dans ce chapitre...
-
-
-%%%
-% Conclusion
 
 \section{Conclusion}
 Conclusion de ce chapitre.
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CONCLUSION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \cleardoublepage\pdfbookmark[-1]{Conclusion générale}{conclusion} %% CG: lien dans le PDF hors d'une partie
 \chapter*{Conclusion générale}
@@ -567,32 +486,20 @@ Conclusion de ce chapitre.
 Dans ce mémoire, nous avons traité de la problématique...
 
 
-
-
-
-
-
 % ================================== BIBLIOGRAPHIE =============================
 
 \cleardoublepage\pdfbookmark[-1]{Bibliographie}{bibliography}
 %\selectlanguage{english} 
 \bibliographystyle{apalike} % style alphabétique en français
-\bibliography{biblio_utf8} % pour afficher la biblio
+\bibliography{biblio} % pour afficher la biblio
 \selectlanguage{french} 
-
-
-
 
 \appendix
 \cleardoublepage\pdfbookmark[-1]{Annexes}{appendix}
 %% TODO: mettre en commentaires les annexes, ou remplacer l'appel de
 %% fichier *.tex par votre fichier d'annexe.
-\include{documentation_utf8}
-\include{principes_utf8}
-
-
-
-
+\include{documentation}
+\include{principes}
 
 
 % =============================== INDEX DES NOTATIONS ==========================
@@ -601,11 +508,8 @@ Dans ce mémoire, nous avons traité de la problématique...
 \pdfbookmark[-1]{Index}{index}
 \printindex % pour afficher l'index
 
-
-
 %% \newpage
 %% \thispagestyle{empty}
 %% \mbox{}
-
 
 \end{document}
