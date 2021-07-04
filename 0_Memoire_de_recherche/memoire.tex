@@ -56,7 +56,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[french,english]{babel} % Pour une thèse en français et en anglais
+\usepackage[english, french]{babel} % Pour une thèse en français et en anglais
 % puis dans le corps du document utiliser...
 %\selectlanguage{frenchb} % pour écrire en français
 %\selectlanguage{english} % pour écrire en anglais
@@ -489,10 +489,11 @@ Dans ce mémoire, nous avons traité de la problématique...
 % ================================== BIBLIOGRAPHIE =============================
 
 \cleardoublepage\pdfbookmark[-1]{Bibliographie}{bibliography}
-%\selectlanguage{english} 
-\bibliographystyle{apalike} % style alphabétique en français
+%\selectlanguage{english}
+ 
+\bibliographystyle{unsrt} % Les entrées sont disposées selon leur ordre d’apparition dans la base de donnée bibliographique et étiquetées par un numéro entre crochets.
 \bibliography{biblio} % pour afficher la biblio
-\selectlanguage{french} 
+%\selectlanguage{french} 
 
 \appendix
 \cleardoublepage\pdfbookmark[-1]{Annexes}{appendix}
