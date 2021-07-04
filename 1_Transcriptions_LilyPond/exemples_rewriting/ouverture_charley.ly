@@ -23,7 +23,7 @@ down = {
 
 up = {
   \clef percussion
-  [\x la'16 la' la' \c la'~] [\c la' \x la' la' la']
+  \x la'16[ la' la' \c la'~] \c la'[ \x la' la' la']
 }
 down = {
   \clef percussion
@@ -42,7 +42,7 @@ down = {
 
 up = {
   \clef percussion
-  [\x la'16 la' la' \c la'] [\x do la' la' la']
+  \x la'16[ la' la' \c la'] \x do[ la' la' la']
 }
 down = {
   \clef percussion
@@ -61,7 +61,7 @@ down = {
 
 up = {
   \clef percussion
-  [\x la'16 la' la' \c la'] [r16 \x la'16 la' la']
+  \x la'16[ la' la' \c la'] r16[ \x la'16 la' la']
 }
 down = {
   \clef percussion

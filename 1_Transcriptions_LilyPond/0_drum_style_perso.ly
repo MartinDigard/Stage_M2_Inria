@@ -26,6 +26,7 @@ g = {
 % Caisse claire : \o + do'
 % Cross stick : \x + do'
 % Grosse caisse : \o + mi
+% Ride : \x + do''
 % Charley : \x + la'
 % Charley ouvert : \c + la'
 % Charley au pied : \x + do
