@@ -1,8 +1,19 @@
+\subsection{Chaîne de traitement}
+Chaîne de traitement :\\
+if match(system\_parse\_tree(system + pitch), input\_midi\_parse\_tree)\\
+\tab then voice\_split ;\\
+\tab for voice in voice\_split:\\
+\tab \tab simplication voice
+
 \subsection*{Les sytèmes en batterie}
+SYSTÈME ==> MOTIF (2-3 instruments sur 1-2 voix, joué en boucle) + TEXTE (1 instrument sur 1 voix, irrégulier)\\
+ex : système afro-cubain, trois voix.
 Proposition pour la détection de la direction des hampes et pour les ligatures (regroupement des notes et séparation des voix.)
 \begin{itemize}
 	\item \textbf{\textit{Les systèmes :}}\\
 	$\Rightarrow$ Un système est la combinaison d’un ou plusieurs éléments qui jouent un rythme en boucle (système) et d’un autre élément qui joue un \textit{texte} rythmique variable mais respectant les règles propre au système (texte).\\
+	Définition d’un système :\\
+	
 	En cas de système, les ligatures forment deux voies :
 	\begin{itemize}
 		\item Le texte ;

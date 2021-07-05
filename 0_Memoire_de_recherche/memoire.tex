@@ -257,6 +257,12 @@
 %\usepackage{verbatim} % inclure du code source
 \newcommand\tab[1][5mm]{\hspace*{#1}} % Insérer des tabulations.
 \parindent=0em % Supprimer les marges en début de paragraphes.
+
+\usepackage{pgf,pgfarrows,pgfnodes}
+\usepackage{tikz}
+
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{trees}
 % =========================== Info du document =================================
 
 % \title{Titre du m\'emoire}
@@ -400,9 +406,10 @@ Dans ce chapitre...
 \input{methodes_intro}
 \input{lilypond}
 \input{cplusplus}
+\newpage
 
 \section{Contenu}
-Une section dans ce chapitre...
+\input{systemes}
 \input{rewriting}
 \input{separation_voix}
 
