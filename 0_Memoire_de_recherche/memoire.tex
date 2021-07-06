@@ -150,13 +150,14 @@
 %% --- Graphismes (Tikz, PGF) : courbes, histogrammes, cartes
 %% mentales, arbres de dépendances ; définitions de codes couleur
 %% personnels
+\usepackage{pgf,pgfarrows,pgfnodes}
 \usepackage{tikz}
-% \usepackage{tikz-qtree} % CG: pour les arbres
-% \usepackage{tikz-dependency} % CG: pour les dépendances
+\usepackage{tikz-qtree} % CG: pour les arbres
+\usepackage{tikz-dependency} % CG: pour les dépendances
 \usepackage{pgfplots}
-\usetikzlibrary{mindmap,trees}
+\usetikzlibrary{mindmap,trees, backgrounds}
 \usepackage{filecontents}
-
+\usepackage{qtree}
 \definecolor{acier}{HTML}{3A8EBA}
 \definecolor{alezan}{HTML}{A76726}
 \definecolor{alizarine}{HTML}{D90115}
@@ -257,12 +258,8 @@
 %\usepackage{verbatim} % inclure du code source
 \newcommand\tab[1][5mm]{\hspace*{#1}} % Insérer des tabulations.
 \parindent=0em % Supprimer les marges en début de paragraphes.
+%\usepackage{lilypond}
 
-\usepackage{pgf,pgfarrows,pgfnodes}
-\usepackage{tikz}
-
-\usetikzlibrary{backgrounds}
-\usetikzlibrary{trees}
 % =========================== Info du document =================================
 
 % \title{Titre du m\'emoire}
@@ -386,7 +383,7 @@ Dans ce chapitre, nous présentons...
 
 \section{Contenu}
 Une section dans ce chapitre avec un appel cliquable de référence
-bibliographique~\cite{grouin-2014jbi}.
+%bibliographique~\cite{grouin-2014jbi}.
 
 \section{Conclusion}
 Conclusion de ce chapitre.
@@ -410,6 +407,7 @@ Dans ce chapitre...
 
 \section{Contenu}
 \input{systemes}
+\input{test_arbres}
 \input{rewriting}
 \input{separation_voix}
 
