@@ -3,12 +3,12 @@
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|} \hline
-		Pitchs & Instruments \\ \hline
-		51 & ride \\
-		44 & ch-pf \\
-		36 & gc \\
-		38 & cc \\
-		37 & cross-stick \\ \hline
+		Pitchs & Instruments & Codes \\ \hline
+		51 & ride & rd \\
+		44 & charley-pied-fermé & pf \\
+		36 & grosse-caisse & gc \\
+		38 & caisse-claire & cc \\
+		37 & cross-stick & xx \\ \hline
 	\end{tabular}
 	\caption{Pitchs et instruments}
 	%	\label{tab:exemple}
@@ -43,33 +43,72 @@ Le motif 1 est privilégié car il réparti selon 2 voix, une voix pour les main
 \includegraphics[height=65mm, width=115mm]{images/description_notation/system_binaire-fastjazz.png}\\
 
 Dans le motif, la grosse caisse est notée car elle fait partie de l’équilibre musical de ce rythme mais rigousement, elle ne devrait pas y apparaître puisque qu’elle sera indiquée par le texte.\\
-Dans ce système, les noires ne doivent jamais tomber en même temps que les caisse-claires, donc, quand le texte donnera des noires sur les deuxième et quatrième temps, elles ne seront jamais jouées par le batteur (exemple sur la première mesure du système).\\
+Dans ce système, les noires ne doivent jamais tomber en même temps que les caisse-claires, donc, quand le texte donnera des noires sur les deuxième et quatrième temps, elles ne seront jamais jouées par le batteur (exemple sur la première mesure du système).
 
 \subsubsection{Représentations en arbres}
 
 Quelque soit le choix d’écriture, la représentation arborescente du motif ci-dessus donnera le résultat suivant :
 
-\Tree[. [. [.ride\\gc ][. [ride\\chpf ][ride ]]]
-[. [.ride\\cc ][. [ride\\chpf ][ride ]]]
-[. [.ride\\gc ][. [ride\\chpf ][ride ]]]
-[. [.ride\\cc ][. [ride\\chpf ][ride ]]] ]\\\\
+\Tree[ [ [rd\\gc ][ [rd\\pf ][rd ]]]
+[ [rd\\cc ][ [rd\\pf ][rd ]]]
+[ [rd\\gc ][ [rd\\pf ][rd ]]]
+[ [rd\\cc ][ [rd\\pf ][rd ]]] ]\\\\
 
 Représentation du même motif avec les pitchs midi :\\\\
-\Tree[. [. [.51\\36 ][. [51\\44 ][51 ]]]
-[. [.51\\38 ][. [51\\44 ][51 ]]]
-[. [.51\\36 ][. [51\\44 ][51 ]]]
-[. [.51\\38 ][. [51\\44 ][51 ]]] ]\\\\
+\Tree[ [ [51\\36 ][ [51\\44 ][51 ]]]
+[ [51\\38 ][ [51\\44 ][51 ]]]
+[ [51\\36 ][ [51\\44 ][51 ]]]
+[ [51\\38 ][ [51\\44 ][51 ]]] ]\\\\
 
-Représentation du système entier :
+Représentation du système (motif + texte) avec les pitchs midi :
 
-\resizebox{420pt}{!}{\Tree[.Système [.Mesure\ 1  [.Temps\ 1 [.51\\36 ][. [51\\44 ][51 ]]]
-	[.Temps\ 2 [.51\\38 ][. [51\\44 ][51 ]]]
-	[.Temps\ 3 [.51\\36 ][. [51\\44 ][51 ]]]
-	[.Temps\ 4 [.51\\38 ][. [51\\44 ][51 ]]] ]
-	[.Mesure\ 2 [.Temps\ 1 [.51 ][. [51\\44\\36 ][51 ]]]
-	[.Temps\ 2 [.51\\38 ][. [51\\44\\36 ][51 ]]]
-	[.Temps\ 3 [.51 ][. [51\\44\\36 ][51 ]]]
-	[.Temps\ 4 [.51\\38 ][. [51\\44\\36 ][51 ]]] ]]}
+\resizebox{420pt}{!}{\Tree[.Système [.Mesure\ 1  [.Temps\ 1 [51\\36 ][ [51\\44 ][51 ]]]
+	[.Temps\ 2 [51\\38 ][ [51\\44 ][51 ]]]
+	[.Temps\ 3 [51\\36 ][ [51\\44 ][51 ]]]
+	[.Temps\ 4 [51\\38 ][ [51\\44 ][51 ]]] ]
+	[.Mesure\ 2 [.Temps\ 1 [51 ][ [51\\44\\36 ][51 ]]]
+	[.Temps\ 2 [51\\38 ][ [51\\44\\36 ][51 ]]]
+	[.Temps\ 3 [51 ][ [51\\44\\36 ][51 ]]]
+	[.Temps\ 4 [51\\38 ][ [51\\44\\36 ][51 ]]] ]]}\\
+
+\subsubsection{Séparation des voix}
+\resizebox{430pt}{!}{\Tree[.Voix\ haute 
+	[.Mesure\ 1 
+	[. [rd ][. [rd ][rd ]]]
+	[. [rd\\cc ][. [rd ][rd ]]]
+	[. [rd ][. [rd ][rd ]]]
+	[. [rd\\cc ][. [rd ][rd ]]] ]
+	[.Mesure\ 2 
+	[. [rd ][. [rd ][rd ]]]
+	[. [rd\\cc ][. [rd ][rd ]]]
+	[. [rd ][. [rd ][rd ]]]
+	[. [rd\\cc ][. [rd ][rd ]]] ]]}\\\\\\
+\resizebox{400pt}{!}{\Tree[.Voix\ basse 
+	[.Mesure\ 1 
+	[. [gc ][. [pf ][$\emptyset$ ]]]
+	[. [$\emptyset$ ][. [pf ][$\emptyset$ ]]]
+	[. [gc ][. [pf ][$\emptyset$ ]]]
+	[. [$\emptyset$ ][. [pf ][$\emptyset$ ]]] ]
+	[.Mesure\ 2 
+	[. [$\emptyset$ ][. [pf\\gc ][$\emptyset$ ]]]
+	[. [$\emptyset$ ][. [pf\\gc ][$\emptyset$ ]]]
+	[. [$\emptyset$ ][. [pf\\gc ][$\emptyset$ ]]]
+	[. [$\emptyset$ ][. [pf\\gc ][$\emptyset$ ]]] ]]}
+
+\subsubsection{Réécriture (Simplification)}
+\resizebox{400pt}{!}{\Tree[.Voix\ basse 
+	[.Mesure\ 1 
+	[. [gc ][pf ]]
+	[. [$\emptyset$ ][pf ]]
+	[. [gc ][pf ]]
+	[. [$\emptyset$ ][pf ]] ]
+	[.Mesure\ 2 
+	[. [$\emptyset$ ][pf\\gc ]]
+	[. [$\emptyset$ ][pf\\gc ]]
+	[. [$\emptyset$ ][pf\\gc ]]
+	[. [$\emptyset$ ][pf\\gc ]] ]]}\\\\
+La voix haute reste inchangée.
+\newpage
 %preamble:
 %
 %

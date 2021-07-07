@@ -1,4 +1,5 @@
-\subsection*{Test avec qtree}
+\subsection*{Tests avec qtree}
+[…]\\
 
 %\Tree[.IP [.NP [.Det \textit{the} ]
 %               [.N\1 [.N \textit{package} ]]]
@@ -12,7 +13,48 @@
 %        [. [.ride\\cc ][. [ride\\chpf ][ride ]]]
 %        [. [.ride\\gc ][. [ride\\chpf ][ride ]]]
 %        [. [.ride\\cc ][. [ride\\chpf ][ride ]]] ]
-
+Voix haute (Les mesure 1 et 2 sont identiques) :\\\\
+\Tree[. [. [ride ][. [ride ][ride ]]]
+        [. [ride\\cc ][. [ride ][ride ]]]
+        [. [ride ][. [ride ][ride ]]]
+        [. [ride\\cc ][. [ride ][ride ]]] ]\\\\\\
+Voix basse (mesure 1) :
+\Tree[. [. [gc ][. [chpf ][$\emptyset$ ]]]
+        [. [$\emptyset$ ][. [chpf ][$\emptyset$ ]]]
+        [. [gc ][. [chpf ][$\emptyset$ ]]]
+        [. [$\emptyset$ ][. [chpf ][$\emptyset$ ]]] ]\\
+Voix basse (mesure 2) :
+\Tree[. [. [$\emptyset$ ][. [chpf\\gc ][$\emptyset$ ]]]
+		[. [$\emptyset$ ][. [chpf\\gc ][$\emptyset$ ]]]
+		[. [$\emptyset$ ][. [chpf\\gc ][$\emptyset$ ]]]
+		[. [$\emptyset$ ][. [chpf\\gc ][$\emptyset$ ]]] ]\\\\\\
+\resizebox{500
+	pt}{!}{\Tree[.Voix\ haute 
+	[.Mesure\ 1 
+			[. [ride ][. [ride ][ride ]]]
+			[. [ride\\cc ][. [ride ][ride ]]]
+			[. [ride ][. [ride ][ride ]]]
+			[. [ride\\cc ][. [ride ][ride ]]] ]
+	[.Mesure\ 2 
+			[. [ride ][. [ride ][ride ]]]
+			[. [ride\\cc ][. [ride ][ride ]]]
+			[. [ride ][. [ride ][ride ]]]
+			[. [ride\\cc ][. [ride ][ride ]]] ]]}
+\resizebox{420pt}{!}{\Tree[.Voix\ basse 
+	[.Mesure\ 1 
+	       [. [gc ][. [chpf ][$\emptyset$ ]]]
+	       [. [$\emptyset$ ][. [chpf ][$\emptyset$ ]]]
+	       [. [gc ][. [chpf ][$\emptyset$ ]]]
+	       [. [$\emptyset$ ][. [chpf ][$\emptyset$ ]]] ]
+	[.Mesure\ 2 
+	       [. [$\emptyset$ ][. [chpf\\gc ][$\emptyset$ ]]]
+	       [. [$\emptyset$ ][. [chpf\\gc ][$\emptyset$ ]]]
+	       [. [$\emptyset$ ][. [chpf\\gc ][$\emptyset$ ]]]
+	       [. [$\emptyset$ ][. [chpf\\gc ][$\emptyset$ ]]] ]]}
+%\Tree[. [. [.ride\\gc ][. [ride\\chpf ][ride ]]]
+%        [. [.ride\\cc ][. [ride\\chpf ][ride ]]]
+%        [. [.ride\\gc ][. [ride\\chpf ][ride ]]]
+%        [. [.ride\\cc ][. [ride\\chpf ][ride ]]] ]
 %\Tree[. [. [.51\\36 ][. [51\\44 ][51 ]]]
 %[. [.51\\38 ][. [51\\44 ][51 ]]]
 %[. [.51\\36 ][. [51\\44 ][51 ]]]
