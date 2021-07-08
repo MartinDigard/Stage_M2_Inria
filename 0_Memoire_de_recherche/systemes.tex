@@ -5,16 +5,22 @@
 	\begin{tabular}{|c|c|c|} \hline
 		Pitchs & Instruments & Codes \\ \hline
 		51 & ride & rd \\
+		00 & charley-main-ouvert & co \\
+		00 & charley-main-fermé & cf \\
+		00 & charley-pied-ouvert & po \\
 		44 & charley-pied-fermé & pf \\
 		36 & grosse-caisse & gc \\
+		00 & tom-basse & tb \\
+		00 & tom-alto & ta \\
 		38 & caisse-claire & cc \\
-		37 & cross-stick & xx \\ \hline
+		37 & cross-stick & xo \\ \hline
 	\end{tabular}
 	\caption{Pitchs et instruments}
 	%	\label{tab:exemple}
 \end{table}
 \includegraphics[height=65mm, width=150mm]{images/description_notation/description_notation.png}\\\\
-La vélocité sera une donnée importante pour reconnaître les ghosts-notes.\\ Par exemple, pour la caisse-claire, un coup normal (after-beat) monte au dessus de 70 et une ghost-note est autour de 30.
+La vélocité sera une donnée importante pour reconnaître les ghosts-notes.\\ Par exemple, pour la caisse-claire, un coup normal (after-beat) monte au dessus de 70 et une ghost-note est autour de 30.\\
+L’instrument qui sera difficile à placer sera la caisse claire car elle ne sera pas toujours affiliée aux mêmes instruments.
 \subsection{Les systèmes}
 Créer un ensemble de systèmes :
 \begin{itemize}
@@ -85,30 +91,29 @@ Représentation du système (motif + texte) avec les pitchs midi :
 	[. [rd\\cc ][. [rd ][rd ]]] ]]}\\\\\\
 \resizebox{400pt}{!}{\Tree[.Voix\ basse 
 	[.Mesure\ 1 
-	[. [gc ][. [pf ][$\emptyset$ ]]]
-	[. [$\emptyset$ ][. [pf ][$\emptyset$ ]]]
-	[. [gc ][. [pf ][$\emptyset$ ]]]
-	[. [$\emptyset$ ][. [pf ][$\emptyset$ ]]] ]
+	[. [gc ][. [pf ][tie ]]]
+	[. [tie ][. [pf ][tie ]]]
+	[. [gc ][. [pf ][tie ]]]
+	[. [tie ][. [pf ][tie ]]] ]
 	[.Mesure\ 2 
-	[. [$\emptyset$ ][. [pf\\gc ][$\emptyset$ ]]]
-	[. [$\emptyset$ ][. [pf\\gc ][$\emptyset$ ]]]
-	[. [$\emptyset$ ][. [pf\\gc ][$\emptyset$ ]]]
-	[. [$\emptyset$ ][. [pf\\gc ][$\emptyset$ ]]] ]]}
+	[. [tie ][. [pf\\gc ][tie ]]]
+	[. [tie ][. [pf\\gc ][tie ]]]
+	[. [tie ][. [pf\\gc ][tie ]]]
+	[. [tie ][. [pf\\gc ][tie ]]] ]]}
 
 \subsubsection{Réécriture (Simplification)}
 \resizebox{400pt}{!}{\Tree[.Voix\ basse 
 	[.Mesure\ 1 
 	[. [gc ][pf ]]
-	[. [$\emptyset$ ][pf ]]
+	[. [tie ][pf ]]
 	[. [gc ][pf ]]
-	[. [$\emptyset$ ][pf ]] ]
+	[. [tie ][pf ]] ]
 	[.Mesure\ 2 
-	[. [$\emptyset$ ][pf\\gc ]]
-	[. [$\emptyset$ ][pf\\gc ]]
-	[. [$\emptyset$ ][pf\\gc ]]
-	[. [$\emptyset$ ][pf\\gc ]] ]]}\\\\
+	[. [tie ][pf\\gc ]]
+	[. [tie ][pf\\gc ]]
+	[. [tie ][pf\\gc ]]
+	[. [tie ][pf\\gc ]] ]]}\\\\
 La voix haute reste inchangée.
-\newpage
 %preamble:
 %
 %

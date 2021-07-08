@@ -17,13 +17,15 @@ down = {
 	  \new Voice { \voiceOne \up }
 	  \new Voice { \voiceTwo \down }
 	>>
-	\addlyrics { "A1. Par durée de note." }
+	\addlyrics { "A1 — Évènement MIDI." }
   >>
 }
 
 up = {
   \clef percussion
-  \x la'16[ la' la' \c la'~] \c la'[ \x la' la' la']
+  %\override TieColumn.tie-configuration = #'((6.0 . -1))
+  \x la'16[ la' la' \c la']_( \c la')[ \x la' la' la']
+  
 }
 down = {
   \clef percussion
@@ -36,7 +38,7 @@ down = {
       \new Voice { \voiceOne \up }
       \new Voice { \voiceTwo \down }
     >>
-	\addlyrics { "A2. Réécriture par liaison." }
+	\addlyrics { "A2 — Réécriture." }
   >>
 }
 
@@ -55,13 +57,13 @@ down = {
       \new Voice { \voiceOne \up }
       \new Voice { \voiceTwo \down }
     >>
-	\addlyrics { "B1. Arrêt par HH-pied." }
+	\addlyrics { "B1 — Évènement MIDI." }
   >>
 }
 
 up = {
   \clef percussion
-  \x la'16[ la' la' \c la'] r16[ \x la'16 la' la']
+  \x la'16[ la' la' \c la'] r16 \x la'16[ la' la']
 }
 down = {
   \clef percussion
@@ -74,7 +76,7 @@ down = {
       \new Voice { \voiceOne \up }
       \new Voice { \voiceTwo \down }
     >>
-	\addlyrics { "B2. Réécriture par silence" }
+	\addlyrics { "B2 — Réécriture." }
   >>
 }
 

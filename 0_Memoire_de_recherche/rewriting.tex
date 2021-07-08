@@ -1,18 +1,22 @@
-\subsubsection*{Propositions de règles de ré-écriture}
-Basé sur \cite{jacquemard:hal-01134096} et sur \cite{jacquemard:hal-01403982}
-Pour la plupart des instruments mélodiques, la liaison et le point sont les deux seules possibilités en cas d’équivalence rythmique. Mais la batterie offre un 3ème choix pour combler la distance rythmique entre deux notes : les silences.\\Les cymbales-crash et les ouvertures de charley constituent le seul cas qui exclut cette option. Le charley car ses ouvertures/fermetures sont presque toujours quantifiées. Les fermetures du charley sont notées soit par un silence (correspondant à une fermeture de la pédale), soit par un écrasement de l’ouverture par un autre coup de charley fermé, au pied ou à la main.
+\subsubsection*{La réécriture des évènements MIDI pour la batterie}
+Basé sur \cite{jacquemard:hal-01134096} et sur \cite{jacquemard:hal-01403982}\\
+Pour la plupart des instruments mélodiques, la liaison et le point sont les deux seules possibilités en cas d’équivalence rythmique pour des notes dont la durée de l’une à l’autre est ininterrompue. Mais puisque les durées des notes n’ont pas d’importance en batterie, l’usage des silences pour combler la distance rythmique entre deux notes devient possible.\\Les cymbales-crash et les ouvertures de charley constituent le seul cas qui exclut cette option. Le charley car ses ouvertures/fermetures sont presque toujours quantifiées et les cymbales-crash car elles peuvent être arrêtées à la main de manière quantifié aussi mais ce cas est très rare, nous allons donc nous concentrer sur les ouvertures de charley et considérer les crashs comme des événements sans durée.\\\\
+Les fermetures du charley sont notées soit par un silence (correspondant à une fermeture de la pédale), soit par un écrasement de l’ouverture par un autre coup de charley fermé, au pied ou à la main.\\\\
+\textbf{Exemples} :\\
+\includegraphics[height=80mm, width=60mm]{images/rewriting/exemples_charley_1.png}\\\\
+
+\textbf{Exemples à écrire en arbre :}\\
 \begin{itemize}
-\item 
-Tie to dot devient Tie to note\&rest\\
-par exemple : une noire liée à une autre noire devient une noire + un soupir.\\
-On remplace donc la dernière note d’une liaison par sa valeur en silence.
-Ceci ne concerne pas les ouvertures de charley, qui sont, avec les cymbales-crash, les seuls indications sonores dont nous considèrerons la durée.
-\item 
-Dans tous les cas, sauf ouverture de hh-pd, Une note sur un temps suivie d’une note en l’air sur le second temps seront écrites : noire sur le temps 1 puis silence + note pertinente sur le temps 2.
-\item
-Pour un charley ouvert qui déborde sur le temps d’après, le choix le plus pertinent est-il la note pointée ou la liaison ? Je pense que c’est la liaison car il marchera même dans les cas où le point ne marche pas (ex : mauvaise durée)
-\item
-une blanche sera écrite noir + soupir.\\
-Voir exemples dans :
-Stage\_M2\_Inria/2\_Transcriptions\_LilyPond/exemples\_rewriting
+	\item 
+	SI (pas pf) ET (note sur un temps suivie de note en l’air) :\\
+	$\Rightarrow$ (Temps1 : Note pertinente) + (Temps2 : Silence pertinent + Note pertinente.)\\
+	\item
+	Si (po ou co) déborde sur le temps suivant :\\
+	$\Rightarrow$ Liaison car marchera dans tous les cas même la où le point ne marchera pas (voir A2).\\
+	\item
+	Une blanche sera écrite noir + soupir.\\\\
 \end{itemize}
+\subsubsection{Les régles de réécriture}
+~~\\
+\Tree[.$\frac{2}{8}$ [.x ][.tie ]]\Tree[.2/8 [.x ]]\\\\\\
+\Tree[.1/4 [.x ][.tie ]]\Tree[.1/4 [.x ][.r ]]\\\\\\
