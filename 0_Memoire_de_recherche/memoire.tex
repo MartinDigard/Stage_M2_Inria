@@ -294,6 +294,12 @@
 
 %\include{abstract}
 
+\newpage
+\textit{\\En règle générale, l'introduction et la conclusion sont les deux
+sections de contenu à ne pas être numérotées. Idéalement, chaque
+chapitre commence par une introduction rapide et se termine par une
+conclusion rapide pour aider le lecteur à mémoriser et comprendre ce
+qui a été fait.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% INTRODUCTION
@@ -304,41 +310,8 @@
 \adjustmtc
 \addstarredchapter{Introduction} 
 
-\section*{Plan de lecture}
-Un mémoire de recherche ou un article scientifique se composent
-généralement\footnote{Il est accepté que vous, ou votre directeur de
-	mémoire, estimiez qu'une autre organisation s'impose pour votre
-	problématique de recherche.} des chapitres suivants~:
-%
-\begin{itemize}
-	\item Introduction~: présentation générale du contexte et de la
-	problématique traitée, plan suivi dans le mémoire~;
-	\item \'Etat de l'art (chapitre~\ref{chap:articles})~: les articles
-	qui traitent du même sujet que vous, présentés en un tout cohérent
-	\emph{(extraire de chaque article lu les points essentiels et
-		présenter dans ce chapitre le résultat de ces lectures en
-		regroupant les articles par point essentiel)}~;
-	\item Corpus (chapitre~\ref{chap:corpus})~: le corpus utilisé
-	\emph{(caractéristiques, pré-traitements appliqués)}~;
-	\item Méthodes (chapitre~\ref{chap:methodes})~: les méthodes
-	appliquées, avec le détail des expériences réalisées (différentes
-	configurations)~;
-	\item Résultats (chapitre~\ref{chap:resultats})~: les résultats
-	obtenus sur chacune des expériences~;
-	\item Discussion (chapitre~\ref{chap:discussion})~: la discussion des
-	résultats obtenus (quelle expérience a produit les meilleurs
-	résultats, de manière globale, dans le détail des catégories) avec,
-	si possible, une analyse des erreurs pour comprendre les
-	possibilités d'amélioration~;
-	\item Conclusion~: la conclusion globale du mémoire.
-\end{itemize}
-
-En règle générale, l'introduction et la conclusion sont les deux
-sections de contenu à ne pas être numérotées. Idéalement, chaque
-chapitre commence par une introduction rapide et se termine par une
-conclusion rapide pour aider le lecteur à mémoriser et comprendre ce
-qui a été fait.\newpage
-
+\textit{Introduction : présentation générale du contexte et de la
+problématique traitée, plan suivi dans le mémoire.}
 %% TODO: remplacer ce contenu par le vôtre...
 \section*{Pr\'esentation g\'en\'erale}
 
@@ -377,6 +350,12 @@ qui a été fait.\newpage
 %% non numérotées qui introduit un décalage
 \adjustmtc
 \minitoc
+
+\textit{\\L’état de l'art (chapitre~\ref{chap:articles})~: les articles
+qui traitent du même sujet que vous, présentés en un tout cohérent
+\emph{(extraire de chaque article lu les points essentiels et
+	présenter dans ce chapitre le résultat de ces lectures en
+	regroupant les articles par point essentiel)}}
 \input{etat_de_l_art}
 %\section{Introduction}
 %Dans ce chapitre, nous présentons...
@@ -398,10 +377,16 @@ qui a été fait.\newpage
 \label{chap:methodes}
 \minitoc
 
+\textit{\\Méthodes (chapitre~\ref{chap:methodes})~: les méthodes
+appliquées, avec le détail des expériences réalisées (différentes
+configurations)~;}
+
+\textit{\\Corpus (chapitre~\ref{chap:corpus})~: le corpus utilisé
+	\emph{(caractéristiques, pré-traitements appliqués)}}
+
 \section{Introduction}
 Dans ce chapitre...
 \input{methodes_intro}
-\input{lilypond}
 \input{cplusplus}
 \newpage
 
@@ -450,6 +435,9 @@ Conclusion de ce chapitre.
 \label{chap:resultats}
 \minitoc
 
+\textit{\\Résultats (chapitre~\ref{chap:resultats})~: les résultats
+obtenus sur chacune des expériences~;}
+
 \section{Introduction}
 Dans ce chapitre...
 
@@ -468,6 +456,12 @@ Conclusion de ce chapitre.
 \label{chap:discussion}
 \minitoc
 
+\textit{\\Discussion (chapitre~\ref{chap:discussion})~: la discussion des
+résultats obtenus (quelle expérience a produit les meilleurs
+résultats, de manière globale, dans le détail des catégories) avec,
+si possible, une analyse des erreurs pour comprendre les
+possibilités d'amélioration~;}
+
 \section{Introduction}
 Dans ce chapitre...
 
@@ -485,8 +479,8 @@ Conclusion de ce chapitre.
 \cleardoublepage\pdfbookmark[-1]{Conclusion générale}{conclusion} %% CG: lien dans le PDF hors d'une partie
 \chapter*{Conclusion générale}
 \adjustmtc
-\addstarredchapter{Conclusion générale} 
-
+\addstarredchapter{Conclusion générale}
+\textit{\\Conclusion~: la conclusion globale du mémoire.}\\\\
 Dans ce mémoire, nous avons traité de la problématique...
 
 
@@ -503,7 +497,7 @@ Dans ce mémoire, nous avons traité de la problématique...
 \cleardoublepage\pdfbookmark[-1]{Annexes}{appendix}
 %% TODO: mettre en commentaires les annexes, ou remplacer l'appel de
 %% fichier *.tex par votre fichier d'annexe.
-\include{documentation}
+\include{annexe_lilypond}
 \include{principes}
 
 
