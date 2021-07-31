@@ -38,7 +38,7 @@ down = {
 	  \new Voice { \voiceOne \up }
 	  \new Voice { \voiceTwo \down }
 	>>
-	\addlyrics { "Motif principal 1." }
+	\addlyrics { "Séparation possible 1." }
   >>
 }
 
@@ -58,6 +58,6 @@ down = {
 	  \new Voice { \voiceOne \up }
 	  \new Voice { \voiceTwo \down }
 	>>
-	\addlyrics { "Motif principal 2." }
+	\addlyrics { "Séparation possible 2." }
   >>
 }

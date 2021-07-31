@@ -1,4 +1,13 @@
 \subsection{Chaîne de traitement}
+\begin{itemize}
+	\item Reconnaître un motif (système) dans une partition (un fichier midi)\\
+	Sur une mesure de l’input $\Rightarrow$ Motif (système) reconnu : true ou false
+	\item Si true : 
+	\begin{itemize}
+		\item Séparer les voix
+		\item Simplifier l’écriture de chaque voix\\\\
+	\end{itemize}
+\end{itemize}
 Chaîne de traitement :\\
 if match(system\_parse\_tree(system + pitch), input\_midi\_parse\_tree)\\
 \tab then voice\_split ;\\
