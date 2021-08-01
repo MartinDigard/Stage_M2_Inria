@@ -5,7 +5,7 @@
 up = {
   \clef percussion
   \override Staff.TimeSignature.stencil = ##f
-  \c do''4-"cr" s \x do''4-"rd" s \c la'4-"co" s \x la'4-"cf" s \o fa'4-"ta" s do'-"cc" s \o \parenthesize do'-"ccp" s do'->-"ccf" s
+  \c do''4-"cr" s \x do''4-"rd" s \c la'4-"co" s \x la'4-"cf" s \o fa'4-"ta" s mi'4-"tm" s \parenthesize do'-"ccp" s do'->-"ccf" s
 }
 down = {
   \clef percussion
