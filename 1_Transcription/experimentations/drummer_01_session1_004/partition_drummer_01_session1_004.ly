@@ -79,6 +79,13 @@ up = {
 
   % Mesure 13
   \x do''16 \o \parenthesize do' sol \parenthesize do'
+  \o \parenthesize do' \x do'' \o do' \x do''
+  do'' \o \parenthesize do' \x do'' \o do'   
+  sol-> \parenthesize do' \x do''8
+
+  % Mesure 14
+  \c do''16 \o \parenthesize do' < \parenthesize do' \xNote do''> \x do''
+
 }
 
 down = {
@@ -156,17 +163,12 @@ down = {
 
   % Mesure 13
   \o mi8 \x do
-  r do
-  r do
-  r do
+  r16 \o mi16 \x do \o mi
+  \x do8 \o <mi \xNote do>
+  r8 \x do16 \o mi
 
-
-
-
-
-
-
-  % La suite après l’espace ci-dessus.
+  % Mesure 14
+  \o mi8 \x do16 \o mi16
 
 }
 
