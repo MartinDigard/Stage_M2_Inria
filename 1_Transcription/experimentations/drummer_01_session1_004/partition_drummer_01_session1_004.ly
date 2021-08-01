@@ -23,7 +23,8 @@ up = {
 
   % Mesure 4
   \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-
+  \o <do' \xNote do''>8 < \parenthesize do' \xNote do''>16 \x do''
+  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
 
   % La suite après l’espace ci-dessus.
   % 1 ligne par temps, 1 paragraphe par mesure.
@@ -51,6 +52,9 @@ down = {
 
   % Mesure 4
   \o mi8 <mi \xNote do>16  \o mi
+  r8 \x do16 \o mi16
+  r8 <mi \xNote do>16  \o mi
+  r8 \x do8
 
 
   % La suite après l’espace ci-dessus.
