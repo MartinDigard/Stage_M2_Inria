@@ -2,6 +2,7 @@
 lilypond -o ouput_file_without_suffix input_file.ly
 
 https://lilypond.org/doc/v2.22/Documentation/notation/note-heads.fr.html
+https://fr.wikipedia.org/wiki/Aide:Liste_des_symboles_musicaux
 
 Pour les accents :
 https://lilypond.org/doc/v2.23/Documentation/notation/expressive-marks-attached-to-notes.fr.html
