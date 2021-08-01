@@ -53,7 +53,32 @@ up = {
   \x do'' \o \parenthesize do' \x do''16 \x do''
   <do'\harmonic \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
 
+  % Mesure 9
+  \x do''16 \o \parenthesize do' sol \parenthesize do'
+  mi' \parenthesize do' fa' \parenthesize do'
+  do' do'8-> do'16->
+  do'8.-> \x do''16
 
+  % Mesure 10
+  \c do''4
+  \o <do' \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
+  <do'\harmonic \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+
+  % Mesure 11
+  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
+  \o <do' \xNote do''> \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
+  \x do'' \o \parenthesize do' \x do''16 \x do''
+  <do'\harmonic \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+
+  % Mesure 12
+  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
+  \o <do' \xNote do''>8 \x do''16 do''
+  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
+  \o <do' \xNote do''>16 \o \parenthesize do' \x do''16 do''
+
+  % Mesure 13
+  \x do''16 \o \parenthesize do' sol \parenthesize do'
 }
 
 down = {
@@ -104,6 +129,39 @@ down = {
   r8 \x do16 \o mi16
   r8 <mi \xNote do>16  \o mi
   r8 \x do8
+
+  % Mesure 9
+  \o mi8 \x do
+  r do
+  r do
+  r do
+
+  % Mesure 10
+  \o mi8 \x do16 \o mi
+  r8 \x do8
+  r8 \o <mi \xNote do>16  \o mi
+  r8 \x do8
+
+  % Mesure 11
+  \o mi8 \x do16 \o mi16
+  r8 \x do16 \o mi16
+  r8 <mi \xNote do>16  \o mi
+  r8 \x do8
+
+  % Mesure 12
+  \o mi <mi \xNote do>
+  r16 mi16 \x do \o mi
+  r8 \o <mi \xNote do>16  \o mi
+  r8 \x do8
+
+  % Mesure 13
+  \o mi8 \x do
+  r do
+  r do
+  r do
+
+
+
 
 
 
