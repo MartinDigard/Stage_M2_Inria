@@ -4,221 +4,223 @@
 
 % 1 ligne par temps, 1 paragraphe par mesure.
 
-up = {
+up = \drummode {
 
-  \clef percussion
+  %\override Beam #'positions = #'(6 . 6)
+  \override Script.Y-offset = #'-1
 
   % Mesure 1 
-  s s s s
+  \once\override Rest #'extra-offset = #'(0.0 . 5.0) r2 s s
 
   % Mesure 2
-  \c do''8 \x do''
-  \o <do' \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \c <do'' do'\harmonic> \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+  cymc8 cymr
+  <sn cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
+  cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
+  <cymr ss> \parenthesize sn cymr16 <\parenthesize sn cymr>
 
   % Mesure 3
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \x <do'' do'\harmonic> \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \x <do'' do'\harmonic> \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+  cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
+  <cymr ss> \parenthesize sn < \parenthesize sn cymr>16 cymr
+  cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
+  <cymr ss> \parenthesize sn cymr16 <\parenthesize sn cymr>
 
   % Mesure 4
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \o <do' \xNote do''>8 < \parenthesize do' \xNote do''>16 \x do''
-  \x do'' \o \parenthesize do' \xNote do''16 \x do''
-  \o <do' \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+  cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
+  <sn cymr>8 < \parenthesize sn cymr>16 cymr
+  cymr \parenthesize sn cymr16 cymr
+  <sn cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
 
   % Mesure 5
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \o <do' \xNote do''> \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \x do'' \o \parenthesize do' \xNote do''16 \x do''
-  <do'\harmonic \xNote do''>8 \o < do'-> \xNote do''>16 \x do''
+  cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
+  <sn cymr> \parenthesize sn < \parenthesize sn cymr>16 cymr
+  cymr \parenthesize sn cymr16 cymr
+  <ss cymr>8 <sn cymr>16_> cymr
 
   % Mesure 6
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-   <do'\harmonic \xNote do''>8 do''16 \x do''
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \o <do'-> \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+  cymr \parenthesize sn <cymr \parenthesize sn>16 cymr
+   <ss cymr>8 cymr16 cymr
+  cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
+  <sn-> cymr>16_> \parenthesize sn cymr16 <\parenthesize sn cymr>
   
   % Mesure 7
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \x <do'' do'\harmonic> \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \o <do' \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+  cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
+  <cymr ss> \parenthesize sn < \parenthesize sn cymr>16 cymr
+  cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
+  <sn cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
 
   % Mesure 8
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \x <do'' do'\harmonic> \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \x do'' \o \parenthesize do' \x do''16 \x do''
-  <do'\harmonic \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+  cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
+  <cymr ss> \parenthesize sn < \parenthesize sn cymr>16 cymr
+  cymr \parenthesize sn cymr16 cymr
+  <ss cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
 
   % Mesure 9
-  \x do''16 \o \parenthesize do' sol \parenthesize do'
-  mi' \parenthesize do' fa' \parenthesize do'
-  do' do'8-> do'16->
-  do'8.-> \x do''16
+  cymr16 \parenthesize sn tomfl \parenthesize sn
+  bd \parenthesize sn tomh \parenthesize sn
+  sn sn8-> sn16->
+  sn8.-> cymr16
 
   % Mesure 10
-  \c do''4
-  \o <do' \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  <do'\harmonic \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+  cymc4
+  <sn cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
+  cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
+  <ss cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
 
   % Mesure 11
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \o <do' \xNote do''> \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \x do'' \o \parenthesize do' \x do''16 \x do''
-  <do'\harmonic \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+  cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
+  <sn cymr> \parenthesize sn < \parenthesize sn cymr>16 cymr
+  cymr \parenthesize sn cymr16 cymr
+  <ss cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
 
   % Mesure 12
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \o <do' \xNote do''>8 \x do''16 do''
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \o <do' \xNote do''>16 \o \parenthesize do' \x do''16 do''
+  cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
+  <sn cymr>8 cymr16 cymr
+  cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
+  <sn cymr>16 \parenthesize sn cymr16 cymr
 
   % Mesure 13
-  \x do''16 \o \parenthesize do' sol \parenthesize do'
-  \o \parenthesize do' \x do'' \o do' \x do''
-  do'' \o \parenthesize do' \x do'' \o do'   
-  sol-> \parenthesize do' \x do''8
+  cymr16 \parenthesize sn tomfl \parenthesize sn
+  \parenthesize sn cymr sn cymr
+  cymr \parenthesize sn cymr sn   
+  \once \override Script.Y-offset = #'-2.7
+  tomfl_> \parenthesize sn cymr8
 
   % Mesure 14
-  \c do''16 \o \parenthesize do' < \parenthesize do' \xNote do''> \x do''
-  <do'\harmonic \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
-  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
-  \c <do'' do'\harmonic> \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+  cymc16 \parenthesize sn < \parenthesize sn cymr> cymr
+  <ss cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
+  cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
+  <cymc ss> \parenthesize sn cymr16 <\parenthesize sn cymr>
 
   % Mesure 15
-  \x do''16 \o \parenthesize do' < \parenthesize do' \xNote do''> \x do''
-  \o <do' \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
-  \x do'' do'\harmonic \x do'' do''
-  \o <do' \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+  cymr16 \parenthesize sn < \parenthesize sn cymr> cymr
+  <sn cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
+  cymr ss cymr cymr
+  <sn cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
 
   % Mesure 16
-  \x do''16 \o \parenthesize do' < \parenthesize do' \xNote do''> \x do''
-  \o <do' \xNote do''>8 \x do''16 \o <\parenthesize do' \xNote do''>
-  \x do''16 \o \parenthesize do' < \parenthesize do' \xNote do''> \x do''
-  \o <do'-> \xNote do''> \parenthesize do' \x do'' do''
+  cymr16 \parenthesize sn < \parenthesize sn cymr> cymr
+  <sn cymr>8 cymr16 <\parenthesize sn cymr>
+  cymr16 \parenthesize sn < \parenthesize sn cymr> cymr
+  <sn-> cymr> \parenthesize sn cymr cymr
 
   % Mesure 17
-  do''8 \o do'16 do'
-  do' do' do' do'
-  \x do'' \o \parenthesize do' \parenthesize do'8
-  \c <do'' do'> 
+  cymr8 sn16 sn
+  sn sn sn sn
+  cymr \parenthesize sn \parenthesize sn8
+  <cymc sn> 
 }
 
-down = {
+hhpwn = \drummode {
 
-  \clef percussion
+  %\override Beam #'positions = #'(-5 . -5)
 
   % Mesure 1 
-  do'2 \rest \x do8. \o sol16 sol8 \x do8
+  r2 hhp8. tomfl16 tomfl8 hhp
 
   % Mesure 2
-  \o mi8 \x do16 \o mi16
-  r8 \x do8
-  r8 \o <mi \xNote do>16 mi
-  r8 \x do8
+  bd8 hhp16 bd16
+  r8 hhp8
+  r8 <bd hhp>16 bd
+  r8 hhp8
 
   % Mesure 3
-  \o mi8 \x do16 \o mi16
-  r8 \x do16 \o mi16
-  r8 <mi \xNote do>16  \o mi
-  r8 \x do8
+  bd8 hhp16 bd16
+  r8 hhp16 bd16
+  r8 <bd hhp>16  bd
+  r8 hhp8
 
   % Mesure 4
-  \o mi8 <mi \xNote do>16  \o mi
-  r8 \x do16 \o mi16
-  r8 <mi \xNote do>16  \o mi
-  r8 \x do8
+  bd8 <bd hhp>16  bd
+  r8 hhp16 bd16
+  r8 <bd hhp>16  bd
+  r8 hhp8
 
   % Mesure 5
-  \o mi8 <mi \xNote do>16  \o mi
-  r8 \x do16 \o mi16
-  r8 <mi \xNote do>16  \o mi
-  r8 \x do8
+  bd8 <bd hhp>16  bd
+  r8 hhp16 bd16
+  r8 <bd hhp>16  bd
+  r8 hhp8
 
   % Mesure 6
-  \o mi8 \x do16 \o mi16
-  r8 \x do16 \o mi16
-  r8 <mi \xNote do>16  \o mi
-  r8 \x do8
+  bd8 hhp16 bd16
+  r8 hhp16 bd16
+  r8 <bd hhp>16  bd
+  r8 hhp8
 
   % Mesure 7
-  \o mi8 \x do16 \o mi16
-  r8 \x do16 \o mi16
-  r8 <mi \xNote do>16  \o mi
-  r8 \x do8
+  bd8 hhp16 bd16
+  r8 hhp16 bd16
+  r8 <bd hhp>16  bd
+  r8 hhp8
 
   % Mesure 8
-  \o mi8 \x do16 \o mi16
-  r8 \x do16 \o mi16
-  r8 <mi \xNote do>16  \o mi
-  r8 \x do8
+  bd8 hhp16 bd16
+  r8 hhp16 bd16
+  r8 <bd hhp>16  bd
+  r8 hhp8
 
   % Mesure 9
-  \o mi8 \x do
-  r do
-  r do
-  r do
+  bd8 hhp
+  r hhp
+  r hhp
+  r hhp
 
   % Mesure 10
-  \o mi8 \x do16 \o mi
-  r8 \x do8
-  r8 \o <mi \xNote do>16  \o mi
-  r8 \x do8
+  bd8 hhp16 bd
+  r8 hhp8
+  r8 <bd hhp>16  bd
+  r8 hhp8
 
   % Mesure 11
-  \o mi8 \x do16 \o mi16
-  r8 \x do16 \o mi16
-  r8 <mi \xNote do>16  \o mi
-  r8 \x do8
+  bd8 hhp16 bd16
+  r8 hhp16 bd16
+  r8 <bd hhp>16  bd
+  r8 hhp8
 
   % Mesure 12
-  \o mi <mi \xNote do>
-  r16 mi16 \x do \o mi
-  r8 \o <mi \xNote do>16  \o mi
-  r8 \x do8
+  bd <bd hhp>
+  r16 bd16 hhp bd
+  r8 <bd hhp>16  bd
+  r8 hhp8
 
   % Mesure 13
-  \o mi8 \x do
-  r16 \o mi16 \x do \o mi
-  \x do8 \o <mi \xNote do>
-  r8 \x do16 \o mi
+  bd8 hhp
+  r16 bd16 hhp bd
+  hhp8 <bd hhp>
+  r8 hhp16 bd
 
   % Mesure 14
-  \o mi8 \x do16 \o mi16
-  r8 \x do8
-  \o mi8 \x do16 \o mi16
-  r8 \x do8
+  bd8 hhp16 bd16
+  r8 hhp8
+  bd8 hhp16 bd16
+  r8 hhp8
 
   % Mesure 15
-  \o mi8 \x do16 \o mi16
-  r8 \x do8
-  \o mi8 \x do16 \o mi16
-  r8 \x do8
+  bd8 hhp16 bd16
+  r8 hhp8
+  bd8 hhp16 bd16
+  r8 hhp8
 
   % Mesure 16
-  \o mi8 \x do16 \o mi16
-  r8 \x do8
-  \o mi8 \x do16 \o mi16
-  r8 \x do8
+  bd8 hhp16 bd16
+  r8 hhp8
+  bd8 hhp16 bd16
+  r8 hhp8
 
   % Mesure 17
-  \o mi8 \x do
-  do [do]
-  \o <mi \xNote do> \x do16 \o mi
-  r8 \x do8
+  bd8 hhp
+  hhp [hhp]
+  <bd hhp> hhp16 bd
+  r8 hhp8
 }
 
-\score 
-{
+\score {
   <<
-	\new Staff
+	\new DrumStaff
 	<<
-	  \new Voice { \voiceOne \up }
-	  \new Voice { \voiceTwo \down }
+	  \set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+	  \new DrumVoice { \voiceOne \up }
+	  \new DrumVoice { \voiceTwo \hhpwn }
 	>>
   >>
 }
