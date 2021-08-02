@@ -85,7 +85,27 @@ up = {
 
   % Mesure 14
   \c do''16 \o \parenthesize do' < \parenthesize do' \xNote do''> \x do''
+  <do'\harmonic \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+  \x do'' \o \parenthesize do' < \parenthesize do' \xNote do''>16 \x do''
+  \c <do'' do'\harmonic> \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
 
+  % Mesure 15
+  \x do''16 \o \parenthesize do' < \parenthesize do' \xNote do''> \x do''
+  \o <do' \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+  \x do'' do'\harmonic \x do'' do''
+  \o <do' \xNote do''>16 \o \parenthesize do' \x do''16 \o <\parenthesize do' \xNote do'' >
+
+  % Mesure 16
+  \x do''16 \o \parenthesize do' < \parenthesize do' \xNote do''> \x do''
+  \o <do' \xNote do''>8 \x do''16 \o <\parenthesize do' \xNote do''>
+  \x do''16 \o \parenthesize do' < \parenthesize do' \xNote do''> \x do''
+  \o <do'-> \xNote do''> \parenthesize do' \x do'' do''
+
+  % Mesure 17
+  do''8 \o do'16 do'
+  do' do' do' do'
+  \x do'' \o \parenthesize do' \parenthesize do'8
+  \c <do'' do'> 
 }
 
 down = {
@@ -169,7 +189,27 @@ down = {
 
   % Mesure 14
   \o mi8 \x do16 \o mi16
+  r8 \x do8
+  \o mi8 \x do16 \o mi16
+  r8 \x do8
 
+  % Mesure 15
+  \o mi8 \x do16 \o mi16
+  r8 \x do8
+  \o mi8 \x do16 \o mi16
+  r8 \x do8
+
+  % Mesure 16
+  \o mi8 \x do16 \o mi16
+  r8 \x do8
+  \o mi8 \x do16 \o mi16
+  r8 \x do8
+
+  % Mesure 17
+  \o mi8 \x do
+  do [do]
+  \o <mi \xNote do> \x do16 \o mi
+  r8 \x do8
 }
 
 \score 
