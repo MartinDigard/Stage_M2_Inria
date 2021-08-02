@@ -2,15 +2,16 @@
 \language français
 \include "../../0_drum_style_perso.ly"
 
-% 1 ligne par temps, 1 paragraphe par mesure.
+
+% 1 paragraphe par mesure, 1 ligne par temps.
+
 
 up = \drummode {
 
-  %\override Beam #'positions = #'(6 . 6)
   \override Script.Y-offset = #'-1
 
   % Mesure 1 
-  \once\override Rest #'extra-offset = #'(0.0 . 5.0) r2 s s
+  s s s s
 
   % Mesure 2
   cymc8 cymr
@@ -110,12 +111,11 @@ up = \drummode {
   <cymc sn> 
 }
 
-hhpwn = \drummode {
 
-  %\override Beam #'positions = #'(-5 . -5)
+down = \drummode {
 
   % Mesure 1 
-  r2 hhp8. tomfl16 tomfl8 hhp
+  \once\override Rest #'extra-offset = #'(0.0 . 2.0) r2 hhp8. tomfl16 tomfl8 hhp
 
   % Mesure 2
   bd8 hhp16 bd16
@@ -220,7 +220,7 @@ hhpwn = \drummode {
 	<<
 	  \set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
 	  \new DrumVoice { \voiceOne \up }
-	  \new DrumVoice { \voiceTwo \hhpwn }
+	  \new DrumVoice { \voiceTwo \down }
 	>>
   >>
 }
