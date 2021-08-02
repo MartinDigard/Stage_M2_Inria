@@ -1,8 +1,12 @@
+\documentclass{report}
+\begin{document}
+
 \chapter{Documentation}
 
 \section{Compilation}
 \label{sec:compilation}
-La compilation d'un fichier \LaTeX{} nommé \og{}modele.tex\fg{} se fait au moyen des étapes suivantes (en lignes de commande)~:
+La compilation d'un fichier \LaTeX{} nommé %\og{}modele.tex\fg{}
+se fait au moyen des étapes suivantes (en lignes de commande)~:
 %
 \begin{itemize}
 \item \verb+pdflatex modele+ (première compilation pour l'appel des différentes fonctionnalités contenues dans le mémoire)~;
@@ -172,7 +176,7 @@ rédaction de leur mémoire pour ne pas perdre de temps dès le départ...
 
 \section{Gestion de la bibliographie}
 La \index{Bibliographie} bibliographie figure dans un fichier nommé
-\og{}biblio.bib\fg{}. Ce fichier peut être édité dans un éditeur de
+%\og{}biblio.bib\fg{}. Ce fichier peut être édité dans un éditeur de
 texte classique \emph{(emacs, vi, notepad)}, ou par le biais d'un
 outil de gestion de bibliographie tel que \textsf{JabRef}, un
 programme Java qui permet de gérer efficacement les fichiers *.bib et
@@ -211,4 +215,4 @@ auteurs et l'année), ou plus de deux auteurs~%\cite{brown-1992cl}
 (le
 nom du premier auteur, la mention \emph{et al.}\footnote{Locution
   latine signifiant \og{}et d'autres\fg{}.}, et l'année).
-
+\end{document}
