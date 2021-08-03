@@ -3,18 +3,15 @@
 \include "../../0_drum_style_perso.ly"
 
 
-% 1 paragraphe par mesure, 1 ligne par temps.
-
-
 up = \drummode {
 
-  \override Script.Y-offset = #'-1
+  \override Script.Y-offset = #'-1.1
 
   % Mesure 1 
   s s s s
 
   % Mesure 2
-  cymc8 cymr
+  <cyms cymc>8 cymr
   <sn cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
   cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
   <cymr ss> \parenthesize sn cymr16 <\parenthesize sn cymr>
@@ -62,7 +59,7 @@ up = \drummode {
   sn8.-> cymr16
 
   % Mesure 10
-  cymc4
+  cyms4
   <sn cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
   cymr \parenthesize sn < \parenthesize sn cymr>16 cymr
   <ss cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
@@ -107,7 +104,7 @@ up = \drummode {
   cymr8 sn16 sn
   sn sn sn sn
   cymr \parenthesize sn \parenthesize sn8
-  <cymc sn>16_> \parenthesize sn cymr \parenthesize sn  
+  <cyms sn>16_> \parenthesize sn cymr \parenthesize sn  
 
   % Mesure 18
   cymr \parenthesize sn < \parenthesize sn cymr> cymr
@@ -159,6 +156,29 @@ up = \drummode {
 
   % Mesure 26
   <cyms cymr>16 cymr rb8
+  <sn cymr>16 cymr rb8
+  cymr16 \once \override Script.Y-offset = #'0.0 <rb tomml>-> rb8
+  \once \override Script.Y-offset = #'-2.6 <rb tomfl>16-> cymr rb sn->
+
+  % Mesure 27
+  cymr cymr rb8
+  <sn rb>16-> cymr rb tomml
+  cymr cymr rb8
+  \once \override Script.Y-offset = #'-2.7 <rb tomfl>16-> cymr rb8
+
+  % Mesure 28
+  cymr16 cymr rb8
+  <ss rb>16 cymr rb8
+  cymr16 \once \override Script.Y-offset = #'-0.1 tomml-> rb8
+  \once \override Script.Y-offset = #'-2.6 <rb tomfl>16-> cymr rb sn->
+
+  % Mesure 29
+  cymr cymr rb8
+  <cymr sn>16-> cymr rb \once \override Script.Y-offset = #'-0.1 tomml->
+  r \once \override Script.Y-offset = #'-2.6 tomfl16-> cymr8 
+  sn16-> sn-> sn cymc
+
+  % Mesure 30
 }
 
 
@@ -318,7 +338,26 @@ down = \drummode {
   r8 hhp
 
   % Mesure 27
+  bd hhp16 bd
+  r8 hhp
+  r8 hhp16 bd
+  r8 hhp16 bd
+
+  % Mesure 28
+  <bd hhp>8 hhp16 bd
+  r8 hhp16 bd
+  hhp8 hhp16 bd
+  hhp8 hhp8
+
+  % Mesure 29
+  hhp hhp16 bd
+  hhp8 hhp
+  hhp hhp16 bd
+  hhp8 hhp16 bd
+
+  % Mesure 30
 }
+
 
 \score {
   <<
