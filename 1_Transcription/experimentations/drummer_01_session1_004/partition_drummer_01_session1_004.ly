@@ -83,8 +83,7 @@ up = \drummode {
   cymr16 \parenthesize sn tomfl \parenthesize sn
   \parenthesize sn cymr sn cymr
   cymr \parenthesize sn cymr sn   
-  \once \override Script.Y-offset = #'-2.7
-  tomfl_> \parenthesize sn cymr8
+  \once \override Script.Y-offset = #'4.6 tomfl_> \parenthesize sn cymr8
 
   % Mesure 14
   cymc16 \parenthesize sn < \parenthesize sn cymr> cymr
@@ -108,7 +107,35 @@ up = \drummode {
   cymr8 sn16 sn
   sn sn sn sn
   cymr \parenthesize sn \parenthesize sn8
-  <cymc sn> 
+  <cymc sn>16_> \parenthesize sn cymr \parenthesize sn  
+
+  % Mesure 18
+  cymr \parenthesize sn < \parenthesize sn cymr> cymr
+  <sn cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
+  cymr \parenthesize sn < \parenthesize sn cymr> cymr
+  <sn cymr>16 \parenthesize sn cymr16 \parenthesize sn
+
+  % Mesure 19
+  cymr cymr \once \override Script.Y-offset = #'7.0 cymr8^>
+  <sn cymr>16 <\parenthesize sn cymr> \once \override Script.Y-offset = #'7.3 cymr-> \parenthesize sn
+  cymr \parenthesize sn < \parenthesize sn cymr> cymr
+  \once \override Script.Y-offset = #'7.3 <sn cymr>-> \parenthesize sn \once \override Script.Y-offset = #'7.3 cymr16-> <\parenthesize sn cymr>
+
+  % Mesure 20
+  cymr \parenthesize sn < \parenthesize sn cymr> cymr
+  <cymr ss> \parenthesize sn \parenthesize sn \once \override Script.Y-offset = #'7.3 cymr->
+  \parenthesize sn cymr \once \override Script.Y-offset = #'7.3 cymr-> \parenthesize sn
+  \parenthesize sn \once \override Script.Y-offset = #'6.7 cymr-> ss \parenthesize sn
+
+  % Mesure 21
+  \once \override Script.Y-offset = #'6.6 cymr-> \parenthesize sn \once \override Script.Y-offset = #'6.1 tomml-> \parenthesize sn
+  \parenthesize sn cymr \once \override Script.Y-offset = #'7.3 cymr-> \parenthesize sn
+  \parenthesize sn cymr \once \override Script.Y-offset = #'7.3 cymr-> \parenthesize sn
+  \parenthesize sn \once \override Script.Y-offset = #'5.4 tomfl-> ss cymr
+
+  % Mesure 22
+  \parenthesize sn cymr \once \override Script.Y-offset = #'7.3 cymr-> \parenthesize sn
+  <\parenthesize sn cymr> cymr sn->
 }
 
 
@@ -212,6 +239,38 @@ down = \drummode {
   hhp [hhp]
   <bd hhp> hhp16 bd
   r8 hhp8
+
+  % Mesure 18
+  bd8 hhp16 bd16
+  r8 hhp8
+  bd8 hhp16 bd16
+  r8 hhp8
+
+  % Mesure 19
+  bd8 hhp16 bd
+  r8 hhp
+  <bd hhp> hhp16 bd16
+  hhp8 hhp->
+
+  % Mesure 20
+  bd8 hhp16 bd16
+  r8 hhp16 bd16
+  hhp bd <bd hhp>8
+  hhp16 bd hhp8
+
+  % Mesure 21
+  bd hhp
+  r16 bd <bd hhp>8
+  r16 bd <bd hhp>8
+  hhp hhp16 bd
+
+  % Mesure 22
+  r16 bd <bd hhp>8
+  r16 bd16 hhp8
+  <bd hhp> hhp16 bd16
+  hhp8 hhp->
+
+  % Mesure 23
 }
 
 \score {

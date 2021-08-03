@@ -5,14 +5,11 @@ up = \drummode {
   \omit Score.BarLine
   \override Staff.TimeSignature.stencil = ##f
   \override Script.Y-offset = #'-1.1
-  s s s s s s
-  tomfl-"tb" s sn-"cc" s ss-"cs" s tomml-"tm" s tomh-"ta" s hh-"cf" s
-  hho-"co" s cymr-"rd" s rb-"rb" s cymc-"rc" s 
+  \parenthesize sn-"ccp" s sn_>-"ccf" s
 }
 
 down = \drummode {
   \override Staff.TimeSignature.stencil = ##f
-  hhp-"pf" s hhho-"po" s bd-"gc" s
 }
 
 \score {

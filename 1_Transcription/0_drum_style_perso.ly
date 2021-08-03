@@ -3,6 +3,7 @@
 
 #(define mydrums '(
     (ridecymbal cross #f 7)
+    (ridebell harmonic #f 7)
     (crashcymbal xcircle #f 7)
     (hihat cross #f 5)
     (openhihat xcircle #f 5)
