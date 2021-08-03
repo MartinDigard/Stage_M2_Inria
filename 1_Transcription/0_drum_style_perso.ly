@@ -2,6 +2,7 @@
 \language français
 
 #(define mydrums '(
+    (splashcymbal xcircle #f 9)
     (ridecymbal cross #f 7)
     (ridebell harmonic #f 7)
     (crashcymbal xcircle #f 7)

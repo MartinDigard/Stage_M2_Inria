@@ -144,6 +144,21 @@ up = \drummode {
   <cymr sn>16 cymr rb \parenthesize sn
   <cymr \parenthesize sn> <cymr \parenthesize sn> rb8
   <cymr sn>16 <cymr \parenthesize sn> rb ss
+
+  % Mesure 24
+  cymr cymr <rb \parenthesize sn>8
+  <cymr ss>16 <cymr \parenthesize sn> rb \parenthesize sn
+  <cymr \parenthesize sn> <cymr \parenthesize sn> rb8
+  <cymr sn>16 <cymr \parenthesize sn> rb \parenthesize sn
+
+  % Mesure 25
+  <cymr \parenthesize sn> <cymr \parenthesize sn> rb8
+  <cymr ss>16 cymr rb8
+  cymr16 \once \override Script.Y-offset = #'0.0 <cymr tomml>-> cymr8
+  \once \override Script.Y-offset = #'-2.6 <cymr tomfl>16-> cymr rb8
+
+  % Mesure 26
+  <cyms cymr>16 cymr rb8
 }
 
 
@@ -258,7 +273,7 @@ down = \drummode {
   bd8 hhp16 bd
   r8 hhp
   <bd hhp> hhp16 bd16
-  hhp8 hhp->
+  hhp8 hhp
 
   % Mesure 20
   bd8 hhp16 bd16
@@ -275,8 +290,8 @@ down = \drummode {
   % Mesure 22
   r16 bd <bd hhp>8
   r16 bd16 hhp8
-  <bd hhp> hhp16-> bd16
-  hhp8 hhp->
+  <bd hhp> hhp16 bd16
+  hhp8 hhp
 
   % Mesure 23
   hhp hhp16 bd
@@ -287,10 +302,22 @@ down = \drummode {
   % Mesure 24
   bd hhp16 bd
   hhp8 hhp
-  hhp hhp16 bd
+  <bd hhp> hhp16 bd
   hhp8 hhp
 
+  % Mesure 25
+  <bd hhp> hhp16 bd
+  hhp8 hhp
+  bd hhp16 bd
+  r8 hhp16 bd
 
+  % Mesure 26
+  <bd hhp>8 hhp16 bd
+  hhp8 hhp16 bd
+  hhp8 hhp16 bd
+  r8 hhp
+
+  % Mesure 27
 }
 
 \score {

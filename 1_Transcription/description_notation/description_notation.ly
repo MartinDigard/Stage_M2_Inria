@@ -7,7 +7,7 @@ up = \drummode {
   \override Script.Y-offset = #'-1.1
   s s s s s s
   tomfl-"tb" s sn-"cc" s ss-"cs" s tomml-"tm" s tomh-"ta" s hh-"cf" s
-  hho-"co" s cymr-"rd" s rb-"rb" s cymc-"rc" s 
+  hho-"co" s cymr-"rd" s rb-"rb" s cymc-"rc" s cyms-"cr" s 
 }
 
 down = \drummode {
