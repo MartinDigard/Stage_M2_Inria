@@ -135,7 +135,15 @@ up = \drummode {
 
   % Mesure 22
   \parenthesize sn cymr \once \override Script.Y-offset = #'7.3 cymr-> \parenthesize sn
-  <\parenthesize sn cymr> cymr sn->
+  <\parenthesize sn cymr> cymr <rb sn>-> \parenthesize sn
+  cymr \parenthesize sn <\parenthesize sn cymr>8
+  <cymr ss>16 <cymr \parenthesize sn> rb \parenthesize sn
+
+  % Mesure 23
+  <cymr \parenthesize sn> cymr rb8
+  <cymr sn>16 cymr rb \parenthesize sn
+  <cymr \parenthesize sn> <cymr \parenthesize sn> rb8
+  <cymr sn>16 <cymr \parenthesize sn> rb ss
 }
 
 
@@ -271,6 +279,18 @@ down = \drummode {
   hhp8 hhp->
 
   % Mesure 23
+  hhp hhp16 bd
+  hhp8 hhp
+  hhp hhp16 bd
+  hhp8 hhp
+
+  % Mesure 24
+  bd hhp16 bd
+  hhp8 hhp
+  hhp hhp16 bd
+  hhp8 hhp
+
+
 }
 
 \score {
