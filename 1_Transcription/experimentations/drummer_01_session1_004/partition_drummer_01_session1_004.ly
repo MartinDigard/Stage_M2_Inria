@@ -267,7 +267,7 @@ down = \drummode {
   % Mesure 22
   r16 bd <bd hhp>8
   r16 bd16 hhp8
-  <bd hhp> hhp16 bd16
+  <bd hhp> hhp16-> bd16
   hhp8 hhp->
 
   % Mesure 23
@@ -275,8 +275,11 @@ down = \drummode {
 
 \score {
   <<
-	\new DrumStaff
+		\new DrumStaff
 	<<
+	  \repeat unfold 30 {
+		s1 \noBreak s1 \break
+	  }
 	  \set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
 	  \new DrumVoice { \voiceOne \up }
 	  \new DrumVoice { \voiceTwo \down }
