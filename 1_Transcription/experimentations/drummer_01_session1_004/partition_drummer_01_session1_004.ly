@@ -5,7 +5,7 @@
 
 up = \drummode {
 
-  \override Script.Y-offset = #'-1.1
+  \override Script.Y-offset = #'-1.0
 
   % Mesure 1 
   s s s s
@@ -53,8 +53,8 @@ up = \drummode {
   <ss cymr>16 \parenthesize sn cymr16 <\parenthesize sn cymr>
 
   % Mesure 9
-  cymr16 \parenthesize sn tomfl \parenthesize sn
-  bd \parenthesize sn tomh \parenthesize sn
+  cymr16 \parenthesize sn \once \override Script.Y-offset = #'-2.5 tomfl-> \parenthesize sn
+  \once \override Script.Y-offset = #'0.0 tomml-> \parenthesize sn \once \override Script.Y-offset = #'0.5 tomh-> \parenthesize sn
   sn sn8-> sn16->
   sn8.-> cymr16
 
@@ -80,7 +80,7 @@ up = \drummode {
   cymr16 \parenthesize sn tomfl \parenthesize sn
   \parenthesize sn cymr sn cymr
   cymr \parenthesize sn cymr sn   
-  \once \override Script.Y-offset = #'4.6 tomfl_> \parenthesize sn cymr8
+  \once \override Script.Y-offset = #'-2.5 tomfl_> \parenthesize sn cymr8
 
   % Mesure 14
   cymc16 \parenthesize sn < \parenthesize sn cymr> cymr
@@ -113,25 +113,25 @@ up = \drummode {
   <sn cymr>16 \parenthesize sn cymr16 \parenthesize sn
 
   % Mesure 19
-  cymr cymr \once \override Script.Y-offset = #'7.0 cymr8^>
-  <sn cymr>16 <\parenthesize sn cymr> \once \override Script.Y-offset = #'7.3 cymr-> \parenthesize sn
+  cymr cymr \once \override Script.Y-offset = #'7.5 cymr8->
+  <sn cymr>16 <\parenthesize sn cymr> \once \override Script.Y-offset = #'7.5 cymr-> \parenthesize sn
   cymr \parenthesize sn < \parenthesize sn cymr> cymr
-  \once \override Script.Y-offset = #'7.3 <sn cymr>-> \parenthesize sn \once \override Script.Y-offset = #'7.3 cymr16-> <\parenthesize sn cymr>
+  \once \override Script.Y-offset = #'7.5 <sn cymr>-> \parenthesize sn \once \override Script.Y-offset = #'7.5 cymr16-> <\parenthesize sn cymr>
 
   % Mesure 20
   cymr \parenthesize sn < \parenthesize sn cymr> cymr
-  <cymr ss> \parenthesize sn \parenthesize sn \once \override Script.Y-offset = #'7.3 cymr->
-  \parenthesize sn cymr \once \override Script.Y-offset = #'7.3 cymr-> \parenthesize sn
-  \parenthesize sn \once \override Script.Y-offset = #'6.7 cymr-> ss \parenthesize sn
+  <cymr ss> \parenthesize sn \parenthesize sn \once \override Script.Y-offset = #'7.5 cymr->
+  \parenthesize sn cymr \once \override Script.Y-offset = #'7.5 cymr-> \parenthesize sn
+  \parenthesize sn \once \override Script.Y-offset = #'7.5 cymr-> ss \parenthesize sn
 
   % Mesure 21
-  \once \override Script.Y-offset = #'6.6 cymr-> \parenthesize sn \once \override Script.Y-offset = #'6.1 tomml-> \parenthesize sn
-  \parenthesize sn cymr \once \override Script.Y-offset = #'7.3 cymr-> \parenthesize sn
-  \parenthesize sn cymr \once \override Script.Y-offset = #'7.3 cymr-> \parenthesize sn
-  \parenthesize sn \once \override Script.Y-offset = #'5.4 tomfl-> ss cymr
+  \once \override Script.Y-offset = #'7.5 cymr-> \parenthesize sn \once \override Script.Y-offset = #'0.0 tomml-> \parenthesize sn
+  \parenthesize sn cymr \once \override Script.Y-offset = #'7.5 cymr-> \parenthesize sn
+  \parenthesize sn cymr \once \override Script.Y-offset = #'7.5 cymr-> \parenthesize sn
+  \parenthesize sn \once \override Script.Y-offset = #'-2.5 tomfl-> ss cymr
 
   % Mesure 22
-  \parenthesize sn cymr \once \override Script.Y-offset = #'7.3 cymr-> \parenthesize sn
+  \parenthesize sn cymr \once \override Script.Y-offset = #'7.5 cymr-> \parenthesize sn
   <\parenthesize sn cymr> cymr <rb sn>-> \parenthesize sn
   cymr \parenthesize sn <\parenthesize sn cymr>8
   <cymr ss>16 <cymr \parenthesize sn> rb \parenthesize sn
@@ -152,33 +152,79 @@ up = \drummode {
   <cymr \parenthesize sn> <cymr \parenthesize sn> rb8
   <cymr ss>16 cymr rb8
   cymr16 \once \override Script.Y-offset = #'0.0 <cymr tomml>-> cymr8
-  \once \override Script.Y-offset = #'-2.6 <cymr tomfl>16-> cymr rb8
+  \once \override Script.Y-offset = #'-2.5 <cymr tomfl>16-> cymr rb8
 
   % Mesure 26
   <cyms cymr>16 cymr rb8
   <sn cymr>16 cymr rb8
   cymr16 \once \override Script.Y-offset = #'0.0 <rb tomml>-> rb8
-  \once \override Script.Y-offset = #'-2.6 <rb tomfl>16-> cymr rb sn->
+  \once \override Script.Y-offset = #'-2.5 <rb tomfl>16-> cymr rb sn->
 
   % Mesure 27
   cymr cymr rb8
   <sn rb>16-> cymr rb tomml
   cymr cymr rb8
-  \once \override Script.Y-offset = #'-2.7 <rb tomfl>16-> cymr rb8
+  \once \override Script.Y-offset = #'-2.5 <rb tomfl>16-> cymr rb8
 
   % Mesure 28
   cymr16 cymr rb8
   <ss rb>16 cymr rb8
-  cymr16 \once \override Script.Y-offset = #'-0.1 tomml-> rb8
-  \once \override Script.Y-offset = #'-2.6 <rb tomfl>16-> cymr rb sn->
+  cymr16 \once \override Script.Y-offset = #'-0.0 tomml-> rb8
+  \once \override Script.Y-offset = #'-2.5 <rb tomfl>16-> cymr rb sn->
 
   % Mesure 29
   cymr cymr rb8
-  <cymr sn>16-> cymr rb \once \override Script.Y-offset = #'-0.1 tomml->
-  r \once \override Script.Y-offset = #'-2.6 tomfl16-> cymr8 
+  <cymr sn>16-> cymr rb \once \override Script.Y-offset = #'-0.0 tomml->
+  r \once \override Script.Y-offset = #'-2.5 tomfl16-> cymr8 
   sn16-> sn-> sn cymc
 
   % Mesure 30
+  cyms8 cymr
+  <sn cymr>16 cymr rb \parenthesize sn
+  cymr cymr cymr8
+  <sn cymr>16 cymr cymr \parenthesize sn
+
+  % Mesure 31
+  cymr cymr rb8
+  <sn cymr>16 cymr rb \parenthesize sn
+  cymr <cymr \parenthesize sn> rb8
+  <cymr ss>16 cymr rb \parenthesize sn
+
+  % Mesure 32
+  cymr <cymr \parenthesize sn> rb8
+  <sn cymr>16 cymr rb \parenthesize sn
+  cymr cymr rb8
+  <sn cymr>16 cymr rb \parenthesize sn
+
+  % Mesure 33
+  cymr tomh	tomh8
+  \once \override Script.Y-offset = #'-0.0 tomml16-> \parenthesize sn32 \parenthesize sn \once \override Script.Y-offset = #'-2.5 tomfl16-> \parenthesize sn32 \parenthesize sn
+  sn8-> sn8->
+  sn16-> sn sn8
+
+  % Mesure 34
+  cyms16 \parenthesize sn cymr cymr
+  <cymr sn> \parenthesize sn cymr <cymr \parenthesize sn> 
+  r <cymr sn> <cymr sn>8
+  <cymr sn>16 <cymr sn>8 <cymr sn>16->
+
+  % Mesure 35
+  r <cymr \parenthesize sn> <cymr \parenthesize sn>8
+  \once \override Script.Y-offset = #'7.5 <sn cymr>8-> \once \override Script.Y-offset = #'7.5 <ss cyms>16-> \parenthesize sn
+  cymr cymr cymr8
+  <cymr sn>16 cymr cymr ss
+
+  % Mesure 36
+  cymr <cymr \parenthesize sn> <cymr \parenthesize sn>8
+  <cymr ss>16 cymr cymr \parenthesize sn
+  cymr <cymr \parenthesize sn> cymr8
+  <cymr sn>16 \parenthesize sn \once \override Script.Y-offset = #'7.5 cymr-> \parenthesize sn
+
+  % Mesure 37
+  r16 \parenthesize sn32 \parenthesize sn r16 sn->
+  ss \once \override Script.Y-offset = #'0.5 tomh-> \parenthesize sn hho
+  \parenthesize sn \parenthesize hho hho8~
+  hho4
 }
 
 
@@ -356,6 +402,54 @@ down = \drummode {
   hhp8 hhp16 bd
 
   % Mesure 30
+  <bd hhp>8 hhp16 bd
+  r8 hhp16 bd
+  hhp8 hhp16 bd
+  r8 hhp
+
+  % Mesure 31
+  <bd hhp>8 hhp16 bd
+  r8 hhp16 bd
+  hhp8 hhp16 bd
+  hhp8 hhp
+
+  % Mesure 32
+  bd8 hhp16 bd
+  hhp8 hhp16 bd
+  hhp8 hhp16 bd
+  hhp8 hhp
+
+  % Mesure 33
+  <bd hhp>8 hhp16 bd
+  hhp8 hhp
+  hhp8 hhp
+  hhp8 hhp16 bd
+
+  % Mesure 34
+  bd8 hhp16 bd
+  hhp8 hhp
+  <hhp bd> hhp16 bd
+  hhp8 <hhp bd>
+
+  % Mesure 35
+  bd8 hhp16 bd
+  hhp8 hhp
+  <hhp bd>8 hhp16 bd
+  hhp8 hhp
+
+  % Mesure 36
+  <hhp bd>8 hhp16 bd
+  hhp8 hhp
+  <hhp bd>8 hhp16 bd
+  hhp8 hhp
+
+  % Mesure 37
+  hhp4 
+  r8. bd16
+  hhp16 bd bd8
+  r16 \parenthesize sn32 \parenthesize sn ss16 bd
+
+  \once\override Rest #'extra-offset = #'(0.0 . 2.0) r1
 }
 
 
@@ -363,7 +457,7 @@ down = \drummode {
   <<
 		\new DrumStaff
 	<<
-	  \repeat unfold 30 {
+	  \repeat unfold 19 {
 		s1 \noBreak s1 \break
 	  }
 	  \set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
