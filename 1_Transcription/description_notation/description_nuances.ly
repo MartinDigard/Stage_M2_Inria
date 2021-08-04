@@ -3,26 +3,31 @@
 
 up = \drummode { 
 
-  \omit Score.BarLine
+  %\omit Score.BarLine
   \override Staff.TimeSignature.stencil = ##f
+  \time 6/8
   \override Script.Y-offset = #'-1.0
 
+  s s s s 
   \parenthesize sn-"ccp" s
-  sn_>-"ccf" s
-  \once \override Script.Y-offset = #'-2.5 tomfl->
-  \once \override Script.Y-offset = #'0.0 tomml->
-  \once \override Script.Y-offset = #'0.5 tomh->
-  \once \override Script.Y-offset = #'7.5 cymr8->
-  \once \override Script.Y-offset = #'0.0 <cymr tomml>->
-  \once \override Script.Y-offset = #'-2.5 <cymr tomfl>16->
-  \once \override Script.Y-offset = #'-2.5 <rb tomfl>16->
-  \once \override Script.Y-offset = #'-2.5 <rb tomfl>16->
-  \once \override Script.Y-offset = #'7.5 <sn cymr>8->
-  \once \override Script.Y-offset = #'7.5 <ss cyms>16-> \parenthesize sn
+  sn->-"ccf" s
+  \once \override Script.Y-offset = #'-2.5 tomfl->-"tbf" s
+  \once \override Script.Y-offset = #'0.0 tomml->-"tmf" s
+  \once \override Script.Y-offset = #'0.5 tomh->-"taf" s
+  \once \override Script.Y-offset = #'7.5 cymr->-"rdf" s
+  %\once \override Script.Y-offset = #'-2.5 <cymr tomfl>-> s
+  %\once \override Script.Y-offset = #'-2.5 <rb tomfl>-> s
+  %\once \override Script.Y-offset = #'7.5 <sn cymr>-> s
+  %\once \override Script.Y-offset = #'7.5 <ss cyms>-> \parenthesize sn
 }
 
 down = \drummode {
+
   \override Staff.TimeSignature.stencil = ##f
+
+  bd s
+  \parenthesize bd s
+  bd-> s
 }
 
 \score {
