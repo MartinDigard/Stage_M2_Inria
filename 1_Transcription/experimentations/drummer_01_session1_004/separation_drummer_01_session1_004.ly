@@ -1,63 +1,78 @@
 \version "2.22.1"
 \language français
-\include "../0_drum_style_perso.ly"
+\include "../../0_drum_style_perso.ly"
 
-up = {
-  \clef percussion
-  \x do''8 do''16 do'' do''8 do''16 do'' do''8 do''16 do'' do''8 do''16 do'' 
+
+up = \drummode {
+  cymr8 cymr16 cymr cymr8 cymr16 cymr cymr8 cymr16 cymr cymr8 cymr16 cymr 
 }
-down = {
-  \clef percussion
-  r8 \x do8 r8 do r8 do r8 do 
+down = \drummode {
+  r8 hhp r hhp r hhp r hhp 
 }
-\score 
-{
+\score {
   <<
-	\new Staff
+		\new DrumStaff
 	<<
-	  \new Voice { \voiceOne \up }
-	  \new Voice { \voiceTwo \down }
+	  \set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+	  \new DrumVoice { \voiceOne \up }
+	  \new DrumVoice { \voiceTwo \down }
+	  \break
 	>>
 	\addlyrics { "Irréductible." }
   >>
 }
 
-up = {
-  \clef percussion
-  \x do''8 do''16 do'' \o <do' \xNote do''>8 \x do''16 do'' do''8 do''16 do'' \o <do' \xNote do''>8 \x do''16 do'' 
+
+up = \drummode {
+  <cymr bd>8 cymr16 cymr <cymr sn>8 cymr16 cymr <cymr bd>8 cymr16 cymr <cymr sn>8 cymr16 cymr 
 }
-down = {
-  \clef percussion
-  \o mi8 \x do8 r8 do \o mi \x do r8 do 
+down = \drummode {
+  r8 hhp r hhp r hhp r hhp
 }
-\score 
-{
+\score {
   <<
-	\new Staff
+		\new DrumStaff
 	<<
-	  \new Voice { \voiceOne \up }
-	  \new Voice { \voiceTwo \down }
+	  \set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+	  \new DrumVoice { \voiceOne \up }
+	  \new DrumVoice { \voiceTwo \down }
 	>>
 	\addlyrics { "Séparation possible 1." }
   >>
 }
 
-up = {
-  \clef percussion
-  \x do''8 do''16 do'' do''8 do''16 do'' do''8 do''16 do'' do''8 do''16 do'' 
+up = \drummode {
+  cymr8 cymr16 cymr cymr8 cymr16 cymr cymr8 cymr16 cymr cymr8 cymr16 cymr 
 }
-down = {
-  \clef percussion
-  \o mi8[ \x do] \o do'[ \x do] \o mi[ \x do] \o do'[ \x do]
+down = \drummode {
+  bd8[ hhp] sn[ hhp] bd[ hhp] sn[ hhp]
 }
-\score 
-{
+\score {
   <<
-	\new Staff
+		\new DrumStaff
 	<<
-	  \new Voice { \voiceOne \up }
-	  \new Voice { \voiceTwo \down }
+	  \set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+	  \new DrumVoice { \voiceOne \up }
+	  \new DrumVoice { \voiceTwo \down }
 	>>
 	\addlyrics { "Séparation possible 2." }
+  >>
+}
+
+up = \drummode {
+  cymr8 cymr16 cymr <sn \xNote cymr>8 cymr16 cymr cymr8 cymr16 cymr <sn \xNote cymr>8 cymr16 cymr 
+}
+down = \drummode {
+  bd8 hhp8 r8 hhp bd hhp r8 hhp 
+}
+\score {
+  <<
+		\new DrumStaff
+	<<
+	  \set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+	  \new DrumVoice { \voiceOne \up }
+	  \new DrumVoice { \voiceTwo \down }
+	>>
+	\addlyrics { "Séparation possible 3." }
   >>
 }
