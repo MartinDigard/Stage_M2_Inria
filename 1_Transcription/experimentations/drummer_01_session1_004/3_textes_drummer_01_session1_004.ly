@@ -3,9 +3,10 @@
 \include "../../0_drum_style_perso.ly"
 
 \header {
-  title = "Textes pour les systèmes binaires en 4/4."
+  title = "Textes pour les systèmes binaires en 4/4"
   composer = " "
 }
+
 
 \score {
   \new Staff {

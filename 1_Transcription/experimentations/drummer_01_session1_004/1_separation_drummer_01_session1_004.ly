@@ -22,7 +22,6 @@ down = \drummode {
   >>
 }
 
-
 up = \drummode {
   <cymr bd>8 cymr16 cymr <cymr sn>8 cymr16 cymr <cymr bd>8 cymr16 cymr <cymr sn>8 cymr16 cymr 
 }
