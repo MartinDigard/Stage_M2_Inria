@@ -56,7 +56,7 @@ up = \drummode {
   cymr16 \parenthesize sn \once \override Script.Y-offset = #'-2.5 tomfl-> \parenthesize sn
   \once \override Script.Y-offset = #'0.0 tomml-> \parenthesize sn \once \override Script.Y-offset = #'0.5 tomh-> \parenthesize sn
   sn sn8-> sn16->
-  sn8.-> cymr16
+  sn8.-> cymr32 cymr
 
   % Mesure 10
   cyms4
@@ -176,7 +176,7 @@ up = \drummode {
   cymr cymr rb8
   <cymr sn>16-> cymr rb \once \override Script.Y-offset = #'-0.0 tomml->
   r \once \override Script.Y-offset = #'-2.5 tomfl16-> cymr8 
-  sn16-> sn-> sn cymc
+  \once \override Script.Y-offset = #'-2.5 tomfl16-> \once \override Script.Y-offset = #'-2.5 tomfl-> tomfl cymc
 
   % Mesure 30
   cyms8 cymr
