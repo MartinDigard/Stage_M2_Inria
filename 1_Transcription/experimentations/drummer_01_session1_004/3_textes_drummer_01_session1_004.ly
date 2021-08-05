@@ -4,7 +4,7 @@
 
 \header {
   title = "Textes pour les systèmes binaires en 4/4."
-  composer = "Martin Digard"
+  composer = " "
 }
 
 \score {
