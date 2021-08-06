@@ -1,31 +1,11 @@
 \version "2.22.1"
 \language français
-\include "../../0_drum_style_perso.ly"
+\include "../0_drum_style_perso.ly"
 
 
 \header {
-  title = "Séparation des voix en 4/4 binaire"
+  title = ""
   composer = " "
-}
-
-
-up = \drummode {
-  cymr8 cymr16 cymr cymr8 cymr16 cymr cymr8 cymr16 cymr cymr8 cymr16 cymr 
-}
-down = \drummode {
-  r8 hhp r hhp r hhp r hhp 
-}
-\score {
-  <<
-		\new DrumStaff
-	<<
-	  \set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
-	  \new DrumVoice { \voiceOne \up }
-	  \new DrumVoice { \voiceTwo \down }
-	  \break
-	>>
-	\addlyrics { "Irréductible." }
-  >>
 }
 
 
@@ -43,10 +23,9 @@ down = \drummode {
 	  \new DrumVoice { \voiceOne \up }
 	  \new DrumVoice { \voiceTwo \down }
 	>>
-	\addlyrics { "Séparation possible 1." }
+	\addlyrics { "Exemple 1." }
   >>
 }
-
 
 up = \drummode {
   cymr8 cymr16 cymr cymr8 cymr16 cymr cymr8 cymr16 cymr cymr8 cymr16 cymr 
@@ -62,10 +41,9 @@ down = \drummode {
 	  \new DrumVoice { \voiceOne \up }
 	  \new DrumVoice { \voiceTwo \down }
 	>>
-	\addlyrics { "Séparation possible 2." }
+	\addlyrics { "Exemple 2." }
   >>
 }
-
 
 up = \drummode {
   cymr8 cymr16 cymr <sn \xNote cymr>8 cymr16 cymr cymr8 cymr16 cymr <sn \xNote cymr>8 cymr16 cymr 
@@ -81,6 +59,6 @@ down = \drummode {
 	  \new DrumVoice { \voiceOne \up }
 	  \new DrumVoice { \voiceTwo \down }
 	>>
-	\addlyrics { "Séparation possible 3." }
+	\addlyrics { "Exemple 3." }
   >>
 }

@@ -1,95 +1,56 @@
-\subsection{Caractéristiques pour la représentation et la notation}
-\includegraphics[height=30mm, width=155mm]{z_images/notation/description/notation.png}
-\subsubsection{Les pitchs}
-\begin{table}[h]
-	\centering
-	\begin{tabular}{|c|c|c|} \hline
-		Codes & Instruments & Pitchs \\ \hline
-		pf & charley-pied-fermé & 44 \\
-		po & charley-pied-ouvert & ? \\
-		gc & grosse-caisse & 36 \\
-		tb & tom-basse & 43, 58 \\
-		cc & caisse-claire & 38, 40 \\
-		cs & cross-stick & 37 \\
-		tm & tom-medium & 45, 47 \\
-		ta & tom-alto & 48, 50 \\
-		cf & charley-main-fermé & ? \\
-		co & charley-main-ouvert & 26 \\
-		rd & ride & 51 \\
-		rb & ride-cloche (bell) & 53 \\
-		rc & ride-crash & 59 \\
-		cr & crash & 55 \\ \hline
-	\end{tabular}
-	\caption{Pitchs et instruments}
-	%	\label{tab:exemple}
-\end{table}
-\subsubsection{Les nuances}
-\includegraphics[height=20mm, width=35mm]{z_images/notation/description/nuances.png}\\\\
-\begin{table}[h]
-	\centering
-	\begin{tabular}{|c|c|c|c|} \hline
-		Codes & Instruments & Pitchs & Vélocité \\ \hline
-		cop & charley-main-ouvert & 46 & ? \\ \hline
-	\end{tabular}
-	\caption{Nuances}
-\end{table}
-Nous ne prendrons en compte la vélocité que pour la cc, les toms et les cymbales jouées aux mains. Les nuances de grosse caisse et charley aux pieds sont le plus souvent insignifiants, elles ne sont marquées sur le figure qu’à titre indicatif.\\\\
-Si la vélocité est en dessous de 40, il s’agit de ghost-notes : la tête de note devra être entouré de parenthèses et le suffixe \textit{p (piano)} devra être ajouté au codes de l’instrument. (Voir ccp ci-dessus.)\\\\
-Si la vélocité est au dessus de 90, il s’agit de notes accentuées : le symbole « > » et le suffixe \textit{f (forte)} devra être ajouté au codes de l’instrument. (Voir ccf ci-dessus.)\\\\
-Lorsque la vélocité va de 40 à 89, on considèrera le volume comme normal et aucun symbole supplémentaire ne sera ajouté à la note.\\\\
-L’instrument qui sera difficile à placer sera la caisse claire car elle ne sera pas toujours affiliée aux mêmes instruments.
-\subsubsection{Les dilemmes}
-Le charley de pitch 46 est considéré comme le charley ouvert joué à la main sur le haut de la cymbale mais souvent, ça correspond au geste « tranche-olive » de la baguette lorsque le batteur accentue avec la tranche et joue moins fort avec l’olive sur le plat de la cymbale. Je vais dans un premier temps considérer le pitch comme \textbf{charley-main-ouvert-piano} (ghost-note)
 \subsection{Les systèmes}
-Créer un ensemble de systèmes :
+\subsubsection{Définition}
+
+Système = motif + texte
+motif = rythmes coordonné joués en boucle
+texte = rythme irrégulier joué avec un seul membre.\\
+
+trois système standard :
 \begin{itemize}
-\item Trouver les systèmes intéressants dans groove ;
-\item Compléter avec des systèmes ago personnalisés ;
-\item Tout transcrire avec lilypond et en arbres d’analyse syntaxique.
-\item Créer les arbres de voix séparées.
-\item Créer les arbres de voix séparées simplifiés (rewriting).\\	
+	\item binaire
+	\item ternaire (shuffle, afro, rock)
+	\item jazz
+	\item afro-cubain
 \end{itemize}
+
 \subsubsection{Utilité des systèmes}
 \begin{itemize}
 	\item Séparation des voix
 	\item Définir une métrique
+	\item Conditionner des règles spécifiques de réécriture
 \end{itemize}
-\subsubsection{Choix de séparation des voix}
-\includegraphics[height=100mm, width=70mm]{z_images/notation/description/separation.png}\\\\
+\ \\
+Créer un ensemble de systèmes :
+\begin{itemize}
+	\item 4/4 binaire FAIT
+	\item jazz vs ternaire(12/8)
+	\item afro-cubain (trois voix ??)
+	\item Tout transcrire avec lilypond et en arbres d’analyse syntaxique.
+	\item Créer les arbres de voix séparées.
+	\item Créer les arbres de voix séparées simplifiés (rewriting).\\	
+\end{itemize}
+
+\subsubsection{La séparation des voix}
+\ \\
+\includegraphics[height=100mm, width=70mm]{z_images/notation/description/separation_0.png}\\\\
 Ici, le système est construit sur un modèle rock en 4/4 : after-beat sur les 2 et 4 avec un choix de répartition des cymbales type fast-jazz.\\
-Le système est constitué par défaut du motif ride/ch-pf/cc et d’un texte joué à la grosse-caisse.\\
+Le système est constitué par défaut du motif ride/ch-pf/cc et d’un texte joué à la grosse-caisse.
 
-%\begin{lilypond}[options,go,here]
-%	YOUR LILYPOND CODE
-%\end{lilypond}
-
-Le motif 1 est privilégié car il réparti selon 2 voix, une voix pour les mains (ride + cc) et une voix pour les pieds (ch-pf + gc). Ce choix paraît plus équilibré car deux instruments sont utilisés par voix et plus logique pour le lecteur puisque les mains sont en haut et les pieds en bas.\\D’autres choix d’écriture auraient été possibles :
+La troisième séparation proposée est privilégiée car elle répartit selon 2 voix, une voix pour les mains (ride + cc) et une voix pour les pieds (ch-pf + gc). Ce choix paraît plus équilibré car deux instruments sont utilisés par voix et plus logique pour le lecteur puisque les mains sont en haut et les pieds en bas.\\\\
+D’autres choix d’écriture auraient été possibles :
 \begin{itemize}
 	\item Toutes les hampes en haut ;
 	\item Combinaison motif 1 et 2 en donnant 2 directions aux hampes de la cc).\\
 \end{itemize}
-À partir de ce choix d’écriture, le système suivant est défini :\\
+À partir de ce choix d’écriture, le système suivant est défini :\\\\
 \includegraphics[height=65mm, width=115mm]{z_images/notation/experimentations/system_drummer_01_session1_004.png}\\
-
+\includegraphics[height=65mm, width=115mm]{z_images/notation/experimentations/system_drummer_01_session1_004.png}\\
 Dans le motif, la grosse caisse est notée car elle fait partie de l’équilibre musical de ce rythme mais rigousement, elle ne devrait pas y apparaître puisque qu’elle sera indiquée par le texte.\\
-Dans ce système, les noires ne doivent jamais tomber en même temps que les caisse-claires, donc, quand le texte donnera des noires sur les deuxième et quatrième temps, elles ne seront jamais jouées par le batteur (exemple sur la première mesure du système).
+Dans ce système, les noires ne doivent jamais tomber en même temps que les caisse-claires, donc, quand le texte donnera des noires sur les deuxièmes et quatrièmes temps, elles ne seront jamais jouées par le batteur (exemple sur la première mesure du système).\\
 
-\subsubsection{Représentations en arbres}
 
-Quelque soit le choix d’écriture, la représentation arborescente du motif ci-dessus donnera le résultat suivant :
 
-\Tree[ [ [rd\\gc ][ [rd\\pf ][rd ]]]
-[ [rd\\cc ][ [rd\\pf ][rd ]]]
-[ [rd\\gc ][ [rd\\pf ][rd ]]]
-[ [rd\\cc ][ [rd\\pf ][rd ]]] ]\\\\
-
-Représentation du même motif avec les pitchs midi :\\\\
-\Tree[ [ [51\\36 ][ [51\\44 ][51 ]]]
-[ [51\\38 ][ [51\\44 ][51 ]]]
-[ [51\\36 ][ [51\\44 ][51 ]]]
-[ [51\\38 ][ [51\\44 ][51 ]]] ]\\\\
-
-Représentation du système (motif + texte) avec les pitchs midi :
+Voici la représentation de ce système en arbre de rythme :\\
 
 \resizebox{420pt}{!}{\Tree[.Système [.Mesure\ 1  [.Temps\ 1 [51\\36 ][ [51\\44 ][51 ]]]
 	[.Temps\ 2 [51\\38 ][ [51\\44 ][51 ]]]

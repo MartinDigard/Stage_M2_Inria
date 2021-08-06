@@ -20,6 +20,12 @@ up = \drummode {
   \tuplet 3/2 { \once \override Script.Y-offset = #'6.5 cymr4-> cymr8 }
   
   % Mesure 3
+  cymr4
+  \tuplet 3/2 { cymr4 cymr8 }
+  \tuplet 3/2 { cymr4 tomml8 }
+  \tuplet 3/2 { cymr4 cymr8 }
+  
+
 }
 
 
@@ -32,6 +38,7 @@ down = \drummode {
   bd4 hhp s hhp
 
   % Mesure 3
+  s hhp s \tuplet 3/2 { hhp bd8 }
 }
 
 
