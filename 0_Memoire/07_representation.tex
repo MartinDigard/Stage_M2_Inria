@@ -1,10 +1,13 @@
 \subsection{La notation de la batterie}
 \subsubsection{La hauteur des notes et les têtes de notes}
 \includegraphics[height=30mm, width=155mm]{z_images/1_description_notation/notes.png}
+partition 1
 \subsubsection{Les nuances}
-\includegraphics[height=20mm, width=35mm]{z_images/1_description_notation/nuances.png}
+\includegraphics[height=20mm, width=35mm]{z_images/1_description_notation/nuances.png}\\
+partition 2
 \subsubsection{La séparation des voix}
-\includegraphics[height=65mm, width=60mm]{z_images/1_description_notation/separation/exemples_separation.png}
+\includegraphics[height=65mm, width=60mm]{z_images/1_description_notation/separation/0_exemples_separation.png}\\
+partition 3
 \subsection{La notation midi de la batterie}
 \subsubsection{Les pitchs et la vélocité}
 \begin{table}[h]
@@ -46,14 +49,14 @@ L’instrument qui sera difficile à placer sera la caisse claire car elle ne se
 Le charley de pitch 46 est considéré comme le charley ouvert joué à la main sur le haut de la cymbale mais souvent, ça correspond au geste « tranche-olive » de la baguette lorsque le batteur accentue avec la tranche et joue moins fort avec l’olive sur le plat de la cymbale. Je vais dans un premier temps considérer le pitch comme \textbf{charley-main-ouvert-piano} (ghost-note)
 \newpage
 \subsubsection{Représentations en arbres}
-Voici une représentation de données midi en arbre :\\\\
-\Tree[ [ [51\\36 ][ [51\\44 ][51 ]]]
-[ [51\\38 ][ [51\\44 ][51 ]]]
-[ [51\\36 ][ [51\\44 ][51 ]]]
-[ [51\\38 ][ [51\\44 ][51 ]]] ]\\\\\\
-Ci-dessous le même arbre avec les codes pour chaque instrument :\\\\
+Voici une représentation de la \textit{partition 3} en arbre de rythme avec les codes de chaque instrument :\\\\
 \Tree[ [ [rd\\gc ][ [rd\\pf ][rd ]]]
 [ [rd\\cc ][ [rd\\pf ][rd ]]]
 [ [rd\\gc ][ [rd\\pf ][rd ]]]
 [ [rd\\cc ][ [rd\\pf ][rd ]]] ]\\\\\\
-Cet arbres donne un seul rythme qui peut être écrit de plusieurs manières sur une partition.
+Ci-dessous, le même arbre dont les codes des instruments sont remplacés par leurs données midi respectives :\\\\
+\Tree[ [ [51\\36 ][ [51\\44 ][51 ]]]
+[ [51\\38 ][ [51\\44 ][51 ]]]
+[ [51\\36 ][ [51\\44 ][51 ]]]
+[ [51\\38 ][ [51\\44 ][51 ]]] ]\\\\\\
+Cet arbre représente un rythme unique dont les possiblités de notation sur une partition sont théoriquement multiples.(Voir \textit{partition 3}).
