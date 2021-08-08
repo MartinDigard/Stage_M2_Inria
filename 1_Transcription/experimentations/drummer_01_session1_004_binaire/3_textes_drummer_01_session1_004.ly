@@ -48,11 +48,23 @@
   \new Staff {
 	{
 	  \clef percussion
+	  do'8. do'16 r8 do' r16 do'8. do'8. do'16
+	  r8 do' r16 do'8. do'8. do'16 r8 do'
+	  r16 do'8. do'8. do'16 r8 do' r16 do'8.
+	}
+	\addlyrics { "Texte 2b." }
+  }
+}
+
+\score {
+  \new Staff {
+	{
+	  \clef percussion
 	  do'16 do'8 do'16 do'8 do'16 do' r16 do' do'8 do'16 do'8 do'16
 	  do'8 do'16 do' r16 do' do'8 
 	  do'16 do'8 do'16 do'8 do'16 do' r16 do' do'8 do'16 do'8 do'16
 	  do'8 do'16 do' r16 do' do'8
 	}
-	\addlyrics { "Texte 2b." }
+	\addlyrics { "Texte 2c." }
   }
 }
