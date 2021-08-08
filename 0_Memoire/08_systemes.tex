@@ -60,15 +60,34 @@ Les textes qui accompagnent les motifs étayent toutes les combinaisons d’un s
 
 \subsubsection{Construction des systèmes pour les expérimentations}
 \textbf{Textes pour les systèmes en 4/4 binaire}\\
-\includegraphics[height=50mm, width=85mm]{z_images/1_description_notation/systemes/0_textes_4-4_binaires.png}\\\\
+\includegraphics[height=70mm, width=95mm]{z_images/1_description_notation/systemes/0_textes_4-4_binaires.png}\\\\
 \textbf{Motifs pour les systèmes en 4/4 binaire}\\\\
-\includegraphics[height=20mm, width=30mm]{z_images/1_description_notation/systemes/1_motifs_4-4_binaires.png}\\\\
+\includegraphics[height=30mm, width=40mm]{z_images/1_description_notation/systemes/1_motifs_4-4_binaires.png}\\\\
 \textbf{Systèmes résultants}\\\\
 \includegraphics[height=75mm, width=85mm]{z_images/3_experimentations/experience_1/systeme_recherche_1.png}
 \includegraphics[height=75mm, width=85mm]{z_images/3_experimentations/experience_1/systeme_recherche_2.png}\newpage
 
-\textbf{Arbres de rythmes pour les systèmes en 4/4 binaire}\\\\
-\resizebox{420pt}{!} {
+\textbf{Arbres de rythmes pour les systèmes en 4/4 binaire}\\
+
+\resizebox{500pt}{!} {
+\Tree[.Motif\ 1\ +\ Texte\ 2b
+	[.Mesure\ 1
+		[.Temps\ 1 [rd\\bd ][ [rd\\pf ][rd\\bd ]]]
+		[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
+		[.Temps\ 3 [rd ][bd ][rd\\pf ][rd ]]
+		[.Temps\ 4 [rd\\cc ][ [rd\\pf ][rd\\bd ]]] ]
+	[.Mesure\ 2
+		[.Temps\ 1 [rd\\ ][ [rd\\bd\\pf ][rd ]]]
+		[.Temps\ 2 [rd\\cc ][bd ][rd\\pf ][rd ]]
+		[.Temps\ 3 [rd\\bd ][ [rd\\pf ][rd\\bd ]]]
+		[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]
+	[.Mesure\ 3
+		[.Temps\ 1 [rd ][bd ][rd\\pf ][rd ]]
+		[.Temps\ 2 [rd\\cc ][ [rd\\pf ][rd\\bd ]]]
+		[.Temps\ 3 [rd ][ [rd\\bd\\pf ][rd ]]]
+		[.Temps\ 4 [rd\\cc ][bd ][rd\\pf ][rd ]]] ] }\\
+
+\resizebox{500pt}{!} {
 \Tree[.Motif\ 1\ +\ Texte\ 2c
 	[.Mesure\ 1
 	    [.Temps\ 1 [rd\\bd ][bd ][rd\\pf ][rd\\bd ]]
@@ -84,4 +103,44 @@ Les textes qui accompagnent les motifs étayent toutes les combinaisons d’un s
         [.Temps\ 1 [rd ][bd ][rd\\bd\\pf ][rd ]]
         [.Temps\ 2 [rd\\cc ][bd ][rd\\pf ][rd\\bd ]]
         [.Temps\ 3 [rd\\bd ][ [rd\\bd\\pf ][rd\\bd ]]]
-        [.Temps\ 4 [rd\\cc ][bd ][rd\\bd\\pf ][rd ]] ]]}\\
+        [.Temps\ 4 [rd\\cc ][bd ][rd\\bd\\pf ][rd ]]] ] }\\\\
+
+\textbf{Séparation des voix}\\\\
+Les deux arbres qui suivent sont à refaire, les arbres séparés doivent avoir le même nombre de feuilles que l’input. Le nombre de branches sera réduit grâce à la réécriture.
+\textit{Voix haute}\\
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 2b
+	[.Mesure\ 1
+	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+	[.Mesure\ 3
+	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]]] ] }\newpage
+
+\textit{Voix basse}\\
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 2b
+	[.Mesure\ 1
+	[.Temps\ 1 [bd ][ [pf ][bd ]]]
+	[.Temps\ 2 [tie ][bd\\pf ]]
+	[.Temps\ 3 [ [tie ][bd ]][pf ]]
+	[.Temps\ 4 [tie ][ [pf ][bd ]]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [tie ][bd\\pf ]]
+	[.Temps\ 2 [ [tie ][bd ]][pf ]]
+	[.Temps\ 3 [bd ][ [pf ][bd ]]]
+	[.Temps\ 4 [tie ][bd\\pf ]] ]
+	[.Mesure\ 3
+	[.Temps\ 1 [ [tie ][bd ]][pf ]]
+	[.Temps\ 2 [tie ][ [pf ][bd ]]]
+	[.Temps\ 3 [tie ][bd\\pf ]]
+	[.Temps\ 4 [ [tie ][bd ]][pf ]]] ] }\\
