@@ -1,11 +1,11 @@
 \subsection{Les systèmes}
 \subsubsection{Définition}
 
-Système = motif + texte
-motif = rythmes coordonné joués en boucle
-texte = rythme irrégulier joué avec un seul membre.\\
+Système = motif + texte\\
+motif = rythmes coordonnés joués avec 2 ou 3 membres en boucle\\
+texte = rythme irrégulier joué avec un seul membre sur le motif.\\
 
-trois système standard :
+Quatre systèmes standards :
 \begin{itemize}
 	\item binaire
 	\item ternaire (shuffle, afro, rock)
@@ -23,10 +23,11 @@ trois système standard :
 Créer un ensemble de systèmes :
 \begin{itemize}
 	\item 4/4 binaire FAIT
-	\item jazz vs ternaire(12/8)
-	\item afro-cubain (trois voix ??)
+	\item jazz vs ternaire(12/8) EN COURS…
+	\item afro-cubain
 	\item Tout transcrire avec lilypond et en arbres d’analyse syntaxique.
 	\item Créer les arbres de voix séparées.
+	\item Écrire les règles de réécriture.
 	\item Créer les arbres de voix séparées simplifiés (rewriting).\\	
 \end{itemize}
 
@@ -34,17 +35,18 @@ Pour la \textbf{séparation des voix} et la \textbf{définition des métriques},
 \newpage
 \subsubsection{Pour la séparation des voix}
 \textbf{Motif 4-4 binaire}\\\\
-\includegraphics[height=100mm, width=70mm]{z_images/1_description_notation/separation/1_separation_4-4_binaire.png}\\\\
+\includegraphics[height=60mm, width=40mm]{z_images/1_description_notation/separation/1_separation_4-4_binaire.png}\\\\
 Ici, le système est construit sur un modèle rock en 4/4 : after-beat sur les 2 et 4 avec un choix de répartition des cymbales type fast-jazz. Le système est constitué par défaut du motif ride/ch-pf/cc et d’un texte joué à la grosse-caisse. La troisième séparation proposée est privilégiée car elle répartit selon 2 voix, une voix pour les mains (ride + cc) et une voix pour les pieds (ch-pf + gc). Ce choix paraît plus équilibré car deux instruments sont utilisés par voix et plus logique pour le lecteur puisque les mains sont en haut et les pieds en bas.\\
-D’autres choix d’écriture auraient été possibles :
-\begin{itemize}
-	\item Toutes les hampes en haut ;
-	\item Combinaison motif 1 et 2 en donnant 2 directions aux hampes de la cc).\\
-\end{itemize}
-\newpage
+%D’autres choix d’écriture auraient été possibles :
+%\begin{itemize}
+%	\item Toutes les hampes en haut ;
+%	\item Combinaison motif 1 et 2 en donnant 2 directions aux hampes de la cc).\\
+%\end{itemize}
+
 \textbf{Motif 4-4 jazz}\\\\
-\includegraphics[height=65mm, width=100mm]{z_images/1_description_notation/separation/2_separation_4-4_jazz.png}\\\\
-Dans la plupart des méthodes, le charley n’est pas écrit car considéré comme évident en jazz traditionnel. Ce qui facilite grandement l’écriture : la ride et les crash sur la voix du haut et le reste sur la voix du bas. Ici, le partie prit et de tout écrire. Dans l’exemple ci-dessus, les mesures 1 et 2 combinées avec le \textit{motif} de la première ligne, sont des cas typiques de la batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la grosse caisse entre très souvent dans le flot des combinaisons de toms et de caisse claire et son écriture séparée serait inutilement compliquée et peu intuitive pour le lecteur. Le choix de séparation sera donc de laisser les cymbales en haut et toms, caisse-claire, grosse-caisse et pédale de charley en bas.\\\\
+\includegraphics[height=45mm, width=60mm]{z_images/1_description_notation/separation/2_separation_4-4_jazz.png}\\\\
+Dans la plupart des méthodes, le charley n’est pas écrit car considéré comme évident en jazz traditionnel. Ce qui facilite grandement l’écriture : la ride et les crash sur la voix du haut et le reste sur la voix du bas. Ici, le partie prit et de tout écrire. Dans l’exemple ci-dessus, les mesures 1 et 2 combinées avec le \textit{motif} de la première ligne, sont des cas typiques de la batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la grosse caisse entre très souvent dans le flot des combinaisons de toms et de caisse claire et son écriture séparée serait inutilement compliquée et peu intuitive pour le lecteur. Le choix de séparation sera donc de laisser les cymbales en haut et toms, caisse-claire, grosse-caisse et pédale de charley en bas.
+\newpage
 
 \textbf{Système 4-4 afro-cubain}\\\\
 \includegraphics[height=25mm, width=80mm]{z_images/1_description_notation/separation/3_separation_afro-cubain.png}\\\\
@@ -59,88 +61,18 @@ Les textes qui accompagnent les motifs étayent toutes les combinaisons d’un s
 \newpage
 
 \subsubsection{Construction des systèmes pour les expérimentations}
-\textbf{Textes pour les systèmes en 4/4 binaire}\\
-\includegraphics[height=70mm, width=95mm]{z_images/1_description_notation/systemes/0_textes_4-4_binaires.png}\\\\
-\textbf{Motifs pour les systèmes en 4/4 binaire}\\\\
-\includegraphics[height=30mm, width=40mm]{z_images/1_description_notation/systemes/1_motifs_4-4_binaires.png}\\\\
-\textbf{Systèmes résultants}\\\\
-\includegraphics[height=75mm, width=85mm]{z_images/3_experimentations/experience_1/systeme_recherche_1.png}
-\includegraphics[height=75mm, width=85mm]{z_images/3_experimentations/experience_1/systeme_recherche_2.png}\newpage
 
-\textbf{Arbres de rythmes pour les systèmes en 4/4 binaire}\\
 
-\resizebox{500pt}{!} {
-\Tree[.Motif\ 1\ +\ Texte\ 2b
-	[.Mesure\ 1
-		[.Temps\ 1 [rd\\bd ][ [rd\\pf ][rd\\bd ]]]
-		[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
-		[.Temps\ 3 [rd ][bd ][rd\\pf ][rd ]]
-		[.Temps\ 4 [rd\\cc ][ [rd\\pf ][rd\\bd ]]] ]
-	[.Mesure\ 2
-		[.Temps\ 1 [rd\\ ][ [rd\\bd\\pf ][rd ]]]
-		[.Temps\ 2 [rd\\cc ][bd ][rd\\pf ][rd ]]
-		[.Temps\ 3 [rd\\bd ][ [rd\\pf ][rd\\bd ]]]
-		[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]
-	[.Mesure\ 3
-		[.Temps\ 1 [rd ][bd ][rd\\pf ][rd ]]
-		[.Temps\ 2 [rd\\cc ][ [rd\\pf ][rd\\bd ]]]
-		[.Temps\ 3 [rd ][ [rd\\bd\\pf ][rd ]]]
-		[.Temps\ 4 [rd\\cc ][bd ][rd\\pf ][rd ]]] ] }\\
 
-\resizebox{500pt}{!} {
-\Tree[.Motif\ 1\ +\ Texte\ 2c
-	[.Mesure\ 1
-	    [.Temps\ 1 [rd\\bd ][bd ][rd\\pf ][rd\\bd ]]
-        [.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd\\bd ]]]
-	    [.Temps\ 3 [rd ][bd ][rd\\bd\\pf ][rd ]]
-	    [.Temps\ 4 [rd\\cc ][bd ][rd\\pf ][rd\\bd ]] ]
-	[.Mesure\ 2
-	    [.Temps\ 1 [rd\\bd ][ [rd\\bd\\pf ][rd\\bd ]]]
-	    [.Temps\ 2 [rd\\cc ][bd ][rd\\bd\\pf ][rd ]]
-	    [.Temps\ 3 [rd\\bd ][bd ][rd\\pf ][rd\\bd ]]
-	    [.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd\\bd ]]] ]
-    [.Mesure\ 3
-        [.Temps\ 1 [rd ][bd ][rd\\bd\\pf ][rd ]]
-        [.Temps\ 2 [rd\\cc ][bd ][rd\\pf ][rd\\bd ]]
-        [.Temps\ 3 [rd\\bd ][ [rd\\bd\\pf ][rd\\bd ]]]
-        [.Temps\ 4 [rd\\cc ][bd ][rd\\bd\\pf ][rd ]]] ] }\\\\
 
-\textbf{Séparation des voix}\\\\
-Les deux arbres qui suivent sont à refaire, les arbres séparés doivent avoir le même nombre de feuilles que l’input. Le nombre de branches sera réduit grâce à la réécriture.
-\textit{Voix haute}\\
-\resizebox{500pt}{!} {
-	\Tree[.Motif\ 1\ +\ Texte\ 2b
-	[.Mesure\ 1
-	[.Temps\ 1 [rd ][ [rd ][rd ]]]
-	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
-	[.Temps\ 3 [rd ][ [rd ][rd ]]]
-	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
-	[.Mesure\ 2
-	[.Temps\ 1 [rd ][ [rd ][rd ]]]
-	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
-	[.Temps\ 3 [rd ][ [rd ][rd ]]]
-	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
-	[.Mesure\ 3
-	[.Temps\ 1 [rd ][ [rd ][rd ]]]
-	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
-	[.Temps\ 3 [rd ][ [rd ][rd ]]]
-	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]]] ] }\newpage
 
-\textit{Voix basse}\\
-\resizebox{500pt}{!} {
-	\Tree[.Motif\ 1\ +\ Texte\ 2b
-	[.Mesure\ 1
-	[.Temps\ 1 [bd ][ [pf ][bd ]]]
-	[.Temps\ 2 [tie ][bd\\pf ]]
-	[.Temps\ 3 [ [tie ][bd ]][pf ]]
-	[.Temps\ 4 [tie ][ [pf ][bd ]]] ]
-	[.Mesure\ 2
-	[.Temps\ 1 [tie ][bd\\pf ]]
-	[.Temps\ 2 [ [tie ][bd ]][pf ]]
-	[.Temps\ 3 [bd ][ [pf ][bd ]]]
-	[.Temps\ 4 [tie ][bd\\pf ]] ]
-	[.Mesure\ 3
-	[.Temps\ 1 [ [tie ][bd ]][pf ]]
-	[.Temps\ 2 [tie ][ [pf ][bd ]]]
-	[.Temps\ 3 [tie ][bd\\pf ]]
-	[.Temps\ 4 [ [tie ][bd ]][pf ]]] ] }\\
+
+
+
+
+
+
+
+
+
+
