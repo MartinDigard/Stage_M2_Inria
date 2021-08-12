@@ -1,0 +1,32 @@
+\subsection{squant : parsing du fichier midi}
+squant lit le midi\\
+grammaire wta qui détermine le poid\\
+La distance est automatiquement déterminée par squant\\
+distance à l’input\\
+complexité de la notation
+
+On veut minimiser le coût et la distance $\Rightarrow$ Trouver un compromis.
+
+./build/squant2 -h
+
+Essayer le lire un fichier midi avec squant2
+lire mesure par mesure
+Regarder les wta(grammaire)
+
+\subsubsection{Quelques tests de lecture midi}
+\begin{verbatim}
+Les 4 messages suivants sont présents dans tous les tests qui suivent :
+[ info] schema file: test/schema/schema-01.wta (??? weight model option)
+[warning] no declaration MAX\_GRACE in grammar file test/schema/schema-01.wta
+[warning] no declaration TIMESIG in grammar file test/schema/schema-01.wta
+[warning] MIDIfile has not joined tracks
+
+./build/squant2 -v 4 -a test/schema/schema-01.wta -m 004_jazz-funk_116_beat_4-4.mid -config ./params.ini
+[error] at least one of the options -bars or -barsec mandatory
+
+./build/squant2 -verbosity 4 -schema test/schema/schema-01.wta -midi 004\_jazz-funk\_116\_beat\_4-4.mid -config ./params.ini -barsec 3
+
+squant2: /home/martin/qparselib/src/schemata/SymbLabel.cpp:44: static label_t SymbLabel::make(unsigned char, SymbLabel::Kind, short unsigned int, short unsigned int): Assertion `info2 < 512' failed.
+Abandon (core dumped)
+\end{verbatim}
+\newpage
