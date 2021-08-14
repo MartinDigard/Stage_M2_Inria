@@ -65,60 +65,9 @@ Réfléchir au coût de notation (grace notes, etc.)
 \newpage
 
 \subsubsection{cluster.md}
-https://gitlab.inria.fr/qparse/qparselib/-/blob/distance/notes/clusters.md\\\\
-\textit{\textbf{Clusters of input events}}\\\\
+%\input{12_squant_2}
 
-\textbf{input segment}\\\\
-we assume given in input a sequence of MIDI events $e_0, \ldots, e_n$.\\\\
-Every input event $e_i$ is made of :
-\begin{itemize}
-	\item a MIDI pitch value in $0..127$
-	\item a MIDI velocity value in $0..127$
-	\item an ON/OFF flag
-	\item a date in Real Time Unit (RTU) = seconds, or equivalently MIDI ticks.\\
-\end{itemize}
-
-The input events are time-increasing:
-$$ date(e_0) \leq  date(e_1) \leq \ldots \leq date(e_n)$$
-Attention: input event $\neq$ note (in score).\\
-$\Rightarrow$ One input event may have different roles wrt output score:
-\begin{itemize}
-	\item begining of note
-	\item grace note
-	\item trill
-	\item end of note
-	\item rest
-	\item just ignored.\\e.g. For MIDI drum input, the OFF events will be ignored, but not for piano input in general.
-	\item etc.\\\\
-\end{itemize}
-
-\textbf{Parsing}\\\\
-During parsing, we try several alignements of the input events to particular points in the timeline.\\\\
-The points for alignement are defined by time division, according to a derivations (parse trees) for a CF grammar (actually trees of a tree grammar language).\\\\
-An event aligned is done to the point the closest to the date of event.
-This way, it may happen that several events are aligned to the same point.\\
-
-\textbf{Cluster}\\
-A $k$-cluster is a sequence $e_i,\ldots, e_{i+k}$ of successive input events that ought to be aligned to the same time point.
-Intuitively, it means that the corresponding notes (or rests) will be simultaneous in the output score (e.g. notes in chords, or in different polyphonic voices), or that they will be grace notes.\\
-Formally, for every transcription use case (monophonic instrument, drum, guitar, piano...), we define a function that takes in input
-
-a cluster $e_i,\ldots, e_{i+k}$, $0 \leq j \leq k$, and returns the role of $e_{i+j}$\\\\
-\textbf{among :}
-\begin{itemize}
-	\item Ignored
-	\item Note
-	\item Rest
-	\item GraceNote
-	\item GraceRest.\\
-\end{itemize}
-
-\textbf{Example 1:}\\\\If the pitchs of the 2 last events of cluster: $e_{i+k-1}$ and $e_{i+k}$ both correspond to the sn, then we have a sn 'flam': the role of $e_{i+k-1}$ is GraceNote and the role of $e_{i+k}$ is Note. We say that $e_{i+k}$ is the main note associated to (or decorated by) $e_{i+k-1}$.\\\\
-When $e_{i+j}$ is a grace note ('flam'), we assume moreover a second function that returns the index
-in $]j,k]$ of the associated main note.\\\\
-
-\textbf{Example 2:}\\\\If the pitch $e_{i+k-1}$ corresponds to a tom and the one of $e_{i+k}$ to the sd, that we may have either two simultaneous tom and sd notes, or a flam between tom and sd. We choose between the two cases from their "On Tick" distances.\\
-
+\subsubsection{Contributions}
 Contribution sur la branch « distance » dans :\\
 \begin{itemize}
 	\item qparselib/notes/cluster.md

@@ -1,0 +1,169 @@
+https://gitlab.inria.fr/qparse/qparselib/-/blob/distance/notes/clusters.md\\\\
+
+\textbf{Caroms of input events}\\
+
+Carom is a synonym for « pileup ». An alternative term could be « cluster » (in the Musical sense, not in the ML sense!).\\
+
+----------------------------------------------------------\\
+
+\textbf{input segment}\\
+
+we assume given in input a sequence of MIDI events $e_0, \ldots, e_n$​​ called "input segment".\\
+
+Every input event is $e_i$ is made of :
+\begin{itemize}
+	\item an `ON`/`OFF` flag
+	\item a MIDI pitch value in $0..127$​
+	\item a MIDI velocity value in $0..127$
+	\item a date in Real Time Unit (RTU) = seconds, or equivalently MIDI ticks.\\
+\end{itemize}
+
+The input events are time-increasing:
+$$ date(e_0) \leq  date(e_1) \leq \ldots \leq date(e_n)$$
+
+\textbf{attention:} input event $\neq$​ note (in score):
+
+One input event may have different roles wrt the output score:
+\begin{itemize}
+	\item begining of note
+	\item grace note
+	\item trill
+	\item end of note
+	\item rest
+	\item just ignored.\\e.g. in general in MIDI drum input, the `OFF` events will be ignored, but not for piano input.\\
+\end{itemize}
+
+----------------------------------------------------------\\
+
+\textbf{Parsing}\\
+
+During parsing, we try several alignements of the input events to particular points in the timeline.\\
+The points for alignement are defined by time division, according to a derivation (parse tree) for a CF grammar (actually a tree in a regular tree grammar language).\\
+
+The temporal alignment of an event is done to the point that is the closest to the date of event.
+This way, it may happen that several events are aligned to the same point.\\
+\newpage
+
+----------------------------------------------------------\\
+
+\textbf{Carom}\\
+
+A carom is a sequence $e_i,\ldots, e_{i+k}$​​ of successive input events (\textit{i.e} a subsequence of the input segment), that ought to be aligned to the same time point. In practice, it is defined by the input segment, $i$ and $k$.\\
+
+Intuitively, it means that the corresponding notes (or rests) will be simultaneous in the output score (e.g. notes in chords, or in different polyphonic voices), or that they will be grace notes.\\
+
+Formally, we define for every transcription case (monophonic instrument, drum, guitar, piano...) a function that depends on the that takes in input\\
+\begin{itemize}
+	\item a carom $C = e_i,\ldots, e_{i+k}$,
+	\item an index $0 \leq j \leq k$,\\
+\end{itemize}
+
+
+and returns the \textit{role} the input event  $e_{i+j}$ in $C$, among:\\
+\begin{itemize}
+	\item `Ignored`,
+	\item `Note`,
+	\item `Rest`,
+	\item `Staccato`,
+	\item `GraceNote`,
+	\item `GraceRest`,
+	\item maybe more to come...\\
+\end{itemize}
+
+For instance, in the case of drum transcription, all `OFF` events are ignored.\\
+
+\textbf{Example 1:}\\\\
+In the case of \textbf{drum} transcription, all the pitchs of the following events correspond to the snare-drum (sd).
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|}\hline
+	event & $e_1$ & $e_2$ & $e_3$ & $e_4$ \\ \hline
+	flag & ON & OFF & ON & OFF \\
+	pitch & 38 & 38 & 38 & 38 \\ \hline
+\end{tabular}	
+\end{table}
+
+Therefore we have a sd "flam" (\url{https://en.wikipedia.org/wiki/Drum\_rudiment#Flam}), defined by the following roles:
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}\hline
+		event & $e_1$ & $e_2$ & $e_3$ & $e_4$ \\ \hline
+		role  & GraceNote & Ignored & Note  & Ignored \\ \hline
+	\end{tabular}	
+\end{table}
+
+We say that $e_3$ is the \textit{main note} associated to (or \textit{decorated by}) the grace note $e_1$.\\
+
+When $e_{i+j}$​ is a grace note ('flam' in the case of drum), we assume moreover a second mapping, called \textit{main}, that associate to $j$​  the index in $[j+1, k]$​ of the corresponding main note.\\
+
+Example 1': in the previous example, $main(1) = 3$.\\
+
+
+
+\textbf{Example 2:}\\\\¨
+In the case of **monophonic** transcription, the following events: 
+
+| event | $e_1$ | $e_2$ | $e_3$ |
+| :---: | :---: | :---: | :---: |
+| flag  |  ON   |  OFF  |  ON   |
+| pitch |  64   |  64   |  62   |
+
+also correspond to a grace note followed by a note:
+
+
+
+| event |   $e_1$   |  $e_2$  | $e_3$ |
+| :---: | :-------: | :-----: | :---: |
+| role  | GraceNote | Ignored | Note  |
+
+
+
+Example 3: still in the case of **monophonic** transcription, for the following events: 
+
+| event | $e_1$ | $e_2$ | $e_3$ |
+| :---: | :---: | :---: | :---: |
+| flag  |  ON   |  ON   |  OFF  |
+| pitch |  64   |  62   |  64   |
+
+we also have the same roles as in Ex.2:
+
+
+
+| event |   $e_1$   | $e_2$ |  $e_3$  |
+| :---: | :-------: | :---: | :-----: |
+| role  | GraceNote | Note  | Ignored |
+
+Indeed, we ignore that fact that the OFF $e_3$ happens  after the ON $e_2$ of next note (e.g. because of the end gesture of the player on the keyboard), because we are in the monophonic case. 
+
+
+
+Note that here, we process directly the MIDI input. No pre-processing is assumed, e.g. for eliminating overlaps between the notes 64 and 62. Somehow, elimination of overlaps is ensured by the *role* function for the monophonic case.
+
+
+
+Example 4: Back to the case of **drum** transcription, the pitch of $e_1$​​ and $e_2$​ below corresponds to a tom and the one of $e_3, e_4$​ to the sd.
+
+|   event    | $e_1$ | $e_2$ | $e_3$ | $e_4$ |
+| :--------: | :---: | :---: | :---: | :---: |
+|    flag    |  ON   |  OFF  |  ON   |  OFF  |
+|   pitch    |  48   |  48   |  38   |  38   |
+| timestamps |  t\_1  |  t\_2  |  t\_3  |  t\_4  |
+
+It could be interpreted either as two simultaneous tom and sd notes, or as a flam between the tom and the sd (the tom is the grace note, the sd the main note). We choose between the two cases according to the "On Tick" distance $t_3 - t_1$.
+More precisely, we assume a threshold $\varepsilon$​ such that:
+
+- if $t_3 - t_1 < \varepsilon$​​ then we have 2 simultaneous notes  ("polyphony", between tom and sd, written as a chord):
+
+| event | $e_1$ |  $e_2$  | $e_3$ |  $e_4$  |
+| :---: | :---: | :-----: | :---: | :-----: |
+| role  | Note  | Ignored | Note  | Ignored |
+
+- if $t_3 - t_1 ≥ \varepsilon$ then we have a flam between tom and sd (written as a grace note):
+
+| event |   $e_1$   |  $e_2$  | $e_3$ |  $e_4$  |
+| :---: | :-------: | :-----: | :---: | :-----: |
+| role  | GraceNote | Ignored | Note  | Ignored |
+
+The threshold $\varepsilon$ may depend on the latency of an electronic  (MIDI) drum kit used for recording, and/or neuro-acoustic features such as the duration between 2 percussive events above which the perception change from simultaneous, to the phoneme '*flam*'.
