@@ -1,7 +1,20 @@
+\subsection*{Le contexte}
+Ce mémoire de recherche, effectué en parallèle d’un stage à l’Inria dans le cadre du master de traitement automatique des langues de l’Inalco, contient une proposition d’amélioration d’une chaîne de traitement d’ADT de bout en bout.\\
+Même si ce sujet ne traite pas directement de langues naturelles, son objet est l’écriture automatique de partition de musique à partir de données audios. Il nécessite donc la manipulation d’un langage musical codifié avec une grammaire (solfège, durées, nuances, volumes) et soulève de nombreuses problématiques proches de la reconnaissance de la parole.\\\\
+\textit{Notes discussion Damien} :\\
+\textit{\textbf{Musique} $\Rightarrow$ langue ou langage ? ;\\
+\textbf{Partition musicale} $\Rightarrow$ Manière d’écrire la musique…a}\\\\
+La chaîne de traitement peut-être séparée en deux grandes parties :
+\begin{itemize}
+	\item La reconnaissance du signal à partir de d’enregistrement audio de performance de batteur et l’écriture des données en MIDI.
+	\item La transformation des fichiers MIDI en partition (chaque fichier MIDI étant une partition)\\
+\end{itemize}
+
+Le sujet du stage se concentre sur la deuxième partie de cette chaîne et le sujet du mémoire (rassemble un ensemble d’amélioration de cette partie de la chaîne|est une proposition d’amélioration sur cette partie de la chaîne).
+
 \subsection*{Sujet du stage}
-L'objectif de la transcription automatique de la musique (AMT) \cite{article1} est de convertir la performance d'un musicien en notation musicale - un peu comme la conversion de la parole en texte dans le traitement du langage naturel. Elle est considérée comme l'un des problèmes de recherche les plus anciens et les plus difficiles dans le domaine de la recherche d'information musicale (MIR).\\
-Le cas de la transcription de la batterie (DT) est très particulier puisqu'il s'agit d'instruments sans hauteur, d'événements avec (presque) aucune durée et de notations spécifiques. Il a été la source de nombreuses études MIR, voir \cite{8350302} pour un aperçu. La plupart de ces travaux se concentrent sur des méthodes de calcul pour la détection d'événements sonores de batterie à partir de signaux acoustiques, et sur l'extraction de caractéristiques de bas niveau telles que la classe d'instrument et le moment de l'apparition du son (peak picking). Cependant, très peu d'entre eux ont abordé la tâche de générer une notation musicale (rythmique) lisible à partir des caractéristiques ci-dessus, une étape cruciale dans un contexte musical et loin d'être triviale.\\\\
-La présente proposition s'intéresse à ce dernier problème, et plus précisément à :
+
+La présente proposition s'intéresse à ce dernier problème, et plus précisément à :\\
 
 1. l'étude de modèles de langage (LM) incorporant certaines informations musicales de haut niveau nécessaires à la génération de partitions de qualité. On devrait en particulier considérer des hiérarchies d'événements de batterie induisant des placements temporels cohérents et se prêtant à des notations rythmiques faciles à lire pour un batteur entraîné ; voir \cite{foscarin:hal-01988990} pour des modèles structurés en arbre basés sur la théorie formelle du langage, que nous développons dans le contexte d'outils AMT plus généraux.\\\\
 2. l'intégration de ces LM avec l'état de l'art des modèles acoustiques (AM) et des méthodes pour les tâches de traitement du signal ci-dessus. Cela nécessite la prise en compte du contexte musical et des informations musicales de haut niveau des LM en plus des caractéristiques acoustiques de bas niveau ci-dessus.\\
@@ -9,6 +22,8 @@ En outre, certaines expériences seront menées sur la base d'ensembles de donn�
 
 Au-delà de l'intégration de modèles, il sera également intéressant d'étudier comment l'utilisation de LM peut améliorer les résultats de l'AM, voir [2], et ouvrir la voie à la génération entièrement automatisée de partitions de batterie et au problème général de l'AMT de bout en bout.
 \cite{8350302}
+\subsection*{Sujet du mémoire}
+…
 \subsection*{Problématique traitée}	
 	En entrée : midi (séquence d’événements datés (piano roll) accompagné d’une grammaire pondérée)\\
 	$\Rightarrow$ parsing\\
