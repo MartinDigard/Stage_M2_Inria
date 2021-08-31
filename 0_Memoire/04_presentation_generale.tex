@@ -1,16 +1,16 @@
 \subsection*{Le contexte}
 Ce mémoire de recherche, effectué en parallèle d’un stage à l’Inria dans le cadre du master de traitement automatique des langues de l’Inalco, contient une proposition d’amélioration d’une chaîne de traitement d’ADT de bout en bout.\\
-Même si ce sujet ne traite pas directement de langues naturelles, son objet est l’écriture automatique de partition de musique à partir de données audios. Il nécessite donc la manipulation d’un langage musical codifié avec une grammaire (solfège, durées, nuances, volumes) et soulève de nombreuses problématiques proches de la reconnaissance de la parole.\\\\
+Même si ce sujet ne traite pas directement de langues naturelles, son objet est l’écriture automatique de partitions de musique à partir de données audios. Il nécessite donc la manipulation d’un langage musical codifié avec une grammaire (solfège, durées, nuances, volumes) et soulève de nombreuses problématiques proches de la reconnaissance de la parole.\\\\
 \textit{Notes discussion Damien} :\\
 \textit{\textbf{Musique} $\Rightarrow$ langue ou langage ? ;\\
-\textbf{Partition musicale} $\Rightarrow$ Manière d’écrire la musique…a}\\\\
+\textbf{Partition musicale} $\Rightarrow$ Manière d’écrire la musique…}\\\\
 La chaîne de traitement peut-être séparée en deux grandes parties :
 \begin{itemize}
-	\item La reconnaissance du signal à partir de d’enregistrement audio de performance de batteur et l’écriture des données en MIDI.
-	\item La transformation des fichiers MIDI en partition (chaque fichier MIDI étant une partition)\\
+	\item Le traitement du signal à partir d’enregistrements audios de performances de batteurs et l’écriture des données sur des fichiers MIDI.
+	\item La transformation des fichiers MIDI en partition de batterie (chaque fichier MIDI étant une partition)\\
 \end{itemize}
 
-Le sujet du stage se concentre sur la deuxième partie de cette chaîne et le sujet du mémoire (rassemble un ensemble d’amélioration de cette partie de la chaîne|est une proposition d’amélioration sur cette partie de la chaîne).
+Le sujet du stage se concentre sur la deuxième partie de cette chaîne et le sujet du mémoire est une proposition d’amélioration sur cette partie de la chaîne.
 
 \subsection*{Sujet du stage}
 
@@ -23,7 +23,7 @@ En outre, certaines expériences seront menées sur la base d'ensembles de donn�
 Au-delà de l'intégration de modèles, il sera également intéressant d'étudier comment l'utilisation de LM peut améliorer les résultats de l'AM, voir [2], et ouvrir la voie à la génération entièrement automatisée de partitions de batterie et au problème général de l'AMT de bout en bout.
 \cite{8350302}
 \subsection*{Sujet du mémoire}
-…
+Le mémoire propose de rechercher de rythmes génériques (\textit{motifs}) en amont dans la chaîne de traitement. Les \textit{motifs} sont prédéfinis avec des combinaisons possibles (\textit{gammes}) qui leur sont associées. Ces \textit{motifs} et leur \textit{gammes} respectives sont appelés \textit{systèmes}.\\L’usage des \textit{systèmes} a pour objectif de fixer des choix le plus tôt possible dans la chaîne de traitement afin de simplifier le reste des calculs en éliminant une grande partie d’entre eux. Ces choix concernent notamment la métrique, la séparation des voix ainsi que les règles de réécriture.
 \subsection*{Problématique traitée}	
 	En entrée : midi (séquence d’événements datés (piano roll) accompagné d’une grammaire pondérée)\\
 	$\Rightarrow$ parsing\\
