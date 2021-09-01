@@ -13,35 +13,27 @@ La chaîne de traitement peut-être séparée en deux grandes parties :
 Le sujet du stage se concentre sur la deuxième partie de cette chaîne et le sujet du mémoire est une proposition d’amélioration sur cette partie de la chaîne.
 
 \subsection*{Sujet du stage}
-
-La présente proposition s'intéresse à ce dernier problème, et plus précisément à :\\
-
-1. l'étude de modèles de langage (LM) incorporant certaines informations musicales de haut niveau nécessaires à la génération de partitions de qualité. On devrait en particulier considérer des hiérarchies d'événements de batterie induisant des placements temporels cohérents et se prêtant à des notations rythmiques faciles à lire pour un batteur entraîné ; voir \cite{foscarin:hal-01988990} pour des modèles structurés en arbre basés sur la théorie formelle du langage, que nous développons dans le contexte d'outils AMT plus généraux.\\\\
-2. l'intégration de ces LM avec l'état de l'art des modèles acoustiques (AM) et des méthodes pour les tâches de traitement du signal ci-dessus. Cela nécessite la prise en compte du contexte musical et des informations musicales de haut niveau des LM en plus des caractéristiques acoustiques de bas niveau ci-dessus.\\
-En outre, certaines expériences seront menées sur la base d'ensembles de données publiques, afin d'évaluer l'approche intégrée. Elles devraient couvrir certains cas de motifs rythmiques complexes se chevauchant.\\
-
-Au-delà de l'intégration de modèles, il sera également intéressant d'étudier comment l'utilisation de LM peut améliorer les résultats de l'AM, voir [2], et ouvrir la voie à la génération entièrement automatisée de partitions de batterie et au problème général de l'AMT de bout en bout.
-\cite{8350302}
-\subsection*{Sujet du mémoire}
-Le mémoire propose de rechercher de rythmes génériques (\textit{motifs}) en amont dans la chaîne de traitement. Les \textit{motifs} sont prédéfinis avec des combinaisons possibles (\textit{gammes}) qui leur sont associées. Ces \textit{motifs} et leur \textit{gammes} respectives sont appelés \textit{systèmes}.\\L’usage des \textit{systèmes} a pour objectif de fixer des choix le plus tôt possible dans la chaîne de traitement afin de simplifier le reste des calculs en éliminant une grande partie d’entre eux. Ces choix concernent notamment la métrique, la séparation des voix ainsi que les règles de réécriture.
+Le but du stage est d’améliorer qparse, un outil de transcription et d’écriture automatique de la batterie (entre autre).\\
+L'étude de modèles de langage (LM) incorporant certaines informations musicales de haut niveau nécessaires à la génération de partitions de qualité. On devrait en particulier considérer des hiérarchies d'événements de batterie induisant des placements temporels cohérents et se prêtant à des notations rythmiques faciles à lire pour un batteur entraîné ; voir \cite{foscarin:hal-01988990} pour des modèles structurés en arbre basés sur la théorie formelle du langage, que nous développons dans le contexte d'outils AMT plus généraux.
+\subsection*{Ce mémoire}
+Le mémoire propose de rechercher de rythmes génériques (\textit{motifs}) en amont dans la chaîne de traitement. Les \textit{motifs} sont prédéfinis avec des combinaisons possibles (\textit{gammes}) qui leur sont associées. Ces \textit{motifs} et leur \textit{gammes} respectives sont appelés \textit{systèmes}.\\L’usage des \textit{systèmes} a pour objectif de fixer des choix le plus tôt possible dans la chaîne de traitement afin de simplifier le reste des calculs en éliminant une partie d’entre eux. Ces choix concernent notamment la métrique, la séparation des voix ainsi que les règles de réécriture.
 \subsection*{Problématique traitée}	
-	En entrée : midi (séquence d’événements datés (piano roll) accompagné d’une grammaire pondérée)\\
-	$\Rightarrow$ parsing\\
-	$\Rightarrow$ global parsing tree\\
-	$\Rightarrow$ RI (Représentation Intermédiaire) arbres locaux par intruments\\
-	$\Rightarrow$ Sortie (xml, mei, lilypond,… )\\
-	Minimiser la distance entre le midi et la représentation en arbre.\\\\
-	Le but du stage est d’améliorer qparse, un outil de transcription et d’écriture automatique de la batterie (entre autre)\\\\
-	Le sujet de ce mémoire est de proposer une tâche de reconnaissance du regroupement des notes par les ligatures dans l’écriture de la batterie.\\\\
-	Pour cela, nous utiliserons la logique des systèmes (selon la définition agostinienne).\\$\Rightarrow$ Motif répétitif de plusieurs instruments coordonnées accompagnés d’un texte varié joué par un autre instrument de la batterie.\\\\Nous partirons de propositions génériques de systèmes (environs trois systèmes dans différents style de batterie) que nous tenterons de détecter dans le jeu de données groove.\\\\
-	Nous travaillerons aussi sur la détection de répétitions sur plusieurs mesures afin de pouvoir corriger des erreurs sur une des mesures qui aurait dû être identique au autres mais qui présente des différences.
-	
-\subsection*{Plan suivi dans le mémoire}
+	L’écriture musicale offre de nombreuse possibilités d’écriture pour un rythme donné, certains de ces choix sont plus pertinents que d’autres en fonction du contexte.\\
+	Reconnaître la métrique d’une partition, la façon de regrouper les notes par les ligatures (séparation des voix), ou simplement le choix pour les différentes continuations possibles (notes pointées, liaisons, silences, etc.) représentent autant de possibilités que de difficultés.
+\subsection*{Plan du mémoire}
+
+
+Introduction générale\\\\
+Partie I : Contexte général
 \begin{itemize}
-	\item écouter le dataset groove
-	\item observer la structure midi
-	\item décrire la notation de la batterie et transcrire manuellement pour comparer l’input et l’output idéal d’un point de vu théorique.
-	\item Détecter les systèmes dans le dataset.
-	\item Faire des règles de réécriture (rewriting/simplification) et de séparation des voix (reconnaissance de systèmes)
+	\item État de l’art
+	\item La transcription automatique
+	\item Les méthodes\\
 \end{itemize}
-	
+Partie II : Expérimentations
+\begin{itemize}
+	\item Corpus
+	\item Résultats
+	\item Discussion\\
+\end{itemize}
+Conclusion générale\\
