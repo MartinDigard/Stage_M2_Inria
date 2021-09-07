@@ -1,17 +1,23 @@
 \subsection{Les systèmes}
 \subsubsection{Définition}
 
-Système = motif + texte\\
-motif = rythmes coordonnés joués avec 2 ou 3 membres en boucle\\
-texte = rythme irrégulier joué avec un seul membre sur le motif.\\
+Un système est la combinaison d’un ou plusieurs éléments qui jouent un rythme en boucle (motif) et d’un autre élément qui joue un texte rythmique variable mais respectant les règles propre au système (gamme).\\
+
+Système = motif + gamme/texte\\
+motif = rythmes coordonnés joués avec 2 ou 3 membres en boucle (reparti sur 1 ou 2 voix)\\
+gamme/texte = rythme irrégulier joué avec un seul membre sur le motif (Réparti sur 1 voix). La gamme d’un système considère l’ensemble des combinaisons que le batteur pourrait rencontrer en interprétant un texte rythmique à l’aide du système.\\
+
+Nous partirons de propositions génériques de systèmes (environs trois systèmes dans différents styles de batterie) que nous tenterons de détecter dans le jeu de données groove.\\
 
 Quatre systèmes standards :
 \begin{itemize}
 	\item binaire
 	\item ternaire (shuffle, afro, rock)
 	\item jazz
-	\item afro-cubain
+	\item afro-cubain\\
 \end{itemize}
+
+Nous travaillerons aussi sur la détection de répétitions sur plusieurs mesures afin de pouvoir corriger des erreurs sur une des mesures qui aurait dû être identique aux autres mais qui présente des différences.
 
 \subsubsection{Utilité}
 \begin{itemize}
@@ -19,7 +25,7 @@ Quatre systèmes standards :
 	\item Définir une métrique
 	\item Conditionner des règles spécifiques de réécriture
 \end{itemize}
-\ \\
+
 Créer un ensemble de systèmes :
 \begin{itemize}
 	\item 4/4 binaire FAIT
@@ -60,7 +66,7 @@ Dans la plupart des méthodes, le charley n’est pas écrit car considéré com
 Les textes qui accompagnent les motifs étayent toutes les combinaisons d’un systèmes. 
 \newpage
 
-\subsubsection{Construction des systèmes pour les expérimentations}
+%\subsubsection{Construction des systèmes pour les expérimentations}
 
 
 

@@ -1,19 +1,69 @@
 \subsection{La notation de la batterie}
-\subsubsection{La hauteur des notes et les têtes de notes}
+
+\textit{Les 3 parties d’une note en général :}
+\begin{itemize}
+	\item durée
+	\item hampe
+	\item tête de note (peut aussi indiquer la durée mais en batterie on évitera les blanches, etc.)
+\end{itemize}
+source : \url{https://fr.wikipedia.org/wiki/Note_de_musique}
+
+\subsubsection{Hauteurs et têtes de notes pour la batterie}
+%\subsection{Définition des têtes de notes et des hauteurs}
+%\subsubsection*{Proposition de définition d’un standard de départ}
+Pour la transcriptions, nous proposons de choisir la base Agostini. La caisse claire centrale sur la portée est aussi centrale sur la batterie est elle est un élément qui conditionne la position des jambes (écart entre les pédales, etc.) ainsi que l’organisation des éléments en hauteur (toms, cymbales, etc.).
+On pensera en terme de symétrie la répartition des éléments par rapport au point central que constitue la caisse claire.\\
+Cette symétrie s’opère en trois dimensions :
+\begin{itemize}
+	\item Les hauteurs en terme de fréquences ;
+	\item La hauteur physique des éléments :\\
+	Du bas vers le haut : pédales, toms et caisse, cymbales
+	\item L’ergonomie, qui hiérarchise l’importance des éléments sur la portée (caisse claire au centre, hh-pied et ride sont aux deux extrémités).
+\end{itemize}
+
+
 \includegraphics[height=30mm, width=155mm]{z_images/1_description_notation/notes.png}
 partition 1
 \subsubsection{Les nuances}
 \includegraphics[height=20mm, width=35mm]{z_images/1_description_notation/nuances.png}\\
 partition 2\\\\
 Bien expliquer les accents, remplacer p et f par g et a\\
-$\Rightarrow$ nuance VS articulation\\
+$\Rightarrow$ nuance VS articulation\
+
+\subsubsection{Les durées}
+Basé sur \cite{jacquemard:hal-01134096} et sur \cite{jacquemard:hal-01403982}\\
+Pour la plupart des instruments mélodiques, la liaison et le point sont les deux seules possibilités en cas d’équivalence rythmique pour des notes dont la durée de l’une à l’autre est ininterrompue. Mais puisque les durées des notes n’ont pas d’importance en batterie, l’usage des silences pour combler la distance rythmique entre deux notes devient possible.\\
+Ceci pris en compte, et étant donné que les indications de durée dans les têtes de notes ne sont pas pratique en batterie (les symboles « x » des cymbales ne
+peuvent pas porter d’indication de durée dans la tête de notes\footnote{Certains logiciels le permettent mais leur lecture reste peu aisée}), l’écriture à l’aide de silences sera privilégiée comme indication de durée sauf dans les cas où cela reste impossible. Ce choix à pour but de n’avoir qu’une manière d’écrire toutes notes, que leurs têtes de notes soit modifiées ou non.\\\\
+\textit{Exemple blanche vs noire + soupir}\\
+
+Les cymbales-crash et les ouvertures de charley constituent les seusl cas qui excluent cette option. Le charley car ses ouvertures/fermetures sont presque toujours quantifiées et les cymbales-crash car elles peuvent être arrêtées à la main de manière quantifié aussi mais ce cas est très rare, nous allons donc nous concentrer sur les ouvertures de charley et considérer les crashs comme des événements sans durée.\\
+Les fermetures du charley sont notées soit par un silence (correspondant à une fermeture de la pédale), soit par un écrasement de l’ouverture par un autre coup de charley fermé, au pied ou à la main.\\\\
+\textbf{Exemples} :\\
+\includegraphics[height=80mm, width=60mm]{z_images/reecriture/exemples_charley_1.png}
+
 \subsubsection{La séparation des voix}
+Plusieurs écritures sont possibles pour un même rythme.
 \includegraphics[height=65mm, width=60mm]{z_images/1_description_notation/separation/0_exemples_separation.png}\\
-partition 3
-\subsection{La notation midi de la batterie}
+partition 3\\\\
+Sur la partition 3, il faudra faire un choix entre les exemples 1, 2 et 3 qui sont trois façon d’écrire la même chose. Ce choix se fera en fonction de la lisibilité, de quelles instruments auront des phrasés plus ou moins chargé et/ou variés, auquel cas on les mettra dans une seule voix afin de ne pas charger la partition, etc. 
+\subsection{La représentation numérique de la batterie}
 \subsubsection{Représentation symbolique (MIDI)}
-………\\
-\subsubsection{Les pitchs et la vélocité}
+MIDI (acronyme de Musical Instrument Digital Interface) est une norme technique qui décrit un protocole de communication, une interface numérique et des connecteurs électriques permettant de connecter une grande variété d'instruments de musique électroniques, d'ordinateurs et d'appareils audio connexes pour jouer, éditer et enregistrer de la musique.\\
+\textit{Source : \url{https://en.wikipedia.org/wiki/MIDI}}
+
+\subsubsection{Les données MIDI}
+Voir : \url{https://www.midi.org/}\\
+
+Les données midi sont représentées sous forme de piano-roll. Chaque points sur la figure suivante est appelé « évènement midi » :\\\\
+\includegraphics[height=40mm, width=50mm]{z_images/2_midi/representation_numerique_0.png}\\
+
+
+Les évènements MIDI rassemble un ensemble d’informations sur la hauteur, la durée, le volume :\\\\
+\includegraphics[height=40mm, width=50mm]{z_images/2_midi/representation_numerique_1.png}\\\\
+Pour la batterie, nous ne considérerons pas les offsets (« Off Event »).
+
+\subsubsection{Les pitchs}
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|} \hline
@@ -35,6 +85,8 @@ partition 3
 	\caption{Pitchs et instruments}
 	%	\label{tab:exemple}
 \end{table}
+Pas de charley pied ouvert…
+\subsubsection{La vélocité}
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|} \hline
@@ -43,12 +95,11 @@ partition 3
 	\end{tabular}
 	\caption{Vélocité et nuances}
 \end{table}
-Pas de charley pied ouvert…
-Nous ne prendrons en compte la vélocité que pour la cc, les toms et les cymbales jouées aux mains. Les nuances de grosse caisse et charley aux pieds sont le plus souvent insignifiantes, elles ne sont marquées sur le figure qu’à titre indicatif.\\\\
-Si la vélocité est en dessous de 40, il s’agit de ghost-notes : la tête de note devra être entouré de parenthèses et le suffixe \textit{p (piano)} devra être ajouté au codes de l’instrument. (Voir ccp ci-dessus.)\\\\
-Si la vélocité est au dessus de 90, il s’agit de notes accentuées : le symbole « > » et le suffixe \textit{f (forte)} devra être ajouté au codes de l’instrument. (Voir ccf ci-dessus.)\\\\
+Nous ne prendrons en compte la vélocité que pour la cc, les toms et les cymbales jouées aux mains. Les nuances de grosse caisse et charley aux pieds sont le plus souvent insignifiantes, elles ne sont marquées sur le figure qu’à titre indicatif.
+Si la vélocité est en dessous de 40, il s’agit de ghost-notes : la tête de note devra être entouré de parenthèses et le suffixe \textit{p (piano)} devra être ajouté au codes de l’instrument. (Voir ccp ci-dessus.)
+Si la vélocité est au dessus de 90, il s’agit de notes accentuées : le symbole « > » et le suffixe \textit{f (forte)} devra être ajouté au codes de l’instrument. (Voir ccf ci-dessus.)
 Lorsque la vélocité va de 40 à 89, on considèrera le volume comme normal et aucun symbole supplémentaire ne sera ajouté à la note.\\\\
-L’instrument qui sera difficile à placer sera la caisse claire car elle ne sera pas toujours affiliée aux mêmes instruments.
+
 \subsubsection{Les dilemmes}
 Le charley de pitch 46 est considéré comme le charley ouvert joué à la main sur le haut de la cymbale mais souvent, ça correspond au geste « tranche-olive » de la baguette lorsque le batteur accentue avec la tranche et joue moins fort avec l’olive sur le plat de la cymbale. Je vais dans un premier temps considérer le pitch comme \textbf{charley-main-ouvert-piano} (ghost-note)
 \newpage
