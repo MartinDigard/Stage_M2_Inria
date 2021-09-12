@@ -9,3 +9,19 @@ problématique traitée, plan suivi dans le mémoire.
 %La chaîne de traitement peut-être séparée en deux grandes parties. La première partie concernerait le traitement du signal à partir d’enregistrements audios de performances de batteurs et l’écriture des données sur des fichiers MIDI et la deuxième partie se focalise sur transformation des fichiers MIDI en partition de batterie (chaque fichier MIDI étant une partition)
 %Le sujet du stage se concentre sur la deuxième partie de cette chaîne et le sujet du mémoire est une proposition d’amélioration sur cette partie de la chaîne.
 
+\\\\
+\textbf{Automatic music transcription : Challenges and future directions} \cite{article1}\\
+
+(abstract \cite{article1})\\
+Les différents travaux existant se préoccupent plus de la transcription à partir de l’audio en passant par le traitement du signal.\\
+Les humains sont encore meilleurs que les machines et la précisions à l’air d’avoir atteint sa limite.\\
+Analyse des limites des méthodes courantes et identification des directions prometteuses.\\
+Les modèles généraux utilisés ne traitent pas correctement la riche diversités des signaux musicaux.\\\\
+2 moyens pour surmonter cela :
+\begin{itemize}
+	\item Adapter les algorithmes pour des cas d’utilisations spécifiques.
+	\item Utiliser les approches semi-automatiques.\\
+\end{itemize}
+\textbf{La richesse des partitions musicales et des données audio correspondantes, désormais disponibles, constitue une source potentielle de données d'apprentissage, grâce à l'alignement forcé des données audio sur les partitions, mais l'utilisation à grande échelle de ces données n'a pas encore été tentée.}\\\\
+D'autres approches prometteuses incluent l'intégration d'informations provenant de plusieurs algorithmes et de différents aspects musicaux.\\
+\textit{Voir : A Review of Automatic Drum Transcription}\cite{8350302}
