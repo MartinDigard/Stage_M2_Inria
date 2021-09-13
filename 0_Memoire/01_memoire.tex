@@ -149,120 +149,73 @@
 \input{02_macros}
 \newcommand\tab[1][5mm]{\hspace*{#1}}
 \parindent=0em
-
 \begin{document}
 \sloppy
 \dominitoc
 \include{03_page-de-garde}
 \newpage
 \setcounter{tocdepth}{1}
-%\pdfbookmark[0]{Table des matières}{tablematieres}
+\pdfbookmark[0]{Table des matières}{tablematieres}
 \tocless\tableofcontents
 \newpage
 \listoffigures
 \listoftables
 \printnomenclature
 \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter*{Introduction}
+\chapter*{Introduction générale}
 \adjustmtc
 \addstarredchapter{Introduction} 
 \input{04_introduction_generale}
 
-\part{Contexte général}
+\chapter{Contexte}
+\label{chap:05_contexte}
+\adjustmtc
+\minitoc
+\input{05_contexte}
+
 \chapter{\'Etat de l'art}
 \label{chap:articles}
 \adjustmtc
 \minitoc
-
-\section{Introduction}
-Dans ce chapitre, nous présenterons le rapport possible entre la musique et le TAL, en considérant les notions de langage musical et langue naturelle, le lien entre partition musicale comme manière d’écrire la musique et texte comme manière d’écrire la parole.\\
-Nous aborderons aussi les applications des techniques TAL pour les différents traitements associés à la musique ainsi que les différentes avancées qui ont déjà eues lieues dans le domaine de la transcription de la musique. Et enfin, les avancées en terme de transcription automatique de la batterie.
-
-% CONTENU
 \input{05_etat_de_l_art}
 
 \section{Conclusion}
 Nous avons décidé de compléter le travail qui concerne la batterie en commençant par l’endroit le moins pratiqué, à savoir la transcription en partition pour à l’avenir réaliser la chaîne de bout en bout : de l’audio jusqu’à l’écriture de partition.
 
 
-\chapter{Transcription automatique}
-\label{chap:transcription automatique}
+
+\chapter{Méthodes et contributions}
+\label{chap:methodes et contributions}
 \minitoc
-
-\section{Introduction}
-Dans ce chapitre, nous expliquerons le processus général de la transcription automatique.\\
-Nous ne parlerons que de la deuxième partie de la chaîne de traitement allant des données midi vers l’audio.
-
-\section{Description générale}
-\input{06_1_description_generale}
-
-\section{Transcription automatique de la batterie}
-\input{06_2_midi_vers_partition}
-\input{06_3_ADT}
-
-\section{Conclusion}
-Dans le cas, de l’ADT, l’architecture reste la même mais de nombreuse seront à affiner, notamment pour les questions de continuation ainsi que celle des ghost-notes et des accents.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% MÉTHODES
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\chapter{Méthodes}
-\label{chap:methodes}
-\minitoc
-
-\textit{\\Méthodes (chapitre~\ref{chap:methodes})~: les méthodes
-appliquées, avec le détail des expériences réalisées (différentes
-configurations)~;}
-
-\textit{\\Corpus (chapitre~\ref{chap:corpus})~: le corpus utilisé
-	\emph{(caractéristiques, pré-traitements appliqués)}}
-
 \section{Introduction}
 Dans ce chapitre, nous expliquerons en détails les méthodes employées pour adapter à la batterie le processus décrit dans le chapitre précédent.
 \newpage
-
 \section{Généralités}
 \input{07_1_methodes}
-
 \section{Représentations, systèmes et réécriture}
-
-\input{07_2_representation}\newpage
+\input{07_2_representation}
 \input{07_3_systemes}
 \input{07_4_reecriture}
-
-\section{Évaluation}
-\input{07_5_evaluation}
-
 \section{Conclusion}
 Conclusion de ce chapitre.
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Deuxième partie
-
-\part{Expérimentations}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% CORPUS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\chapter{Corpus}
-\label{chap:corpus}
+\chapter{Expérimentations et résultats}
+\label{chap:expérimentations et résultats}
 \minitoc
-
 \section{Introduction}
 Dans ce chapitre, nous présenterons le corpus, les expérimentations et les différents choix effectués pour les tests.
-
 \section{Le corpus}
 \input{10_groove}
+\section{Les contributions}
+\input{contributions}
 \section{Choix pour les tests}
 \input{11_choix_pour_les_tests}
 \newpage
 \input{12_squant_1}
+\section{Évaluation}
+\input{07_5_evaluation}
 \section{Conclusion}
 Conclusion de ce chapitre.
 
@@ -270,22 +223,22 @@ Conclusion de ce chapitre.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% RÉSULTATS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\chapter{Résultats}
-\label{chap:resultats}
-\minitoc
-
-\textit{\\Résultats (chapitre~\ref{chap:resultats})~: les résultats
-obtenus sur chacune des expériences~;}
-
-\section{Introduction}
-Dans ce chapitre...
-
-\section{Contenu}
-Une section dans ce chapitre...
-
-\section{Conclusion}
-Conclusion de ce chapitre.
+%
+%\chapter{Résultats}
+%\label{chap:resultats}
+%\minitoc
+%
+%\textit{\\Résultats (chapitre~\ref{chap:resultats})~: les résultats
+%obtenus sur chacune des expériences~;}
+%
+%\section{Introduction}
+%Dans ce chapitre...
+%
+%\section{Contenu}
+%Une section dans ce chapitre...
+%
+%\section{Conclusion}
+%Conclusion de ce chapitre.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -310,11 +263,6 @@ Une section dans ce chapitre...
 
 \section{Conclusion}
 Conclusion de ce chapitre.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% CONCLUSION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage\pdfbookmark[-1]{Conclusion générale}{conclusion} %% CG: lien dans le PDF hors d'une partie
 \chapter*{Conclusion générale}
