@@ -3,6 +3,11 @@
 \include "../../0_drum_style_perso.ly"
 
 
+\header {
+  midititle = "reference_partition"
+}
+
+
 up = \drummode {
 
   \override Script.Y-offset = #'-1.0
@@ -452,17 +457,20 @@ down = \drummode {
   \once\override Rest #'extra-offset = #'(0.0 . 2.0) r1
 }
 
-
-\score {
-  <<
-		\new DrumStaff
+\book {
+  \bookOutputName "0_partition_drummer_01_session1_004"
+  \score {
 	<<
-	  \repeat unfold 19 {
-		s1 \noBreak s1 \break
-	  }
-	  \set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
-	  \new DrumVoice { \voiceOne \up }
-	  \new DrumVoice { \voiceTwo \down }
+	  \new DrumStaff
+	  <<
+		\repeat unfold 19 {
+		  s1 \noBreak s1 \break
+		}
+		\set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+		\new DrumVoice { \voiceOne \up }
+		\new DrumVoice { \voiceTwo \down }
+	  >>
 	>>
-  >>
+	\midi {}
+  }
 }
