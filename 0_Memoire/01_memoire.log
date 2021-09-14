@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.5.9)  14 SEP 2021 17:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.5.9)  14 SEP 2021 17:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2151,7 +2151,7 @@ Package xcolor Warning: Incompatible color definition on input line 181.
 
 \openout4 = `01_memoire.mtc'.
 
-(./01_memoire.mtc6) (./06_etat_de_l_art.tex) [15] [16
+(./01_memoire.mtc5) (./06_etat_de_l_art.tex) [15] [16
 
 ]
 
@@ -2164,12 +2164,12 @@ Package xcolor Warning: Incompatible color definition on input line 187.
 
 \openout4 = `01_memoire.mtc'.
 
-(./01_memoire.mtc8) (./07_methodes_et_contributions.tex [17]
+(./01_memoire.mtc6) (./07_methodes_et_contributions.tex [17]
 Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
-<z_images/1_description_notation/notes.png, id=298, 656.4525pt x 123.46124pt>
+<z_images/1_description_notation/notes.png, id=301, 656.4525pt x 123.46124pt>
 File: z_images/1_description_notation/notes.png Graphic file (type png)
 <use z_images/1_description_notation/notes.png>
 Package pdftex.def Info: z_images/1_description_notation/notes.png  used on inp
@@ -2181,7 +2181,7 @@ Overfull \hbox (72.02289pt too wide) in paragraph at lines 47--49
  []
 
 [18]
-<z_images/1_description_notation/nuances.png, id=308, 151.56625pt x 82.3075pt>
+<z_images/1_description_notation/nuances.png, id=311, 151.56625pt x 82.3075pt>
 File: z_images/1_description_notation/nuances.png Graphic file (type png)
 <use z_images/1_description_notation/nuances.png>
 Package pdftex.def Info: z_images/1_description_notation/nuances.png  used on i
@@ -2210,7 +2210,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--61
 
  []
 
-<z_images/reecriture/exemples_charley_1.png, id=310, 524.96124pt x 778.91pt>
+<z_images/reecriture/exemples_charley_1.png, id=313, 524.96124pt x 778.91pt>
 File: z_images/reecriture/exemples_charley_1.png Graphic file (type png)
 <use z_images/reecriture/exemples_charley_1.png>
 Package pdftex.def Info: z_images/reecriture/exemples_charley_1.png  used on in
@@ -2223,7 +2223,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 62--66
 
 [19 <./z_images/1_description_notation/notes.png> <./z_images/1_description_not
 ation/nuances.png>]
-<z_images/1_description_notation/separation/0_exemples_separation.png, id=321, 
+<z_images/1_description_notation/separation/0_exemples_separation.png, id=324, 
 314.17375pt x 335.2525pt>
 File: z_images/1_description_notation/separation/0_exemples_separation.png Grap
 hic file (type png)
@@ -2247,7 +2247,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
 
-<z_images/2_midi/representation_numerique_0.png, id=331, 623.32875pt x 400.4962
+<z_images/2_midi/representation_numerique_0.png, id=334, 623.32875pt x 400.4962
 5pt>
 File: z_images/2_midi/representation_numerique_0.png Graphic file (type png)
 <use z_images/2_midi/representation_numerique_0.png>
@@ -2264,7 +2264,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--82
 
  []
 
-<z_images/2_midi/representation_numerique_1.png, id=332, 360.34625pt x 244.915p
+<z_images/2_midi/representation_numerique_1.png, id=335, 360.34625pt x 244.915p
 t>
 File: z_images/2_midi/representation_numerique_1.png Graphic file (type png)
 <use z_images/2_midi/representation_numerique_1.png>
@@ -2361,7 +2361,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
 [25]
 <z_images/1_description_notation/separation/1_separation_4-4_binaire.png, id=36
-6, 333.245pt x 443.6575pt>
+9, 333.245pt x 443.6575pt>
 File: z_images/1_description_notation/separation/1_separation_4-4_binaire.png G
 raphic file (type png)
 <use z_images/1_description_notation/separation/1_separation_4-4_binaire.png>
@@ -2383,7 +2383,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 182--190
 
  []
 
-<z_images/1_description_notation/separation/2_separation_4-4_jazz.png, id=367, 
+<z_images/1_description_notation/separation/2_separation_4-4_jazz.png, id=370, 
 481.8pt x 316.18124pt>
 File: z_images/1_description_notation/separation/2_separation_4-4_jazz.png Grap
 hic file (type png)
@@ -2407,8 +2407,8 @@ Underfull \vbox (badness 1681) has occurred while \output is active []
  [26 <./z_images/1_description_notation/separation/1_separation_4-4_binaire.png
 > <./z_images/1_description_notation/separation/2_separation_4-4_jazz.png>] [27
 ]
-<z_images/1_description_notation/separation/3_separation_afro-cubain.png, id=37
-9, 365.365pt x 111.41624pt>
+<z_images/1_description_notation/separation/3_separation_afro-cubain.png, id=38
+2, 365.365pt x 111.41624pt>
 File: z_images/1_description_notation/separation/3_separation_afro-cubain.png G
 raphic file (type png)
 <use z_images/1_description_notation/separation/3_separation_afro-cubain.png>
@@ -2505,16 +2505,18 @@ Package xcolor Warning: Incompatible color definition on input line 193.
 
 Package xcolor Warning: Incompatible color definition on input line 193.
 
-Package minitoc Info: I0006
-(minitoc)             01_memoire.mtc10 is empty on input line 197.
-(./08_experimentations_et_resultats.tex
-<z_images/3_groove/roland_TD11.png, id=400, 723.70375pt x 770.88pt>
+\openout4 = `01_memoire.mtc'.
+
+\openout4 = `01_memoire.mtc'.
+
+(./01_memoire.mtc7) (./08_experimentations_et_resultats.tex
+<z_images/3_groove/roland_TD11.png, id=414, 723.70375pt x 770.88pt>
 File: z_images/3_groove/roland_TD11.png Graphic file (type png)
 <use z_images/3_groove/roland_TD11.png>
 Package pdftex.def Info: z_images/3_groove/roland_TD11.png  used on input line 
 6.
 (pdftex.def)             Requested size: 170.71088pt x 170.71158pt.
-<z_images/3_groove/dataset_how.png, id=401, 958.58125pt x 750.805pt>
+<z_images/3_groove/dataset_how.png, id=415, 958.58125pt x 750.805pt>
 File: z_images/3_groove/dataset_how.png Graphic file (type png)
 <use z_images/3_groove/dataset_how.png>
 Package pdftex.def Info: z_images/3_groove/dataset_how.png  used on input line 
@@ -2531,17 +2533,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--8
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 4686) has occurred while \output is active []
 
- [31 <./z_images/3_groove/roland_TD11.png>] [32 <./z_images/3_groove/dataset_ho
-w.png>]
-<z_images/3_groove/csv_metadata_struct.png, id=413, 992.70876pt x 909.3975pt>
+ [31]
+[32 <./z_images/3_groove/roland_TD11.png> <./z_images/3_groove/dataset_how.png>
+]
+<z_images/3_groove/csv_metadata_struct.png, id=432, 992.70876pt x 909.3975pt>
 File: z_images/3_groove/csv_metadata_struct.png Graphic file (type png)
 <use z_images/3_groove/csv_metadata_struct.png>
 Package pdftex.def Info: z_images/3_groove/csv_metadata_struct.png  used on inp
 ut line 11.
 (pdftex.def)             Requested size: 284.53056pt x 241.84952pt.
-<z_images/3_groove/train_validation_test.png, id=414, 967.615pt x 393.47pt>
+<z_images/3_groove/train_validation_test.png, id=433, 967.615pt x 393.47pt>
 File: z_images/3_groove/train_validation_test.png Graphic file (type png)
 <use z_images/3_groove/train_validation_test.png>
 Package pdftex.def Info: z_images/3_groove/train_validation_test.png  used on i
@@ -2561,7 +2564,7 @@ Underfull \hbox (badness 7504) in paragraph at lines 9--16
 [33 <./z_images/3_groove/csv_metadata_struct.png> <./z_images/3_groove/train_va
 lidation_test.png>]
 <z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3
-/musescore_0.png, id=423, 289.08pt x 128.48pt>
+/musescore_0.png, id=443, 289.08pt x 128.48pt>
 File: z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__ses
 sion3/musescore_0.png Graphic file (type png)
 <use z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sess
@@ -2570,7 +2573,7 @@ Package pdftex.def Info: z_images/transcriptions_manuelles/0_prise_en_main/0_te
 sts_drummer_01__session3/musescore_0.png  used on input line 21.
 (pdftex.def)             Requested size: 142.26357pt x 56.9058pt.
 <z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3
-/manuel_0.png, id=424, 337.26pt x 123.46124pt>
+/manuel_0.png, id=444, 337.26pt x 123.46124pt>
 File: z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__ses
 sion3/manuel_0.png Graphic file (type png)
 <use z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sess
@@ -2613,7 +2616,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--30
  []
 
 <z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3
-/musescore_1.png, id=425, 97.36375pt x 148.555pt>
+/musescore_1.png, id=445, 97.36375pt x 148.555pt>
 File: z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__ses
 sion3/musescore_1.png Graphic file (type png)
 <use z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sess
@@ -2622,7 +2625,7 @@ Package pdftex.def Info: z_images/transcriptions_manuelles/0_prise_en_main/0_te
 sts_drummer_01__session3/musescore_1.png  used on input line 34.
 (pdftex.def)             Requested size: 42.67824pt x 56.90483pt.
 <z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3
-/manuel_1.png, id=426, 101.37875pt x 139.52126pt>
+/manuel_1.png, id=446, 101.37875pt x 139.52126pt>
 File: z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__ses
 sion3/manuel_1.png Graphic file (type png)
 <use z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sess
@@ -2651,7 +2654,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--38
  []
 
 <z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3
-/musescore_2.png, id=427, 394.47375pt x 155.58125pt>
+/musescore_2.png, id=447, 394.47375pt x 155.58125pt>
 File: z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__ses
 sion3/musescore_2.png Graphic file (type png)
 <use z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sess
@@ -2660,7 +2663,7 @@ Package pdftex.def Info: z_images/transcriptions_manuelles/0_prise_en_main/0_te
 sts_drummer_01__session3/musescore_2.png  used on input line 41.
 (pdftex.def)             Requested size: 170.71588pt x 71.13142pt.
 <z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3
-/manuel_2.png, id=428, 337.26pt x 143.53625pt>
+/manuel_2.png, id=448, 337.26pt x 143.53625pt>
 File: z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__ses
 sion3/manuel_2.png Graphic file (type png)
 <use z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__sess
@@ -2687,7 +2690,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--46
  []
 
 <z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/muses
-core_0.png, id=438, 216.81pt x 137.51375pt>
+core_0.png, id=457, 216.81pt x 137.51375pt>
 File: z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/
 musescore_0.png Graphic file (type png)
 <use z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/m
@@ -2696,7 +2699,7 @@ Package pdftex.def Info: z_images/transcriptions_manuelles/0_prise_en_main/1_dr
 ummer_01__session1/musescore_0.png  used on input line 49.
 (pdftex.def)             Requested size: 113.81041pt x 71.13406pt.
 <z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Manue
-lle_0.png, id=439, 204.765pt x 129.48375pt>
+lle_0.png, id=458, 204.765pt x 129.48375pt>
 File: z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/
 Manuelle_0.png Graphic file (type png)
 <use z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/M
@@ -2806,7 +2809,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--78
  []
 
 <z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4_0
-.png, id=448, 1141.26375pt x 239.89626pt>
+.png, id=467, 1141.26375pt x 239.89626pt>
 File: z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_
 4-4_0.png Graphic file (type png)
 <use z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4
@@ -2815,7 +2818,7 @@ Package pdftex.def Info: z_images/transcriptions_manuelles/1_transcriptions_fla
 s/124_funk_95_fill_4-4_0.png  used on input line 91.
 (pdftex.def)             Requested size: 341.42398pt x 85.35959pt.
 <z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4_1
-_.png, id=449, 885.3075pt x 198.7425pt>
+_.png, id=468, 885.3075pt x 198.7425pt>
 File: z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_
 4-4_1_.png Graphic file (type png)
 <use z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4
@@ -2831,7 +2834,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 90--94
 [36 <./z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill
 _4-4_0.png> <./z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk
 _95_fill_4-4_1_.png>]
-<z_images/4_experimentations/experience_1/partition.png, id=458, 1281.78876pt x
+<z_images/4_experimentations/experience_1/partition.png, id=476, 1281.78876pt x
  903.375pt>
 File: z_images/4_experimentations/experience_1/partition.png Graphic file (type
  png)
@@ -2844,7 +2847,7 @@ Overfull \hbox (86.24356pt too wide) in paragraph at lines 98--99
 [][] 
  []
 
-<z_images/1_description_notation/systemes/0_textes_4-4_binaires.png, id=459, 65
+<z_images/1_description_notation/systemes/0_textes_4-4_binaires.png, id=477, 65
 2.4375pt x 425.59pt>
 File: z_images/1_description_notation/systemes/0_textes_4-4_binaires.png Graphi
 c file (type png)
@@ -2852,7 +2855,7 @@ c file (type png)
 Package pdftex.def Info: z_images/1_description_notation/systemes/0_textes_4-4_
 binaires.png  used on input line 101.
 (pdftex.def)             Requested size: 270.30852pt x 199.1701pt.
-<z_images/1_description_notation/systemes/1_motifs_4-4_binaires.png, id=460, 31
+<z_images/1_description_notation/systemes/1_motifs_4-4_binaires.png, id=478, 31
 0.15875pt x 221.82875pt>
 File: z_images/1_description_notation/systemes/1_motifs_4-4_binaires.png Graphi
 c file (type png)
@@ -2860,7 +2863,7 @@ c file (type png)
 Package pdftex.def Info: z_images/1_description_notation/systemes/1_motifs_4-4_
 binaires.png  used on input line 103.
 (pdftex.def)             Requested size: 113.81041pt x 85.35524pt.
-<z_images/4_experimentations/experience_1/systeme_recherche_1.png, id=461, 601.
+<z_images/4_experimentations/experience_1/systeme_recherche_1.png, id=479, 601.
 24625pt x 468.75125pt>
 File: z_images/4_experimentations/experience_1/systeme_recherche_1.png Graphic 
 file (type png)
@@ -2868,7 +2871,7 @@ file (type png)
 Package pdftex.def Info: z_images/4_experimentations/experience_1/systeme_reche
 rche_1.png  used on input line 105.
 (pdftex.def)             Requested size: 241.85202pt x 213.38943pt.
-<z_images/4_experimentations/experience_1/systeme_recherche_2.png, id=462, 600.
+<z_images/4_experimentations/experience_1/systeme_recherche_2.png, id=480, 600.
 2425pt x 476.78125pt>
 File: z_images/4_experimentations/experience_1/systeme_recherche_2.png Graphic 
 file (type png)
@@ -3174,7 +3177,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 399--405
  []
 
 [46]
-<z_images/4_experimentations/experience_2/partition.png, id=517, 603.25375pt x 
+<z_images/4_experimentations/experience_2/partition.png, id=533, 603.25375pt x 
 221.82875pt>
 File: z_images/4_experimentations/experience_2/partition.png Graphic file (type
  png)
@@ -3293,9 +3296,11 @@ Package xcolor Warning: Incompatible color definition on input line 199.
 
 Package xcolor Warning: Incompatible color definition on input line 199.
 
-Package minitoc Info: I0006
-(minitoc)             01_memoire.mtc12 is empty on input line 203.
-(./09_discussion.tex) [53] [54
+\openout4 = `01_memoire.mtc'.
+
+\openout4 = `01_memoire.mtc'.
+
+(./01_memoire.mtc8) (./09_discussion.tex) [53] [54
 
 
 ]
@@ -3368,10 +3373,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 223.
  ) 
 Here is how much of TeX's memory you used:
- 44784 strings out of 481239
- 969820 string characters out of 5920378
+ 44758 strings out of 481239
+ 969554 string characters out of 5920378
  1777184 words of memory out of 5000000
- 58710 multiletter control sequences out of 15000+600000
+ 58695 multiletter control sequences out of 15000+600000
  620828 words of font info for 116 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,14n,98p,1312b,662s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3385,10 +3390,10 @@ onts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/ncntrsbk/uncb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/
 uncbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
-Output written on 01_memoire.pdf (55 pages, 1562464 bytes).
+Output written on 01_memoire.pdf (55 pages, 1563755 bytes).
 PDF statistics:
- 634 PDF objects out of 1000 (max. 8388607)
- 498 compressed objects within 5 object streams
+ 652 PDF objects out of 1000 (max. 8388607)
+ 515 compressed objects within 6 object streams
  137 named destinations out of 1000 (max. 500000)
  469 words of extra memory for PDF output out of 10000 (max. 10000000)
 
