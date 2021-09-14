@@ -25,3 +25,9 @@ Les modèles généraux utilisés ne traitent pas correctement la riche diversit
 \textbf{La richesse des partitions musicales et des données audio correspondantes, désormais disponibles, constitue une source potentielle de données d'apprentissage, grâce à l'alignement forcé des données audio sur les partitions, mais l'utilisation à grande échelle de ces données n'a pas encore été tentée.}\\\\
 D'autres approches prometteuses incluent l'intégration d'informations provenant de plusieurs algorithmes et de différents aspects musicaux.\\
 \textit{Voir : A Review of Automatic Drum Transcription}\cite{8350302}
+
+\textit{\\Discussion (chapitre~\ref{chap:discussion})~: la discussion des
+résultats obtenus (quelle expérience a produit les meilleurs
+résultats, de manière globale, dans le détail des catégories) avec,
+si possible, une analyse des erreurs pour comprendre les
+possibilités d'amélioration~;}

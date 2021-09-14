@@ -1,0 +1,498 @@
+\section{Introduction}
+Dans ce chapitre, nous présenterons le corpus, les expérimentations et les différents choix effectués pour les tests.
+\section{Le corpus}
+\textbf{groove MIDI dataset}\\
+\url{https://magenta.tensorflow.org/datasets/groove}\\\\
+\includegraphics[height=60mm, width=60mm]{z_images/3_groove/roland_TD11.png}\\
+Des batteurs pro ont été engagés pour jouer sur un roland td-11\\\\
+\includegraphics[height=80mm, width=110mm]{z_images/3_groove/dataset_how.png}\newpage{}
+\textbf{Les métadatas :}\\\\
+\includegraphics[height=85mm, 
+width=100mm]{z_images/3_groove/csv_metadata_struct.png}\\
+\includegraphics[height=50mm, width=120mm]{z_images/3_groove/train_validation_test.png}\\
+Détails (entre autres tensorflow avec le dataset) à :
+\url{https://magenta.tensorflow.org/datasets/groove#license}\\
+écouter le dataset groove
+\newpage
+\section{Les contributions}
+\subsection{comparaisons de transcriptions}
+\textit{drummer\_01/session3 — 10\_rock-folk\_90\_beat\_4-4}\\\\
+Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
+\includegraphics[height=20mm, width=50mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/musescore_0.png}\ \ \ \ 
+\includegraphics[height=20mm, width=55mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/manuel_0.png}
+\textit{drummer\_01/session3 — 10\_rock-folk\_90\_beat\_4-4}\\\\
+Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
+\includegraphics[height=20mm, width=50mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/musescore_0.png}\ \ \ \ 
+\includegraphics[height=20mm, width=55mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/manuel_0.png}
+\begin{itemize}
+	\item Erreur d’indication de mesure ;
+	\item Mauvaise transcription d’une noire.\\
+\end{itemize}
+La noire du 4ème temps se retrouve sur le premier temps de la mesure suivante et elle se transforme en un triolet de double croches dont seules les deux premières seraient jouées.\\\\
+\textit{drummer\_01/session3 — 10\_rock-folk\_90\_beat\_4-4}\\\\
+Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
+\includegraphics[height=20mm, width=15mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/musescore_1.png}\ \ \ \ 
+\includegraphics[height=20mm, width=15mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/manuel_1.png}\\
+\begin{itemize}
+	\item Erreur de quantification : les doubles croches ont été interprétées en quintolet;\\
+\end{itemize}
+drummer\_01/session3 — 2\_jazz-swing\_185\_beat\_4-4\\\\
+Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
+\includegraphics[height=25mm, width=60mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/musescore_2.png}\ \ \ \ 
+\includegraphics[height=25mm, width=55mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/manuel_2.png}
+\begin{itemize}
+	\item L’indication de mesure est correcte mais tout a été décalé d’un temps car la première noire sur la caisse claire est jouée sur le 4ème temps et non sur le premier temps de la deuxième mesure comme l’indique la transcription de musescore.
+	\item Les toms basses des 1er et 2ème temps de la mesure musescore auraient dû être sur les temps et non décalés d’une double croche vers la droite.\\
+\end{itemize}
+drummer\_01/session1 — 1\_funk\_80\_beat\_4-4\\\\
+Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
+\includegraphics[height=25mm, width=40mm]{z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/musescore_0.png}\ \ \ \ 
+\includegraphics[height=25mm, width=40mm]{z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Manuelle_0.png}
+\begin{itemize}
+	\item On dirait que lorsque certaines notes sont proches, elles se resserrent et suppriment celles qui aurait dû être sur le temps.\\
+	\item Erreur d’indication de mesure ;
+	\item Mauvaise transcription d’une noire.\\
+\end{itemize}
+La noire du 4ème temps se retrouve sur le premier temps de la mesure suivante et elle se transforme en un triolet de double croches dont seules les deux premières seraient jouées.\\\\
+\textit{drummer\_01/session3 — 10\_rock-folk\_90\_beat\_4-4}\\\\
+Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
+\includegraphics[height=20mm, width=15mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/musescore_1.png}\ \ \ \ 
+\includegraphics[height=20mm, width=15mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/manuel_1.png}\\
+\begin{itemize}
+	\item Erreur de quantification : les doubles croches ont été interprétées en quintolet;\\
+\end{itemize}
+drummer\_01/session3 — 2\_jazz-swing\_185\_beat\_4-4\\\\
+Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
+\includegraphics[height=25mm, width=60mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/musescore_2.png}\ \ \ \ 
+\includegraphics[height=25mm, width=55mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/manuel_2.png}
+\begin{itemize}
+	\item L’indication de mesure est correcte mais tout a été décalé d’un temps car la première noire sur la caisse claire est jouée sur le 4ème temps et non sur le premier temps de la deuxième mesure comme l’indique la transcription de musescore.
+	\item Les toms basses des 1er et 2ème temps de la mesure musescore auraient dû être sur les temps et non décalés d’une double croche vers la droite.\\
+\end{itemize}
+drummer\_01/session1 — 1\_funk\_80\_beat\_4-4\\\\
+Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
+\includegraphics[height=25mm, width=40mm]{z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/musescore_0.png}\ \ \ \ 
+\includegraphics[height=25mm, width=40mm]{z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Manuelle_0.png}
+\begin{itemize}
+	\item On dirait que lorsque certaines notes sont proches, elles se resserrent et suppriment celles qui aurait dû être sur le temps.\\
+\end{itemize}
+%drummer\_01/session1 — 1\_funk\_80\_beat\_4-4\\
+%Fichier midi vers partition avec musescore :\\\\
+%\includegraphics[height=25mm, width=80mm]{z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/MuseScore_1.png} \\\\
+%Transcription manuelle :\\
+%\includegraphics[height=20mm, width=65mm]{z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Manuelle_1.png} \\
+%\begin{itemize}
+%	\item La caisse claire de la 2ème croche du 4ème temps de la 1ère mesure se transforme en une combinaison de quadruple/quintuple/double croches liées qui commence par un soupir et finit en débordant sur le premier temps de la mesure suivante. 
+%\end{itemize}
+\subsubsection{Exemple avec des flas}
+%Des exemples de notation flas tom/caisse-claire existent dans des partitions récentes (rythmique binaire J.-F. Juskowiak).\\
+%$\Rightarrow$ Ils faudra donc les prendre en compte dans les comparaisons de transcriptions.
+Fichier midi vers partition avec musescore :\\
+\includegraphics[height=30mm, width=120mm]{z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4_0.png}\\
+Transcription manuelle :\\
+\includegraphics[height=20mm, width=90mm]{z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4_1_.png}\\
+\subsection{Les tests unitaires}
+\section{Choix pour les tests}
+\subsection{Expérience 1 - 4/4 binaire}
+\subsubsection{Partition de référence pour l’ouput}
+\includegraphics[height=120mm, width=160mm]{z_images/4_experimentations/experience_1/partition.png}
+\subsubsection{Systèmes recherchés}
+Textes :\\\\
+\includegraphics[height=70mm, width=95mm]{z_images/1_description_notation/systemes/0_textes_4-4_binaires.png}\\
+Motifs :\\\\
+\includegraphics[height=30mm, width=40mm]{z_images/1_description_notation/systemes/1_motifs_4-4_binaires.png}\\\\
+Systèmes résultants :\\\\
+\includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/experience_1/systeme_recherche_1.png}
+\includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/experience_1/systeme_recherche_2.png}
+
+
+\subsubsection{Représentation des systèmes en arbres de rythmes}
+
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 1a
+	[.Mesure\ 1
+	[.Temps\ 1 [rd\\bd ][ [rd\\pf ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd\\pf ][rd ]]]
+	[.Temps\ 3 [rd\\bd ][ [rd\\pf ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd\\pf ][rd ]]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [rd ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 3 [rd ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]]}\\
+
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 1b
+	[.Mesure\ 1
+	[.Temps\ 1 [rd\\bd ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 3 [rd\\bd ][ [rd\\pf ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [rd ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd\\pf ][rd ]]]
+	[.Temps\ 3 [rd\\bd ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]
+	[.Mesure\ 3
+	[.Temps\ 1 [rd\\bd ][ [rd\\pf ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 3 [rd ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd\\pf ][rd ]]] ]]}\\
+
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 2a
+	[.Mesure\ 1
+	[.Temps\ 1 [rd\\bd ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 3 [rd\\bd ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [rd ][bd ][rd\\pf ][rd\\bd ]]
+	[.Temps\ 2 [rd\\cc ][bd ][rd\\pf ][rd\\bd ]]
+	[.Temps\ 3 [rd ][bd ][rd\\pf ][rd\\bd ]]
+	[.Temps\ 4 [rd\\cc ][bd ][rd\\pf ][rd\\bd ]] ]]}\\
+
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 2b
+	[.Mesure\ 1
+	[.Temps\ 1 [rd\\bd ][ [rd\\pf ][rd\\bd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 3 [rd ][bd ][rd\\pf ][rd ]]
+	[.Temps\ 4 [rd\\cc ][ [rd\\pf ][rd\\bd ]]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [rd\\ ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][bd ][rd\\pf ][rd ]]
+	[.Temps\ 3 [rd\\bd ][ [rd\\pf ][rd\\bd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]
+	[.Mesure\ 3
+	[.Temps\ 1 [rd ][bd ][rd\\pf ][rd ]]
+	[.Temps\ 2 [rd\\cc ][ [rd\\pf ][rd\\bd ]]]
+	[.Temps\ 3 [rd ][ [rd\\bd\\pf ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][bd ][rd\\pf ][rd ]]] ] }\\
+
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 2c
+	[.Mesure\ 1
+	[.Temps\ 1 [rd\\bd ][bd ][rd\\pf ][rd\\bd ]]
+	[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd\\bd ]]]
+	[.Temps\ 3 [rd ][bd ][rd\\bd\\pf ][rd ]]
+	[.Temps\ 4 [rd\\cc ][bd ][rd\\pf ][rd\\bd ]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [rd\\bd ][ [rd\\bd\\pf ][rd\\bd ]]]
+	[.Temps\ 2 [rd\\cc ][bd ][rd\\bd\\pf ][rd ]]
+	[.Temps\ 3 [rd\\bd ][bd ][rd\\pf ][rd\\bd ]]
+	[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd\\bd ]]] ]
+	[.Mesure\ 3
+	[.Temps\ 1 [rd ][bd ][rd\\bd\\pf ][rd ]]
+	[.Temps\ 2 [rd\\cc ][bd ][rd\\pf ][rd\\bd ]]
+	[.Temps\ 3 [rd\\bd ][ [rd\\bd\\pf ][rd\\bd ]]]
+	[.Temps\ 4 [rd\\cc ][bd ][rd\\bd\\pf ][rd ]]] ] }\\\\
+
+\subsubsection{Séparation des voix}
+Motif\ 1\ +\ Texte\ 1a\\\\
+\textit{Voix haute}\\
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 1a
+	[.Mesure\ 1
+	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]]}\\
+
+\textit{Voix basse}\\
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 1a
+	[.Mesure\ 1
+	[.Temps\ 1 [bd ][ [pf ][t ]]]
+	[.Temps\ 2 [t ][ [pf ][t ]]]
+	[.Temps\ 3 [bd ][ [pf ][t ]]]
+	[.Temps\ 4 [t ][ [pf ][t ]]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [t ][ [bd\\pf ][t ]]]
+	[.Temps\ 2 [t ][ [bd\\pf ][t ]]]
+	[.Temps\ 3 [t ][ [bd\\pf ][t ]]]
+	[.Temps\ 4 [t ][ [bd\\pf ][t ]]] ]]}\\
+
+Motif\ 1\ +\ Texte\ 1b\\\\
+\textit{Voix haute}\\
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 1b
+	[.Mesure\ 1
+	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+	[.Mesure\ 3
+	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]]}\\
+
+\textit{Voix basse}\\
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 1b
+	[.Mesure\ 1
+	[.Temps\ 1 [bd ][ [bd\\pf ][t ]]]
+	[.Temps\ 2 [t ][ [bd\\pf ][t ]]]
+	[.Temps\ 3 [bd ][ [pf ][t ]]]
+	[.Temps\ 4 [t ][ [bd\\pf ][t ]]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [t ][ [bd\\pf ][t ]]]
+	[.Temps\ 2 [t ][ [pf ][t ]]]
+	[.Temps\ 3 [bd ][ [bd\\pf ][t ]]]
+	[.Temps\ 4 [t ][ [bd\\pf ][t ]]] ]
+	[.Mesure\ 3
+	[.Temps\ 1 [bd ][ [pf ][t ]]]
+	[.Temps\ 2 [t ][ [bd\\pf ][t ]]]
+	[.Temps\ 3 [t ][ [bd\\pf ][t ]]]
+	[.Temps\ 4 [t ][ [pf ][t ]]] ]]}\\
+
+Motif\ 1\ +\ Texte\ 2a\\\\
+\textit{Voix haute}\\
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 2a
+	[.Mesure\ 1
+	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [rd ][t ][rd ][rd ]]
+	[.Temps\ 2 [rd\\cc ][t ][rd ][rd ]]
+	[.Temps\ 3 [rd ][t ][rd ][rd ]]
+	[.Temps\ 4 [rd\\cc ][t ][rd ][rd ]] ]]}\\
+
+\textit{Voix basse}\\
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 2a
+	[.Mesure\ 1
+	[.Temps\ 1 [bd ][ [bd\\pf ][t ]]]
+	[.Temps\ 2 [t ][ [bd\\pf ][t ]]]
+	[.Temps\ 3 [bd ][ [bd\\pf ][t ]]]
+	[.Temps\ 4 [t ][ [bd\\pf ][t ]]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [t ][bd ][pf ][bd ]]
+	[.Temps\ 2 [t ][bd ][pf ][bd ]]
+	[.Temps\ 3 [t ][bd ][pf ][bd ]]
+	[.Temps\ 4 [t ][bd ][pf ][bd ]] ]]}\\
+
+Motif\ 1\ +\ Texte\ 2b\\\\
+\textit{Voix haute}\\
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 2b
+	[.Mesure\ 1
+	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+	[.Temps\ 3 [rd ][t ][rd ][rd ]]
+	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [rd\\ ][ [rd ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][t ][rd ][rd ]]
+	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+	[.Mesure\ 3
+	[.Temps\ 1 [rd ][t ][rd ][rd ]]
+	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][t ][rd ][rd ]]] ] }\\
+
+\textit{Voix basse}\\
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 2b
+	[.Mesure\ 1
+	[.Temps\ 1 [bd ][ [pf ][bd ]]]
+	[.Temps\ 2 [t ][ [bd\\pf ][t ]]]
+	[.Temps\ 3 [t ][bd ][pf ][t ]]
+	[.Temps\ 4 [t ][ [pf ][bd ]]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [t ][ [bd\\pf ][t ]]]
+	[.Temps\ 2 [t ][bd ][pf ][t ]]
+	[.Temps\ 3 [bd ][ [pf ][bd ]]]
+	[.Temps\ 4 [t ][ [bd\\pf ][t ]]] ]
+	[.Mesure\ 3
+	[.Temps\ 1 [t ][bd ][pf ][t ]]
+	[.Temps\ 2 [t ][ [pf ][bd ]]]
+	[.Temps\ 3 [t ][ [bd\\pf ][t ]]]
+	[.Temps\ 4 [t ][bd ][pf ][t ]]] ] }\\\\
+
+Motif\ 1\ +\ Texte\ 2c\\\\
+\textit{Voix haute}\\
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 2c
+	[.Mesure\ 1
+	[.Temps\ 1 [rd ][t ][rd ][rd ]]
+	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+	[.Temps\ 3 [rd ][t ][rd ][rd ]]
+	[.Temps\ 4 [rd\\cc ][t ][rd ][rd ]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+	[.Temps\ 2 [rd\\cc ][t ][rd ][rd ]]
+	[.Temps\ 3 [rd ][t ][rd ][rd ]]
+	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+	[.Mesure\ 3
+	[.Temps\ 1 [rd ][t ][rd ][rd ]]
+	[.Temps\ 2 [rd\\cc ][t ][rd ][rd ]]
+	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+	[.Temps\ 4 [rd\\cc ][t ][rd ][rd ]]] ] }\\\\
+
+\textit{Voix basse}\\
+\resizebox{500pt}{!} {
+	\Tree[.Motif\ 1\ +\ Texte\ 2c
+	[.Mesure\ 1
+	[.Temps\ 1 [bd ][bd ][pf ][bd ]]
+	[.Temps\ 2 [t ][ [bd\\pf ][bd ]]]
+	[.Temps\ 3 [t ][bd ][bd\\pf ][t ]]
+	[.Temps\ 4 [t ][bd ][pf ][bd ]] ]
+	[.Mesure\ 2
+	[.Temps\ 1 [bd ][ [bd\\pf ][bd ]]]
+	[.Temps\ 2 [t ][bd ][bd\\pf ][t ]]
+	[.Temps\ 3 [bd ][bd ][pf ][bd ]]
+	[.Temps\ 4 [t ][ [bd\\pf ][bd ]]] ]
+	[.Mesure\ 3
+	[.Temps\ 1 [t ][bd ][bd\\pf ][t ]]
+	[.Temps\ 2 [t ][bd ][pf ][bd ]]
+	[.Temps\ 3 [bd ][ [bd\\pf ][bd ]]]
+	[.Temps\ 4 [t ][bd ][bd\\pf ][t ]]] ] }\\\\
+\newpage
+
+
+\subsubsection{Règles de réécriture pour le 4/4 binaire}
+
+\resizebox{70pt}{!} {
+	\Tree[.1/4 [t ][x ][x ][x ] ]
+}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+\resizebox{70pt}{!} {
+	\Tree[.1/4 [r ][x ][x ][x ] ]
+}\\\\
+
+\resizebox{70pt}{!} {
+	\Tree[.1/4 [x ][t ][x ][x ]]
+}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+\resizebox{50pt}{!} {
+	\Tree[.1/4 [x ][ [x ][x ]]]
+}\\\\
+
+\resizebox{70pt}{!} {
+	\Tree[.1/4 [t ][x ][x ][t ] ]
+}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+\resizebox{50pt}{!} {
+	\Tree[.1/4 [ [r ][x ]][x ] ]
+}\\\\
+
+\resizebox{50pt}{!} {
+	\Tree[.1/4 [t ][ [x ][x ]]]
+}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+\resizebox{50pt}{!} {
+	\Tree[.1/4 [r ][ [x ][x ]]]
+}\\\\
+
+\resizebox{50pt}{!} {
+	\Tree[.1/4 [t ][ [x ][t ]] ]
+}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+\resizebox{30pt}{!} {
+	\Tree[.1/4 [r ][x ] ]
+}\\\\
+
+\resizebox{50pt}{!} {
+	\Tree[.1/4 [x ][ [x ][t ]] ]
+}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+\resizebox{30pt}{!} {
+	\Tree[.1/4 [x ][x ] ]
+}
+\newpage
+
+\subsection{Expérience 2}
+\subsubsection{Partition de référence pour l’ouput}
+\includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/experience_2/partition.png}\\\\
+\textit{En cours…}
+\newpage
+\subsection{squant : parsing du fichier midi}
+squant lit le midi\\
+grammaire wta qui détermine le poid\\
+La distance est automatiquement déterminée par squant\\
+distance à l’input\\
+complexité de la notation
+
+On veut minimiser le coût et la distance $\Rightarrow$ Trouver un compromis.
+
+./build/squant2 -h
+
+Essayer le lire un fichier midi avec squant2
+lire mesure par mesure
+Regarder les wta(grammaire)
+
+\subsubsection{Quelques tests de lecture midi}
+\begin{verbatim}
+Les 4 messages suivants sont présents dans tous les tests qui suivent :
+[ info] schema file: test/schema/schema-01.wta (??? weight model option)
+[warning] no declaration MAX\_GRACE in grammar file test/schema/schema-01.wta
+[warning] no declaration TIMESIG in grammar file test/schema/schema-01.wta
+[warning] MIDIfile has not joined tracks
+\end{verbatim}
+./build/squant2 -v 4 -a test/schema/schema-01.wta -m 004\_jazz-funk\_116\_beat\_4-4.mid -config ./params.ini
+\begin{verbatim}
+[error] at least one of the options -bars or -barsec mandatory
+\end{verbatim}
+./build/squant2 -verbosity 4 -schema test/schema/schema-01.wta -midi 004\_jazz-funk\_116\_beat\_4-4.mid -config ./params.ini -barsec 3
+\begin{verbatim}
+squant2: /home/martin/qparselib/src/schemata/SymbLabel.cpp:44: static label_t SymbLabel::make(unsigned char, SymbLabel::Kind, short unsigned int, short unsigned int): Assertion `info2 < 512' failed.
+Abandon (core dumped)
+\end{verbatim}
+Tester squant2 avec le fichiers midi du corpus du gitlab\\\\
+La commande suivante :
+build/squant2 -v 5 -a ./test/schema/schema-03-R.wta -m ~/corpus-master\_qparselib/103-SaintSaens-elephant/perf/103\_FJ.mid -config ./params.ini -mono -barsec 3.0 -ts 3/4	
+
+Donne :\\
+(1) 3($\bullet$, $\overline{2}$:2($\bullet$, ), )\\
+(2) 3($\bullet$, $\overline{2}$:2($\bullet$, $\bullet$), )\\
+(3) 3($\bullet$, $\overline{2}$:2($\bullet$, $\circ$), )\\\\
+
+% Reste de l’arbre avec des caractères pas encore fonctionnels :
+%(4) 3(2̅(2̅(2̅(●, ●), ⏑), ⏑), ⏑:2, )
+%(5) 3(2̅(2̅(●, ○), ●), ●:2, )
+%(6) 3(2̅(●, 2̅(●, 2̅(○, ●))), ⏑:2, )
+%(7) 3(2̅(●, ●), ●:2, )
+%(8) 3(2̅(●, 2̅(●, 2̅(⏑, ●))), 2̅(⏑, 2̅(●, ○)), ●)
+%(9) 3(●, ●:2, )
+%(10) 3(●, 2̅:2(●, 2̅(●, 2̅(⏑, ●))), )
+%(11) 3(⏑, 2̅:2(●, ○), )
+%(12) 3(●, ⏑, ●)
+%(13) 3(●, 2̅:2(2̅(●, 2̅(○, ●)), 2̅(⏑, 2̅(○, ●))), )
+%(14) 3(⏑, 2̅:2(●, 2̅(●, ○)), )
+%(15) 3(●, ●:2, )
+%(16) 3(●, ○:2, )
+
+Pour comprendre les grammaires :\\
+Regarder les fichiers wta commentés.\\
+https://qparse.gitlabpages.inria.fr/docs/scientific/\\
+A\_Parse-based\_Framework\_for\_Coupled\_RhythmQuantization\_and\_Score\_Structuring.pdf
+Réfléchir au coût de notation (grace notes, etc.)
+\newpage
+
+\subsubsection{cluster.md}
+%\input{12_squant_2}
+
+\subsubsection{Contributions}
+Contribution sur la branch « distance » dans :\\
+\begin{itemize}
+	\item qparselib/notes/cluster.md
+	\item qparselib/src/segment/import/ :\\
+	DrumCode hpp et cpp\\
+\end{itemize}
+
+\newpage
+\section{Évaluation}
+\subsubsection{Comparaison d’arbres}
+Trouver un moyen de comparer l’arbre obtenu automatiquement de l’arbre de la transcription manuelle.
+\section{Conclusion}
+Conclusion de ce chapitre.
