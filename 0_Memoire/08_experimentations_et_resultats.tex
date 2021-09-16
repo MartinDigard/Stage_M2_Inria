@@ -1,6 +1,7 @@
 \section{Introduction}
 Dans ce chapitre, nous présenterons le corpus, les expérimentations et les différents choix effectués pour les tests.
 \section{Corpus et expérimentations}
+\subsection*{Le corpus}
 \textbf{groove MIDI dataset}\\
 \url{https://magenta.tensorflow.org/datasets/groove}\\\\
 \includegraphics[height=60mm, width=60mm]{z_images/3_groove/roland_TD11.png}\\
@@ -14,8 +15,8 @@ Détails (entre autres tensorflow avec le dataset) à :
 \url{https://magenta.tensorflow.org/datasets/groove#license}\\
 écouter le dataset groove
 \newpage
-%\section{Les expérimentations}
-\subsection*{comparaisons de transcriptions}
+\subsection*{Les expérimentations}
+\subsubsection{Comparaisons de transcriptions}
 \textit{drummer\_01/session3 — 10\_rock-folk\_90\_beat\_4-4}\\\\
 Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
 \includegraphics[height=20mm, width=50mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/musescore_0.png}\ \ \ \ 
@@ -76,24 +77,16 @@ Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\
 \begin{itemize}
 	\item On dirait que lorsque certaines notes sont proches, elles se resserrent et suppriment celles qui aurait dû être sur le temps.\\
 \end{itemize}
-%drummer\_01/session1 — 1\_funk\_80\_beat\_4-4\\
-%Fichier midi vers partition avec musescore :\\\\
-%\includegraphics[height=25mm, width=80mm]{z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/MuseScore_1.png} \\\\
-%Transcription manuelle :\\
-%\includegraphics[height=20mm, width=65mm]{z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Manuelle_1.png} \\
-%\begin{itemize}
-%	\item La caisse claire de la 2ème croche du 4ème temps de la 1ère mesure se transforme en une combinaison de quadruple/quintuple/double croches liées qui commence par un soupir et finit en débordant sur le premier temps de la mesure suivante. 
-%\end{itemize}
-\subsubsection{Exemple avec des flas}
-%Des exemples de notation flas tom/caisse-claire existent dans des partitions récentes (rythmique binaire J.-F. Juskowiak).\\
-%$\Rightarrow$ Ils faudra donc les prendre en compte dans les comparaisons de transcriptions.
+\textbf{Exemple avec des flas}\\\\
 Fichier midi vers partition avec musescore :\\
 \includegraphics[height=30mm, width=120mm]{z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4_0.png}\\
 Transcription manuelle :\\
 \includegraphics[height=20mm, width=90mm]{z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4_1_.png}\\
-\subsection*{Les tests unitaires}
-\subsection*{Détails des expérimentations de bout en bout}
-\subsubsection{Expérience 1 - 4/4 binaire}
+\subsubsection{Les tests unitaires}
+\subsubsection{Le parsing avec squant}
+\includegraphics[height=80mm, width=160mm]{z_images/4_experimentations/input_parsing/midi_2bars_fill.png}
+\subsubsection{Détails des expérimentations de bout en bout}
+\textbf{Expérience 1 - 4/4 binaire}\\
 \textbf{Partition de référence pour l’ouput}
 \includegraphics[height=120mm, width=160mm]{z_images/4_experimentations/experience_1/partition.png}
 \textbf{Systèmes recherchés}

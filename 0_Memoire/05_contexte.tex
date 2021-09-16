@@ -24,12 +24,5 @@ En option, des informations peuvent également être fournies de manière extern
 %\section{La transcription automatique de la batterie}
 Les applications de l’AMT ont aussi de la valeur dans les domaines oraux ou d’improvisation qui manquent de partition (jazz, pop) \cite{article1}. Les applications de l’ADT serait utile pour ces styles de musiques puisque la batterie y est amplement représentée. Un grand nombre travaux ont déjà été menés dans le domaine de l’ADT. La plupart ont été énumérés par Wu et al. \cite{8350302} qui, pour mieux comprendre la pratique des systèmes d’ADT, se concentrent sur les méthodes basées sur la factorisation matricielle non négative et celles utilisant des réseaux neuronaux récurrents.\\
 La batterie a un statuts à part dans l’univers de l’AMT puisqu'il s'agit d'instruments sans hauteur, d'événements auxquels une durée est rarement attribuée et de notations spécifiques (par exemple sur les têtes de notes). Si les ordinateurs étaient capables d'analyser la partie de la batterie dans la musique enregistrée, cela permettrait une variété de tâches de traitement de la musique liées au rythme. En particulier, la détection et la classification des événements sonores de la batterie par des méthodes informatiques est considérée comme un problème de recherche important et stimulant dans le domaine plus large de la recherche d'informations musicales \cite{8350302}. Cependant, la plupart des travaux déjà entrepris se concentrent sur des méthodes de calcul pour la détection d'événements sonores de batterie à partir de signaux acoustiques ou sur la séparation entre les évènement sonore de batterie avec ceux des autres instruments dans un orchestre ou un groupe de musique \cite{2802}, ainsi que sur l'extraction de caractéristiques de bas niveau telles que la classe d'instrument et le moment de l'apparition du son. Très peu d'entre eux ont abordé la tâche de générer des partitions de batterie.
-\section{Qparse}
-En entrée : midi (séquence d’événements datés (piano roll) accompagné d’une grammaire pondérée)\\
-$\Rightarrow$ parsing\\
-$\Rightarrow$ global parsing tree\\
-$\Rightarrow$ RI (Représentation Intermédiaire) arbres locaux par intruments\\
-$\Rightarrow$ Sortie (xml, mei, lilypond,… )\\
-Minimiser la distance entre le midi et la représentation en arbre.\\\\
 \section{Conclusion}
 Dans le cas, de l’ADT, l’architecture reste la même mais de nombreuse seront à affiner, notamment pour les questions de continuation ainsi que celle des ghost-notes et des accents.

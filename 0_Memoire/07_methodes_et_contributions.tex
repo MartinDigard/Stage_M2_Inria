@@ -1,7 +1,13 @@
 \section{Introduction}
 Dans ce chapitre, nous expliquerons en détails les méthodes employées pour adapter à la batterie le processus décrit dans le chapitre précédent.
 \newpage
-
+\section{Qparse}
+En entrée : midi (séquence d’événements datés (piano roll) accompagné d’une grammaire pondérée)\\
+$\Rightarrow$ parsing\\
+$\Rightarrow$ global parsing tree\\
+$\Rightarrow$ RI (Représentation Intermédiaire) arbres locaux par intruments\\
+$\Rightarrow$ Sortie (xml, mei, lilypond,… )\\
+Minimiser la distance entre le midi et la représentation en arbre.\\\\
 \section{Représentations, systèmes et réécriture}
 \subsection*{La notation de la batterie}
 
@@ -208,5 +214,6 @@ Les textes qui accompagnent les motifs étayent toutes les combinaisons d’un s
 ~~\\
 \Tree[.$\frac{2}{8}$ [.x ][.tie ]]\Tree[.2/8 [.x ]]\\\\\\
 \Tree[.1/4 [.x ][.tie ]]\Tree[.1/4 [.x ][.r ]]\\\\\\
+
 \section{Conclusion}
 Bilan sur les différentes méthodes employées et la contribution que cela représente.
