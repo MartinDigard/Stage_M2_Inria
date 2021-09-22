@@ -1,16 +1,33 @@
 \section{Introduction}
-Dans ce chapitre, nous expliquerons en détails les méthodes employées pour adapter à la batterie le processus décrit dans le chapitre précédent.
-\newpage
-\section{Qparse}
+Dans ce chapitre, nous expliquerons en détails les méthodes que nous avons employées pour l’ADT. Nous commencerons par une description de qparse et des arbres de rythmes. Nous proposerons ensuite une modélisation comprenant une description de la notation de la batterie mise en relation avec les informations MIDI, ceci ayant pour objectif le parsing des données MIDI en arbre syntaxique. Enfin, nous démontrerons un modèle théorique de pattern (implémentable) qui devra être utilisé comme base de connaissance pour obtenir un système plus rapide et une meilleure qualité en sortie.
+\section{Les méthodes}
+\subsection{Qparse et les arbres de rythmes}
+\subsubsection{Qparse}
+Qparse produit une partition musicale en prenant en entrée une performance musicale symbolique (par exemple un fichier MIDI) et un automate à arbre pondéré décrivant un langage de rythmes préférés (grammaire pondérée). La quantification des rythmes est basée sur des algorithmes d’analyse syntaxique applicables sur des automates arborescents. pondérés.\footnote{\url{https://qparse.gitlabpages.inria.fr}}
 En entrée : midi (séquence d’événements datés (piano roll) accompagné d’une grammaire pondérée)\\
 $\Rightarrow$ parsing\\
 $\Rightarrow$ global parsing tree\\
 $\Rightarrow$ RI (Représentation Intermédiaire) arbres locaux par intruments\\
 $\Rightarrow$ Sortie (xml, mei, lilypond,… )\\
-Minimiser la distance entre le midi et la représentation en arbre.\\\\
-\section{Représentations, systèmes et réécriture}
-\subsection*{La notation de la batterie}
+Minimiser la distance entre le midi et la représentation en arbre.
+\subsubsection{Les données MIDI}
+MIDI (Musical Instrument Digital Interface) est une norme technique qui décrit un protocole de communication, une interface numérique et des connecteurs électriques permettant de connecter une grande variété d'instruments de musique électroniques, d'ordinateurs et d'appareils audio connexes pour jouer, éditer et enregistrer de la musique.\footnote{\url{https://en.wikipedia.org/wiki/MIDI}}\\\\
+Les données midi sont représentées sous forme de piano-roll. Chaque points sur la figure suivante est appelé « évènement midi » :\\\\
+\begin{figure}[h]
+	\includegraphics[height=40mm, width=50mm]{z_images/2_midi/exemple_midi_piano.jpg}
+	\caption{Exemple piano roll}
+\end{figure}
 
+%\fig{piano-roll-exemple}\\
+Les évènements MIDI rassemble un ensemble d’informations sur la hauteur, la durée, le volume :\\\\
+\includegraphics[height=40mm, width=50mm]{z_images/2_midi/representation_numerique_1.png}\\\\
+Pour la batterie, les évènements sont considérés sans durée, nous ignorerons donc les offsets (« Off Event »), les « Off Tick » et les « Duration ». Le channel ne nous sera pas util non-plus.\\\\
+\textit{Ici, définir Tick et channel.}\\\\
+Voici un exemple de piano-roll midi pour la batterie :\\\\
+\includegraphics[height=40mm, width=50mm]{z_images/2_midi/representation_numerique_0.png}
+\section{Les contributions}
+\subsection{Notations, systèmes et réécriture}
+\subsubsection{La notation de la batterie}
 \textit{Les 3 parties d’une note en général :}
 \begin{itemize}
 	\item durée
@@ -59,21 +76,6 @@ Plusieurs écritures sont possibles pour un même rythme.
 partition 3\\\\
 Sur la partition 3, il faudra faire un choix entre les exemples 1, 2 et 3 qui sont trois façon d’écrire la même chose. Ce choix se fera en fonction de la lisibilité, de quelles instruments auront des phrasés plus ou moins chargé et/ou variés, auquel cas on les mettra dans une seule voix afin de ne pas charger la partition, etc. 
 \subsection*{La représentation numérique de la batterie}
-\subsubsection{Représentation symbolique (MIDI)}
-MIDI (acronyme de Musical Instrument Digital Interface) est une norme technique qui décrit un protocole de communication, une interface numérique et des connecteurs électriques permettant de connecter une grande variété d'instruments de musique électroniques, d'ordinateurs et d'appareils audio connexes pour jouer, éditer et enregistrer de la musique.\\
-\textit{Source : \url{https://en.wikipedia.org/wiki/MIDI}}
-
-\subsubsection{Les données MIDI}
-Voir : \url{https://www.midi.org/}\\
-
-Les données midi sont représentées sous forme de piano-roll. Chaque points sur la figure suivante est appelé « évènement midi » :\\\\
-\includegraphics[height=40mm, width=50mm]{z_images/2_midi/representation_numerique_0.png}\\
-
-
-Les évènements MIDI rassemble un ensemble d’informations sur la hauteur, la durée, le volume :\\\\
-\includegraphics[height=40mm, width=50mm]{z_images/2_midi/representation_numerique_1.png}\\\\
-Pour la batterie, nous ne considérerons pas les offsets (« Off Event »).
-
 \subsubsection{Les pitchs}
 \begin{table}[h]
 	\centering
