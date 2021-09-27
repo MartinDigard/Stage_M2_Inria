@@ -31,3 +31,223 @@ résultats obtenus (quelle expérience a produit les meilleurs
 résultats, de manière globale, dans le détail des catégories) avec,
 si possible, une analyse des erreurs pour comprendre les
 possibilités d'amélioration~;}
+
+%\resizebox{500pt}{!} {
+%	\Tree[.Motif\ 1\ +\ Texte\ 1b
+%	[.Mesure\ 1
+%	[.Temps\ 1 [rd\\bd ][ [rd\\bd\\pf ][rd ]]]
+%	[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
+%	[.Temps\ 3 [rd\\bd ][ [rd\\pf ][rd ]]]
+%	[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]
+%	[.Mesure\ 2
+%	[.Temps\ 1 [rd ][ [rd\\bd\\pf ][rd ]]]
+%	[.Temps\ 2 [rd\\cc ][ [rd\\pf ][rd ]]]
+%	[.Temps\ 3 [rd\\bd ][ [rd\\bd\\pf ][rd ]]]
+%	[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]
+%	[.Mesure\ 3
+%	[.Temps\ 1 [rd\\bd ][ [rd\\pf ][rd ]]]
+%	[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
+%	[.Temps\ 3 [rd ][ [rd\\bd\\pf ][rd ]]]
+%	[.Temps\ 4 [rd\\cc ][ [rd\\pf ][rd ]]] ]]}\\
+
+%\resizebox{450pt}{!} {
+%	\Tree[.Motif\ 1\ +\ Texte\ 2a
+%	[.Mesure\ 1
+%	[.Temps\ 1 [rd\\bd ][ [rd\\bd\\pf ][rd ]]]
+%	[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
+%	[.Temps\ 3 [rd\\bd ][ [rd\\bd\\pf ][rd ]]]
+%	[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]
+%	[.Mesure\ 2
+%	[.Temps\ 1 [rd ][bd ][rd\\pf ][rd\\bd ]]
+%	[.Temps\ 2 [rd\\cc ][bd ][rd\\pf ][rd\\bd ]]
+%	[.Temps\ 3 [rd ][bd ][rd\\pf ][rd\\bd ]]
+%	[.Temps\ 4 [rd\\cc ][bd ][rd\\pf ][rd\\bd ]] ]]}\\
+
+%\resizebox{500pt}{!} {
+%	\Tree[.Motif\ 1\ +\ Texte\ 2b
+%	[.Mesure\ 1
+%	[.Temps\ 1 [rd\\bd ][ [rd\\pf ][rd\\bd ]]]
+%	[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
+%	[.Temps\ 3 [rd ][bd ][rd\\pf ][rd ]]
+%	[.Temps\ 4 [rd\\cc ][ [rd\\pf ][rd\\bd ]]] ]
+%	[.Mesure\ 2
+%	[.Temps\ 1 [rd\\ ][ [rd\\bd\\pf ][rd ]]]
+%	[.Temps\ 2 [rd\\cc ][bd ][rd\\pf ][rd ]]
+%	[.Temps\ 3 [rd\\bd ][ [rd\\pf ][rd\\bd ]]]
+%	[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]
+%	[.Mesure\ 3
+%	[.Temps\ 1 [rd ][bd ][rd\\pf ][rd ]]
+%	[.Temps\ 2 [rd\\cc ][ [rd\\pf ][rd\\bd ]]]
+%	[.Temps\ 3 [rd ][ [rd\\bd\\pf ][rd ]]]
+%	[.Temps\ 4 [rd\\cc ][bd ][rd\\pf ][rd ]]] ] }\\
+%
+%\resizebox{500pt}{!} {
+%	\Tree[.Motif\ 1\ +\ Texte\ 2c
+%	[.Mesure\ 1
+%	[.Temps\ 1 [rd\\bd ][bd ][rd\\pf ][rd\\bd ]]
+%	[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd\\bd ]]]
+%	[.Temps\ 3 [rd ][bd ][rd\\bd\\pf ][rd ]]
+%	[.Temps\ 4 [rd\\cc ][bd ][rd\\pf ][rd\\bd ]] ]
+%	[.Mesure\ 2
+%	[.Temps\ 1 [rd\\bd ][ [rd\\bd\\pf ][rd\\bd ]]]
+%	[.Temps\ 2 [rd\\cc ][bd ][rd\\bd\\pf ][rd ]]
+%	[.Temps\ 3 [rd\\bd ][bd ][rd\\pf ][rd\\bd ]]
+%	[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd\\bd ]]] ]
+%	[.Mesure\ 3
+%	[.Temps\ 1 [rd ][bd ][rd\\bd\\pf ][rd ]]
+%	[.Temps\ 2 [rd\\cc ][bd ][rd\\pf ][rd\\bd ]]
+%	[.Temps\ 3 [rd\\bd ][ [rd\\bd\\pf ][rd\\bd ]]]
+%	[.Temps\ 4 [rd\\cc ][bd ][rd\\bd\\pf ][rd ]]] ] }\\\\
+
+%
+%Motif\ 1\ +\ Texte\ 1b\\\\
+%\textit{Voix haute}\\
+%\resizebox{500pt}{!} {
+%	\Tree[.Motif\ 1\ +\ Texte\ 1b
+%	[.Mesure\ 1
+%	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+%	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+%	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+%	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+%	[.Mesure\ 2
+%	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+%	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+%	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+%	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+%	[.Mesure\ 3
+%	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+%	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+%	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+%	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]]}\\
+%
+%\textit{Voix basse}\\
+%\resizebox{500pt}{!} {
+%	\Tree[.Motif\ 1\ +\ Texte\ 1b
+%	[.Mesure\ 1
+%	[.Temps\ 1 [bd ][ [bd\\pf ][t ]]]
+%	[.Temps\ 2 [t ][ [bd\\pf ][t ]]]
+%	[.Temps\ 3 [bd ][ [pf ][t ]]]
+%	[.Temps\ 4 [t ][ [bd\\pf ][t ]]] ]
+%	[.Mesure\ 2
+%	[.Temps\ 1 [t ][ [bd\\pf ][t ]]]
+%	[.Temps\ 2 [t ][ [pf ][t ]]]
+%	[.Temps\ 3 [bd ][ [bd\\pf ][t ]]]
+%	[.Temps\ 4 [t ][ [bd\\pf ][t ]]] ]
+%	[.Mesure\ 3
+%	[.Temps\ 1 [bd ][ [pf ][t ]]]
+%	[.Temps\ 2 [t ][ [bd\\pf ][t ]]]
+%	[.Temps\ 3 [t ][ [bd\\pf ][t ]]]
+%	[.Temps\ 4 [t ][ [pf ][t ]]] ]]}\\
+
+%Motif\ 1\ +\ Texte\ 2a\\\\
+%\textit{Voix haute}\\
+%\resizebox{450pt}{!} {
+%	\Tree[.Motif\ 1\ +\ Texte\ 2a
+%	[.Mesure\ 1
+%	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+%	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+%	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+%	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+%	[.Mesure\ 2
+%	[.Temps\ 1 [rd ][t ][rd ][rd ]]
+%	[.Temps\ 2 [rd\\cc ][t ][rd ][rd ]]
+%	[.Temps\ 3 [rd ][t ][rd ][rd ]]
+%	[.Temps\ 4 [rd\\cc ][t ][rd ][rd ]] ]]}\\
+%
+%\textit{Voix basse}\\
+%\resizebox{450pt}{!} {
+%	\Tree[.Motif\ 1\ +\ Texte\ 2a
+%	[.Mesure\ 1
+%	[.Temps\ 1 [bd ][ [bd\\pf ][t ]]]
+%	[.Temps\ 2 [t ][ [bd\\pf ][t ]]]
+%	[.Temps\ 3 [bd ][ [bd\\pf ][t ]]]
+%	[.Temps\ 4 [t ][ [bd\\pf ][t ]]] ]
+%	[.Mesure\ 2
+%	[.Temps\ 1 [t ][bd ][pf ][bd ]]
+%	[.Temps\ 2 [t ][bd ][pf ][bd ]]
+%	[.Temps\ 3 [t ][bd ][pf ][bd ]]
+%	[.Temps\ 4 [t ][bd ][pf ][bd ]] ]]}\\\\
+
+%Motif\ 1\ +\ Texte\ 2b\\\\
+%\textit{Voix haute}\\
+%\resizebox{500pt}{!} {
+%	\Tree[.Motif\ 1\ +\ Texte\ 2b
+%	[.Mesure\ 1
+%	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+%	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+%	[.Temps\ 3 [rd ][t ][rd ][rd ]]
+%	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+%	[.Mesure\ 2
+%	[.Temps\ 1 [rd\\ ][ [rd ][rd ]]]
+%	[.Temps\ 2 [rd\\cc ][t ][rd ][rd ]]
+%	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+%	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+%	[.Mesure\ 3
+%	[.Temps\ 1 [rd ][t ][rd ][rd ]]
+%	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+%	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+%	[.Temps\ 4 [rd\\cc ][t ][rd ][rd ]]] ] }\\
+%
+%\textit{Voix basse}\\
+%\resizebox{500pt}{!} {
+%	\Tree[.Motif\ 1\ +\ Texte\ 2b
+%	[.Mesure\ 1
+%	[.Temps\ 1 [bd ][ [pf ][bd ]]]
+%	[.Temps\ 2 [t ][ [bd\\pf ][t ]]]
+%	[.Temps\ 3 [t ][bd ][pf ][t ]]
+%	[.Temps\ 4 [t ][ [pf ][bd ]]] ]
+%	[.Mesure\ 2
+%	[.Temps\ 1 [t ][ [bd\\pf ][t ]]]
+%	[.Temps\ 2 [t ][bd ][pf ][t ]]
+%	[.Temps\ 3 [bd ][ [pf ][bd ]]]
+%	[.Temps\ 4 [t ][ [bd\\pf ][t ]]] ]
+%	[.Mesure\ 3
+%	[.Temps\ 1 [t ][bd ][pf ][t ]]
+%	[.Temps\ 2 [t ][ [pf ][bd ]]]
+%	[.Temps\ 3 [t ][ [bd\\pf ][t ]]]
+%	[.Temps\ 4 [t ][bd ][pf ][t ]]] ] }\\\\
+%
+%Motif\ 1\ +\ Texte\ 2c\\\\
+%\textit{Voix haute}\\
+%\resizebox{500pt}{!} {
+%	\Tree[.Motif\ 1\ +\ Texte\ 2c
+%	[.Mesure\ 1
+%	[.Temps\ 1 [rd ][t ][rd ][rd ]]
+%	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+%	[.Temps\ 3 [rd ][t ][rd ][rd ]]
+%	[.Temps\ 4 [rd\\cc ][t ][rd ][rd ]] ]
+%	[.Mesure\ 2
+%	[.Temps\ 1 [rd ][ [rd ][rd ]]]
+%	[.Temps\ 2 [rd\\cc ][t ][rd ][rd ]]
+%	[.Temps\ 3 [rd ][t ][rd ][rd ]]
+%	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+%	[.Mesure\ 3
+%	[.Temps\ 1 [rd ][t ][rd ][rd ]]
+%	[.Temps\ 2 [rd\\cc ][t ][rd ][rd ]]
+%	[.Temps\ 3 [rd ][ [rd ][rd ]]]
+%	[.Temps\ 4 [rd\\cc ][t ][rd ][rd ]]] ] }\\\\
+%
+%\textit{Voix basse}\\
+%\resizebox{500pt}{!} {
+%	\Tree[.Motif\ 1\ +\ Texte\ 2c
+%	[.Mesure\ 1
+%	[.Temps\ 1 [bd ][bd ][pf ][bd ]]
+%	[.Temps\ 2 [t ][ [bd\\pf ][bd ]]]
+%	[.Temps\ 3 [t ][bd ][bd\\pf ][t ]]
+%	[.Temps\ 4 [t ][bd ][pf ][bd ]] ]
+%	[.Mesure\ 2
+%	[.Temps\ 1 [bd ][ [bd\\pf ][bd ]]]
+%	[.Temps\ 2 [t ][bd ][bd\\pf ][t ]]
+%	[.Temps\ 3 [bd ][bd ][pf ][bd ]]
+%	[.Temps\ 4 [t ][ [bd\\pf ][bd ]]] ]
+%	[.Mesure\ 3
+%	[.Temps\ 1 [t ][bd ][bd\\pf ][t ]]
+%	[.Temps\ 2 [t ][bd ][pf ][bd ]]
+%	[.Temps\ 3 [bd ][ [bd\\pf ][bd ]]]
+%	[.Temps\ 4 [t ][bd ][bd\\pf ][t ]]] ] }\\\\
+%\newpage
+
+%\subsubsection{Les régles de réécriture}
+%~~\\
+%\Tree[.$\frac{2}{8}$ [.x ][.tie ]]\Tree[.2/8 [.x ]]\\\\\\
+%\Tree[.1/4 [.x ][.tie ]]\Tree[.1/4 [.x ][.r ]]\\\\\\
