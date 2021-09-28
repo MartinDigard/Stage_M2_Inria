@@ -3,7 +3,7 @@ Dans ce chapitre, nous expliquerons en détails les méthodes que nous avons emp
 \section{Les méthodes}
 \subsection{Qparse}
 %\subsubsection{Qparse}
-Qparse produit une partition musicale en prenant en entrée une performance musicale symbolique (par exemple un fichier MIDI) et un automate à arbre pondéré décrivant un langage de rythmes préférés (grammaire pondérée). La quantification des rythmes est basée sur des algorithmes d’analyse syntaxique applicables sur des automates arborescents. pondérés.\footnote{\url{https://qparse.gitlabpages.inria.fr}}
+Qparse produit une partition musicale en prenant en entrée une performance musicale symbolique (par exemple un fichier MIDI) et un automate à arbre pondéré décrivant un langage de rythmes préférés (grammaire pondérée). La quantification des rythmes est basée sur des algorithmes d’analyse syntaxique applicables sur des automates arborescents.\footnote{\url{https://qparse.gitlabpages.inria.fr}}
 En entrée : midi (séquence d’événements datés (piano roll) accompagné d’une grammaire pondérée)\\
 $\Rightarrow$ parsing\\
 $\Rightarrow$ global parsing tree\\
@@ -32,7 +32,7 @@ Voici un exemple de piano-roll midi pour la batterie :
 \end{figure}\\
 On observe que toutes les durées sont identiques.
 \subsection{La grammaire pondérée}
-Système de rythmes préférés.
+La grammaire pondérée qui accompagne le MIDI en input est une grammaire hors-contexte pondérée. Chaque règle comporte un poid qui sert à favoriser certains rythmes plutôt que d’autres.\footnote{\url{https://qparse.gitlabpages.inria.fr/docs/scientific/}}
 \subsection{Les arbres de rythmes}
 Le parsing du midi donné en input crée une représentation symbolique sous forme d’arbre de rythme.\\
 Ici $\Rightarrow$ exemple avec :\\
