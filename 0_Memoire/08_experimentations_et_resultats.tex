@@ -130,87 +130,17 @@ Les temps de la première mesure du fichier MIDI sont bien quantifié mais ceux 
 [.Temps\ 1 [38-ON ][ [39-OFF ][40-ON ] ][ [41-OFF\\42-ON ][43-ON ] ][ [44-OFF\\45-OFF ][46-ON ] ]]
 ]}\\\\\\
 Les Onsets sont correctement triés au niveau des doubles croches mais certaines doubles croches sont inutilement subdivisées en triples croches (les 2ème, 3ème et 4ème doubles croches sur le premier temps ci-dessus).\\
-
 \textbf{2ème tentative :}\\
 Après une augmentation du poids des triples croches dans la grammaire (monté de 1 à 5)et une baisse de tous les autres poids (descendu de 1 à 0.5), et mis à part le troisième temps de la 2ème mesure, tous les Onsets sont bien triés et aucuns ne sont subdivisés.
-\subsection*{squant : parsing du fichier midi}
-squant lit le midi\\
-grammaire wta qui détermine le poid\\
-La distance est automatiquement déterminée par squant\\
-distance à l’input\\
-complexité de la notation
-
-On veut minimiser le coût et la distance $\Rightarrow$ Trouver un compromis.
-
-./build/squant2 -h
-
-Essayer le lire un fichier midi avec squant2
-lire mesure par mesure
-Regarder les wta(grammaire)
-
-\subsubsection{Quelques tests de lecture midi}
-\begin{verbatim}
-Les 4 messages suivants sont présents dans tous les tests qui suivent :
-[ info] schema file: test/schema/schema-01.wta (??? weight model option)
-[warning] no declaration MAX\_GRACE in grammar file test/schema/schema-01.wta
-[warning] no declaration TIMESIG in grammar file test/schema/schema-01.wta
-[warning] MIDIfile has not joined tracks
-\end{verbatim}
-./build/squant2 -v 4 -a test/schema/schema-01.wta -m 004\_jazz-funk\_116\_beat\_4-4.mid -config ./params.ini
-\begin{verbatim}
-[error] at least one of the options -bars or -barsec mandatory
-\end{verbatim}
-./build/squant2 -verbosity 4 -schema test/schema/schema-01.wta -midi 004\_jazz-funk\_116\_beat\_4-4.mid -config ./params.ini -barsec 3
-\begin{verbatim}
-squant2: /home/martin/qparselib/src/schemata/SymbLabel.cpp:44: static label_t SymbLabel::make(unsigned char, SymbLabel::Kind, short unsigned int, short unsigned int): Assertion `info2 < 512' failed.
-Abandon (core dumped)
-\end{verbatim}
-Tester squant2 avec le fichiers midi du corpus du gitlab\\\\
-La commande suivante :
-build/squant2 -v 5 -a ./test/schema/schema-03-R.wta -m ~/corpus-master\_qparselib/103-SaintSaens-elephant/perf/103\_FJ.mid -config ./params.ini -mono -barsec 3.0 -ts 3/4	
-
-Donne :\\
-(1) 3($\bullet$, $\overline{2}$:2($\bullet$, ), )\\
-(2) 3($\bullet$, $\overline{2}$:2($\bullet$, $\bullet$), )\\
-(3) 3($\bullet$, $\overline{2}$:2($\bullet$, $\circ$), )\\\\
-
-% Reste de l’arbre avec des caractères pas encore fonctionnels :
-%(4) 3(2̅(2̅(2̅(●, ●), ⏑), ⏑), ⏑:2, )
-%(5) 3(2̅(2̅(●, ○), ●), ●:2, )
-%(6) 3(2̅(●, 2̅(●, 2̅(○, ●))), ⏑:2, )
-%(7) 3(2̅(●, ●), ●:2, )
-%(8) 3(2̅(●, 2̅(●, 2̅(⏑, ●))), 2̅(⏑, 2̅(●, ○)), ●)
-%(9) 3(●, ●:2, )
-%(10) 3(●, 2̅:2(●, 2̅(●, 2̅(⏑, ●))), )
-%(11) 3(⏑, 2̅:2(●, ○), )
-%(12) 3(●, ⏑, ●)
-%(13) 3(●, 2̅:2(2̅(●, 2̅(○, ●)), 2̅(⏑, 2̅(○, ●))), )
-%(14) 3(⏑, 2̅:2(●, 2̅(●, ○)), )
-%(15) 3(●, ●:2, )
-%(16) 3(●, ○:2, )
-
-Pour comprendre les grammaires :\\
-Regarder les fichiers wta commentés.\\
-https://qparse.gitlabpages.inria.fr/docs/scientific/\\
-A\_Parse-based\_Framework\_for\_Coupled\_RhythmQuantization\_and\_Score\_Structuring.pdf
-Réfléchir au coût de notation (grace notes, etc.)
-\newpage
-
-%\subsubsection{cluster.md}
-%\input{12_squant_2}
-
-%\subsubsection{Contributions}
-
-\subsection*{Chaîne de traitement}
-\begin{itemize}
-	\item Reconnaître un motif (système) sur une mesure de l’input (un fichier midi représentant des données audios)\\ $\Rightarrow$ Motif (système) reconnu : true ou false
-	\item Si true : 
-	\begin{itemize}
-		\item Séparer les voix (\textit{Règles établis par le système})
-		\item Simplifier l’écriture de chaque voix (\textit{Règles établis par le système})\\
-	\end{itemize}
-\end{itemize}
-
+\subsection{Reconnaissance d’un motif sur l’arbre de parsing}
+Reconnaître un motif (système) sur une mesure de l’input (un fichier midi représentant des données audios)\\
+$\Rightarrow$ Motif (système) reconnu : true ou false\\
+Si true, appliquer les règles de réécritures.
+\subsection{Réécriture}
+\subsubsection{Séparation des voix}
+\textit{Règles établies par le système}
+\subsubsection{Règles de simplifications}		
+Simplifier l’écriture de chaque voix (\textit{Règles établis par le système})\\
 Contribution sur la branch « distance » dans :\\
 \begin{itemize}
 	\item qparselib/notes/cluster.md
@@ -222,7 +152,7 @@ Contribution sur la branch « distance » dans :\\
 \subsection{Résultats}
 Essayer d’implémenter un pattern…
 \subsection{Évaluation}
-1 - Transcription manuelle à partir de fichier midi et/ou wav d’une partition contenant des systèmes. Écriture des systèmes contenues dans la partition (arbres, séparation des voix, réécriture)
+1 - Transcription manuelle à partir de fichier midi et/ou wav d’une partition contenant des systèmes. Écriture des systèmes contenues dans la partition (arbres, séparation des voix, réécriture)\\\\
 2 - Trouver un moyen de comparer l’arbre obtenu automatiquement de l’arbre de la transcription manuelle.
 \section{Discussion}
 \subsection{Machine learning}
