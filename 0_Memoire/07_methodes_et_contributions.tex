@@ -132,7 +132,7 @@ Lorsque la vélocité va de 40 à 89, on considèrera le volume comme normal et 
 
 %\subsubsection{Les dilemmes}
 Le charley de pitch 46 est considéré comme le charley ouvert joué à la main sur le haut de la cymbale mais souvent, ça correspond au geste « tranche-olive » de la baguette lorsque le batteur accentue avec la tranche et joue moins fort avec l’olive sur le plat de la cymbale. Je vais dans un premier temps considérer le pitch comme \textbf{charley-main-ouvert-piano} (ghost-note)
-\subsubsection{Représentations en arbres}
+\subsubsection{Exemples de représentations en arbres}
 Voici une représentation de la \textit{Figure 3.4} en arbre de rythme avec les codes de chaque instrument :\\\\
 \Tree[ [ [rd\\gc ][ [rd\\pf ][rd ]]]
 [ [rd\\cc ][ [rd\\pf ][rd ]]]
@@ -164,18 +164,35 @@ Quatre systèmes standards :
 
 Nous travaillerons aussi sur la détection de répétitions sur plusieurs mesures afin de pouvoir corriger des erreurs sur une des mesures qui aurait dû être identique aux autres mais qui présente des différences.
 
-\subsubsection{Utilité}
+\subsubsection{Intérêt des systèmes}
+\textit{\textbf{Détection d’indication de mesure et choix de grammaire pondérée}}\\
+Il faut prendre en compte l’existence potentielle de plusieurs grammaires \textit{(un fichier wta par grammaire)} chacunes dédiées à un type de contenu MIDI. Le choix d’une grammaire pondérée doit être fait avant le parsing puisque qparse prends en entrée un fichier MIDI et un fichier wta.\\
+Pour les expériences effectuées avec le Groove MIDI Data Set, le style et l’indication de mesure sont récupérables par les noms de fichiers MIDI, mais il faudra par la suite les trouver automatiquement sans autres indications que les données MIDI elles-mêmes.\\
+En conséquence, les motifs des systèmes devront être recherchés sur l’input \textit{(fichiers MIDI)} avant le lancement du parsing, afin de déterminer la métrique en amont en vu de sélectionner la grammaire pondérée \textit{(fichier wta)} adéquate pour le parsing. Nous pensons que cette tâche devrait être effectuée en Machine Learning.
+\textbf{Les systèmes devront être matchés sur l’input MIDI}
 \begin{itemize}
-	\item Séparation des voix
-	\item Définir une métrique
-	\item Conditionner des règles spécifiques de réécriture
+	\item Définir une métrique ;
+	\item Réécriture : séparation des voix ;
+	\item Réécriture : Set de règles spécifiques de simplification.
 \end{itemize}
 
-Créer un ensemble de systèmes :
+Il faudra créer un ensemble de systèmes comprenant leurs règles spécifiques de réécriture (séparation des voix et simplifications).
+3 grandes catégories :
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|} \hline
+		Systèmes & Métriques & Subdivisions & Possibles & nb voix \\ \hline
+		binaires & simple & doubles-croches & triolets, sextolets & 2 \\
+		jazz & simple & triolets & croches et doubles-croches & 2 \\
+		ternaires & complexe & croches & duolets, quartelets & 2 \\
+		afros-cubains & simple & croches & - & 3 \\ \hline
+	\end{tabular}
+	\caption{Sytèmes}
+\end{table}
+
 \begin{itemize}
-	\item 4/4 binaire FAIT
-	\item jazz vs ternaire(12/8) EN COURS…
-	\item afro-cubain
+	\item ternaire (mesures complexes, principalement croches, noire pointées, duolets et quartelets possibles)
+	\item afro-cubain (mesure)
 	\item Tout transcrire avec lilypond et en arbres d’analyse syntaxique.
 	\item Créer les arbres de voix séparées.
 	\item Écrire les règles de réécriture.
@@ -184,7 +201,8 @@ Créer un ensemble de systèmes :
 
 Pour la \textbf{séparation des voix} et la \textbf{définition des métriques}, nous nous intéresserons principalement à la partie \textit{motif} des systèmes qui seront présentés. La partie \textit{texte} nous intéressera plus pour les \textbf{combinaisons de réécritures}.
 \newpage
-\subsubsection{Pour la séparation des voix}
+\subsubsection{Réécriture — Pour la séparation des voix}
+
 \textbf{Motif 4-4 binaire}\\\\
 \includegraphics[height=60mm, width=40mm]{z_images/1_description_notation/separation/1_separation_4-4_binaire.png}\\\\
 Ici, le système est construit sur un modèle rock en 4/4 : after-beat sur les 2 et 4 avec un choix de répartition des cymbales type fast-jazz. Le système est constitué par défaut du motif ride/ch-pf/cc et d’un texte joué à la grosse-caisse. La troisième séparation proposée est privilégiée car elle répartit selon 2 voix, une voix pour les mains (ride + cc) et une voix pour les pieds (ch-pf + gc). Ce choix paraît plus équilibré car deux instruments sont utilisés par voix et plus logique pour le lecteur puisque les mains sont en haut et les pieds en bas.\\
