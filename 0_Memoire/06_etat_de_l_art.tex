@@ -1,27 +1,26 @@
-\section{Introduction}
-Déjà en 1976, \cite{first_one} évoquait la représentation musicale en arbre syntaxique. 
+\section*{Introduction}
  ainsi que les différentes avancées qui ont déjà eues lieues dans le domaine de la transcription de la musique. Et enfin, les avancées en terme de transcription automatique de la batterie. Actuellement, des modèles polyvalent qui n’arrivent pas à récupérer toute la richesse des sons sont utilisés.
-\section{Audio, MIDI et partition}
-\subsection*{Monophonique et Polyphonique}
+%\section{Audio, MIDI et partition}
+\section{Monophonique et Polyphonique}
 C’est le problème de la séparation des voix.
 Les premiers travaux ont été fait sur l’identification des instruments monophoniques (une seule note à la fois, ou plusieurs notes de même durée en cas de monophonie par accord). Actuellement, le problème de l'estimation automatique de la hauteur des signaux monophoniques peut être considéré comme résolu, mais dans la plupart des contextes musicaux, les instruments sont polyphonique.\\
 Le fort degrés de chevauchement entre les durées ainsi qu’entre les fréquences rendent l’identification des instruments polyphoniques difficile. Cette tâche est étroitement liées à la séparation des sources.\\
 La création d'un système automatisé capable de transcrire de la musique polyphonique sans restrictions sur le degré de polyphonie ou le type d'instrument reste encore ouverte. Un des principaux enjeux de ce problème est la détection des hauteurs de son multiples (F0 multiples) \cite{article1}.
-\subsection*{Audio vers MIDI}
+\section{Audio vers MIDI}
 Voir : \cite{article1}
 - Multi-pitch détection and note tracking\\
 - Détection of onsets and offsets
 - Instrument recognition\\
 - Extraction of rhythmic information (tempo, beat, and musical timing)\\
 - Estimation of pitch and harmony (key, chords and pitch spelling)
-\subsection*{MIDI vers partition}
-\subsubsection{Approche linéaire}
+\section{MIDI vers partition}
+\subsection{Approche linéaire}
 nakamura \cite{SHIBATA2021262}
-\subsubsection{Approche hiérarchique}
+\subsection{Approche hiérarchique}
 \cite{foscarin:hal-01988990} évoque la nécessité d’une approche hiérarchique pour la production automatique de partition même si la quantification du rythme se fait le plus souvent par la manipulation de données linéaires :\\
 - rtu (real time units : secondes) vers mtu (musical time units : temps, métrique,…)\\
 Dans \cite{foscarin:hal-01988990}, les modèles de grammaire exposés sont différents de modèles markoviens linéaires de précédent travaux.
 \cite{harasimjazz}
 \cite{rohrmeier2020towards}
-\section{Conclusion}
+\section*{Conclusion}
 Nous avons décidé de compléter le travail qui concerne la batterie en commençant par l’endroit le moins pratiqué, à savoir la transcription en partition pour à l’avenir réaliser la chaîne de bout en bout : de l’audio jusqu’à l’écriture de partition.
