@@ -1,6 +1,7 @@
 \section*{Introduction}
 Dans ce chapitre, nous expliquerons en détails les méthodes que nous avons employées pour l’ADT. Nous commencerons par une description de qparse et des arbres de rythmes. Nous proposerons ensuite une modélisation comprenant une description de la notation de la batterie mise en relation avec les informations MIDI, ceci ayant pour objectif le parsing des données MIDI en arbre syntaxique. Enfin, nous démontrerons un modèle théorique de pattern (implémentable) qui devra être utilisé comme base de connaissance pour obtenir un système plus rapide et une meilleure qualité en sortie.
 \section{La notation de la batterie}
+\label{notation_batterie}
 \textit{Les 3 parties d’une note en général :}
 \begin{itemize}
 	\item durée
@@ -19,12 +20,14 @@ Cette symétrie s’opère en trois dimensions :
 	Du bas vers le haut : pédales, toms et caisse, cymbales
 	\item L’ergonomie, qui hiérarchise l’importance des éléments sur la portée (caisse claire au centre, hh-pied et ride sont aux deux extrémités).
 \end{itemize}
-\begin{figure}[h]
-	\includegraphics[height=30mm, width=155mm]{z_images/1_description_notation/notes.png}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[height=25mm, width=130mm]{z_images/1_description_notation/notes.png}
 	\caption{Hauteur et têtes de notes}
 \end{figure}
 \subsection{Nuances}
-\begin{figure}[h]
+\begin{figure}[!h]
+	\centering
 	\includegraphics[height=20mm, width=35mm]{z_images/1_description_notation/nuances.png}
 	\caption{Nuances}
 \end{figure}
@@ -40,11 +43,24 @@ peuvent pas porter d’indication de durée dans la tête de notes\footnote{Cert
 
 Les cymbales-crash et les ouvertures de charley constituent les seusl cas qui excluent cette option. Le charley car ses ouvertures/fermetures sont presque toujours quantifiées et les cymbales-crash car elles peuvent être arrêtées à la main de manière quantifié aussi mais ce cas est très rare, nous allons donc nous concentrer sur les ouvertures de charley et considérer les crashs comme des événements sans durée.\\
 Les fermetures du charley sont notées soit par un silence (correspondant à une fermeture de la pédale), soit par un écrasement de l’ouverture par un autre coup de charley fermé, au pied ou à la main.
-\begin{figure}[h]
+\begin{figure}[!h]
+	\centering
 	\includegraphics[height=80mm, width=60mm]{z_images/reecriture/exemples_charley_1.png}
 	\caption{Durées}
-\end{figure}
+	\label{duree_hh}
+\end{figure}\newpage
+\subsection{Voix}
+Plusieurs écritures sont possibles pour un même rythme :\\\\
+\begin{figure}[!h]
+	\centering
+	\includegraphics[height=65mm, width=60mm]{z_images/1_description_notation/separation/0_exemples_separation.png}
+	\caption{Séparation des voix}
+	\label{sep_voix}
+\end{figure}\\
+Sur la figure \ref{sep_voix}, il faudra faire un choix entre les exemples 1, 2 et 3 qui sont trois façon d’écrire la même chose. Ce choix se fera en fonction de la lisibilité, de quelles instruments auront des phrasés plus ou moins chargé et/ou variés, auquel cas on les mettra dans une seule voix afin de ne pas charger la partition, etc.
+Ainsi l’arbre syntaxique de départ sera divisé en autant d’instruments qui le constituent et les voix seront regroupées de manière cohérentes.
 \section{Modélisation pour la transcription}
+\label{modelisation_transcription}
 \subsection{Les pitchs}
 \begin{table}[h]
 	\centering
@@ -83,8 +99,8 @@ Lorsque la vélocité va de 40 à 89, on considèrera le volume comme normal et 
 
 %\subsubsection{Les dilemmes}
 Le charley de pitch 46 est considéré comme le charley ouvert joué à la main sur le haut de la cymbale mais souvent, ça correspond au geste « tranche-olive » de la baguette lorsque le batteur accentue avec la tranche et joue moins fort avec l’olive sur le plat de la cymbale. Je vais dans un premier temps considérer le pitch comme \textbf{charley-main-ouvert-piano} (ghost-note)
-\subsection{Représentations en arbres}
-Voici une représentation de la \textit{Figure 3.4} en arbre de rythme avec les codes de chaque instrument :\\\\
+\subsection{Les arbres de rythmes}
+Voici une représentation de la figure \ref{sep_voix} en arbre de rythme avec les codes de chaque instrument :\\\\
 \Tree[ [ [rd\\gc ][ [rd\\pf ][rd ]]]
 [ [rd\\cc ][ [rd\\pf ][rd ]]]
 [ [rd\\gc ][ [rd\\pf ][rd ]]]
@@ -98,52 +114,53 @@ Cet arbre représente un rythme unique dont les possibilités de notation sur un
 \section{Représentation symbolique (MIDI)}
 MIDI (Musical Instrument Digital Interface) est une norme technique qui décrit un protocole de communication, une interface numérique et des connecteurs électriques permettant de connecter une grande variété d'instruments de musique électroniques, d'ordinateurs et d'appareils audio connexes pour jouer, éditer et enregistrer de la musique.\footnote{\url{https://en.wikipedia.org/wiki/MIDI}}\\\\
 Les données midi sont représentées sous forme de piano-roll. Chaque points sur la figure suivante est appelé « évènement midi » :
-\begin{figure}[h]
+\begin{figure}[!h]
+	\centering
 	\includegraphics[height=40mm, width=50mm]{z_images/2_midi/exemple_midi_piano.jpg}
 	\caption{Exemple évènements avec durée}
-\end{figure}
-\newpage
+\end{figure}\\
 Chaque évènement MIDI rassemble un ensemble d’informations sur la hauteur, la durée, le volume, etc… :
-\begin{figure}[h]
+\begin{figure}[h!]
+	\centering
 	\includegraphics[height=40mm, width=50mm]{z_images/2_midi/representation_numerique_1.png}
 	\caption{Critère pour un évènement}
 \end{figure}\\
 Pour la batterie, les évènements sont considérés sans durée, nous ignorerons donc les offsets (« Off Event »), les « Off Tick » et les « Duration ». Le channel ne nous sera pas utile non-plus.
 \textit{Ici, définir Tick et channel.}
+\newpage
 Voici un exemple de piano-roll midi pour la batterie :
-\begin{figure}[h]
+\begin{figure}[h!]
+	\centering
 	\includegraphics[height=40mm, width=50mm]{z_images/2_midi/representation_numerique_0.png}
 	\caption{Exemple évènements sans durée}
-	On observe que toutes les durées sont identiques.
-\end{figure}
+\end{figure}\\
+On observe que toutes les durées sont identiques.
 \section{Qparse}
+\textit{Mettre ici un schéma de la chaîne de traitement de qparse (workflow)}\\
+Pb du MIDI avec qparse entrée ON-OFF $\Rightarrow$ sortie 1 seul symbole.\\
 Qparse produit une partition musicale en prenant en entrée une performance musicale symbolique (par exemple un fichier MIDI) et un automate à arbre pondéré décrivant un langage de rythmes préférés (grammaire pondérée). La quantification des rythmes est basée sur des algorithmes d’analyse syntaxique applicables sur des automates arborescents.\footnote{\url{https://qparse.gitlabpages.inria.fr}}
 En entrée : midi (séquence d’événements datés (piano roll) accompagné d’une grammaire pondérée)\\
 $\Rightarrow$ parsing\\
 $\Rightarrow$ global parsing tree\\
 $\Rightarrow$ RI (Représentation Intermédiaire) arbres locaux par intruments\\
 $\Rightarrow$ Sortie (xml, mei, lilypond,… )\\
-Minimiser la distance entre le midi et la représentation en arbre.
-\subsection{Les Jams}
-Regroupement par nature des notes qui forment un accord.
+Minimiser la distance entre le midi et la représentation en arbre.\\
+\textbf{Un des problèmes de Qparse était qu’il était limité au monophonique.}
+$\Rightarrow$ \textit{Expliquer ici les limites du monophonique…}
+%\subsection{Les Jams}
+%Regroupement par nature des notes qui forment un accord.
 \subsection{La grammaire pondérée}
 La grammaire pondérée qui accompagne le MIDI en input est une grammaire hors-contexte pondérée. Chaque règle comporte un poid qui sert à favoriser certains rythmes plutôt que d’autres.\footnote{\url{https://qparse.gitlabpages.inria.fr/docs/scientific/}}
-\subsection{Les arbres de rythmes}
+\subsection{Le parsing}
 Le parsing du midi donné en input crée une représentation symbolique sous forme d’arbre de rythme.\\
 Ici $\Rightarrow$ exemple avec :\\
 3bars\_fill\_groove-016.mid $\Rightarrow$ arbre\\
-\subsection{Les règles de réécritures}
+\subsection{La réécriture}
 \subsubsection{Séparation des voix}
-Plusieurs écritures sont possibles pour un même rythme :
-\begin{figure}[h]
-	\includegraphics[height=65mm, width=60mm]{z_images/1_description_notation/separation/0_exemples_separation.png}
-	\caption{Séparation des voix}
-\end{figure}\\
-Sur la figure 3.4, il faudra faire un choix entre les exemples 1, 2 et 3 qui sont trois façon d’écrire la même chose. Ce choix se fera en fonction de la lisibilité, de quelles instruments auront des phrasés plus ou moins chargé et/ou variés, auquel cas on les mettra dans une seule voix afin de ne pas charger la partition, etc.
-Ainsi l’arbre syntaxique de départ sera divisé en autant d’instruments qui le constituent et les voix seront regroupées de manière cohérentes.
 \subsubsection{Simplification}
 Ici, description basique des règles de réécriture 
 \section{Les systèmes}
+\label{systemes_methodes}
 Un système est la combinaison d’un ou plusieurs éléments qui jouent un rythme en boucle (motif) et d’un autre élément qui joue un texte rythmique variable mais respectant les règles propre au système (gamme).\\
 
 Système = motif + gamme/texte\\

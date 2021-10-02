@@ -15,6 +15,7 @@ Détails (entre autres tensorflow avec le dataset) à :
 \url{https://magenta.tensorflow.org/datasets/groove#license}\\
 écouter le dataset groove
 \section{Analyse MIDI-Audio}
+\label{analyse_midi_audio}
 Ces analyses ont été faites essentiellement dans le cadre de transcription manuelles à partir de fichiers MIDI et Audio du Groove MIDI Data Set. Les partitions manuelles sont éditées à l’aide de lilypond\footnote{\url{http://lilypond.org/}}. Les transcriptions automatiques sont générées avec MuseScore\footnote{\url{https://musescore.com/}}.
 \subsection{Comparaisons de transcriptions}
 Transcription manuelle VS transcription automatique :\\
@@ -125,7 +126,8 @@ Le motif 2 est joué des mesures 23 à 28.\\\\
 	[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
 	[.Temps\ 3 [rd ][ [rd\\bd\\pf ][rd ]]]
 	[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]]}
-
+\textbf{Réécriture}
+\textit{Règles établies par le système}
 \textbf{Séparation des voix}\\
 %Motif\ 1\ +\ Texte\ 1a\\\\
 \textit{Voix haute}\\
@@ -156,8 +158,8 @@ Le motif 2 est joué des mesures 23 à 28.\\\\
 	[.Temps\ 3 [t ][ [bd\\pf ][t ]]]
 	[.Temps\ 4 [t ][ [bd\\pf ][t ]]] ]]}\\
 
-\textbf{Règles de réécriture pour le 4/4 binaire}\\
-
+\textbf{Règles de simplifications pour le 4/4 binaire}\\
+Simplifier l’écriture de chaque voix (\textit{Règles établis par le système})\\
 \resizebox{70pt}{!} {
 	\Tree[.1/4 [t ][x ][x ][x ] ]
 }\ \ \ \ \ $\Rightarrow$\ \ \ \ \
@@ -203,8 +205,10 @@ Le motif 2 est joué des mesures 23 à 28.\\\\
 \subsection{DrumCode}
 Adaptation de la modélisation pour la transcription en cpp.
 \subsection{Tests unitaires sur les Jams}
+\label{jam_tests}
 Les Jams permettent de passer du monophonique au polyphonique.
 \subsection{Parsing}
+\label{gram_pond}
 Tests effectués avec le fichier midi suivant :\\\\
 \includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/input_parsing/midi_2bars_fill.png}\\\\
 %\textit{Voix basse}\\
@@ -253,17 +257,9 @@ Les temps de la première mesure du fichier MIDI sont bien quantifié mais ceux 
 Les Onsets sont correctement triés au niveau des doubles croches mais certaines doubles croches sont inutilement subdivisées en triples croches (les 2ème, 3ème et 4ème doubles croches sur le premier temps ci-dessus).\\
 \textbf{2ème tentative :}\\
 Après une augmentation du poids des triples croches dans la grammaire (monté de 1 à 5)et une baisse de tous les autres poids (descendu de 1 à 0.5), et mis à part le troisième temps de la 2ème mesure, tous les Onsets sont bien triés et aucuns ne sont subdivisés.
-\subsection{Réécriture}
-\subsubsection{Séparation des voix}
-\textit{Règles établies par le système}
-\subsubsection{Règles de simplifications}		
-Simplifier l’écriture de chaque voix (\textit{Règles établis par le système})\\
-Contribution sur la branch « distance » dans :\\
-\begin{itemize}
-	\item qparselib/notes/cluster.md
-	\item qparselib/src/segment/import/ :\\
-	DrumCode hpp et cpp\\
-\end{itemize}
+
+
+
 
 
 
