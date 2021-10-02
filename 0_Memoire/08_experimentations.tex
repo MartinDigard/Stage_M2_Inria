@@ -1,7 +1,6 @@
-\section{Introduction}
+\section*{Introduction}
 Dans ce chapitre, nous présenterons le corpus, les expérimentations et les différents choix effectués pour les tests.
-\section{Corpus et expérimentations}
-\subsection*{Le corpus}
+\section{Le corpus}
 \textbf{groove MIDI dataset}\\
 \url{https://magenta.tensorflow.org/datasets/groove}\\\\
 \includegraphics[height=60mm, width=60mm]{z_images/3_groove/roland_TD11.png}\\
@@ -15,8 +14,8 @@ Détails (entre autres tensorflow avec le dataset) à :
 \url{https://magenta.tensorflow.org/datasets/groove#license}\\
 écouter le dataset groove
 \newpage
-\subsection*{Les expérimentations}
-\subsubsection{Comparaisons de transcriptions}
+\section{Les expérimentations}
+\subsection{Comparaisons de transcriptions}
 \textit{drummer\_01/session3 — 10\_rock-folk\_90\_beat\_4-4}\\\\
 Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
 \includegraphics[height=20mm, width=50mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/musescore_0.png}\ \ \ \ 
@@ -82,8 +81,8 @@ Fichier midi vers partition avec musescore :\\
 \includegraphics[height=30mm, width=120mm]{z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4_0.png}\\
 Transcription manuelle :\\
 \includegraphics[height=20mm, width=90mm]{z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4_1_.png}\\
-\subsubsection{Les tests unitaires}
-\subsubsection{Le parsing avec squant}
+\subsection{Les tests unitaires}
+\subsection{Le parsing avec squant}
 Tests effectués avec le fichier midi suivant :\\\\
 \includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/input_parsing/midi_2bars_fill.png}\\\\
 %\textit{Voix basse}\\
@@ -132,10 +131,6 @@ Les temps de la première mesure du fichier MIDI sont bien quantifié mais ceux 
 Les Onsets sont correctement triés au niveau des doubles croches mais certaines doubles croches sont inutilement subdivisées en triples croches (les 2ème, 3ème et 4ème doubles croches sur le premier temps ci-dessus).\\
 \textbf{2ème tentative :}\\
 Après une augmentation du poids des triples croches dans la grammaire (monté de 1 à 5)et une baisse de tous les autres poids (descendu de 1 à 0.5), et mis à part le troisième temps de la 2ème mesure, tous les Onsets sont bien triés et aucuns ne sont subdivisés.
-\subsection{Reconnaissance d’un motif sur l’arbre de parsing}
-Reconnaître un motif (système) sur une mesure de l’input (un fichier midi représentant des données audios)\\
-$\Rightarrow$ Motif (système) reconnu : true ou false\\
-Si true, appliquer les règles de réécritures.
 \subsection{Réécriture}
 \subsubsection{Séparation des voix}
 \textit{Règles établies par le système}
@@ -147,16 +142,14 @@ Contribution sur la branch « distance » dans :\\
 	\item qparselib/src/segment/import/ :\\
 	DrumCode hpp et cpp\\
 \end{itemize}
-\newpage
-\section{Résultats et discussion}
-\subsection{Résultats}
-Essayer d’implémenter un pattern…
-\subsection{Évaluation}
-1 - Transcription manuelle à partir de fichier midi et/ou wav d’une partition contenant des systèmes. Écriture des systèmes contenues dans la partition (arbres, séparation des voix, réécriture)\\\\
-2 - Trouver un moyen de comparer l’arbre obtenu automatiquement de l’arbre de la transcription manuelle.
-\section{Discussion}
-\subsection{Machine learning}
-\subsection{Travaux futurs}
-Le ternaire jazz (voir expérience 2)
-\section{Conclusion}
+
+
+
+%\newpage
+%\section{Résultats et discussion}
+%\subsection{Résultats}
+%\subsection{Évaluation}
+%1 - Transcription manuelle à partir de fichier midi et/ou wav d’une partition contenant des systèmes. Écriture des systèmes contenues dans la partition (arbres, séparation des voix, réécriture)\\\\
+
+\section*{Conclusion}
 Conclusion de ce chapitre.
