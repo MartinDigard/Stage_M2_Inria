@@ -111,30 +111,6 @@ Ci-dessous, le même arbre dont les codes des instruments sont remplacés par le
 [ [51\\36 ][ [51\\44 ][51 ]]]
 [ [51\\38 ][ [51\\44 ][51 ]]] ]\\\\\\
 Cet arbre représente un rythme unique dont les possibilités de notation sur une partition sont théoriquement multiples. Les trois exemples de la figure 3.4 peuvent-être représentés par les arbres ci-dessus.
-\section{Représentation symbolique (MIDI)}
-MIDI (Musical Instrument Digital Interface) est une norme technique qui décrit un protocole de communication, une interface numérique et des connecteurs électriques permettant de connecter une grande variété d'instruments de musique électroniques, d'ordinateurs et d'appareils audio connexes pour jouer, éditer et enregistrer de la musique.\footnote{\url{https://en.wikipedia.org/wiki/MIDI}}\\\\
-Les données midi sont représentées sous forme de piano-roll. Chaque points sur la figure suivante est appelé « évènement midi » :
-\begin{figure}[!h]
-	\centering
-	\includegraphics[height=40mm, width=50mm]{z_images/2_midi/exemple_midi_piano.jpg}
-	\caption{Exemple évènements avec durée}
-\end{figure}\\
-Chaque évènement MIDI rassemble un ensemble d’informations sur la hauteur, la durée, le volume, etc… :
-\begin{figure}[h!]
-	\centering
-	\includegraphics[height=40mm, width=50mm]{z_images/2_midi/representation_numerique_1.png}
-	\caption{Critère pour un évènement}
-\end{figure}\\
-Pour la batterie, les évènements sont considérés sans durée, nous ignorerons donc les offsets (« Off Event »), les « Off Tick » et les « Duration ». Le channel ne nous sera pas utile non-plus.
-\textit{Ici, définir Tick et channel.}
-\newpage
-Voici un exemple de piano-roll midi pour la batterie :
-\begin{figure}[h!]
-	\centering
-	\includegraphics[height=40mm, width=50mm]{z_images/2_midi/representation_numerique_0.png}
-	\caption{Exemple évènements sans durée}
-\end{figure}\\
-On observe que toutes les durées sont identiques.
 \section{Qparse}
 \textit{Mettre ici un schéma de la chaîne de traitement de qparse (workflow)}\\
 Pb du MIDI avec qparse entrée ON-OFF $\Rightarrow$ sortie 1 seul symbole.\\

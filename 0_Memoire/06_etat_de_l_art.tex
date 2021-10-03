@@ -1,6 +1,10 @@
 \section*{Introduction}
  ainsi que les différentes avancées qui ont déjà eues lieues dans le domaine de la transcription de la musique. Et enfin, les avancées en terme de transcription automatique de la batterie. Actuellement, des modèles polyvalent qui n’arrivent pas à récupérer toute la richesse des sons sont utilisés.
 %\section{Audio, MIDI et partition}
+Un grand nombre travaux ont déjà été menés dans le domaine de l’ADT. La plupart ont été énumérés par Wu et al. \cite{8350302} qui, pour mieux comprendre la pratique des systèmes d’ADT, se concentrent sur les méthodes basées sur la factorisation matricielle non négative et celles utilisant des réseaux neuronaux récurrents.\\
+Voir l’intro de \cite{article1}\\
+Les performances des systèmes actuels ne sont pas encore suffisantes pour certaines applications qui exigent un haut degré de précision \cite{article1}. Même si les applications typiques de l'AMT comprennent l'estimation de la multi-tonalité, la classification des genres musicaux, la détection du début et de la fin des notes de musique, l'estimation du tempo, le suivi du rythme et la transcription de la musique, la plupart des travaux se sont concentrés sur le traitement du signal vers la génération du midi \cite{article2}. Seuls quelques travaux récents \cite{foscarin:hal-01988990} s’intéressent de près à la création d’outils permettant la génération de partition.
+
 \section{Monophonique et Polyphonique}
 C’est le problème de la séparation des voix.
 Les premiers travaux ont été fait sur l’identification des instruments monophoniques (une seule note à la fois, ou plusieurs notes de même durée en cas de monophonie par accord). Actuellement, le problème de l'estimation automatique de la hauteur des signaux monophoniques peut être considéré comme résolu, mais dans la plupart des contextes musicaux, les instruments sont polyphonique.\\
@@ -23,4 +27,5 @@ Dans \cite{foscarin:hal-01988990}, les modèles de grammaire exposés sont diff�
 \cite{harasimjazz}
 \cite{rohrmeier2020towards}
 \section*{Conclusion}
+La plupart des travaux déjà entrepris se concentrent sur des méthodes de calcul pour la détection d'événements sonores de batterie à partir de signaux acoustiques ou sur la séparation entre les évènement sonore de batterie avec ceux des autres instruments dans un orchestre ou un groupe de musique \cite{2802}, ainsi que sur l'extraction de caractéristiques de bas niveau telles que la classe d'instrument et le moment de l'apparition du son. Très peu d'entre eux ont abordé la tâche de générer des partitions de batterie.
 Nous avons décidé de compléter le travail qui concerne la batterie en commençant par l’endroit le moins pratiqué, à savoir la transcription en partition pour à l’avenir réaliser la chaîne de bout en bout : de l’audio jusqu’à l’écriture de partition.
