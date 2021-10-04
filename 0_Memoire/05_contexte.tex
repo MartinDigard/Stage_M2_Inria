@@ -8,7 +8,7 @@ Le MIR\footnote{https://ismir.net/}\footnote{https://ismir2021.ismir.net/} appar
 signal que les méthodes d’apprentissage automatisé en informatique et qui a pour but de les catégoriser. Cette discipline récente a notamment été soutenu par de grandes compagnies du web qui veulent développer des systèmes de recommandation de musique ou des moteurs de recherche dédiés au son et à la musique.\\\\
 \begin{figure}[!h]
 	\centering
-	\includegraphics[height=85mm, width=125mm]{z_images/1_automatic_transcription/Bernstein.png}
+	\includegraphics[height=85mm, width=125mm]{z_images/1_contexte/0_Bernstein.png}
 \end{figure}\\
 Aborder la musique à travers le TAL nécessite une réflexion autour de la musique en tant que langage ainsi que la possibilité de comparer ce même langage avec les langues naturelles. Quelques travaux en neuroscience ont abordé la question, notamment par observation des processus cognitifs et neuronaux que les systèmes de traitement de ces deux langages avaient en communs. Dans le travail de Poulin-Charronnat et al. \cite{poulincharronnat:hal-01985213}, la musique est reconnue comme étant un système complexe spécifique à l’être humain dont une des similitudes avec les langues naturelles est l’émergence de régularités reconnues implicitement par le système cognitif. La question de la pertinence de l’analogie entre langues naturelles et langage musical a également été soulevée à l’occasion de projets de recherche en TAL. Keller et al. \cite{keller:hal-03279850} ont exploré le potentiel de ces techniques à travers les plongements de mots et le mécanisme d’attention pour la modélisation de données musicales. La question du sens d’une phrase musicale apparaît, selon eux, à la fois comme une limite et un défi majeur pour l’étude de cette analogie.\\\\
 \textit{Ici, Digression sur la musicologie calculatoire vs linguistique computationnelle ?}\\\\
@@ -27,9 +27,7 @@ En musique, la transcription\footnote{\url{https://en.wikipedia.org/wiki/Transcr
 %\subsection{Automatisation}
 L'objectif de la transcription automatique de la musique (AMT) \cite{article1} est de convertir la performance d'un musicien en notation musicale - un peu comme la conversion de la parole en texte dans le traitement du langage naturel. L’AMT a des intérêt multiples, notemment pour la transcription de solos ou encore pour la constitution de corpus musicologiques. Ces deux aspects sont valables dans n’importe quels domaines musicaux dans lequels les partitions seraient inexistantes. Par exemple, dans les domaines oraux ou d’improvisation qui manquent de partition (jazz, pop) \cite{article1}.\\
 Comme déjà évoqué précédemment, il s’agit d’un problème ancien et difficile. C’est un « graal » de l’informatique musicale. En 1976, H. C. Longuet-Higgins \cite{first_one} évoquait déjà la représentation musicale en arbre syntaxique dans le but d’écrire automatiquement des partitions à partir de données audio en se basant sur un mimétisme psychologique de l’approche humaine. De même pour les chercheurs en audio James A. Moorer, Martin Piszczalski et Bernard Galler qui, en 1977\footnote{\url{https://en.wikipedia.org/wiki/Transcription_(music)}}, ont utilisé leurs connaissances en ingénierie de l’audio et du numérique pour programmer un ordinateur afin de lui faire analyser un enregistrement musical numérique de manière à détecter les lignes mélodiques, les accords et les accents rythmiques des instruments à percussion.\\
-%\subsection{Le processus général}
 La tâche de transcription automatique de la musique comprend deux activités distinctes : l'analyse d'un morceau de musique et l'impression d'une partition à partir de cette analyse.\\\\
-%\subsection*{Exemple de sous-tâche dans la figure 1.1 remplace ARCHITECTURE}
 La figure \ref{AMT_presentation} est une proposition de Benetos et Al. \cite{article1} qui représente l'architecture générale d'un système de transcription musicale. On y observe plusieurs sous-tâches de l’AMT :
 \begin{itemize}
 	\item La séparation des sources à partir de l’audio.
@@ -50,7 +48,7 @@ La figure \ref{AMT_presentation} est une proposition de Benetos et Al. \cite{art
 \end{itemize}
 \begin{figure}[!h]
 	\centering
-	\includegraphics[height=95mm, width=130mm]{z_images/1_automatic_transcription/0_general_process.png}
+	\includegraphics[height=95mm, width=130mm]{z_images/1_contexte/1_general_process.png}
 	\caption{Transcription automatique}
 	\label{AMT_presentation}
 	\textit{Les sous-systèmes et algorithmes optionnels sont présentés à l'aide de lignes pointillées. Les doubles flèches mettent en évidence les connexions entre les systèmes qui incluent la fusion d'informations et une communication plus interactive entre les systèmes.}
@@ -58,7 +56,6 @@ La figure \ref{AMT_presentation} est une proposition de Benetos et Al. \cite{art
 \section{La transcription automatique de la batterie}
 La batterie est un instrument récent qui s’est longtemps passé de partition. En effet pour un batteur, la qualité de lecteur lorsqu’elle était nécessaire, résidait essentiellement dans sa capacité à lire les partitions des autres instrumentistes (par exemple, les grilles d’accords et la mélodie du thème en jazz) afin d’improviser un accompagnement approprié que personne ne pouvait écrire pour lui à sa place.\\
 Les partitions de batterie sont arrivées par nécessité avec la pédagogie et l’émergence d’écoles de batterie partout dans le monde. Un autre facteur qui a contribué à l’expansion des partitions de batterie est l’arrivée de la musique assistée par ordinateur (MAO). En effet, l’usage de boîte à rythmes ou de séquenceurs permettant d’expérimenter soi-même l’écriture de rythmes en les écoutant mixés avec d’autres instruments sur des machines a permis  aux compositeurs de s’émanciper de la création d’un batteur en lui fournissant une partition contenant les parties exactes qu’ils voulaient entendre sur leur musique.\\
-%\subsection{Utilité et problème de l’ADT}
 La batterie a un statut à part dans l’univers de l’AMT puisqu'il s'agit d'instruments sans hauteur (du point de vue harmonique), d'événements sonores auxquels une durée est rarement attribuée et de notations spécifiques (symboles des têtes de notes).\\
 Les applications de l’ADT seraient utiles dans tous les domaines musicaux contenant de la batterie mais aussi de manière plus générale dans le domaine du MIR. Si les ordinateurs étaient capables d'analyser la partie de la batterie dans la musique enregistrée, cela permettrait une variété de tâches de traitement de la musique liées au rythme. En particulier, la détection et la classification des événements sonores de la batterie par des méthodes informatiques est considérée comme un problème de recherche important et stimulant dans le domaine plus large de la recherche d'informations musicales \cite{8350302}.\\
 \section{Les représentations de la musique}
@@ -70,14 +67,14 @@ Le MIDI\footnote{\url{https://en.wikipedia.org/wiki/MIDI}} (Musical Instrument D
 Les données midi sont représentées sous forme de piano-roll. Chaque points sur la figure \ref{piano_roll} est appelé « évènement midi » :
 \begin{figure}[!h]
 	\centering
-	\includegraphics[height=40mm, width=50mm]{z_images/2_midi/exemple_midi_piano.jpg}
+	\includegraphics[height=40mm, width=50mm]{z_images/1_contexte/2_midi_piano.jpg}
 	\caption{Exemple évènements avec durée}
 	\label{piano_roll}
 \end{figure}\\
 Chaque évènement MIDI rassemble un ensemble d’informations sur la hauteur, la durée, le volume, etc… :
 \begin{figure}[h!]
 	\centering
-	\includegraphics[height=40mm, width=50mm]{z_images/2_midi/representation_numerique_1.png}
+	\includegraphics[height=40mm, width=50mm]{z_images/1_contexte/3_evenements_midi.png}
 	\caption{Critère pour un évènement}
 \end{figure}\newpage
 Pour la batterie, les évènements sont considérés sans durée, nous ignorerons donc les offsets (« Off Event »), les « Off Tick » et les « Duration ». Le channel ne nous sera pas utile non-plus.\\
@@ -85,14 +82,14 @@ Pour la batterie, les évènements sont considérés sans durée, nous ignoreron
 Voici un exemple de piano-roll midi pour la batterie :
 \begin{figure}[h!]
 	\centering
-	\includegraphics[height=40mm, width=50mm]{z_images/2_midi/representation_numerique_0.png}
+	\includegraphics[height=40mm, width=50mm]{z_images/1_contexte/4_midi_batterie.png}
 	\caption{Exemple évènements sans durée}
 \end{figure}\\
 On observe que toutes les durées sont identiques.
 \subsection*{Les partitions}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[height=30mm, width=120mm]{z_images/1_automatic_transcription/exemple_partoche.png}
+	\includegraphics[height=30mm, width=120mm]{z_images/1_contexte/5_partition_piano.png}
 	\caption{Exemple de partition de piano}
 \end{figure}
 Une partition de musique\footnote{\url{https://fr.wikipedia.org/wiki/Partition\_(musique)}} est un document qui porte la représentation systématique du langage musical sous forme écrite. Cette représentation est appelée transcription et elle sert à traduire les quatre caractéristiques du son musical :
