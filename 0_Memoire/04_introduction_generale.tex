@@ -1,4 +1,4 @@
-Ce mémoire de recherche, effectué en parallèle d’un stage à l’Inria dans le cadre du master de traitement automatique des langues de l’Inalco, contient une proposition originale ainsi que diverses contributions ayant toutes pour objectif d’améliorer \textbf{qparse}, un outil de transcription automatique de la musique sur sa capacité à transcrire la batterie. Nous ne parlerons donc pas directement de langues naturelles, mais de l’écriture automatique de partitions de musique à partir de données audios ou symbolique. Cette exercice nécessitera la manipulation d’un langage musical codifié avec une grammaire (solfège, durées, nuances, volumes) et soulèvera des problématiques concernées par les techniques du traitement automatique des langues.\\
+Ce mémoire de recherche, effectué en parallèle d’un stage à l’Inria dans le cadre du master de traitement automatique des langues de l’Inalco, contient une proposition originale ainsi que diverses contributions ayant toutes pour objectif d’améliorer \textbf{qparse}, un outil de transcription automatique de la musique sur sa capacité à transcrire la batterie. Nous ne parlerons donc pas directement de langues naturelles, mais de l’écriture automatique de partitions de musique à partir de données audios ou symboliques. Cette exercice nécessitera la manipulation d’un langage musical codifié avec une grammaire (solfège, durées, nuances, volumes) et soulèvera des problématiques concernées par les techniques du traitement automatique des langues.\\
 L’écriture musicale offre de nombreuses possibilités pour la transcription d’un rythme donné. Le contexte musical ainsi que la lisibilité d’une partition pour un batteur entraîné conditionnent les choix d’écritures. Reconnaître la métrique principale d’un rythme, la façon de regrouper les notes par les ligatures, ou simplement décider d’un usage pour une durée parmi les différentes continuations possibles (notes pointées, liaisons, silences, etc.) constituent autant de possibilités que de difficultés.\\\\
 Voici la proposition de ce mémoire ainsi que les contributions apportées lors du stage :
 \begin{itemize}
@@ -8,9 +8,9 @@ Voici la proposition de ce mémoire ainsi que les contributions apportées lors 
 	\item Une description de la notation de la batterie (\ref{notation_batterie})
 	\item Une modélisation de la transcription de la batterie (\ref{modelisation_transcription})
 	\item Analyse MIDI-Audio (\ref{analyse_midi_audio})
-	\item Théorie et test unitaire pour le passage au polyphonique (\ref{jam_tests})
-	\item Création de grammaires pondérée pour la batterie (\ref{gram_pond})
-	\item Contribution sur la branch « distance » dans :
+	\item Théorie et tests unitaires pour le passage au polyphonique (\ref{jam_tests})
+	\item Création de grammaires pondérées pour la batterie (\ref{gram_pond})
+	\item Contributions sur la branche « distance » dans :
 	\begin{itemize}
 		\item qparselib/notes/cluster.md
 		\item qparselib/src/segment/import/ :\\
@@ -18,4 +18,4 @@ Voici la proposition de ce mémoire ainsi que les contributions apportées lors 
 	\end{itemize}
 \end{itemize}
  
-Nous présenterons le contexte général suivi d’un état de l’art et nous définirons de manière générale le processus de transcription automatique de la musique pour enfin étayer les méthodes utilisées pour la transcription automatique de la batterie et nous présenterons les principales contributions apportées à l’outil qparse. Nous décrirons ensuite le corpus ainsi que les différentes expérimentations menées. Nous concluerons par une discussion sur les résultats obtenus et les pistes d’améliorations futures à explorer.
+Nous présenterons le contexte suivi d’un état de l’art et nous définirons de manière générale le processus de transcription automatique de la musique pour enfin étayer les méthodes utilisées pour la transcription automatique de la batterie, et nous présenterons les principales contributions apportées à l’outil qparse. Nous décrirons ensuite le corpus ainsi que les différentes expérimentations menées. Nous concluerons par une discussion sur les résultats obtenus et les pistes d’améliorations futures à explorer.
