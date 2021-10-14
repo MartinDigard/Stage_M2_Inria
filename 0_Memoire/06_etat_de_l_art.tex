@@ -22,7 +22,9 @@ Seuls quelques travaux récents s’intéressent de près à la création d’ou
 L'approche de \cite{foscarin:hal-01988990} est fondée sur la conviction que la complexité de la structure musicale dépasse les modèles linéaires.
 \section{Approche linéaire et approche hiérarchique}
 Faire une critique des \textit{approches hiérarchique VS linéaire}\\
-Données linéaires vers données structurées (hiérarchiques).
+Structure de données linéaire : liste, tableau, etc…\\
+Structure de données hiérarchique : arbres,…\\
+Objectif : Données linéaires vers données structurées (hiérarchiques).
 \subsection*{Approche linéaire}
 Mettre une image : voir cours Damien.\\\\
 Plusieurs travaux ont d’abord privilégié l’approche stochastique. Shibata et al.\cite{SHIBATA2021262} ont utilisé le modèle de Markov caché (HMM)\footnote{\url{https://fr.wikipedia.org/wiki/Modèle_de_Markov_caché}}\footnote{\url{https://en.wikipedia.org/wiki/Hidden_Markov_model}} pour la reconnaissance de la métrique. Leur modèle utilise d’abord deux réseaux de neurones profonds, l’un pour la reconnaissance des pitchs et l’autre pour la reconnaissance de la vélocité. Pour la dernière couche, la probabilité est obtenue par une fonction sigmoïde. Ils construisent ensuite plusieurs HMM métriques étendus pour la musique polyphonique correspondant à des métriques possibles et ils calculent la probalitité maximale pour chaque modèle afin d’obtenir la métrique la plus probable.\\
