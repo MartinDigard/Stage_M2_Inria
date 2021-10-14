@@ -1,29 +1,21 @@
 \section*{Introduction}
-
-\textbf{Focaliser sur Review\_ADT pour l’intégralité de l’État de l’art.}\\
-
 Dans ce chapitre, nous observerons les différentes avancées qui ont déjà eues lieues dans le domaine de la transcription automatique de la musique et de la batterie afin de situé notre démarche.\\
-Nous aborderons le passage crucial du monophonique au polyphonique dans la transcription. Nous ferons un point sur les deux grandes parties de l’AMT de bout en bout : de l’audio vers le MIDI puis des données MIDI vers l’écriture d’une partition. Nous critiquerons ensuite les approches linéaire et hiérarchique.\\
-Enfin, nous ferons un bilan afin de situer l’ADT dans l’état de l’art de l’AMT.
+Nous aborderons le passage crucial du monophonique au polyphonique dans la transcription. Nous ferons un point sur les deux grandes parties de l’AMT de bout en bout : de l’audio vers le MIDI puis des données MIDI vers l’écriture d’une partition. Ensuite, nous ferons une critique des approches linéaires et des approches hiérarchiques. Enfin, nous ferons un bilan afin de situer l’ADT dans l’état de l’art de l’AMT.
   
 \section{Monophonique et Polyphonique}
 \begin{itemize}
-	\item Trouver ref pour transcription monophonique
 	\item ref systèmes polyvalents richesse des sons.\\
 \end{itemize}
-Les premiers travaux ont été faits sur l’identification des instruments monophoniques\footnote{Une seule note à la fois, ou plusieurs notes de même durée (monophonie par accord).}[ref\_bibli ?]. Actuellement, le problème de l'estimation automatique de la hauteur des signaux monophoniques peut être considéré comme résolu, mais dans la plupart des contextes musicaux, les instruments sont polyphoniques.\\
+Les premiers travaux ont été faits sur l’identification des instruments monophoniques\footnote{Une seule note à la fois, ou plusieurs notes de même durée (monophonie par accord).}\cite{future_directions}. Actuellement, le problème de l'estimation automatique de la hauteur des signaux monophoniques peut être considéré comme résolu, mais dans la plupart des contextes musicaux, les instruments sont polyphoniques.\\
 L'estimation des hauteurs multiples (détection multi-pitchs ou F0 multiples) est le problème central de la création d'un système de transcription de musique polyphonique. Il s’agit de la détection de notes qui peuvent apparaître simultanément et être produites par plusieurs instruments différents. Ce défi est donc majeur pour la batterie puisque c’est un instrument qui est lui-même constitué de plusieurs instruments.\\
-Le fort degrés de chevauchement entre les durées ainsi qu’entre les fréquences complique l’identification des instruments polyphoniques. Cette tâche est étroitement liées à la séparation des sources et concerne aussi la séparation des voix. Les performances des systèmes actuels ne sont pas encore suffisantes pour certaines applications qui exigent un haut degré de précision\cite{future_directions}.
-La création d'un système automatisé capable de transcrire de la musique polyphonique sans restrictions sur le degré de polyphonie ou le type d'instrument reste encore ouverte. 
+Le fort degrés de chevauchement entre les durées ainsi qu’entre les fréquences complique l’identification des instruments polyphoniques. Cette tâche est étroitement liées à la séparation des sources et concerne aussi la séparation des voix. Les performances des systèmes actuels ne sont pas encore suffisantes pour permettre la création d'un système automatisé capable de transcrire de la musique polyphonique sans restrictions sur le degré de polyphonie ou le type d'instrument. Cette question reste donc encore ouverte. 
 \section{Audio vers MIDI}
+Utilité de l’audio vers MIDI dans la vraie vie $\Rightarrow$ p. 4 et 5 de \cite{Review_ADT}.\\\\
 La plupart des travaux se sont concentrés sur le traitement du signal vers la génération du midi \cite{AMT_for_2_Instru}. Cette partie plusieurs sous-tâches dont la détection multi-pitchs, la détection des onset et des offset, l'estimation du tempo, la quantification du rythme, la classification des genres musicaux,…\\\\
-Voir : \cite{future_directions}\\
-- Multi-pitch détection and note tracking\\
-- Détection of onsets and offsets
-- Instrument recognition\\
+En ADT\cite{Review_ADT}, plusieurs stratégies de répartition Pre/Post-processing sont possibles pour la détection multi-pitchs. Une des démarches intuitives serait de la préparer dès le préprocessing, dans le pré-traitement, pendant la séparation des sources en supprimant les features non-pertinentes pour une meilleure détection des instruments de la batterie. Par exemple, en supprimant la structure harmonique pour atténuer l’influence des instruments à hauteurs sur la détection grosse-caisse et caisse-claire. Mais certaines études montrent que des expériences similaires ont donné des résultats non-concluants et que la suppression des instruments à hauteurs peut avoir des effets néfastes sur les performances de l’ADT. Cependant, les systèmes d’ADT basés sur des RNN ou des NMF font la séparation des sources pendant l’optimisation ce qui réduit la nécessité de la faire pendant le préprocessing.\\
+Pour la reconnaissance des instruments, une approche possible\cite{Eronen} est de mettre un modèle probabiliste dans l’étape de la classification des évènements afin de classer les différents sons de la batterie. Dans cette méthode, on se place de sample audio isolés en modélisant la progression temporelle des features avec un HMM. Les features sont transformés en représentations statistiques indépendantes.
+L’approche AdaMa\cite{adama_1} est une autre approche de la même catégorie, elle commence par une estimation initiale des sons de la batterie qui sont itérativement raffinés pour matcher l’enregistrement visé.\\
 - Extraction of rhythmic information (tempo, beat, and musical timing)\\
-- Estimation of pitch and harmony (key, chords and pitch spelling)\\\\
-Voir : \cite{Review_ADT} 
 \section{MIDI vers partition}
 Lorsque les travaux principaux parlent de transcription de bout en bout, il s’agit souvent d’ouput au format Music XML, ou simplement de génération du MIDI. Par exemple, dans \cite{SHIBATA2021262}, une séquence MIDI quantifiée est importée dans MuseScore et un fichier MusicXML contenant plusieurs voix est exporté.\\
 Seuls quelques travaux récents \cite{foscarin:hal-01988990} s’intéressent de près à la création d’outils permettant la génération de partition.
