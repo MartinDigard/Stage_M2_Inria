@@ -1,17 +1,28 @@
 \section*{Introduction}
-Dans ce chapitre, nous expliquerons en détails les méthodes que nous avons employées pour l’ADT. Nous commencerons par une description de qparse et des arbres de rythmes. Nous proposerons ensuite une modélisation comprenant une description de la notation de la batterie mise en relation avec les informations MIDI, ceci ayant pour objectif le parsing des données MIDI en arbre syntaxique. Enfin, nous démontrerons un modèle théorique de pattern (implémentable) qui devra être utilisé comme base de connaissance pour obtenir un système plus rapide et une meilleure qualité en sortie.
+Dans ce chapitre, nous expliquerons en détails les méthodes que nous avons employées pour l’ADT. Nous commencerons par une description de qparse et des arbres de rythmes. Nous proposerons ensuite une modélisation comprenant une description de la notation de la batterie mise en relation avec les informations MIDI, ceci ayant pour objectif le parsing des données MIDI en arbre syntaxique. Enfin, nous démontrerons un modèle théorique de pattern (implémentable) qui devra être utilisé comme base de connaissance pour obtenir un système plus rapide et une meilleure qualité en sortie.\newpage
 \section{La notation de la batterie}
-\label{notation_batterie}
-\textit{Les 3 parties d’une note en général :}
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=10mm, width=25mm]{z_images/3_methodes/figures_de_notes.png}
+\end{figure}
+Une figure de note\cite{danhauser} de musique réunit plusieurs critères\footnote{\url{https://fr.wikipedia.org/wiki/Note_de_musique}} :
 \begin{itemize}
-	\item durée
-	\item hampe
-	\item tête de note (peut aussi indiquer la durée mais en batterie on évitera les blanches, etc.)
+	\item Une tête de note :\\
+	Sa position sur la portée indique la hauteur de la note. La tête de note peut aussi indiquer la durée mais rarement en batterie en raison des symboles qui représentent les instruments.
+	\item Une hampe :\\
+	Indicatrice d’appartenance à une voix en fonction de sa direction et indicatrice d’une durée représentée par sa présence ou non (ronde ou blanche)
+	\item Un crochet : La durée d’une note est divisée par deux à chaque crochet ajouté à la hampe d’une figure de note.
 \end{itemize}
-source : \url{https://fr.wikipedia.org/wiki/Note_de_musique}
-
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=50mm, width=80mm]{z_images/3_methodes/rapport_figures_notes.png}
+	\caption{Rapport des figures de notes}\cite{danhauser}
+\end{figure}
 \subsection{Hauteurs et têtes de notes}
-Pour la transcriptions, nous proposons de choisir la base Agostini. La caisse claire centrale sur la portée est aussi centrale sur la batterie est elle est un élément qui conditionne la position des jambes (écart entre les pédales, etc.) ainsi que l’organisation des éléments en hauteur (toms, cymbales, etc.).
+Pour la transcriptions, nous proposons une notation inspirée des méthodes agostini[ref] (et juskowiak[ref]), car nous trouvons la position des éléments cohérente et intuitive :\\
+La caisse claire est centrale sur la portée et sur la batterie (au niveau de la ceinture, elle conditionne l’écart entre les pédales et aussi la position de tous les instruments basiques d’une batterie). 
+Tous ce qui en dessous de la caisse-claire est en dessous de la ceinture (pédales, tom basse). Pareil pour au-dessus.\\
+ainsi que l’organisation des éléments en hauteur (toms, cymbales, etc.).
 On pensera en terme de symétrie la répartition des éléments par rapport au point central que constitue la caisse claire.\\
 Cette symétrie s’opère en trois dimensions :
 \begin{itemize}
