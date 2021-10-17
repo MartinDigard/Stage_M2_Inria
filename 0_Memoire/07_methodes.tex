@@ -1,16 +1,18 @@
 \section*{Introduction}
-Dans ce chapitre, nous expliquerons en détails les méthodes que nous avons employées pour l’ADT. Nous commencerons par une description de qparse et des arbres de rythmes. Nous proposerons ensuite une modélisation comprenant une description de la notation de la batterie mise en relation avec les informations MIDI, ceci ayant pour objectif le parsing des données MIDI en arbre syntaxique. Enfin, nous démontrerons un modèle théorique de pattern (implémentable) qui devra être utilisé comme base de connaissance pour obtenir un système plus rapide et une meilleure qualité en sortie.\newpage
+Dans ce chapitre, nous expliquerons en détails les méthodes que nous avons employées pour l’ADT.\\
+Pour commencer, nous exposerons une description de la notation de la batterie ainsi qu’une modélisation de celle-ci pour la représentation des données rythmiques en arbres syntaxiques. Nous poursuiverons avec une présentation de qparse\footnote{https://qparse.gitlabpages.inria.fr/}, un outil de transcription qui est développé par Florent Jacquemard (Inria) au sein du laboratoire Cedric au CNAM.\\
+Enfin, nous terminerons avec la démonstration d’un modèle théorique de pattern (implémentable) qui devra être utilisé comme base de connaissances pour obtenir un système plus rapide et une meilleure qualité en sortie. 
 \section{La notation de la batterie}
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=10mm, width=25mm]{z_images/3_methodes/figures_de_notes.png}
 \end{figure}
-Une figure de note\cite{danhauser} de musique réunit plusieurs critères\footnote{\url{https://fr.wikipedia.org/wiki/Note_de_musique}} :
+Une figure de note \cite{danhauser} de musique réunit plusieurs critères\footnote{\url{https://fr.wikipedia.org/wiki/Note_de_musique}} :
 \begin{itemize}
 	\item Une tête de note :\\
 	Sa position sur la portée indique la hauteur de la note. La tête de note peut aussi indiquer la durée mais rarement en batterie en raison des symboles qui représentent les instruments.
 	\item Une hampe :\\
-	Indicatrice d’appartenance à une voix en fonction de sa direction et indicatrice d’une durée représentée par sa présence ou non (ronde ou blanche)
+	Indicatrice d’appartenance à une voix en fonction de sa direction et indicatrice d’une durée représentée par sa présence ou non (blanche ≠ ronde)
 	\item Un crochet : La durée d’une note est divisée par deux à chaque crochet ajouté à la hampe d’une figure de note.
 \end{itemize}
 \begin{figure}[h]
@@ -18,25 +20,25 @@ Une figure de note\cite{danhauser} de musique réunit plusieurs critères\footno
 	\includegraphics[height=50mm, width=80mm]{z_images/3_methodes/rapport_figures_notes.png}
 	\caption{Rapport des figures de notes}\cite{danhauser}
 \end{figure}
-\subsection{Hauteurs et têtes de notes}
-Pour la transcriptions, nous proposons une notation inspirée des méthodes agostini[ref] (et juskowiak[ref]), car nous trouvons la position des éléments cohérente et intuitive :\\
-La caisse claire est centrale sur la portée et sur la batterie (au niveau de la ceinture, elle conditionne l’écart entre les pédales et aussi la position de tous les instruments basiques d’une batterie). 
-Tous ce qui en dessous de la caisse-claire est en dessous de la ceinture (pédales, tom basse). Pareil pour au-dessus.\\
-ainsi que l’organisation des éléments en hauteur (toms, cymbales, etc.).
-On pensera en terme de symétrie la répartition des éléments par rapport au point central que constitue la caisse claire.\\
-Cette symétrie s’opère en trois dimensions :
+\subsection*{Hauteurs et têtes de notes}
+Pour la transcriptions, nous proposons une notation inspirée du recueil de pièces pour batterie de J.-F. Juskowiak \cite{jusko} et des méthodes de batterie Agostini \cite{ago_meth_3}, car nous trouvons la position des éléments cohérente et intuitive.\\
+En effet, les hauteurs sur la portée représentent :
 \begin{itemize}
-	\item Les hauteurs en terme de fréquences ;
-	\item La hauteur physique des éléments :\\
-	Du bas vers le haut : pédales, toms et caisse, cymbales
-	\item L’ergonomie, qui hiérarchise l’importance des éléments sur la portée (caisse claire au centre, hh-pied et ride sont aux deux extrémités).
+	\item La hauteur physique des instruments :\\
+	La caisse claire est centrale sur la portée et sur la batterie (au niveau de la ceinture, elle conditionne l’écart entre les pédales et aussi la position de tous les instruments basiques d’une batterie).\\
+	Tous ce qui en dessous de la caisse-claire sur la portée est en dessous de la caisse-claire sur la batterie (pédales, tom basse) ;\\
+	Tous ce qui est au dessus de la caisse-claire sur la portée, l’est aussi sur la batterie.\\
+	\item La hauteur des instruments en terme de fréquences :\\
+	Sauf pour le charley au pied et si l’on sépare en trois groupes (gc, toms, cymbales), de bas en haut, les instruments vont dans du plus grave au plus aigu.
 \end{itemize}
 \begin{figure}[!h]
 	\centering
 	\includegraphics[height=25mm, width=130mm]{z_images/description_notation/notes.png}
 	\caption{Hauteur et têtes de notes}
+	\label{Hauteur et têtes de notes}
 \end{figure}
-\subsection{Nuances}
+Les noms des instruments correspondant aux codes des notes de la figure \ref{Hauteur et têtes de notes} sont dans le tableau \ref{Pitchs et instruments}.
+\subsection*{Nuances}
 \begin{figure}[!h]
 	\centering
 	\includegraphics[height=20mm, width=35mm]{z_images/description_notation/nuances.png}
@@ -45,7 +47,7 @@ Cette symétrie s’opère en trois dimensions :
 Bien expliquer les accents, remplacer p et f par g et a\\
 $\Rightarrow$ nuance VS articulation\
 
-\subsection{Durées}
+\subsection*{Durées}
 Basé sur \cite{jacquemard:hal-01134096} et sur \cite{jacquemard:hal-01403982}\\
 Pour la plupart des instruments mélodiques, la liaison et le point sont les deux seules possibilités en cas d’équivalence rythmique pour des notes dont la durée de l’une à l’autre est ininterrompue. Mais puisque les durées des notes n’ont pas d’importance en batterie, l’usage des silences pour combler la distance rythmique entre deux notes devient possible.\\
 Ceci pris en compte, et étant donné que les indications de durée dans les têtes de notes ne sont pas pratique en batterie (les symboles « x » des cymbales ne
@@ -60,7 +62,7 @@ Les fermetures du charley sont notées soit par un silence (correspondant à une
 	\caption{Durées}
 	\label{duree_hh}
 \end{figure}\newpage
-\subsection{Voix}
+\subsection*{Voix}
 Plusieurs écritures sont possibles pour un même rythme :\\\\
 \begin{figure}[!h]
 	\centering
@@ -72,7 +74,7 @@ Sur la figure \ref{sep_voix}, il faudra faire un choix entre les exemples 1, 2 e
 Ainsi l’arbre syntaxique de départ sera divisé en autant d’instruments qui le constituent et les voix seront regroupées de manière cohérentes.
 \section{Modélisation pour la transcription}
 \label{modelisation_transcription}
-\subsection{Les pitchs}
+\subsection*{Les pitchs}
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|} \hline
@@ -92,9 +94,10 @@ Ainsi l’arbre syntaxique de départ sera divisé en autant d’instruments qui
 		gc & grosse-caisse & 36 \\ \hline
 	\end{tabular}
 	\caption{Pitchs et instruments}
+	\label{Pitchs et instruments}
 \end{table}
 Pas de charley pied ouvert…
-\subsection{La vélocité}
+\subsection*{La vélocité}
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|} \hline
@@ -110,7 +113,7 @@ Lorsque la vélocité va de 40 à 89, on considèrera le volume comme normal et 
 
 %\subsubsection{Les dilemmes}
 Le charley de pitch 46 est considéré comme le charley ouvert joué à la main sur le haut de la cymbale mais souvent, ça correspond au geste « tranche-olive » de la baguette lorsque le batteur accentue avec la tranche et joue moins fort avec l’olive sur le plat de la cymbale. Je vais dans un premier temps considérer le pitch comme \textbf{charley-main-ouvert-piano} (ghost-note)
-\subsection{Les arbres de rythmes}
+\subsection*{Les arbres de rythmes}
 Voici une représentation de la figure \ref{sep_voix} en arbre de rythme avec les codes de chaque instrument :\\\\
 \Tree[ [ [rd\\gc ][ [rd\\pf ][rd ]]]
 [ [rd\\cc ][ [rd\\pf ][rd ]]]
@@ -123,6 +126,7 @@ Ci-dessous, le même arbre dont les codes des instruments sont remplacés par le
 [ [51\\38 ][ [51\\44 ][51 ]]] ]\\\\\\
 Cet arbre représente un rythme unique dont les possibilités de notation sur une partition sont théoriquement multiples. Les trois exemples de la figure 3.4 peuvent-être représentés par les arbres ci-dessus.
 \section{Qparse}
+Florent Jacquemard(Inria), Philippe Rigaux (CNAM), Masahiko Sakai (Nagoya U.), Francesco Foscarin (PhD, CNAM), Clement Poncelet (Salzburg U.)
 \textit{Mettre ici un schéma de la chaîne de traitement de qparse (workflow)}\\
 Pb du MIDI avec qparse entrée ON-OFF $\Rightarrow$ sortie 1 seul symbole.\\
 Qparse produit une partition musicale en prenant en entrée une performance musicale symbolique (par exemple un fichier MIDI) et un automate à arbre pondéré décrivant un langage de rythmes préférés (grammaire pondérée). La quantification des rythmes est basée sur des algorithmes d’analyse syntaxique applicables sur des automates arborescents.\footnote{\url{https://qparse.gitlabpages.inria.fr}}
@@ -136,13 +140,13 @@ Minimiser la distance entre le midi et la représentation en arbre.\\
 $\Rightarrow$ \textit{Expliquer ici les limites du monophonique…}
 %\subsection{Les Jams}
 %Regroupement par nature des notes qui forment un accord.
-\subsection{La grammaire pondérée}
+\subsection*{La grammaire pondérée}
 La grammaire pondérée qui accompagne le MIDI en input est une grammaire hors-contexte pondérée. Chaque règle comporte un poid qui sert à favoriser certains rythmes plutôt que d’autres.\footnote{\url{https://qparse.gitlabpages.inria.fr/docs/scientific/}}
-\subsection{Le parsing}
+\subsection*{Le parsing}
 Le parsing du midi donné en input crée une représentation symbolique sous forme d’arbre de rythme.\\
 Ici $\Rightarrow$ exemple avec :\\
 3bars\_fill\_groove-016.mid $\Rightarrow$ arbre\\
-\subsection{La réécriture}
+\subsection*{La réécriture}
 \subsubsection{Séparation des voix}
 \subsubsection{Simplification}
 Ici, description basique des règles de réécriture 
