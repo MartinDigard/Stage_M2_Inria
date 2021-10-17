@@ -1,5 +1,7 @@
 \section*{Introduction}
-Dans ce chapitre, nous présenterons le corpus, les expérimentations et les différents choix effectués pour les tests.
+Dans ce chapitre, nous présenterons le corpus, les analyses audio-MIDI.\\
+Nous ferons la démonstration d’un modèle théorique de système (implémentable) qui devra être utilisé comme base de connaissances pour obtenir un système plus rapide et une meilleure qualité en sortie.\\
+Enfin, nous présenterons les différentes contributions de développement.
 \section{Corpus}
 Différence de qualité de jeu\\
 \textbf{groove MIDI dataset}\\
@@ -17,7 +19,7 @@ Détails (entre autres tensorflow avec le dataset) à :
 \section{Analyse MIDI-Audio}
 \label{analyse_midi_audio}
 Ces analyses ont été faites essentiellement dans le cadre de transcription manuelles à partir de fichiers MIDI et Audio du Groove MIDI Data Set. Les partitions manuelles sont éditées à l’aide de lilypond\footnote{\url{http://lilypond.org/}}. Les transcriptions automatiques sont générées avec MuseScore\footnote{\url{https://musescore.com/}}.
-\subsection{Comparaisons de transcriptions}
+\subsection*{Comparaisons de transcriptions}
 Transcription manuelle VS transcription automatique :\\
 \textit{drummer\_01/session3 — 10\_rock-folk\_90\_beat\_4-4}\\\\
 Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
@@ -86,7 +88,7 @@ Transcription manuelle :\\
 \includegraphics[height=20mm, width=90mm]{z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4_1_.png}\\
 MuseScore donne un aperçu de l’état de l’art pour la transcription de la batterie.
 \newpage
-\subsection{Transcription de partition}
+\subsection*{Transcription de partition}
 \begin{figure}[h]
 	\includegraphics[height=120mm, width=160mm]{z_images/4_experimentations/experience_1/partition.png}
 	\caption{référence 1}
@@ -95,7 +97,7 @@ Il s’agit d’une partition d’un 4/4 binaire dont le fichier MIDI est annonc
 La transcription de cette partition a occasionné plusieurs remarque :\\
 - vélocité, place des accents, etc…
 \section{Expérimentation théorique d’un système}
-\subsection{Motifs}
+\subsection*{Motifs}
 \begin{figure}[h]
 	\includegraphics[height=30mm, width=40mm]{z_images/description_notation/systemes/1_motifs_4-4_binaires.png}
 	\caption{Motifs}
@@ -103,15 +105,15 @@ La transcription de cette partition a occasionné plusieurs remarque :\\
 Les motifs 1 et 2 peuvent être extraits de la figure 3.8. Ces deux motifs sont très classiques et seront réutilisables aussi dans d’autres contextes.\\
 Le motif 1 est joué jusqu’à la mesure 18 avec des variations et des breaks.\\
 Le motif 2 est joué des mesures 23 à 28.\\\\
-\subsection{Gammes}
+\subsection*{Gammes}
 \includegraphics[height=70mm, width=95mm]{z_images/description_notation/systemes/0_textes_4-4_binaires.png}\\
 
-\subsection{Systèmes}
+\subsection*{Systèmes}
 \includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/experience_1/systeme_recherche_1.png}
 \includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/experience_1/systeme_recherche_2.png}
 \newpage
 
-\subsection{Démonstration}
+\subsection*{Démonstration}
 \textbf{Représentation des systèmes en arbres de rythmes}
 
 \resizebox{440pt}{!} {
@@ -201,12 +203,12 @@ Simplifier l’écriture de chaque voix (\textit{Règles établis par le systèm
 	\Tree[.1/4 [x ][x ] ]
 }
 \section{Développement}
-\subsection{DrumCode}
+\subsection*{DrumCode}
 Adaptation de la modélisation pour la transcription en cpp.
-\subsection{Tests unitaires sur les Jams}
+\subsection*{Tests unitaires sur les Jams}
 \label{jam_tests}
 Les Jams permettent de passer du monophonique au polyphonique.
-\subsection{Parsing}
+\subsection*{Parsing}
 \label{gram_pond}
 Tests effectués avec le fichier midi suivant :\\\\
 \includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/input_parsing/midi_2bars_fill.png}\\\\
