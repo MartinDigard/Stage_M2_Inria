@@ -10,7 +10,7 @@ Enfin, nous présenterons les systèmes.
 Une figure de note \cite{danhauser} de musique réunit plusieurs critères\footnote{\url{https://fr.wikipedia.org/wiki/Note_de_musique}} :
 \begin{itemize}
 	\item Une tête de note :\\
-	Sa position sur la portée indique la hauteur de la note. La tête de note peut aussi indiquer la durée mais rarement en batterie en raison des symboles qui représentent les instruments.
+	Sa position sur la portée indique la hauteur de la note. La tête de note peut aussi indiquer une durée.
 	\item Une hampe :\\
 	Indicatrice d’appartenance à une voix en fonction de sa direction et indicatrice d’une durée représentée par sa présence ou non (blanche ≠ ronde)
 	\item Un crochet : La durée d’une note est divisée par deux à chaque crochet ajouté à la hampe d’une figure de note.
@@ -19,8 +19,10 @@ Une figure de note \cite{danhauser} de musique réunit plusieurs critères\footn
 	\centering
 	\includegraphics[height=50mm, width=80mm]{z_images/3_methodes/rapport_figures_notes.png}
 	\caption{Rapport des figures de notes}\cite{danhauser}
+	\label{rapp_fig_notes}
 \end{figure}
-\subsection*{Hauteurs et têtes de notes}
+La figure \ref{rapp_fig_notes} montre les rapports de durée entre les figures de notes. Plus les durées sont longues, plus elles sont marquées par la tête de note (la note carrée fait deux fois la durée d’une ronde) ou la présence ou non de la hampe. À partir de la noire (3ème lignes en partant du haut), on ajoute un crochet à la hampe d’une figure de notes pour diviser sa durée par 2. Les notes à crochet (croche , double-croche, triple…) peuvent être reliées ou non par des ligatures (Voir les 4 dernière lignes de la figure \ref{rapp_fig_notes}).
+\subsection*{Batterie : hauteurs et têtes de notes}
 Pour la transcriptions, nous proposons une notation inspirée du recueil de pièces pour batterie de J.-F. Juskowiak \cite{jusko} et des méthodes de batterie Agostini \cite{ago_meth_3}, car nous trouvons la position des éléments cohérente et intuitive.\\
 En effet, les hauteurs sur la portée représentent :
 \begin{itemize}
@@ -38,6 +40,50 @@ En effet, les hauteurs sur la portée représentent :
 	\label{Hauteur et têtes de notes}
 \end{figure}
 Les noms des instruments correspondant aux codes des notes de la figure \ref{Hauteur et têtes de notes} sont dans le tableau \ref{Pitchs et instruments}.
+\subsection*{Batterie : durées}
+Comme nous venons de la voir, la majorité des instruments de la batterie sont représentés par les têtes des notes. Par conséquent, l’usage des symboles rythmiques concernant la tête de note ne pourront pas être utilisées. Ceci est valable aussi pour la présence ou non de la hampe puisque ce phénomène n’existe qu’avec les têtes de notes de type cercle-vide (opposition blanche-ronde). L’usage des blanches existe dans certaines partitions de batterie [ref??system drum ou rythmique bin n.1] mais celà reste des cas très rares. Certains logiciels permettent de faire des blanches avec des symboles spécifiques à la batterie ou aux percussions mais leur lecture reste peu aisée et leur utilisation pour la batterie est rarissime également.\\
+La durée d’une note peut être allongée par divers symboles :
+\begin{itemize}
+	\item Le point ;
+	\item La liaison.
+\end{itemize}
+Ces symboles ne seront utiles que pour l’écriture des ouvertures de charley. Le charley est le seul instrument de la batterie dont la durée est quantitifiée (les cymbales attrapées à la main peuvent l’être aussi mais cela est très rare.)\newpage
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=80mm, width=40mm]{z_images/3_methodes/point_et_liaison.png}
+	\caption{Point et liaison}
+	\label{point_liaison}
+\end{figure}
+L’écriture de la batterie doit faire ressortir la pulsation. La première chose à prendre en compte pour analyser la figure \ref{point_liaison} est donc la nécessité de regrouper les notes par temps à l’aide des ligatures.\\
+exemple 1 : ouverture de charley quantifiée mais pas notes pas regroupées par temps.\\
+exemple 2 : bieeen !\\
+exemple 3 et exemple 4 : les deux exemples sont valables mais le deuxième est le plus souvent utilisé car plus intuitif (regroupement par temps).\\
+En cas de nécéssité de rallonger la durée d’une note pour la batterie, on privilégiera la liaison.
+\subsection*{Batterie : silences}
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=25mm, width=100mm]{z_images/3_methodes/silences.png}
+	\caption{Les silences}
+	\label{silences}
+\end{figure}
+Les silences sont parfois utilisées pour quantifier les ouvertures de charley.
+Physiquement, le charley est fermé par une pression du pied sur la pédale de charley. Dans les fichiers MIDI, cette pression est traduite par un charley joué au pied. Mais dans une vraie partition, cette écriture ne traduirait pas ce que le batteur doit penser.
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=40mm, width=40mm]{z_images/3_methodes/silence_joue.png}
+	\caption{Silence joué}
+	\label{silence joue}
+\end{figure}\\
+L’exemple 1 de la figure \ref{silence joue} montre ce qui est écrit dans les données MIDI et l’exemple 2 montre ce que le batteur doit penser en lisant la partition. Il faut aussi prendre en compte l’écriture surchargée que l’exemple 1 donnerait avec une partition comprenant plusieurs voix et plusieurs instruments jouant simultanément.
+\subsection*{Batterie : équivalence rythmique}
+Pour les instruments mélodiques, la liaison et le point sont les deux seules possibilités en cas d’équivalence rythmique pour des notes dont la durée de l’une à l’autre est ininterrompue. Cela est valable aussi 
+Cependant, à part pour les ouvertures de charley les durées des notes n’ont pas d’importance en batterie, l’usage des silences pour combler la distance rythmique entre deux notes devient donc possible.
+Ceci pris en compte, et étant donné que les indications de durée dans les têtes de notes ne sont pas pratique en batterie (les symboles « x » des cymbales ne
+peuvent pas porter d’indication de durée dans la tête de notes), l’écriture à l’aide de silences sera privilégiée comme indication de durée sauf dans les cas où cela reste impossible. Ce choix à pour but de n’avoir qu’une manière d’écrire toutes notes, que leurs têtes de notes soit modifiées ou non.\\\\
+\textit{Exemple blanche vs noire + soupir}\\
+
+Les cymbales-crash et les ouvertures de charley constituent les seusl cas qui excluent cette option. Le charley car ses ouvertures/fermetures sont presque toujours quantifiées et les cymbales-crash car elles peuvent être arrêtées à la main de manière quantifié aussi mais ce cas est très rare, nous allons donc nous concentrer sur les ouvertures de charley et considérer les crashs comme des événements sans durée.\\
+Les fermetures du charley sont notées soit par un silence (correspondant à une fermeture de la pédale), soit par un écrasement de l’ouverture par un autre coup de charley fermé, au pied ou à la main.
 \subsection*{Nuances}
 \begin{figure}[!h]
 	\centering
@@ -47,21 +93,6 @@ Les noms des instruments correspondant aux codes des notes de la figure \ref{Hau
 Bien expliquer les accents, remplacer p et f par g et a\\
 $\Rightarrow$ nuance VS articulation\
 
-\subsection*{Durées}
-Basé sur \cite{jacquemard:hal-01134096} et sur \cite{jacquemard:hal-01403982}\\
-Pour la plupart des instruments mélodiques, la liaison et le point sont les deux seules possibilités en cas d’équivalence rythmique pour des notes dont la durée de l’une à l’autre est ininterrompue. Mais puisque les durées des notes n’ont pas d’importance en batterie, l’usage des silences pour combler la distance rythmique entre deux notes devient possible.\\
-Ceci pris en compte, et étant donné que les indications de durée dans les têtes de notes ne sont pas pratique en batterie (les symboles « x » des cymbales ne
-peuvent pas porter d’indication de durée dans la tête de notes\footnote{Certains logiciels le permettent mais leur lecture reste peu aisée}), l’écriture à l’aide de silences sera privilégiée comme indication de durée sauf dans les cas où cela reste impossible. Ce choix à pour but de n’avoir qu’une manière d’écrire toutes notes, que leurs têtes de notes soit modifiées ou non.\\\\
-\textit{Exemple blanche vs noire + soupir}\\
-
-Les cymbales-crash et les ouvertures de charley constituent les seusl cas qui excluent cette option. Le charley car ses ouvertures/fermetures sont presque toujours quantifiées et les cymbales-crash car elles peuvent être arrêtées à la main de manière quantifié aussi mais ce cas est très rare, nous allons donc nous concentrer sur les ouvertures de charley et considérer les crashs comme des événements sans durée.\\
-Les fermetures du charley sont notées soit par un silence (correspondant à une fermeture de la pédale), soit par un écrasement de l’ouverture par un autre coup de charley fermé, au pied ou à la main.
-\begin{figure}[!h]
-	\centering
-	\includegraphics[height=80mm, width=60mm]{z_images/reecriture/exemples_charley_1.png}
-	\caption{Durées}
-	\label{duree_hh}
-\end{figure}\newpage
 \subsection*{Voix}
 Plusieurs écritures sont possibles pour un même rythme :\\\\
 \begin{figure}[!h]
