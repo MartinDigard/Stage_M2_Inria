@@ -41,6 +41,7 @@ En effet, les hauteurs sur la portée représentent :
 \end{figure}
 Les noms des instruments correspondant aux codes des notes de la figure \ref{Hauteur et têtes de notes} sont dans le tableau \ref{Pitchs et instruments}.
 \subsection*{Batterie : durées}
+\label{hho}
 Comme nous venons de la voir, la majorité des instruments de la batterie sont représentés par les têtes des notes. Par conséquent, l’usage des symboles rythmiques concernant la tête de note ne pourront pas être utilisées. Ceci est valable aussi pour la présence ou non de la hampe puisque ce phénomène n’existe qu’avec les têtes de notes de type cercle-vide (opposition blanche-ronde). L’usage des blanches existe dans certaines partitions de batterie [ref??system drum ou rythmique bin n.1] mais celà reste des cas très rares. Certains logiciels permettent de faire des blanches avec des symboles spécifiques à la batterie ou aux percussions mais leur lecture reste peu aisée et leur utilisation pour la batterie est rarissime également.\\
 La durée d’une note peut être allongée par divers symboles :
 \begin{itemize}
@@ -66,7 +67,7 @@ En cas de nécéssité de rallonger la durée d’une note pour la batterie, on 
 	\caption{Les silences}
 	\label{silences}
 \end{figure}
-Les silences sont parfois utilisées pour quantifier les ouvertures de charley.
+Les silences sont parfois utilisées pour quantifier les ouvertures de charley. Les fermetures du charley sont notées soit par un silence (correspondant à une fermeture de la pédale), soit par un écrasement de l’ouverture par un autre coup de charley fermé, au pied ou à la main.
 Physiquement, le charley est fermé par une pression du pied sur la pédale de charley. Dans les fichiers MIDI, cette pression est traduite par un charley joué au pied. Mais dans une vraie partition, cette écriture ne traduirait pas ce que le batteur doit penser.
 \begin{figure}[h]
 	\centering
@@ -76,14 +77,15 @@ Physiquement, le charley est fermé par une pression du pied sur la pédale de c
 \end{figure}\\
 L’exemple 1 de la figure \ref{silence joue} montre ce qui est écrit dans les données MIDI et l’exemple 2 montre ce que le batteur doit penser en lisant la partition. Il faut aussi prendre en compte l’écriture surchargée que l’exemple 1 donnerait avec une partition comprenant plusieurs voix et plusieurs instruments jouant simultanément.
 \subsection*{Batterie : équivalence rythmique}
-Pour les instruments mélodiques, la liaison et le point sont les deux seules possibilités en cas d’équivalence rythmique pour des notes dont la durée de l’une à l’autre est ininterrompue. Cela est valable aussi 
-Cependant, à part pour les ouvertures de charley les durées des notes n’ont pas d’importance en batterie, l’usage des silences pour combler la distance rythmique entre deux notes devient donc possible.
-Ceci pris en compte, et étant donné que les indications de durée dans les têtes de notes ne sont pas pratique en batterie (les symboles « x » des cymbales ne
-peuvent pas porter d’indication de durée dans la tête de notes), l’écriture à l’aide de silences sera privilégiée comme indication de durée sauf dans les cas où cela reste impossible. Ce choix à pour but de n’avoir qu’une manière d’écrire toutes notes, que leurs têtes de notes soit modifiées ou non.\\\\
-\textit{Exemple blanche vs noire + soupir}\\
-
-Les cymbales-crash et les ouvertures de charley constituent les seusl cas qui excluent cette option. Le charley car ses ouvertures/fermetures sont presque toujours quantifiées et les cymbales-crash car elles peuvent être arrêtées à la main de manière quantifié aussi mais ce cas est très rare, nous allons donc nous concentrer sur les ouvertures de charley et considérer les crashs comme des événements sans durée.\\
-Les fermetures du charley sont notées soit par un silence (correspondant à une fermeture de la pédale), soit par un écrasement de l’ouverture par un autre coup de charley fermé, au pied ou à la main.
+Pour les instruments mélodiques, la liaison et le point sont les deux seules possibilités en cas d’équivalence rythmique pour des notes dont la durée de l’une à l’autre est ininterrompue. Mais pour la batterie, à part pour les ouvertures de charley (voir section \ref{hho}), les durées des notes n’ont pas d’importance. L’usage des silences pour combler la distance rythmique entre deux notes devient donc possible.\\
+Ceci pris en compte, et étant donné que les indications de durée dans les têtes de notes sont peu recommandées (voir section \ref{hho}), l’écriture à l’aide de silences sera privilégiée comme indication de durée sauf dans les cas où cela reste impossible. Ce choix à pour but de n’avoir qu’une manière d’écrire toutes les notes, que leurs têtes de notes soit modifiées ou non.
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=20mm, width=75mm]{z_images/3_methodes/equivalence.png}
+	\caption{Équivalence}
+	\label{equivalence}
+\end{figure}\\
+Sur la figure \ref{equivalence}, il faudra choisir la notation de la deuxième ou de la troisième mesure.
 \subsection*{Nuances}
 \begin{figure}[!h]
 	\centering
