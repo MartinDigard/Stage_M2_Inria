@@ -7,13 +7,13 @@ up = \drummode {
   \override Staff.TimeSignature.stencil = ##f
   \override Script.Y-offset = #'-1.0
 
-  sn->-"ccf" s
-  \once \override Script.Y-offset = #'-2.5 tomfl->-"tbf" s
-  \once \override Script.Y-offset = #'0.0 tomml->-"tmf" s
-  \once \override Script.Y-offset = #'0.5 tomh->-"taf" s
-  \once \override Script.Y-offset = #'6.5 hh->-"cff" s
-  \once \override Script.Y-offset = #'7.5 cymr->-"rdf" s
-  \parenthesize sn-"ccp"
+  sn->-"cca" s
+  \once \override Script.Y-offset = #'-2.5 tomfl->-"tba" s
+  \once \override Script.Y-offset = #'0.0 tomml->-"tma" s
+  \once \override Script.Y-offset = #'0.5 tomh->-"taa" s
+  \once \override Script.Y-offset = #'6.5 hh->-"cfa" s
+  \once \override Script.Y-offset = #'7.5 cymr->-"rda" s
+  \parenthesize sn-"ccg"
 }
 
 down = \drummode {
