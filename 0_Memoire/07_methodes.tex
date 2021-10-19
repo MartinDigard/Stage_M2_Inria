@@ -1,5 +1,5 @@
 \section*{Introduction}
-Dans ce chapitre, nous expliquerons en détails les méthodes que nous avons employées pour l’ADT.\\
+Dans ce chapitre, nous expliquerons en détail les méthodes que nous avons employées pour l’ADT.\\
 Pour commencer, nous exposerons une description de la notation de la batterie ainsi qu’une modélisation de celle-ci pour la représentation des données rythmiques en arbres syntaxiques. Nous poursuiverons avec une présentation de qparse\footnote{https://qparse.gitlabpages.inria.fr/}, un outil de transcription qui est développé par Florent Jacquemard (Inria) au sein du laboratoire Cedric au CNAM.\\
 Enfin, nous présenterons les systèmes. 
 \section{La notation de la batterie}
@@ -7,7 +7,7 @@ Enfin, nous présenterons les systèmes.
 	\centering
 	\includegraphics[height=10mm, width=25mm]{z_images/3_methodes/0_notation_de_la_batterie/0_figures_de_notes.png}
 \end{figure}
-Une figure de note \cite{danhauser} de musique réunit plusieurs critères\footnote{\url{https://fr.wikipedia.org/wiki/Note_de_musique}} :
+Une figure de note \cite{danhauser} de musique combine plusieurs critères\footnote{\url{https://fr.wikipedia.org/wiki/Note_de_musique}} :
 \begin{itemize}
 	\item Une tête de note :\\
 	Sa position sur la portée indique la hauteur de la note. La tête de note peut aussi indiquer une durée.
@@ -23,15 +23,15 @@ Une figure de note \cite{danhauser} de musique réunit plusieurs critères\footn
 \end{figure}
 La figure \ref{rapp_fig_notes} montre les rapports de durée entre les figures de notes. Plus les durées sont longues, plus elles sont marquées par la tête de note (la note carrée fait deux fois la durée d’une ronde) ou la présence ou non de la hampe. À partir de la noire (3ème lignes en partant du haut), on ajoute un crochet à la hampe d’une figure de notes pour diviser sa durée par 2. Les notes à crochet (croche , double-croche, triple…) peuvent être reliées ou non par des ligatures (Voir les 4 dernière lignes de la figure \ref{rapp_fig_notes}).
 \subsection*{Les hauteurs et les têtes de notes}
-Pour la transcriptions, nous proposons une notation inspirée du recueil de pièces pour batterie de J.-F. Juskowiak \cite{jusko} et des méthodes de batterie Agostini \cite{ago_meth_3}, car nous trouvons la position des éléments cohérente et intuitive.\\
+Pour la transcription, nous proposons une notation inspirée du recueil de pièces pour batterie de J.-F. Juskowiak \cite{jusko} et des méthodes de batterie Agostini \cite{ago_meth_3}, car nous trouvons la position des éléments cohérente et intuitive.\\
 En effet, les hauteurs sur la portée représentent :
 \begin{itemize}
 	\item La hauteur physique des instruments :\\
 	La caisse claire est centrale sur la portée et sur la batterie (au niveau de la ceinture, elle conditionne l’écart entre les pédales et aussi la position de tous les instruments basiques d’une batterie).\\
-	Tous ce qui en dessous de la caisse-claire sur la portée est en dessous de la caisse-claire sur la batterie (pédales, tom basse) ;\\
-	Tous ce qui est au dessus de la caisse-claire sur la portée, l’est aussi sur la batterie.\\
+	Tout ce qui en-dessous de la caisse-claire sur la portée est en dessous de la caisse-claire sur la batterie (pédales, tom basse) ;\\
+	Tout ce qui est au-dessus de la caisse-claire sur la portée, l’est aussi sur la batterie.\\
 	\item La hauteur des instruments en terme de fréquences :\\
-	Sauf pour le charley au pied et si l’on sépare en trois groupes (gc, toms, cymbales), de bas en haut, les instruments vont dans du plus grave au plus aigu.
+	Sauf pour le charley au pied et si l’on sépare en trois groupes (grosse-caisse, toms et cymbales), de bas en haut, les instruments vont du plus grave au plus aigu.
 \end{itemize}
 \begin{figure}[!h]
 	\centering
@@ -39,10 +39,10 @@ En effet, les hauteurs sur la portée représentent :
 	\caption{Hauteur et têtes de notes}
 	\label{Hauteur et têtes de notes}
 \end{figure}
-Les noms des instruments correspondant aux codes des notes de la figure \ref{Hauteur et têtes de notes} sont dans le tableau \ref{Pitchs et instruments}.
+Les noms des instruments correspondant aux codes des notes de la figure \ref{Hauteur et têtes de notes} sont dans le tableau \ref{pitchs_instru}.
 \subsection*{Les durées}
 \label{hho}
-Comme nous venons de la voir, la majorité des instruments de la batterie sont représentés par les têtes des notes. Par conséquent, l’usage des symboles rythmiques concernant la tête de note ne pourront pas être utilisées. Ceci est valable aussi pour la présence ou non de la hampe puisque ce phénomène n’existe qu’avec les têtes de notes de type cercle-vide (opposition blanche-ronde). L’usage des blanches existe dans certaines partitions de batterie [ref??system drum ou rythmique bin n.1] mais celà reste des cas très rares. Certains logiciels permettent de faire des blanches avec des symboles spécifiques à la batterie ou aux percussions mais leur lecture reste peu aisée et leur utilisation pour la batterie est rarissime également.\\
+Comme nous venons de la voir, la majorité des instruments de la batterie sont représentés par les têtes des notes. Par conséquent, les symboles rythmiques concernant la tête de note ne pourront pas être utilisés. Cela est valable aussi pour la présence ou non de la hampe puisque ce phénomène n’existe qu’avec les têtes de notes de type cercle-vide (opposition blanche-ronde). L’usage des blanches existe dans certaines partitions de batterie \cite{system_drums} mais cela reste dans des cas très rares. Certains logiciels permettent de faire des blanches avec des symboles spécifiques à la batterie ou aux percussions mais leur lecture reste peu aisée et leur utilisation pour la batterie est rarissime.\\
 La durée d’une note peut être allongée par divers symboles :
 \begin{itemize}
 	\item Le point ;
@@ -56,10 +56,10 @@ Ces symboles ne seront utiles que pour l’écriture des ouvertures de charley. 
 	\label{point_liaison}
 \end{figure}
 L’écriture de la batterie doit faire ressortir la pulsation. La première chose à prendre en compte pour analyser la figure \ref{point_liaison} est donc la nécessité de regrouper les notes par temps à l’aide des ligatures.\\
-exemple 1 : ouverture de charley quantifiée mais pas notes pas regroupées par temps.\\
-exemple 2 : bieeen !\\
-exemple 3 et exemple 4 : les deux exemples sont valables mais le deuxième est le plus souvent utilisé car plus intuitif (regroupement par temps).\\
-En cas de nécéssité de rallonger la durée d’une note pour la batterie, on privilégiera la liaison.
+Exemple 1 : ouverture de charley quantifiée mais pas notes pas regroupées par temps.\\
+Exemple 2 : bieeen !\\
+Exemple 3 et exemple 4 : les deux exemples sont valables mais le deuxième est le plus souvent utilisé car plus intuitif (regroupement par temps).\\
+En cas de nécessité de rallonger la durée d’une note pour la batterie, on privilégiera la liaison.
 \subsection*{Les silences}
 \begin{figure}[h]
 	\centering
@@ -67,7 +67,7 @@ En cas de nécéssité de rallonger la durée d’une note pour la batterie, on 
 	\caption{Les silences}
 	\label{silences}
 \end{figure}
-Les silences sont parfois utilisées pour quantifier les ouvertures de charley. Les fermetures du charley sont notées soit par un silence (correspondant à une fermeture de la pédale), soit par un écrasement de l’ouverture par un autre coup de charley fermé, au pied ou à la main.
+Les silences sont parfois utilisés pour quantifier les ouvertures de charley. Les fermetures du charley sont notées soit par un silence (correspondant à une fermeture de la pédale), soit par un écrasement de l’ouverture par un autre coup de charley fermé, au pied ou à la main.
 Physiquement, le charley est fermé par une pression du pied sur la pédale de charley. Dans les fichiers MIDI, cette pression est traduite par un charley joué au pied. Mais dans une vraie partition, cette écriture ne traduirait pas ce que le batteur doit penser.
 \begin{figure}[h]
 	\centering
@@ -78,23 +78,23 @@ Physiquement, le charley est fermé par une pression du pied sur la pédale de c
 L’exemple 1 de la figure \ref{silence joue} montre ce qui est écrit dans les données MIDI et l’exemple 2 montre ce que le batteur doit penser en lisant la partition. Il faut aussi prendre en compte l’écriture surchargée que l’exemple 1 donnerait avec une partition comprenant plusieurs voix et plusieurs instruments jouant simultanément.
 \subsection*{Les équivalences rythmiques}
 Pour les instruments mélodiques, la liaison et le point sont les deux seules possibilités en cas d’équivalence rythmique pour des notes dont la durée de l’une à l’autre est ininterrompue. Mais pour la batterie, à part pour les ouvertures de charley (voir section \ref{hho}), les durées des notes n’ont pas d’importance. L’usage des silences pour combler la distance rythmique entre deux notes devient donc possible.\\
-Ceci pris en compte, et étant donné que les indications de durée dans les têtes de notes sont peu recommandées (voir section \ref{hho}), l’écriture à l’aide de silences sera privilégiée comme indication de durée sauf dans les cas où cela reste impossible. Ce choix à pour but de n’avoir qu’une manière d’écrire toutes les notes, que leurs têtes de notes soit modifiées ou non.
+Cela pris en compte, et étant donné que les indications de durée dans les têtes de notes sont peu recommandées (voir section \ref{hho}), l’écriture à l’aide de silences sera privilégiée comme indication de durée sauf dans les cas où cela reste impossible. Ce choix à pour but de n’avoir qu’une manière d’écrire toutes les notes, que leurs têtes de notes soit modifiées ou non.
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=20mm, width=75mm]{z_images/3_methodes/0_notation_de_la_batterie/6_equivalence.png}
 	\caption{Équivalence}
 	\label{equivalence}
 \end{figure}\\
-Sur la figure \ref{equivalence}, théoriquement, il faudra choisir la notation de la deuxième mesure mais dans certains contexte, pour des raisons de lisibilité ou de surcharge, la version sans les silences de la troisième mesure pourra être choisie.
+Sur la figure \ref{equivalence}, théoriquement, il faudra choisir la notation de la deuxième mesure mais dans certains contextes, pour des raisons de lisibilité ou de surcharge, la version sans les silences de la troisième mesure pourra être choisie.
 \subsection*{Les voix}
-Les voix\footnote{\url{https://fr.wikipedia.org/wiki/Voix_(polyphonie)}} désignent les différentes parties mélodiques constituant une composition musicale et destinées à être interprétées, simultanément ou successivement, par un ou plusieurs musiciens. En batterie, une voix regroupe par les ligatures les instruments qui, à eux seuls constituent une phrase rythmique. Plusieurs écritures étant possibles pour un même rythme. On peut regrouper les instruments de la batterie par voix. Sur une portée de batterie, il existe le plus souvent 1 ou 2 voix. Sur la figure \ref{sep_voix}, il faudra faire un choix entre les exemples 1, 2 et 3 qui sont trois façons d’écrire le même rythme.
+Les voix\footnote{\url{https://fr.wikipedia.org/wiki/Voix_(polyphonie)}} désignent les différentes parties mélodiques constituant une composition musicale et destinées à être interprétées, simultanément ou successivement, par un ou plusieurs musiciens. En batterie, une voix est l’ensemble des instruments qui, à eux seuls, constituent une phrase rythmique et sont regroupés à l’aide des ligatures. Plusieurs écritures étant possibles pour un même rythme, on peut regrouper les instruments de la batterie par voix. Sur une portée de batterie, il existe le plus souvent 1 ou 2 voix. Sur la figure \ref{sep_voix}, il faudra faire un choix entre les exemples 1, 2 et 3 qui sont trois façons d’écrire le même rythme.
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=65mm, width=60mm]{z_images/3_methodes/0_notation_de_la_batterie/7_voix.png}
 	\caption{Séparation des voix}
 	\label{sep_voix}
 \end{figure}\\
-Ce choix se fera en fonction des instruments joués, de la nature plus ou moins systèmatique de leurs phrasés, et des associations logiques entre les instruments dans la distribution des rythmes sur la batterie (Voir la section \ref{sys_sep_voix}).
+Ce choix se fera en fonction des instruments joués, de la nature plus ou moins systèmatique de leurs phrasés, et des associations logiques entre les instruments dans la distribution des rythmes sur la batterie (voir la section \ref{sys_sep_voix}).
 \subsection*{Les accentuations et les ghost-notes}
 « Certaines notes dans une phrase musicale doivent, ainsi que les différentes syllabes d’un mot, être accentuées avec plus ou moins de force, porter une inflexion particulière. » \cite{danhauser}
 \begin{figure}[h]
@@ -103,8 +103,8 @@ Ce choix se fera en fonction des instruments joués, de la nature plus ou moins 
 	\caption{Les accents et les ghost-notes}
 	\label{accents_et_gn}
 \end{figure}\\
-La figure \ref{accents_et_gn} ne prend en compte que les accents que nous avons estimés nécessaires (Voir la section \ref{velocite}). Les accents sont marqués par le symbole « > ». Il est positionné au-dessus des notes représentant des cymbales et en-dessous des notes représentant des toms ou la caisse-claire. Ce choix a été fait pour la partition de la figure \ref{partition_entiere} car elle est plus lisible ainsi mais ces choix devront être adaptés en fonction des différents systèmes reconnus (Voir la section \ref{systemes_methodes}). Par exemple, pour les systèmes jazz, les ligatures pour les toms et la caisse-claire seront dirigés vers la bas, il faudra donc mettre les symboles d’accentuation leur correspondant au-dessus des têtes de notes.\\
-La dernière notes de la figure \ref{accents_et_gn} montre un exemple de ghost-notes. Le parenthésage a été choisi car il peut être utilisé sur n’importe quelle note sans changer la tête de note.\\
+La figure \ref{accents_et_gn} ne prend en compte que les accents que nous avons estimés nécessaires (voir la section \ref{velocite}). Les accents sont marqués par le symbole « > ». Il est positionné au-dessus des notes représentant des cymbales et en-dessous des notes représentant des toms ou la caisse-claire. Ce choix a été fait pour la partition de la figure \ref{partition_entiere} car elle est plus lisible ainsi, mais ces choix devront être adaptés en fonction des différents systèmes reconnus (voir la section \ref{systemes_methodes}). Par exemple, pour les systèmes jazz, les ligatures pour les toms et la caisse-claire seront dirigés vers le bas, il faudra donc mettre les symboles d’accentuation correspondants au-dessus des têtes de notes.\\
+La dernière note de la figure \ref{accents_et_gn} montre un exemple de ghost-notes. Le parenthésage a été choisi car il peut être utilisé sur n’importe quelle note sans changer la tête de note.\\
 Pour les codes, on prend le code de la note et on ajoute un « a » pour un accent et un « g » pour une ghost-note. La figure \ref{exemple_acc_et_gn} réunit toutes les notes de la figure \ref{accents_et_gn} exposées en situation réelle. 
 \begin{figure}[h]
 	\centering
@@ -137,21 +137,21 @@ Pour les codes, on prend le code de la note et on ajoute un « a » pour un acce
 	\label{pitchs_instru}
 \end{table}
 Il existe, pour de nombreux instruments de la batterie, plusieurs samples audio associés à des pitchs. Pour cette première version, nous avons choisi de n’avoir qu’un code-instrument pour différentes variantes d’un instrument, c’est pourquoi certain code-instrument se voit attribuer plusieurs pitchs dans le tableau \ref{pitchs_instru}.\\
-Malgré le large panel de pitch disponible, il semblerait qu’aucun pitch ne désigne le charley ouvert joué au pied. Pourtant, dans la batterie moderne, plusieurs rythme ne peuvent fournir le son du charley ouvert qu’avec le pied car les mains ne sont pas disponible pour le jouer. Ceci doit en parti être dû à l’utilisation des boîte à rythmes en MAO qui ne nécessitent pas de faire des choix conditionnés par les limitations humaines (2 pieds, 2 mains, et beaucoup plus d’instruments…)
+Malgré le large panel de pitchs disponible, il semblerait qu’aucun pitch ne désigne le charley ouvert joué au pied. Pourtant, dans la batterie moderne, plusieurs rythmes ne peuvent fournir le son du charley ouvert qu’avec le pied car les mains ne sont pas disponibles pour le jouer. Cela doit en partie être dû à l’utilisation des boîte à rythmes en MAO qui ne nécessitent pas de faire des choix conditionnés par les limitations humaines (2 pieds, 2 mains, et beaucoup plus d’instruments…)
 \subsection*{La vélocité}
 \label{velocite}
-La partition de la figure \ref{partition_entiere} a été transcrite manuellement avec lilypond par analyse des fichiers MIDI et audio correspondant.\\
-Cette transcription nous a menée aux observations suivantes :
+La partition de la figure \ref{partition_entiere} a été transcrite manuellement avec lilypond par analyse des fichiers MIDI et audio correspondants.\\
+Cette transcription nous a mené aux observations suivantes :
 \begin{itemize}
-	\item Vélocité inférieur à 40 : ghost-note ;
-	\item Vélocité supérieur à 90 : accent ;
+	\item Vélocité inférieure à 40 : ghost-note ;
+	\item Vélocité supérieure à 90 : accent ;
 	\item Pas d’intention d’accent ni de ghost-note pour une vélocité entre 40 et 89 ;
 	\item Les accents et les ghosts-notes ne sont significatifs ni pour les instruments joués au pied, ni pour les cymbales crash.\\
 	En effet, certaines vélocités en dessous de 40 étant détectées et inscrites dans les données MIDI sont dues au mouvement du talon du batteur qui bat la pulsation sans particulièrement jouer le charley. Ce mouvement est perçu par le capteur de la batterie électronique mais le charley n’est pas joué.
 	\item Au final, nous avons relevé les ghost-notes et les accents pour la caisse-claire ainsi que les accents pour les toms et les cymbales rythmiques (charley et ride).
 \end{itemize}
 \subsection*{Les arbres de rythmes}
-Les arbres de rythmes représentent un rythme unique dont les possibilités de notation sur une partition sont théoriquement multiples. Voici une représentation de la figure \ref{sep_voix} en arbre de rythme avec les codes de chaque instrument :
+Les arbres de rythmes représentent un rythme unique dont les possibilités de notation sur une partition sont théoriquement multiples. Voici une représentation de la figure \ref{sep_voix} en arbre de rythmes avec les codes de chaque instrument :
 \begin{figure}[h]
 	\Tree[ [ [rd\\gc ][ [rd\\pf ][rd ]]]
 	[ [rd\\cc ][ [rd\\pf ][rd ]]]
@@ -167,7 +167,7 @@ Ci-dessous, le même arbre dont les codes des instruments sont remplacés par le
 \end{figure}\\
 Chacun des trois exemples de la figure \ref{sep_voix} est représenté par un des deux arbres syntaxiques ci-dessus.
 \section{Qparse}
-Florent Jacquemard(Inria), Philippe Rigaux (CNAM), Masahiko Sakai (Nagoya U.), Francesco Foscarin (PhD, CNAM), Clement Poncelet (Salzburg U.)
+Florent Jacquemard (Inria), Philippe Rigaux (CNAM), Masahiko Sakai (Nagoya U.), Francesco Foscarin (PhD, CNAM), Clement Poncelet (Salzburg U.)
 \textit{Mettre ici un schéma de la chaîne de traitement de qparse (workflow)}\\
 Pb du MIDI avec qparse entrée ON-OFF $\Rightarrow$ sortie 1 seul symbole.\\
 Qparse produit une partition musicale en prenant en entrée une performance musicale symbolique (par exemple un fichier MIDI) et un automate à arbre pondéré décrivant un langage de rythmes préférés (grammaire pondérée). La quantification des rythmes est basée sur des algorithmes d’analyse syntaxique applicables sur des automates arborescents.\footnote{\url{https://qparse.gitlabpages.inria.fr}}
