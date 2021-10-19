@@ -94,25 +94,24 @@ Les voix\footnote{\url{https://fr.wikipedia.org/wiki/Voix_(polyphonie)}} désign
 	\caption{Séparation des voix}
 	\label{sep_voix}
 \end{figure}\\
-Ce choix se fera en fonction des instruments joués, de la nature plus ou moins systèmatique de leurs phrasés, et des associations logiques entre les instruments dans la distribution des rythmes sur la batterie.\\
-%Ainsi l’arbre syntaxique de départ sera divisé en autant d’instruments qui le constituent et les voix seront regroupées de manière cohérentes.
+Ce choix se fera en fonction des instruments joués, de la nature plus ou moins systèmatique de leurs phrasés, et des associations logiques entre les instruments dans la distribution des rythmes sur la batterie (Voir la section \ref{sys_sep_voix}).
 \subsection*{Les accentuations et les ghost-notes}
-a = accent\\
-g = ghost-note\\
-$\Rightarrow$ nuance ≠ accentuation
+« Certaines notes dans une phrase musicale doivent, ainsi que les différentes syllabes d’un mot, être accentuées avec plus ou moins de force, porter une inflexion particulière. » \cite{danhauser}
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=25mm, width=75mm]{z_images/3_methodes/0_notation_de_la_batterie/8_nuances_0.png}
-	\caption{Les nuances}
-	\label{nuances}
+	\caption{Les accents et les ghost-notes}
+	\label{accents_et_gn}
 \end{figure}\\
-La figure \ref{nuances} ne prend en compte que les accents que nous avons estimé nécessaires. En effet, les nuances jouées avec les pieds ne sont pas significatives, certaines vélocités en dessous de 40 n’étant détectées et inscrites dans les données MIDI sont dû au mouvement du talon du batteur perçu par le capteur mais pas jouées intentionnellement.
+La figure \ref{accents_et_gn} ne prend en compte que les accents que nous avons estimés nécessaires (Voir la section \ref{velocite}). Les accents sont marqués par le symbole « > ». Il est positionné au-dessus des notes représentant des cymbales et en-dessous des notes représentant des toms ou la caisse-claire. Ce choix a été fait pour la partition de la figure \ref{partition_entiere} car elle est plus lisible ainsi mais ces choix devront être adaptés en fonction des différents systèmes reconnus (Voir la section \ref{systemes_methodes}). Par exemple, pour les systèmes jazz, les ligatures pour les toms et la caisse-claire seront dirigés vers la bas, il faudra donc mettre les symboles d’accentuation leur correspondant au-dessus des têtes de notes.\\
+La dernière notes de la figure \ref{accents_et_gn} montre un exemple de ghost-notes. Le parenthésage a été choisi car il peut être utilisé sur n’importe quelle note sans changer la tête de note.\\
+Pour les codes, on prend le code de la note et on ajoute un « a » pour un accent et un « g » pour une ghost-note. La figure \ref{exemple_acc_et_gn} réunit toutes les notes de la figure \ref{accents_et_gn} exposées en situation réelle. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=20mm, width=110mm]{z_images/3_methodes/0_notation_de_la_batterie/8_nuances_1.png}
 	\caption{Exemple pour les nuances}
-	\label{exemple_nuances}
-\end{figure}
+	\label{exemple_acc_et_gn}
+\end{figure}\newpage
 \section{Modélisation pour la transcription}
 \label{modelisation_transcription}
 \subsection*{Les pitchs}
@@ -137,8 +136,8 @@ La figure \ref{nuances} ne prend en compte que les accents que nous avons estim�
 	\caption{Pitchs et instruments}
 	\label{pitchs_instru}
 \end{table}
-Un large panel d’instruments sont disponibles pour chaque instrument basique de la batterie. Pour cette première version, les instruments basiques de la batterie ont été conservés comme réceptacle pour tous les différents intruments qui rentrent dans leur catégorie, c’est pourquoi certain code-instrument se voit attribuer plusieurs pitchs dans tableau \ref{pitchs_instru}.
-Il semblerait qu’aucun pitch ne désigne le charley pied ouvert…
+Il existe, pour de nombreux instruments de la batterie, plusieurs samples audio associés à des pitchs. Pour cette première version, nous avons choisi de n’avoir qu’un code-instrument pour différentes variantes d’un instrument, c’est pourquoi certain code-instrument se voit attribuer plusieurs pitchs dans le tableau \ref{pitchs_instru}.\\
+Malgré le large panel de pitch disponible, il semblerait qu’aucun pitch ne désigne le charley ouvert joué au pied. Pourtant, dans la batterie moderne, plusieurs rythme ne peuvent fournir le son du charley ouvert qu’avec le pied car les mains ne sont pas disponible pour le jouer. Ceci doit en parti être dû à l’utilisation des boîte à rythmes en MAO qui ne nécessitent pas de faire des choix conditionné par des limitations humaines (2 pieds, 2 mains, et beaucoup plus d’instruments…)
 \subsection*{La vélocité}
 \label{velocite}
 \begin{table}[h]
@@ -147,8 +146,10 @@ Il semblerait qu’aucun pitch ne désigne le charley pied ouvert…
 		Codes & Instruments & Pitchs & Vélocité \\ \hline
 		cop & charley-main-ouvert & 46 & ? \\ \hline
 	\end{tabular}
-	\caption{Vélocité et nuances}
+	\caption{Vélocité, accentuation et ghost-notes}
+%	\label{vel_acc_gn}
 \end{table}
+Les accents et les ghost-notes joués avec les pieds ne sont pas significatifs car certaines vélocités en dessous de 40 étant détectées et inscrites dans les données MIDI sont dûs au mouvement du talon du batteur qui bat la pulsation sans particulièrement jouer le charley. Ce mouvement est perçu par le capteur de la batterie électronique mais le charley n’est pas joué.\\
 Nous ne prendrons en compte la vélocité que pour la cc, les toms et les cymbales jouées aux mains. Les nuances de grosse caisse et charley aux pieds sont le plus souvent insignifiantes, elles ne sont marquées sur le figure qu’à titre indicatif.
 Si la vélocité est en dessous de 40, il s’agit de ghost-notes : la tête de note devra être entouré de parenthèses et le suffixe \textit{p (piano)} devra être ajouté au codes de l’instrument. (Voir ccp ci-dessus.)
 Si la vélocité est au dessus de 90, il s’agit de notes accentuées : le symbole « > » et le suffixe \textit{f (forte)} devra être ajouté au codes de l’instrument. (Voir ccf ci-dessus.)
@@ -157,16 +158,21 @@ Lorsque la vélocité va de 40 à 89, on considèrera le volume comme normal et 
 %\subsubsection{Les dilemmes}
 Le charley de pitch 46 est considéré comme le charley ouvert joué à la main sur le haut de la cymbale mais souvent, ça correspond au geste « tranche-olive » de la baguette lorsque le batteur accentue avec la tranche et joue moins fort avec l’olive sur le plat de la cymbale. Je vais dans un premier temps considérer le pitch comme \textbf{charley-main-ouvert-piano} (ghost-note)
 \subsection*{Les arbres de rythmes}
-Voici une représentation de la figure \ref{sep_voix} en arbre de rythme avec les codes de chaque instrument :\\\\
-\Tree[ [ [rd\\gc ][ [rd\\pf ][rd ]]]
-[ [rd\\cc ][ [rd\\pf ][rd ]]]
-[ [rd\\gc ][ [rd\\pf ][rd ]]]
-[ [rd\\cc ][ [rd\\pf ][rd ]]] ]\\\\\\
-Ci-dessous, le même arbre dont les codes des instruments sont remplacés par leurs données midi respectives :\\\\
-\Tree[ [ [51\\36 ][ [51\\44 ][51 ]]]
-[ [51\\38 ][ [51\\44 ][51 ]]]
-[ [51\\36 ][ [51\\44 ][51 ]]]
-[ [51\\38 ][ [51\\44 ][51 ]]] ]\\\\\\
+Voici une représentation de la figure \ref{sep_voix} en arbre de rythme avec les codes de chaque instrument :
+\begin{figure}[h]
+	\Tree[ [ [rd\\gc ][ [rd\\pf ][rd ]]]
+	[ [rd\\cc ][ [rd\\pf ][rd ]]]
+	[ [rd\\gc ][ [rd\\pf ][rd ]]]
+	[ [rd\\cc ][ [rd\\pf ][rd ]]] ]
+\end{figure}
+Ci-dessous, le même arbre dont les codes des instruments sont remplacés par leurs données midi respectives :
+\begin{figure}[h]
+	\Tree[ [ [51\\36 ][ [51\\44 ][51 ]]]
+	[ [51\\38 ][ [51\\44 ][51 ]]]
+	[ [51\\36 ][ [51\\44 ][51 ]]]
+	[ [51\\38 ][ [51\\44 ][51 ]]] ]
+\end{figure}
+
 Cet arbre représente un rythme unique dont les possibilités de notation sur une partition sont théoriquement multiples. Les trois exemples de la figure 3.4 peuvent-être représentés par les arbres ci-dessus.
 \section{Qparse}
 Florent Jacquemard(Inria), Philippe Rigaux (CNAM), Masahiko Sakai (Nagoya U.), Francesco Foscarin (PhD, CNAM), Clement Poncelet (Salzburg U.)
@@ -251,10 +257,11 @@ Il faudra créer un ensemble de systèmes comprenant leurs règles spécifiques 
 Pour la \textbf{séparation des voix} et la \textbf{définition des métriques}, nous nous intéresserons principalement à la partie \textit{motif} des systèmes qui seront présentés. La partie \textit{texte} nous intéressera plus pour les \textbf{combinaisons de réécritures}.
 \newpage
 \subsubsection{Réécriture — Pour la séparation des voix}
-
+\label{sys_sep_voix}
 \textbf{Motif 4-4 binaire}\\\\
 \includegraphics[height=60mm, width=40mm]{z_images/description_notation/separation/1_separation_4-4_binaire.png}\\\\
 Ici, le système est construit sur un modèle rock en 4/4 : after-beat sur les 2 et 4 avec un choix de répartition des cymbales type fast-jazz. Le système est constitué par défaut du motif ride/ch-pf/cc et d’un texte joué à la grosse-caisse. La troisième séparation proposée est privilégiée car elle répartit selon 2 voix, une voix pour les mains (ride + cc) et une voix pour les pieds (ch-pf + gc). Ce choix paraît plus équilibré car deux instruments sont utilisés par voix et plus logique pour le lecteur puisque les mains sont en haut et les pieds en bas.\\
+
 %D’autres choix d’écriture auraient été possibles :
 %\begin{itemize}
 %	\item Toutes les hampes en haut ;
@@ -266,8 +273,7 @@ Ici, le système est construit sur un modèle rock en 4/4 : after-beat sur les 2
 Dans la plupart des méthodes, le charley n’est pas écrit car considéré comme évident en jazz traditionnel. Ce qui facilite grandement l’écriture : la ride et les crash sur la voix du haut et le reste sur la voix du bas. Ici, le partie prit et de tout écrire. Dans l’exemple ci-dessus, les mesures 1 et 2 combinées avec le \textit{motif} de la première ligne, sont des cas typiques de la batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la grosse caisse entre très souvent dans le flot des combinaisons de toms et de caisse claire et son écriture séparée serait inutilement compliquée et peu intuitive pour le lecteur. Le choix de séparation sera donc de laisser les cymbales en haut et toms, caisse-claire, grosse-caisse et pédale de charley en bas.\\
 
 \textbf{Système 4-4 afro-cubain}\\\\
-\includegraphics[height=25mm, width=80mm]{z_images/description_notation/separation/3_separation_afro-cubain.png}\\
-
+\includegraphics[height=25mm, width=80mm]{z_images/description_notation/separation/3_separation_afro-cubain.png}
 \subsubsection{Pour la reconnaissance de la métrique}
 \textit{\textbf{12/8 vs 4/4 ternaire}}\\\\
 \textbf{Motif 12/8}\\\\
