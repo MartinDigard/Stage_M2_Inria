@@ -330,3 +330,7 @@ possibilités d'amélioration~;}
 %\cite{rohrmeier2020towards} cherchent à caractériser la structure interne récursive des rythmes musicaux en utilisant une grammaire formelle.
 %Cela va au-delà du GTTM (?), qui ne propose pas de modèle du rythme, et soutient en outre que l'inférence de la structure rythmique hiérarchique profonde est centrale à la cognition musicale. En raison de la représentation conjointe de la structure rythmique et métrique dans le modèle, un analyseur syntaxique de la grammaire abstraite du rythme musical proposée instancie l'interprétation rythmique et l'inférence métrique en même temps.\\\\
 %et nous montrerons que l’approche hiérarchique est plus adapté au traitement de la musique dont l’écriture est une structure hiérarchique en soi.
+
+%\subsubsection{Les dilemmes}
+%Le charley de pitch 46 est considéré comme le charley ouvert joué à la main sur le haut de la cymbale mais souvent, ça correspond au geste « tranche-olive » de la baguette lorsque le batteur accentue avec la tranche et joue moins fort avec l’olive sur le plat de la cymbale. Je vais dans un premier temps considérer le pitch comme \textbf{charley-main-ouvert-piano} (ghost-note)
+
