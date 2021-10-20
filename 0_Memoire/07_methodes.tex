@@ -210,53 +210,15 @@ Plusieurs enjeux :
 		\item Impossibilité de traiter plusieurs voix et de reconnaître les accords.
 	\end{itemize}
 \end{itemize}
-
-%\subsection{Les Jams}
-%Regroupement par nature des notes qui forment un accord.
-%\subsection*{La grammaire pondérée}
-%La grammaire pondérée qui accompagne le MIDI en input est une grammaire hors-contexte pondérée. Chaque règle comporte un poid qui sert à favoriser certains rythmes plutôt que d’autres.\footnote{\url{https://qparse.gitlabpages.inria.fr/docs/scientific/}}
-%\subsection*{Le parsing}
-%Le parsing du midi donné en input crée une représentation symbolique sous forme d’arbre de rythme.\\
-%Ici $\Rightarrow$ exemple avec :\\
-%3bars\_fill\_groove-016.mid $\Rightarrow$ arbre\\
-%\subsection*{La réécriture}
-%\subsubsection{Séparation des voix}
-%\subsubsection{Simplification}
-%Ici, description basique des règles de réécriture 
 \section{Les systèmes}
 \label{systemes_methodes}
-Un système est la combinaison d’un ou plusieurs éléments qui jouent un rythme en boucle (motif) et d’un autre élément qui joue un texte rythmique variable mais respectant les règles propre au système (gamme).\\
-
-Système = motif + gamme/texte\\
-motif = rythmes coordonnés joués avec 2 ou 3 membres en boucle (reparti sur 1 ou 2 voix)\\
-gamme/texte = rythme irrégulier joué avec un seul membre sur le motif (Réparti sur 1 voix). La gamme d’un système considère l’ensemble des combinaisons que le batteur pourrait rencontrer en interprétant un texte rythmique à l’aide du système.\\
-
-Nous partirons de propositions génériques de systèmes (environs trois systèmes dans différents styles de batterie) que nous tenterons de détecter dans le jeu de données groove.\\
-
-Quatre systèmes standards :
-\begin{itemize}
-	\item binaire
-	\item ternaire (shuffle, afro, rock)
-	\item jazz
-	\item afro-cubain\\
-\end{itemize}
-
-Nous travaillerons aussi sur la détection de répétitions sur plusieurs mesures afin de pouvoir corriger des erreurs sur une des mesures qui aurait dû être identique aux autres mais qui présente des différences.
-
-\subsubsection{Intérêt des systèmes}
-\textit{\textbf{Détection d’indication de mesure et choix de grammaire pondérée}}\\
-Il faut prendre en compte l’existence potentielle de plusieurs grammaires \textit{(un fichier wta par grammaire)} chacunes dédiées à un type de contenu MIDI. Le choix d’une grammaire pondérée doit être fait avant le parsing puisque qparse prends en entrée un fichier MIDI et un fichier wta.\\
-Pour les expériences effectuées avec le Groove MIDI Data Set, le style et l’indication de mesure sont récupérables par les noms de fichiers MIDI, mais il faudra par la suite les trouver automatiquement sans autres indications que les données MIDI elles-mêmes.\\
-En conséquence, les motifs des systèmes devront être recherchés sur l’input \textit{(fichiers MIDI)} avant le lancement du parsing, afin de déterminer la métrique en amont en vu de sélectionner la grammaire pondérée \textit{(fichier wta)} adéquate pour le parsing. Nous pensons que cette tâche devrait être effectuée en Machine Learning.
-\textbf{Les systèmes devront être matchés sur l’input MIDI}
-\begin{itemize}
-	\item Définir une métrique ;
-	\item Réécriture : séparation des voix ;
-	\item Réécriture : Set de règles spécifiques de simplification.
-\end{itemize}
-
-Il faudra créer un ensemble de systèmes comprenant leurs règles spécifiques de réécriture (séparation des voix et simplifications).
-3 grandes catégories :
+Un système est la combinaison d’un ou plusieurs éléments qui jouent un rythme en boucle (motif) et d’un autre élément qui joue un texte rythmique variable mais respectant les règles propres au système (gamme).
+\subsection*{Définitions}
+\textit{\textbf{Système :}} motif + gamme/texte\\
+\textit{\textbf{Motif :}} rythmes coordonnés joués avec 2 ou 3 membres en boucle (reparti sur 1 ou 2 voix)\\
+\textit{\textbf{Texte :}} rythme irrégulier joué avec un seul membre sur le motif (Réparti sur 1 voix).\\
+\textit{\textbf{Gamme :}} La gamme d’un système considère l’ensemble des combinaisons que le batteur pourrait rencontrer en interprétant un texte rythmique à l’aide du système.\\\\
+Un ensemble de systèmes comprenant leur métrique et leurs règles spécifiques de réécriture seront nécessaires. Il devront être distribué dans 4 grandes catégories :
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|} \hline
@@ -268,18 +230,27 @@ Il faudra créer un ensemble de systèmes comprenant leurs règles spécifiques 
 	\end{tabular}
 	\caption{Sytèmes}
 \end{table}
-
+\subsection*{Objectif des systèmes}
+\textbf{Les systèmes devront être matchés sur l’input MIDI afin de :}
 \begin{itemize}
-	\item ternaire (mesures complexes, principalement croches, noire pointées, duolets et quartelets possibles)
-	\item afro-cubain (mesure)
-	\item Tout transcrire avec lilypond et en arbres d’analyse syntaxique.
-	\item Créer les arbres de voix séparées.
-	\item Écrire les règles de réécriture.
-	\item Créer les arbres de voix séparées simplifiés (rewriting).\\	
+	\item Définir une métrique ;
+	\item Choisir une grammaire appropriée ;
+	\item Fournir les règles de réécriture (séparation des voix et simplification.\\
 \end{itemize}
-
-Pour la \textbf{séparation des voix} et la \textbf{définition des métriques}, nous nous intéresserons principalement à la partie \textit{motif} des systèmes qui seront présentés. La partie \textit{texte} nous intéressera plus pour les \textbf{combinaisons de réécritures}.
-\newpage
+\textit{\textbf{Détection d’indication de mesure}}\\
+Pour les expériences effectuées avec le Groove MIDI Data Set, le style et l’indication de mesure sont récupérables par les noms de fichiers MIDI, mais il faudra par la suite les trouver automatiquement sans autres indications que les données MIDI elles-mêmes.\\
+Par conséquent, les motifs des systèmes devront être recherchés sur l’input \textit{(fichiers MIDI)} avant le lancement du parsing, afin de déterminer la métrique en amont en vu de sélectionner la grammaire pondérée \textit{(fichier wta)} adéquate pour le parsing. Cette tâche devra probablement être effectuée en Machine Learning.\\\\
+\textit{\textbf{Choix d’une grammaire}}\\
+Il faut prendre en compte l’existence potentielle de plusieurs grammaires \textit{(un fichier wta par grammaire)} chacunes dédiées à un type de contenu MIDI. Le choix d’une grammaire pondérée doit être fait avant le parsing puisque qparse prends en entrée un fichier MIDI et un fichier wta. C’est pour cette raison que la métrique doit être définie avant le choix de la grammaire.\\
+\\\\
+La partie \textit{motif} des systèmes sera utilisée pour la \textbf{définition des métriques} et la \textbf{séparation des voix}. Les règles de \textbf{simplification} (les combinaisons de réécritures) seront extraites des voix séparées d’un système (motif + gamme).\\\\
+Nous exposerons 4 systèmes afin d’illustrer les propos de cette section :
+\begin{itemize}
+	\item 4/4 binaire 
+	\item 4/4 jazz
+	\item 4/4 afro-cubain
+	\item 12/8 (4 temps ternaire : shuffle, afro, rock,…)
+\end{itemize}
 \subsubsection{Réécriture — Pour la séparation des voix}
 \label{sys_sep_voix}
 \textbf{Motif 4-4 binaire}\\\\

@@ -334,3 +334,24 @@ possibilités d'amélioration~;}
 %\subsubsection{Les dilemmes}
 %Le charley de pitch 46 est considéré comme le charley ouvert joué à la main sur le haut de la cymbale mais souvent, ça correspond au geste « tranche-olive » de la baguette lorsque le batteur accentue avec la tranche et joue moins fort avec l’olive sur le plat de la cymbale. Je vais dans un premier temps considérer le pitch comme \textbf{charley-main-ouvert-piano} (ghost-note)
 
+%\subsection{Les Jams}
+%Regroupement par nature des notes qui forment un accord.
+%\subsection*{La grammaire pondérée}
+%La grammaire pondérée qui accompagne le MIDI en input est une grammaire hors-contexte pondérée. Chaque règle comporte un poid qui sert à favoriser certains rythmes plutôt que d’autres.\footnote{\url{https://qparse.gitlabpages.inria.fr/docs/scientific/}}
+%\subsection*{Le parsing}
+%Le parsing du midi donné en input crée une représentation symbolique sous forme d’arbre de rythme.\\
+%Ici $\Rightarrow$ exemple avec :\\
+%3bars\_fill\_groove-016.mid $\Rightarrow$ arbre\\
+%\subsection*{La réécriture}
+%\subsubsection{Séparation des voix}
+%\subsubsection{Simplification}
+%Ici, description basique des règles de réécriture
+
+%\begin{itemize}
+%	\item ternaire (mesures complexes, principalement croches, noire pointées, duolets et quartelets possibles)
+%	\item afro-cubain (mesure)
+%	\item Tout transcrire avec lilypond et en arbres d’analyse syntaxique.
+%	\item Créer les arbres de voix séparées.
+%	\item Écrire les règles de réécriture.
+%	\item Créer les arbres de voix séparées simplifiés (rewriting).\\	
+%\end{itemize}
