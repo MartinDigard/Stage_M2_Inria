@@ -3,6 +3,7 @@ Dans ce chapitre, nous expliquerons en détail les méthodes que nous avons empl
 Pour commencer, nous exposerons une description de la notation de la batterie ainsi qu’une modélisation de celle-ci pour la représentation des données rythmiques en arbres syntaxiques. Nous poursuiverons avec une présentation de qparse\footnote{https://qparse.gitlabpages.inria.fr/}, un outil de transcription qui est développé par Florent Jacquemard (Inria) au sein du laboratoire Cedric au CNAM.\\
 Enfin, nous présenterons les systèmes. 
 \section{La notation de la batterie}
+\label{notation_batterie}
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=10mm, width=25mm]{z_images/3_methodes/0_notation_de_la_batterie/0_figures_de_notes.png}
@@ -229,32 +230,41 @@ Un ensemble de systèmes comprenant leur métrique et leurs règles spécifiques
 		afros-cubains & simple & croches & - & 3 \\ \hline
 	\end{tabular}
 	\caption{Sytèmes}
-\end{table}
+\end{table}\\
+Nous exposerons 3 systèmes afin d’illustrer les propos de cette section :
+\begin{itemize}
+	\item 4/4 binaire 
+	\item 4/4 jazz
+	\item 4/4 afro-cubain
+\end{itemize}
 \subsection*{Objectif des systèmes}
-\textbf{Les systèmes devront être matchés sur l’input MIDI afin de :}
+Les systèmes devront être matchés sur l’input MIDI afin de :
 \begin{itemize}
 	\item Définir une métrique ;
 	\item Choisir une grammaire appropriée ;
 	\item Fournir les règles de réécriture (séparation des voix et simplification.\\
 \end{itemize}
-\textit{\textbf{Détection d’indication de mesure}}\\
-Pour les expériences effectuées avec le Groove MIDI Data Set, le style et l’indication de mesure sont récupérables par les noms de fichiers MIDI, mais il faudra par la suite les trouver automatiquement sans autres indications que les données MIDI elles-mêmes.\\
-Par conséquent, les motifs des systèmes devront être recherchés sur l’input \textit{(fichiers MIDI)} avant le lancement du parsing, afin de déterminer la métrique en amont en vu de sélectionner la grammaire pondérée \textit{(fichier wta)} adéquate pour le parsing. Cette tâche devra probablement être effectuée en Machine Learning.\\\\
-\textit{\textbf{Choix d’une grammaire}}\\
-Il faut prendre en compte l’existence potentielle de plusieurs grammaires \textit{(un fichier wta par grammaire)} chacunes dédiées à un type de contenu MIDI. Le choix d’une grammaire pondérée doit être fait avant le parsing puisque qparse prends en entrée un fichier MIDI et un fichier wta. C’est pour cette raison que la métrique doit être définie avant le choix de la grammaire.\\
-\\\\
-La partie \textit{motif} des systèmes sera utilisée pour la \textbf{définition des métriques} et la \textbf{séparation des voix}. Les règles de \textbf{simplification} (les combinaisons de réécritures) seront extraites des voix séparées d’un système (motif + gamme).\\\\
-Nous exposerons 4 systèmes afin d’illustrer les propos de cette section :
-\begin{itemize}
-	\item 4/4 binaire 
-	\item 4/4 jazz
-	\item 4/4 afro-cubain
-	\item 12/8 (4 temps ternaire : shuffle, afro, rock,…)
-\end{itemize}
-\subsubsection{Réécriture — Pour la séparation des voix}
+La partie \textit{motif} des systèmes sera utilisée pour la \textbf{définition des métriques}. Le \textit{motif} et la gammes des systèmes sera utilisé pour la \textbf{séparation des voix}. Les règles de \textbf{simplification} (les combinaisons de réécritures) seront extraites des voix séparées des systèmes.
+\subsubsection{Détection d’indication de mesure}
+La détection de la métrique est importante non-seulement pour connaître le nombre de temps par mesure ainsi que le nombre de subdivision pour chacun de ces temps, mais aussi pour savoir comment écrire l’unité de temps et ses subdivisions.
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=40mm, width=40mm]{z_images/3_methodes/2_systemes/0_simple_VS_complexe.png}
+	\caption{Métrique}
+	\label{subdivisions}
+\end{figure}\newpage
+La figure \ref{subdivisions} montre deux indications de mesure différentes. L’une (exemple 1) est \textit{simple} (2 temps binaire sur lesquels sont joués des triolets), l’autre (exemple 2) est \textit{complexe} (2 temps ternaires). Le jazz est traditionnellement écrit en binaire avec ou sans triolet (même si cette musique est dite ternaire alors que le rock ternaire sera plutôt écrit comme dans l’exemple 2.
+\subsubsection{Choix d’une grammaire}
+Il faut prendre en compte l’existence potentielle de plusieurs grammaires chacunes dédiées à un type de contenu MIDI. Le choix d’une grammaire pondérée doit être fait avant le parsing puisque qparse prends en entrée un fichier MIDI et un fichier wta (grammaire). C’est pour cette raison que la métrique doit être définie avant le choix de la grammaire.\\
+Pour les expériences effectuées avec le Groove MIDI Data Set, le style et l’indication de mesure sont récupérables par les noms des fichiers MIDI, mais il faudra par la suite les trouver automatiquement sans autres indications que les données MIDI elles-mêmes. Par conséquent, les motifs des systèmes devront être recherchés sur l’input \textit{(fichiers MIDI)} avant le lancement du parsing, afin de déterminer la métrique en amont. Cette tâche devra probablement être effectuée en Machine Learning.\newpage
+\subsubsection{Séparation des voix}
 \label{sys_sep_voix}
-\textbf{Motif 4-4 binaire}\\\\
-\includegraphics[height=60mm, width=40mm]{z_images/3_methodes/2_systemes/0_separation_4-4_binaire.png}\\\\
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=60mm, width=40mm]{z_images/3_methodes/2_systemes/1_separation_4-4_binaire.png}
+	\caption{Motif 4-4 binaire}
+	\label{binaire}
+\end{figure}
 Ici, le système est construit sur un modèle rock en 4/4 : after-beat sur les 2 et 4 avec un choix de répartition des cymbales type fast-jazz. Le système est constitué par défaut du motif ride/ch-pf/cc et d’un texte joué à la grosse-caisse. La troisième séparation proposée est privilégiée car elle répartit selon 2 voix, une voix pour les mains (ride + cc) et une voix pour les pieds (ch-pf + gc). Ce choix paraît plus équilibré car deux instruments sont utilisés par voix et plus logique pour le lecteur puisque les mains sont en haut et les pieds en bas.\\
 
 %D’autres choix d’écriture auraient été possibles :
@@ -262,43 +272,22 @@ Ici, le système est construit sur un modèle rock en 4/4 : after-beat sur les 2
 %	\item Toutes les hampes en haut ;
 %	\item Combinaison motif 1 et 2 en donnant 2 directions aux hampes de la cc).\\
 %\end{itemize}
-
-\textbf{Motif 4-4 jazz}\\\\
-\includegraphics[height=45mm, width=60mm]{z_images/3_methodes/2_systemes/1_separation_4-4_jazz.png}\\\\
-Dans la plupart des méthodes, le charley n’est pas écrit car considéré comme évident en jazz traditionnel. Ce qui facilite grandement l’écriture : la ride et les crash sur la voix du haut et le reste sur la voix du bas. Ici, le partie prit et de tout écrire. Dans l’exemple ci-dessus, les mesures 1 et 2 combinées avec le \textit{motif} de la première ligne, sont des cas typiques de la batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la grosse caisse entre très souvent dans le flot des combinaisons de toms et de caisse claire et son écriture séparée serait inutilement compliquée et peu intuitive pour le lecteur. Le choix de séparation sera donc de laisser les cymbales en haut et toms, caisse-claire, grosse-caisse et pédale de charley en bas.\\
-
-\textbf{Système 4-4 afro-cubain}\\\\
-\includegraphics[height=25mm, width=80mm]{z_images/3_methodes/2_systemes/2_separation_afro-cubain.png}
-\subsubsection{Pour la reconnaissance de la métrique}
-\textit{\textbf{12/8 vs 4/4 ternaire}}\\\\
-\textbf{Motif 12/8}\\\\
-%\includegraphics[height=30mm, width=100mm]{z_images/1_description_notation/separation/separation_2.png}\\\\
-
-\subsubsection{Pour les règles de réécriture}
-Les textes qui accompagnent les motifs étayent toutes les combinaisons d’un systèmes.\\
-
-
-%\subsubsection{Construction des systèmes pour les expérimentations}
-%\subsubsection{La réécriture des évènements MIDI pour la batterie}
-
-
-
-\textbf{Exemples à écrire en arbre :}\\
-\begin{itemize}
-	\item 
-	SI (pas pf) ET (note sur un temps suivie de note en l’air) :\\
-	$\Rightarrow$ (Temps1 : Note pertinente) + (Temps2 : Silence pertinent + Note pertinente.)\\
-	\item
-	Si (po ou co) déborde sur le temps suivant :\\
-	$\Rightarrow$ Liaison car marchera dans tous les cas même la où le point ne marchera pas (voir A2).\\
-	\item
-	Une blanche sera écrite noir + soupir.\\\\
-\end{itemize}
-
-%\newpage
-%\subsubsection{Expérience 2}
-%\textbf{Partition de référence pour l’ouput}
-%\includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/experience_2/partition.png}\\\\
-%\textit{En cours…}
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=45mm, width=60mm]{z_images/3_methodes/2_systemes/2_separation_4-4_jazz.png}
+	\caption{Motif 4-4 jazz}
+	\label{jazz}
+\end{figure}
+Dans la plupart des méthodes, le charley n’est pas écrit car il est considéré comme évident en jazz traditionnel. Ce qui facilite grandement l’écriture : la ride et les crash sur la voix du haut et le reste sur la voix du bas. Ici, le partie prit est de tout écrire. Dans l’exemple ci-dessus, les mesures 1 et 2 combinées avec le \textit{motif} de la première ligne, sont des cas typiques de la batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la grosse caisse entre très souvent dans le flot des combinaisons de toms et de caisse claire et son écriture séparée serait inutilement compliquée et peu intuitive pour le lecteur. Le choix de séparation sera donc de laisser les cymbales en haut et toms, caisse-claire, grosse-caisse et pédale de charley en bas.
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=20mm, width=70mm]{z_images/3_methodes/2_systemes/3_separation_afro-latins.png}
+	\caption{Système 4-4 afro-latin}
+	\label{afro_latin}
+\end{figure}\\
+La figure \ref{afro_latin} montre un exemple minimaliste de système afro-latins \cite{system_drums}. Ce système doit être écrit sur trois voix car la voix centrale est souvent plus complexe qu’ici (que des noirs) et la mélanger avec le haut ou le bas serait surchargé et peu lisible.
+\subsubsection{Simplification de l’écriture}
+Les gammes qui accompagnent les motifs d’un système étayent toutes les combinaisons d’un systèmes. Elles sont générées manuellement à partir de la simplification de chaque voix d’un système selon les principes de la section \ref{notation_batterie}. Aller à la section \ref{demo_sys} pour voir un exemple. 
 \section*{Conclusion}
-Bilan sur les différentes méthodes employées et la contribution que cela représente.
+Nous avons formalisé une notation de la batterie, modélisé cette notation pour la transcription de données MIDI en partition, nous avons décrit qparse.\\
+Enfin, nous exposé une approche de type dictionnaire (les « systèmes »)pour détecter une métrique, choisir une grammaire pondérée appropriée et énoncé des règles de séparation des voix et de simplification de l’écriture.

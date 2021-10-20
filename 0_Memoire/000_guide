@@ -355,3 +355,21 @@ possibilités d'amélioration~;}
 %	\item Écrire les règles de réécriture.
 %	\item Créer les arbres de voix séparées simplifiés (rewriting).\\	
 %\end{itemize}
+
+%\textbf{Exemples à écrire en arbre :}\\
+%\begin{itemize}
+%	\item 
+%	SI (pas pf) ET (note sur un temps suivie de note en l’air) :\\
+%	$\Rightarrow$ (Temps1 : Note pertinente) + (Temps2 : Silence pertinent + Note pertinente.)\\
+%	\item
+%	Si (po ou co) déborde sur le temps suivant :\\
+%	$\Rightarrow$ Liaison car marchera dans tous les cas même la où le point ne marchera pas (voir A2).\\
+%	\item
+%	Une blanche sera écrite noir + soupir.\\\\
+%\end{itemize}
+
+%\newpage
+%\subsubsection{Expérience 2}
+%\textbf{Partition de référence pour l’ouput}
+%\includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/experience_2/partition.png}\\\\
+%\textit{En cours…}
