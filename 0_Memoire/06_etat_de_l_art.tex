@@ -18,7 +18,7 @@ L'approche de \cite{foscarin:hal-01988990} est fondée sur la conviction que la 
 Plusieurs travaux ont d’abord privilégié l’approche stochastique. Par exemple, Shibata \textit{et al.} \cite{SHIBATA2021262} ont utilisé le modèle de Markov caché (HMM)\footnote{\url{https://fr.wikipedia.org/wiki/Modèle_de_Markov_caché}\\\url{https://en.wikipedia.org/wiki/Hidden_Markov_model}} pour la reconnaissance de la métrique. Les auteurs utilisent d’abord deux réseaux de neurones profonds, l’un pour la reconnaissance des pitchs et l’autre pour la reconnaissance de la vélocité. Pour la dernière couche, la probabilité est obtenue par une fonction sigmoïde. Ils construisent ensuite plusieurs HMM métriques étendus pour la musique polyphonique correspondant à des métriques possibles, puis ils calculent la probalitité maximale pour chaque modèle afin d’obtenir la métrique la plus probable.\newpage
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=50mm, width=90mm]{z_images/2_etat_de_l_art/hmm.png}
+	\includegraphics[height=50mm, width=90mm]{z_images/2_etat_de_l_art/0_hmm.png}
 	\caption{HMM}
 \end{figure}
 \textit{Source : Cours de Damien Nouvel\footnote{\url{https://damien.nouvels.net/fr/enseignement}}}\\\\
@@ -26,7 +26,7 @@ L’évaluation finale des résultats de \cite{SHIBATA2021262} montre qu’il fa
 En effet, l’usage d’arbres syntaxiques est idéale pour représenter le langage musical. Une méthodologie simple pour la description et l'affichage des structures musicales est présentée dans \cite{rythm_tree}. Les RT y sont évoqués comme permettant une cohésion complète de la notation musicale traditionnelle avec des notations plus complexes. Jacquemard \textit{et al.} \cite{jacquemard:hal-01134096} propose aussi une représentation formelle du rythme, inspirée de modèles théoriques antérieurs et dont l’objectif est la réécriture de termes. Ils démontrent aussi l’application des arbres de rythmes pour les équivalences rythmiques dans \cite{jacquemard:hal-01403982}. La réécriture d’arbres, dans un contexte de composition assistée par ordinateur, par exemple, pourrait permettre de suggérer à un utilisateur diverses notations possibles pour une valeur rythmique, avec des complexités différentes.\\La nécessité d’une approche hiérarchique pour la production automatique de partition est évoquée dans \cite{foscarin:hal-01988990}. Les modèles de grammaire qui y sont exposés sont différents de modèles markoviens linéaires de précédents travaux.\newpage
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=40mm, width=120mm]{z_images/2_etat_de_l_art/summertime_tree.png}
+	\includegraphics[height=40mm, width=120mm]{z_images/2_etat_de_l_art/1_summertime_tree.png}
 	\caption{arbre\_jazz}
 	\textit{Représentation arborescente d’une grille harmonique} \cite{harasimjazz}
 \end{figure}

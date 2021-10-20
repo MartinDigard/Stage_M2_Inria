@@ -167,18 +167,45 @@ Ci-dessous, le même arbre dont les codes des instruments sont remplacés par le
 \end{figure}\\
 Chacun des trois exemples de la figure \ref{sep_voix} est représenté par un des deux arbres syntaxiques ci-dessus.\newpage
 \section{Qparse}
-Florent Jacquemard (Inria), Philippe Rigaux (CNAM), Masahiko Sakai (Nagoya U.), Francesco Foscarin (PhD, CNAM), Clement Poncelet (Salzburg U.)
-\textit{Mettre ici un schéma de la chaîne de traitement de qparse (workflow)}\\
-Pb du MIDI avec qparse entrée ON-OFF $\Rightarrow$ sortie 1 seul symbole.\\
-Qparse produit une partition musicale en prenant en entrée une performance musicale symbolique (par exemple un fichier MIDI) et un automate à arbre pondéré décrivant un langage de rythmes préférés (grammaire pondérée). La quantification des rythmes est basée sur des algorithmes d’analyse syntaxique applicables sur des automates arborescents.\footnote{\url{https://qparse.gitlabpages.inria.fr}}
-En entrée : midi (séquence d’événements datés (piano roll) accompagné d’une grammaire pondérée)\\
-$\Rightarrow$ parsing\\
-$\Rightarrow$ global parsing tree\\
-$\Rightarrow$ RI (Représentation Intermédiaire) arbres locaux par intruments\\
-$\Rightarrow$ Sortie (xml, mei, lilypond,… )\\
-Minimiser la distance entre le midi et la représentation en arbre.\\
-\textbf{Un des problèmes de Qparse était qu’il était limité au monophonique.}
-$\Rightarrow$ \textit{Expliquer ici les limites du monophonique…}
+La librairie qparse\footnote{\url{https://qparse.gitlabpages.inria.fr}} implémente la quantification des rythmes basée sur des algorithmes d'analyse syntaxique pour les automates arborescents pondérés. En prenant en entrée une performance musicale symbolique (séquence de notes avec dates et durées en temps réel, typiquement un fichier MIDI), et une grammaire hors-contexte pondérée décrivant un langage de rythmes préférés, il produit une partition musicale. Plusieurs formats de sortie sont possibles, dont XML MEI.
+Les principaux contributeurs sont :
+\begin{itemize}
+	\item Florent Jacquemard (Inria) : Développeur principal.
+	\item Francesco Foscarin (PhD, CNAM) : Construction de grammaire automatique à partir de corpus ; Evaluation.
+	\item Clement Poncelet (Salzburg U.) : Integration de la librairie Midifile pour les input MIDI.
+	\item Philippe Rigaux (CNAM) : Production de partition au format MEI et de modèle intermédiaire de partition en sortie.
+	\item Masahiko Sakai (Nagoya U.) : Mesure de la distance input/output pour la quantification et CMake framework. Évaluation.
+\end{itemize}
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=95mm, width=130mm]{z_images/3_methodes/1_qparse/0_general_qparse.png}
+	\caption{Présentation de qparse}
+	\label{presentation_qparse}
+\end{figure}
+Explication des différentes étape de la figure \ref{presentation_qparse}\footnote{\url{https://gitlab.inria.fr/qparse/qparselib/-/tree/distance/src/scoremodel}} :\\
+Input qparse : Un fichier MIDI (séquence d’événements datés (piano roll) accompagné d’un fichier contenant une grammaire pondérée)\\
+Parse tree : les données MIDI sont quantifiées, les notes de dates proches sont alignées et les relation entre les notes sont identifiées (accords, fla, etc…). Un arbre de parsing global est créé.\\
+Scoremodel :
+\begin{itemize}
+	\item Les pitchs sont traduit dans Musical Model
+\end{itemize}
+
+Puis réécriture :
+\begin{itemize}
+	\item Séparation des voix $\Rightarrow$ un arbre par voix $\Rightarrow$ représentation intermédiaire (RI) ;
+	\item Simplification de l’écriture de chaque voix dans la RI ;
+	\item Sortie (xml, mei, lilypond,… )\\
+\end{itemize}
+RI (Représentation Intermédiaire) arbres locaux par intruments ou arbre locaux par voix ??\\\\
+Plusieurs enjeux :
+\begin{itemize}
+	\item pb du MIDI avec qparse :\\
+	ON-OFF en entrée $\Rightarrow$ 1 seul symbole en sortie.
+	\item Minimiser la distance entre le midi et la représentation en arbre.
+	\item Un des problèmes de Qparse était qu’il était limité au monophonique.
+	Quelles sont les limites du monophonique ??
+\end{itemize}
+
 %\subsection{Les Jams}
 %Regroupement par nature des notes qui forment un accord.
 \subsection*{La grammaire pondérée}
@@ -251,7 +278,7 @@ Pour la \textbf{séparation des voix} et la \textbf{définition des métriques},
 \subsubsection{Réécriture — Pour la séparation des voix}
 \label{sys_sep_voix}
 \textbf{Motif 4-4 binaire}\\\\
-\includegraphics[height=60mm, width=40mm]{z_images/description_notation/separation/1_separation_4-4_binaire.png}\\\\
+\includegraphics[height=60mm, width=40mm]{z_images/3_methodes/2_systemes/0_separation_4-4_binaire.png}\\\\
 Ici, le système est construit sur un modèle rock en 4/4 : after-beat sur les 2 et 4 avec un choix de répartition des cymbales type fast-jazz. Le système est constitué par défaut du motif ride/ch-pf/cc et d’un texte joué à la grosse-caisse. La troisième séparation proposée est privilégiée car elle répartit selon 2 voix, une voix pour les mains (ride + cc) et une voix pour les pieds (ch-pf + gc). Ce choix paraît plus équilibré car deux instruments sont utilisés par voix et plus logique pour le lecteur puisque les mains sont en haut et les pieds en bas.\\
 
 %D’autres choix d’écriture auraient été possibles :
@@ -261,11 +288,11 @@ Ici, le système est construit sur un modèle rock en 4/4 : after-beat sur les 2
 %\end{itemize}
 
 \textbf{Motif 4-4 jazz}\\\\
-\includegraphics[height=45mm, width=60mm]{z_images/description_notation/separation/2_separation_4-4_jazz.png}\\\\
+\includegraphics[height=45mm, width=60mm]{z_images/3_methodes/2_systemes/1_separation_4-4_jazz.png}\\\\
 Dans la plupart des méthodes, le charley n’est pas écrit car considéré comme évident en jazz traditionnel. Ce qui facilite grandement l’écriture : la ride et les crash sur la voix du haut et le reste sur la voix du bas. Ici, le partie prit et de tout écrire. Dans l’exemple ci-dessus, les mesures 1 et 2 combinées avec le \textit{motif} de la première ligne, sont des cas typiques de la batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la grosse caisse entre très souvent dans le flot des combinaisons de toms et de caisse claire et son écriture séparée serait inutilement compliquée et peu intuitive pour le lecteur. Le choix de séparation sera donc de laisser les cymbales en haut et toms, caisse-claire, grosse-caisse et pédale de charley en bas.\\
 
 \textbf{Système 4-4 afro-cubain}\\\\
-\includegraphics[height=25mm, width=80mm]{z_images/description_notation/separation/3_separation_afro-cubain.png}
+\includegraphics[height=25mm, width=80mm]{z_images/3_methodes/2_systemes/2_separation_afro-cubain.png}
 \subsubsection{Pour la reconnaissance de la métrique}
 \textit{\textbf{12/8 vs 4/4 ternaire}}\\\\
 \textbf{Motif 12/8}\\\\
