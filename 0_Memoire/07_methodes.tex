@@ -182,42 +182,47 @@ Les principaux contributeurs sont :
 	\caption{Présentation de qparse}
 	\label{presentation_qparse}
 \end{figure}
-Explication des différentes étape de la figure \ref{presentation_qparse}\footnote{\url{https://gitlab.inria.fr/qparse/qparselib/-/tree/distance/src/scoremodel}} :\\
-Input qparse : Un fichier MIDI (séquence d’événements datés (piano roll) accompagné d’un fichier contenant une grammaire pondérée)\\
-Parse tree : les données MIDI sont quantifiées, les notes de dates proches sont alignées et les relation entre les notes sont identifiées (accords, fla, etc…). Un arbre de parsing global est créé.\\
-Scoremodel :
+Explication des différentes étape de la figure \ref{presentation_qparse}\footnote{\url{https://gitlab.inria.fr/qparse/qparselib/-/tree/distance/src/scoremodel}} :
 \begin{itemize}
-	\item Les pitchs sont traduit dans Musical Model
+	\item \textbf{Input Qparse} :\\
+	Un fichier MIDI (séquence d’événements datés (piano roll) accompagné d’un fichier contenant une grammaire pondérée) ;
+	\item \textbf{Parse Tree} :\\
+	Les données MIDI sont quantifiées, les notes de dates proches sont alignées et les relation entre les notes sont identifiées (accords, fla, etc…). Un arbre de parsing global est créé ;
+	\item \textbf{Score Model} :
+	\begin{itemize}
+		\item Les instruments sont identifiés dans scoremodel/import/tableImporterDrum.cpp ;
+		\item Réécriture 1 :\\
+		séparation des voix $\Rightarrow$ un arbre par voix $\Rightarrow$ représentation intermédiaire (RI) ;
+		\item Réécriture 2 :\\
+		simplification de l’écriture de chaque voix dans la RI ;
+	\end{itemize}
+    \item \textbf{Output} :\\
+    export de la partition. Plusieurs formats sont possibles (xml, mei, lilypond,… ).\\
 \end{itemize}
-
-Puis réécriture :
-\begin{itemize}
-	\item Séparation des voix $\Rightarrow$ un arbre par voix $\Rightarrow$ représentation intermédiaire (RI) ;
-	\item Simplification de l’écriture de chaque voix dans la RI ;
-	\item Sortie (xml, mei, lilypond,… )\\
-\end{itemize}
-RI (Représentation Intermédiaire) arbres locaux par intruments ou arbre locaux par voix ??\\\\
 Plusieurs enjeux :
 \begin{itemize}
 	\item pb du MIDI avec qparse :\\
 	ON-OFF en entrée $\Rightarrow$ 1 seul symbole en sortie.
 	\item Minimiser la distance entre le midi et la représentation en arbre.
-	\item Un des problèmes de Qparse était qu’il était limité au monophonique.
+	\item Un des problèmes de Qparse était qu’il était limité au monophonique.\\
 	Quelles sont les limites du monophonique ??
+	\begin{itemize}
+		\item Impossibilité de traiter plusieurs voix et de reconnaître les accords.
+	\end{itemize}
 \end{itemize}
 
 %\subsection{Les Jams}
 %Regroupement par nature des notes qui forment un accord.
-\subsection*{La grammaire pondérée}
-La grammaire pondérée qui accompagne le MIDI en input est une grammaire hors-contexte pondérée. Chaque règle comporte un poid qui sert à favoriser certains rythmes plutôt que d’autres.\footnote{\url{https://qparse.gitlabpages.inria.fr/docs/scientific/}}
-\subsection*{Le parsing}
-Le parsing du midi donné en input crée une représentation symbolique sous forme d’arbre de rythme.\\
-Ici $\Rightarrow$ exemple avec :\\
-3bars\_fill\_groove-016.mid $\Rightarrow$ arbre\\
-\subsection*{La réécriture}
-\subsubsection{Séparation des voix}
-\subsubsection{Simplification}
-Ici, description basique des règles de réécriture 
+%\subsection*{La grammaire pondérée}
+%La grammaire pondérée qui accompagne le MIDI en input est une grammaire hors-contexte pondérée. Chaque règle comporte un poid qui sert à favoriser certains rythmes plutôt que d’autres.\footnote{\url{https://qparse.gitlabpages.inria.fr/docs/scientific/}}
+%\subsection*{Le parsing}
+%Le parsing du midi donné en input crée une représentation symbolique sous forme d’arbre de rythme.\\
+%Ici $\Rightarrow$ exemple avec :\\
+%3bars\_fill\_groove-016.mid $\Rightarrow$ arbre\\
+%\subsection*{La réécriture}
+%\subsubsection{Séparation des voix}
+%\subsubsection{Simplification}
+%Ici, description basique des règles de réécriture 
 \section{Les systèmes}
 \label{systemes_methodes}
 Un système est la combinaison d’un ou plusieurs éléments qui jouent un rythme en boucle (motif) et d’un autre élément qui joue un texte rythmique variable mais respectant les règles propre au système (gamme).\\
