@@ -373,3 +373,14 @@ possibilités d'amélioration~;}
 %\textbf{Partition de référence pour l’ouput}
 %\includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/experience_2/partition.png}\\\\
 %\textit{En cours…}
+
+%\tab \tab \tab \tab Transcription manuelle $\Rightarrow$ Transcription automatique
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[height=15mm, width=25mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/1_manuelle.png}\ \ \ \ 
+%	\includegraphics[height=15mm, width=25mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/0_musescore.png}
+%	\caption{Exemple d’analyse 4}
+%\end{figure}
+%\begin{itemize}
+%	\item 
+%\end{itemize}

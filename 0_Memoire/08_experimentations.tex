@@ -35,66 +35,62 @@ Pour simplifier le traitement de ces données, ces trois pistes ont été fusion
 The TD-11 also records control changes specifying the position of the hi-hat pedal on each hit. We have preserved this information under control 4. »\\(\url{https://magenta.tensorflow.org/datasets/groove})\\$\Rightarrow$ ??? Je ne comprends pas encore comment trouver ce type d’informations dans les fichiers MIDI.\\L’utilisation de pretty\_midi devient urgente !
 \section{Analyse MIDI-Audio}
 \label{analyse_midi_audio}
-Ces analyses ont été faites dans le cadre de transcriptions manuelles à partir de fichiers MIDI et Audio du GMD. Les transcriptions manuelles ont été éditées à l’aide de lilypond\footnote{\url{http://lilypond.org/}}. Les transcriptions automatiques ont été générées manuellement avec MuseScore\footnote{\url{https://musescore.com/}}.
+Ces analyses ont été faites dans le cadre de transcriptions manuelles à partir de fichiers MIDI et Audio du GMD.
 \subsection*{Comparaisons de transcriptions}
-\subsubsection{drummer\_01/session3}
-\tab \tab \tab \tab Transcription manuelle $\Rightarrow$ Transcription musescore
+Pour les comparaisons de transcriptions, les transcriptions manuelles (TM) ont été éditées à l’aide de lilypond\footnote{\url{http://lilypond.org/}} ou MuseScore\footnote{\url{https://musescore.com/}} et les transcriptions automatiques (TA) ont toutes été générées manuellement avec MuseScore.
+\subsubsection{Exemple d’analyse 1}
 \begin{figure}[h]
 	\centering
+	Transcription manuelle $\Rightarrow$ Transcription automatique
 	\includegraphics[height=20mm, width=50mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/1_manuelle.png}\ \ \ \ 
 	\includegraphics[height=20mm, width=45mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/0_musescore.png}
-	\caption{Exemple d’analyse 1}
 \end{figure}
 \begin{itemize}
 	\item Erreur d’indication de mesure (3/4 au lieu de 4/4) ;
-	\item Les silences de la premiere mesure sont inutilement surchargés ;
-	\item La noire du quatrième temps de la première mesure est devenue les deux première notes (une double-croche et une croche) d’un triolet sur le premier temps de la deuxième mesure.\\
+	\item Les silences de la mesure 1 de la TA sont inutilement surchargés ;
+	\item La noire du temps 4 de la mesure 1 de la TM est devenue les deux premières notes (une double-croche et une croche) d’un triolet sur le temps 1 de la mesure 2 de la TA.
 \end{itemize}\newpage
-\tab \tab \tab \tab Transcription manuelle $\Rightarrow$ Transcription musescore
+\subsubsection{Exemple d’analyse 2}
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=25mm, width=60mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/3_manuelle.png}\ \ \ \ 
+	\tab Transcription manuelle $\Rightarrow$ Transcription automatique\\
+	\includegraphics[height=20mm, width=13mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/5_manuelle.png}\ \ \ \ 
+	\includegraphics[height=20mm, width=13mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/4_musescore.png}
+\end{figure}
+\begin{itemize}
+	\item Les doubles croches ont été interprétées en quintolet
+	\item La deuxième double-croche est devenue une croche.\\
+\end{itemize}
+\subsubsection{Exemple d’analyse 3}
+\begin{figure}[h]
+	\centering
+	Transcription manuelle $\Rightarrow$ Transcription automatique
+	\includegraphics[height=24mm, width=50mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/3_manuelle.png}\ \ \ \ 
 	\includegraphics[height=25mm, width=55mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/2_musescore.png}
-	\caption{Exemple d’analyse 2}
+\end{figure}
+\begin{itemize}
+	\item Les grosses-caisses, les charleys et les caisses-claires ont été décalés d’un temps vers la droite.
+	\item Les toms basses des temps 1 et 2 de la mesure 2 de la TM ont été décalés d’une double croche vers la droite dans la TA.
+	\item La première caisse-claire de la mesure 1 devient binaire dans la TA alors qu’elle appartenait à un triolet dans la TM.
+	\item Le triolet de tom-basse du temps 4 de la mesure 2 de la TA n’existe pas la TM.\\
+\end{itemize}
+\subsubsection{Exemple d’analyse 4}
+\tab \tab Transcription manuelle $\Rightarrow$ Transcription automatique
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=19mm, width=50mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/3_manuelle.png}\ \ \ \ 
+	\includegraphics[height=19mm, width=70mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/2_musescore.png}
 \end{figure}\\
-\begin{itemize}
-	\item L’indication de mesure est correcte mais tout a été décalé d’un temps car la première noire sur la caisse claire est jouée sur le 4ème temps et non sur le premier temps de la deuxième mesure comme l’indique la transcription de musescore.
-	\item Les toms basses des 1er et 2ème temps de la mesure musescore auraient dû être sur les temps et non décalés d’une double croche vers la droite.\\
-\end{itemize}
-\tab \tab \tab \tab Transcription manuelle $\Rightarrow$ Transcription musescore
-\begin{figure}[h]
-	\centering
-	\includegraphics[height=20mm, width=15mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/5_manuelle.png}\ \ \ \ 
-	\includegraphics[height=20mm, width=15mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/4_musescore.png}
-	\caption{Exemple d’analyse 3}
-\end{figure}
-\begin{itemize}
-	\item Erreur de quantification : les doubles croches ont été interprétées en quintolet;\\
-\end{itemize}
-\subsubsection{drummer\_01/session1}
-\tab \tab \tab \tab Transcription manuelle $\Rightarrow$ Transcription musescore
-\begin{figure}[h]
-	\centering
-	\includegraphics[height=25mm, width=40mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/1_manuelle.png}\ \ \ \ 
-	\includegraphics[height=25mm, width=40mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/0_musescore.png}
-	\caption{Exemple d’analyse 4}
-\end{figure}
-\begin{itemize}
-	\item On dirait que lorsque certaines notes sont proches, elles se resserrent et suppriment celles qui aurait dû être sur le temps.\\
-\end{itemize}
-\tab \tab \tab \tab Transcription manuelle $\Rightarrow$ Transcription musescore
-\begin{figure}[h]
-	\centering
-	\includegraphics[height=20mm, width=50mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/3_manuelle.png}\ \ \ \ 
-	\includegraphics[height=20mm, width=70mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/2_musescore.png}
-	\caption{Exemple d’analyse 5}
-\end{figure}
-Le 2ème croche du 4ème temps !!
+Sur le temps 4 de la mesure 1, la deuxième croche a été transcrite d’une manière infiniment complexe !\newpage
 \subsubsection{Exemple avec des flas}
-Transcription avec musescore :\\
-\includegraphics[height=30mm, width=120mm]{z_images/4_experimentations/1_analyse_midi_audio/2_transcriptions_flas/0_124_funk_95_fill_4-4.png}\\
-Transcription manuelle :\\
-\includegraphics[height=20mm, width=90mm]{z_images/4_experimentations/1_analyse_midi_audio/2_transcriptions_flas/1_124_funk_95_fill_4-4.png}\\
+Transcription manuelle\\
+\includegraphics[height=25mm, width=95mm]{z_images/4_experimentations/1_analyse_midi_audio/2_transcriptions_flas/0_124_funk_95_fill_4-4.png}\\
+Transcription automatique\\\\
+\includegraphics[height=20mm, width=130mm]{z_images/4_experimentations/1_analyse_midi_audio/2_transcriptions_flas/1_124_funk_95_fill_4-4.png}\\
+\begin{itemize}
+	\item plein de pb
+	\item oui, vraiment…\\
+\end{itemize}
 MuseScore donne un aperçu de l’état de l’art pour la transcription de la batterie.
 \newpage
 \subsection*{Transcription de partition}
