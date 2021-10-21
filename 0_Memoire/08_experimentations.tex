@@ -6,13 +6,13 @@ Enfin, nous présenterons les différentes contributions de développement.
 Différence de qualité de jeu\\
 \textbf{groove MIDI dataset}\\
 \url{https://magenta.tensorflow.org/datasets/groove}\\\\
-\includegraphics[height=60mm, width=60mm]{z_images/4_experimentations/0_groove/roland_TD11.png}\\
+\includegraphics[height=60mm, width=60mm]{z_images/4_experimentations/0_groove/0_roland_TD11.png}\\
 Des batteurs pro ont été engagés pour jouer sur un roland td-11\\\\
-\includegraphics[height=80mm, width=110mm]{z_images/4_experimentations/0_groove/dataset_how.png}\newpage{}
+\includegraphics[height=80mm, width=110mm]{z_images/4_experimentations/0_groove/1_dataset_how.png}\newpage{}
 \textbf{Les métadatas :}\\\\
 \includegraphics[height=85mm, 
-width=100mm]{z_images/4_experimentations/0_groove/csv_metadata_struct.png}\\
-\includegraphics[height=50mm, width=120mm]{z_images/4_experimentations/0_groove/train_validation_test.png}\\
+width=100mm]{z_images/4_experimentations/0_groove/2_csv_metadata_struct.png}\\
+\includegraphics[height=50mm, width=120mm]{z_images/4_experimentations/0_groove/3_train_validation_test.png}\\
 Détails (entre autres tensorflow avec le dataset) à :
 \url{https://magenta.tensorflow.org/datasets/groove#license}\\
 écouter le dataset groove
@@ -20,77 +20,49 @@ Détails (entre autres tensorflow avec le dataset) à :
 \label{analyse_midi_audio}
 Ces analyses ont été faites essentiellement dans le cadre de transcription manuelles à partir de fichiers MIDI et Audio du Groove MIDI Data Set. Les partitions manuelles sont éditées à l’aide de lilypond\footnote{\url{http://lilypond.org/}}. Les transcriptions automatiques sont générées avec MuseScore\footnote{\url{https://musescore.com/}}.
 \subsection*{Comparaisons de transcriptions}
-Transcription manuelle VS transcription automatique :\\
-\textit{drummer\_01/session3 — 10\_rock-folk\_90\_beat\_4-4}\\\\
+\subsubsection{drummer\_01/session3}
 Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
-\includegraphics[height=20mm, width=50mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/musescore_0.png}\ \ \ \ 
-\includegraphics[height=20mm, width=55mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/manuel_0.png}
-\textit{drummer\_01/session3 — 10\_rock-folk\_90\_beat\_4-4}\\\\
-Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
-\includegraphics[height=20mm, width=50mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/musescore_0.png}\ \ \ \ 
-\includegraphics[height=20mm, width=55mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/manuel_0.png}
+\includegraphics[height=20mm, width=50mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/0_musescore.png}\ \ \ \ 
+\includegraphics[height=20mm, width=55mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/1_manuelle.png}
 \begin{itemize}
 	\item Erreur d’indication de mesure ;
 	\item Mauvaise transcription d’une noire.\\
 \end{itemize}
 La noire du 4ème temps se retrouve sur le premier temps de la mesure suivante et elle se transforme en un triolet de double croches dont seules les deux premières seraient jouées.\\\\
-\textit{drummer\_01/session3 — 10\_rock-folk\_90\_beat\_4-4}\\\\
-Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
-\includegraphics[height=20mm, width=15mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/musescore_1.png}\ \ \ \ 
-\includegraphics[height=20mm, width=15mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/manuel_1.png}\\
-\begin{itemize}
-	\item Erreur de quantification : les doubles croches ont été interprétées en quintolet;\\
-\end{itemize}
-drummer\_01/session3 — 2\_jazz-swing\_185\_beat\_4-4\\\\
-Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
-\includegraphics[height=25mm, width=60mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/musescore_2.png}\ \ \ \ 
-\includegraphics[height=25mm, width=55mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/manuel_2.png}
+Transcription musescore $\Rightarrow$ Transcription manuelle\\
+\includegraphics[height=25mm, width=60mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/2_musescore.png}\ \ \ \ 
+\includegraphics[height=25mm, width=55mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/3_manuelle.png}
 \begin{itemize}
 	\item L’indication de mesure est correcte mais tout a été décalé d’un temps car la première noire sur la caisse claire est jouée sur le 4ème temps et non sur le premier temps de la deuxième mesure comme l’indique la transcription de musescore.
 	\item Les toms basses des 1er et 2ème temps de la mesure musescore auraient dû être sur les temps et non décalés d’une double croche vers la droite.\\
 \end{itemize}
-drummer\_01/session1 — 1\_funk\_80\_beat\_4-4\\\\
-Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
-\includegraphics[height=25mm, width=40mm]{z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/musescore_0.png}\ \ \ \ 
-\includegraphics[height=25mm, width=40mm]{z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Manuelle_0.png}
-\begin{itemize}
-	\item On dirait que lorsque certaines notes sont proches, elles se resserrent et suppriment celles qui aurait dû être sur le temps.\\
-	\item Erreur d’indication de mesure ;
-	\item Mauvaise transcription d’une noire.\\
-\end{itemize}
-La noire du 4ème temps se retrouve sur le premier temps de la mesure suivante et elle se transforme en un triolet de double croches dont seules les deux premières seraient jouées.\\\\
-\textit{drummer\_01/session3 — 10\_rock-folk\_90\_beat\_4-4}\\\\
-Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
-\includegraphics[height=20mm, width=15mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/musescore_1.png}\ \ \ \ 
-\includegraphics[height=20mm, width=15mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/manuel_1.png}\\
+Transcription musescore $\Rightarrow$ Transcription manuelle\\
+\includegraphics[height=20mm, width=15mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/4_musescore.png}\ \ \ \ 
+\includegraphics[height=20mm, width=15mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/5_manuelle.png}\\
 \begin{itemize}
 	\item Erreur de quantification : les doubles croches ont été interprétées en quintolet;\\
 \end{itemize}
-drummer\_01/session3 — 2\_jazz-swing\_185\_beat\_4-4\\\\
-Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
-\includegraphics[height=25mm, width=60mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/musescore_2.png}\ \ \ \ 
-\includegraphics[height=25mm, width=55mm]{z_images/transcriptions_manuelles/0_prise_en_main/0_tests_drummer_01__session3/manuel_2.png}
-\begin{itemize}
-	\item L’indication de mesure est correcte mais tout a été décalé d’un temps car la première noire sur la caisse claire est jouée sur le 4ème temps et non sur le premier temps de la deuxième mesure comme l’indique la transcription de musescore.
-	\item Les toms basses des 1er et 2ème temps de la mesure musescore auraient dû être sur les temps et non décalés d’une double croche vers la droite.\\
-\end{itemize}
-drummer\_01/session1 — 1\_funk\_80\_beat\_4-4\\\\
-Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
-\includegraphics[height=25mm, width=40mm]{z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/musescore_0.png}\ \ \ \ 
-\includegraphics[height=25mm, width=40mm]{z_images/transcriptions_manuelles/0_prise_en_main/1_drummer_01__session1/Manuelle_0.png}
+\subsubsection{drummer\_01/session1}
+Transcription musescore $\Rightarrow$ Transcription manuelle\\
+\includegraphics[height=25mm, width=40mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/0_musescore.png}\ \ \ \ 
+\includegraphics[height=25mm, width=40mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/1_manuelle.png}
 \begin{itemize}
 	\item On dirait que lorsque certaines notes sont proches, elles se resserrent et suppriment celles qui aurait dû être sur le temps.\\
 \end{itemize}
-\textbf{Exemple avec des flas}\\\\
-Fichier midi vers partition avec musescore :\\
-\includegraphics[height=30mm, width=120mm]{z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4_0.png}\\
+Fichier midi vers partition avec musescore $\Rightarrow$ Transcription manuelle\\
+\includegraphics[height=25mm, width=70mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/2_musescore.png}\ \ \ \ 
+\includegraphics[height=20mm, width=60mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/3_manuelle.png}
+Le 2ème croche du 4ème temps !!
+\subsubsection{Exemple avec des flas}
+Transcription avec musescore :\\
+\includegraphics[height=30mm, width=120mm]{z_images/4_experimentations/1_analyse_midi_audio/2_transcriptions_flas/0_124_funk_95_fill_4-4.png}\\
 Transcription manuelle :\\
-\includegraphics[height=20mm, width=90mm]{z_images/transcriptions_manuelles/1_transcriptions_flas/124_funk_95_fill_4-4_1_.png}\\
+\includegraphics[height=20mm, width=90mm]{z_images/4_experimentations/1_analyse_midi_audio/2_transcriptions_flas/1_124_funk_95_fill_4-4.png}\\
 MuseScore donne un aperçu de l’état de l’art pour la transcription de la batterie.
 \newpage
 \subsection*{Transcription de partition}
 \begin{figure}[h]
-	\includegraphics[height=120mm, width=160mm]{z_images/4_experimentations/experience_1/partition.png}
+	\includegraphics[height=120mm, width=160mm]{z_images/4_experimentations/1_analyse_midi_audio/3_partition.png}
 	\caption{Partition entière}
 	\label{partition_entiere}
 \end{figure}
@@ -110,8 +82,8 @@ Le motif 2 est joué des mesures 23 à 28.\\\\
 \includegraphics[height=70mm, width=95mm]{z_images/4_experimentations/2_demonstration_systeme/1_gammes_4-4_binaires.png}\\
 
 \subsection*{Systèmes}
-\includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/experience_1/systeme_recherche_1.png}
-\includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/experience_1/systeme_recherche_2.png}
+\includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/2_demonstration_systeme/2_systeme_4-4_binaire.png}
+\includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/2_demonstration_systeme/3_systeme_4-4_binaire.png}
 \newpage
 
 \subsection*{Démonstration}
@@ -215,7 +187,7 @@ Les Jams permettent de passer du monophonique au polyphonique.
 \subsection*{Parsing}
 \label{gram_pond}
 Tests effectués avec le fichier midi suivant :\\\\
-\includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/input_parsing/midi_2bars_fill.png}\\\\
+\includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/3_developpement/0_midi_2bars_fill.png}\\\\
 %\textit{Voix basse}\\
 Un premier test convaincant est effectué avec la grammaire suivante :\\\\
 // bar level\\
