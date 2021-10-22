@@ -1,9 +1,7 @@
 \section*{Introduction}
-Dans ce chapitre, nous présenterons le jeu de données, les analyses audio-MIDI.\\
-Nous ferons la démonstration d’un modèle théorique de système (implémentable) qui devra être utilisé comme base de connaissances pour obtenir un système plus rapide et une meilleure qualité en sortie.\\
-Enfin, nous présenterons les différentes contributions de développement.
+Dans ce chapitre, nous présenterons le jeu de données et les analyses audio-MIDI. Nous ferons ensuite l’expérimentation théorique d’un \textit{système} implémentable qui devra être utilisé comme base de connaissances pour augmenter la rapidité et la qualité en sortie de Qparse. Enfin, nous présenterons les différentes contributions de développement.
 \section{Le jeu de données}
-Nous avons utilisé le Groove MIDI Dataset\footnote{\url{https://magenta.tensorflow.org/datasets/groove}} \cite{groove2019} (GMD) qui est un jeu de donnée mis à disposition par Google sous la licence Creative Commons Attribution 4.0 International (CC BY 4.0).\\
+Nous avons utilisé le Groove MIDI Dataset\footnote{\url{https://magenta.tensorflow.org/datasets/groove}} \cite{groove2019} (GMD) qui est un jeu de données mis à disposition par Google sous la licence Creative Commons Attribution 4.0 International (CC BY 4.0).\\
 Le GMD est composé de 13,6 heures de batterie sous forme de fichiers MIDI et audio alignés. Il contient 1150 fichiers MIDI et plus de 22 000 mesures de batterie dans les styles les plus courants et avec différentes qualités de jeu. Tout le contenu a été joué par des humains sur la batterie électronique Roland TD-11 (figure \ref{electro_drums}).\newpage
 \begin{figure}[h]
 	\centering
@@ -16,10 +14,10 @@ Le GMD est composé de 13,6 heures de batterie sous forme de fichiers MIDI et au
 Autres critères spécifiques au GMD :
 \begin{itemize}
 	\item Toutes les performances ont été jouées au métronome et à un tempo choisi par le batteur.
-	\item 80\% de la durée du GMD a été joué par des batteurs professionnels qui ont pu improviser dans un large éventail de styles. Les données sont donc diversifiées en terme de styles et de qualités de jeu (professionnel ou amateur).
+	\item 80\% de la durée du GMD a été joué par des batteurs professionnels qui ont pu improviser dans un large éventail de styles. Les données sont donc diversifiées en termes de styles et de qualités de jeu (professionnel ou amateur).
 	\item Les batteurs avaient pour instruction de jouer des séquences de plusieurs minutes ainsi que des fills\footnote{Un \textit{fill} est une séquence de relance dont la durée dépasse rarement 2 mesures. Il est souvent joué à la fin d’un cycle pour annoncer le suivant.}
 	\item Chaque performance est annotée d’un style (fourni par le batteur), d’une métrique et d’un tempo ainsi que d’une identification anonyme du batteur.
-	\item Il a été demandé à 4 batteurs d’enregistrer le même groupe de 10 rythmes dans leur style respectifs. Ils sont dans les dossiers eval-session du GMD.
+	\item Il a été demandé à 4 batteurs d’enregistrer le même groupe de 10 rythmes dans leurs styles respectifs. Ils sont dans les dossiers eval-session du GMD.
 	\item Les sorties audio synthétisées ont été alignées à 2 ms près sur leur fichier MIDI.
 \end{itemize}
 \subsection*{Format des données}
@@ -29,7 +27,7 @@ Le Roland TD-11 divise les données enregistrées en plusieurs pistes distinctes
 	\item une pour les changements de contrôle (position de la pédale de charley) ;
 	\item une pour les notes.\\
 \end{itemize}
-Les changements de contrôle sont placé sur le canal 0 et les notes sur le canal 9 (qui est le canal canonique pour la batterie).\\
+Les changements de contrôle sont placés sur le canal 0 et les notes sur le canal 9 (qui est le canal canonique pour la batterie).\\
 Pour simplifier le traitement de ces données, ces trois pistes ont été fusionnées en une seule piste qui a été mise sur le canal 9.\\\\
 « Control Changes
 The TD-11 also records control changes specifying the position of the hi-hat pedal on each hit. We have preserved this information under control 4. »\\(\url{https://magenta.tensorflow.org/datasets/groove})\\$\Rightarrow$ ??? Je ne comprends pas encore comment trouver ce type d’informations dans les fichiers MIDI.\\L’utilisation de pretty\_midi devient urgente !
@@ -37,7 +35,7 @@ The TD-11 also records control changes specifying the position of the hi-hat ped
 \label{analyse_midi_audio}
 Ces analyses ont été faites dans le cadre de transcriptions manuelles à partir de fichiers MIDI et Audio du GMD.
 \subsection*{Comparaisons de transcriptions}
-Pour les comparaisons de transcriptions, les transcriptions manuelles (TM) ont été éditées à l’aide de lilypond\footnote{\url{http://lilypond.org/}} ou MuseScore\footnote{\url{https://musescore.com/}} et les transcriptions automatiques (TA) ont toutes été générées manuellement avec MuseScore.
+Pour les comparaisons de transcriptions, les transcriptions manuelles (TM) ont été éditées à l’aide de Lilypond\footnote{\url{http://lilypond.org/}} ou MuseScore\footnote{\url{https://musescore.com/}} et les transcriptions automatiques (TA) ont toutes été générées manuellement avec MuseScore.
 \subsubsection{Exemple d’analyse 1}
 \begin{figure}[h]
 	\centering
@@ -81,7 +79,7 @@ Pour les comparaisons de transcriptions, les transcriptions manuelles (TM) ont �
 	\includegraphics[height=19mm, width=50mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/3_manuelle.png}\ \ \ \ 
 	\includegraphics[height=19mm, width=70mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/2_musescore.png}
 \end{figure}\\
-Sur le temps 4 de la mesure 1, la deuxième croche a été transcrite d’une manière infiniment complexe !\newpage
+Sur le temps 4 de la mesure 1, la deuxième croche a été transcrite d’une manière excessivement complexe !\newpage
 \subsubsection{Exemple avec des flas}
 Transcription manuelle\\
 \includegraphics[height=25mm, width=95mm]{z_images/4_experimentations/1_analyse_midi_audio/2_transcriptions_flas/0_124_funk_95_fill_4-4.png}\\
@@ -91,7 +89,7 @@ Transcription automatique\\\\
 	\item Le premier fla est reconnu comme étant un triolet contenant une quadruple croche suivie d’une triple croche au lieu d’une seule note ornementée.
 	\item Le deuxième fla est reconnu comme étant un accord.
 	\item Les deux double en l’air sur le temps 4 de la TM sont mal quantifiée dans la TA. 
-	\item La TA ne reconnaît qu’une mesure quand la TM en transcrit deux. En effet, la TA a divisé par deux la durée des notes afin de les faire tenir dans une mesure à 4 temps dont les unités de temps sont les noires. Par exemple, le soupir du temps 2 de la TM devient un demi-soupir sur le contre-temps du temps 1 dans la TA. Ou encore, la noire (\textit{pf}) sur le temps 1 de la mesure 2 de la TM suivie d’un demi-soupir devient une croche pointée sur le temps 3 de la TA.
+	\item La TA ne reconnaît qu’une mesure quand la TM en transcrit deux. En effet, la TA a divisé par deux la durée des notes afin de les faire tenir dans une mesure à 4 temps dont les unités de temps sont les noires. Par exemple, le soupir du temps 2 de la TM devient un demi-soupir sur le contre-temps du temps 1 dans la TA. Ou encore, la noire (pf, voir le tableau \ref{pitchs_instru}) sur le temps 1 de la mesure 2 de la TM suivie d’un demi-soupir devient une croche pointée sur le temps 3 de la TA.
 	\item Autre problème : certaines têtes de notes sont mal attribuées. Par exemple, le charley ouvert en l’air sur le temps 2 de la mesure 2 de la TM devrait avoir le même symbole sur la TA. Idem pour les cross-sticks.
 \end{itemize}\newpage
 \subsection*{Transcription de partition}
@@ -100,7 +98,7 @@ Transcription automatique\\\\
 	\caption{Partition entière}
 	\label{partition_entiere}
 \end{figure}
-La figure \ref{partition_entiere} est la transcription manuelle des fichiers \textit{004\_jazz-funk\_116\_beat\_4-4.mid} et \textit{004\_jazz-funk\_116\_beat\_4-4.wav} du GMD.\\Cette transcription a été entièrement faite avec lilypond (voir le code lilypond sur le git \url{https://github.com/MartinDigard/Stage_M2_Inria})
+La figure \ref{partition_entiere} est la transcription manuelle des fichiers \textit{004\_jazz-funk\_116\_beat\_4-4.mid} et \textit{004\_jazz-funk\_116\_beat\_4-4.wav} du GMD.\\Cette transcription a été entièrement faite avec Lilypond (voir le code lilypond sur le git \url{https://github.com/MartinDigard/Stage_M2_Inria})
 Il s’agit d’une partition d’un 4/4 binaire dont le fichier MIDI est annoncé dans le GMD de style «jazz-funk» probablement en raison de la ride de type shabada rapide (le ternaire devient binaire avec la vitesse) combiné avec l’after-beat de type rock (caisse-claire sur les deux et quatre).\\
 La transcription des données audio et MIDI contenues dans ces fichiers a permis une analyse plus approndie des critères à relever pour chaque évènement MIDI et de la manière de les considérer dans un objectif de transcription en partition lisible pour un musicien (Voir la section \ref{modelisation_transcription}).
 \section{Expérimentation théorique d’un système}
