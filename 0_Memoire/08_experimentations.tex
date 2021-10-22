@@ -95,29 +95,31 @@ Transcription automatique\\\\
 \subsection*{Transcription de partition}
 \begin{figure}[h]
 	\includegraphics[height=120mm, width=160mm]{z_images/4_experimentations/1_analyse_midi_audio/3_partition.png}
-	\caption{Partition entière}
-	\label{partition_entiere}
+	\caption{Partition de référence}
+	\label{partition_ref}
 \end{figure}
-La figure \ref{partition_entiere} est la transcription manuelle des fichiers \textit{004\_jazz-funk\_116\_beat\_4-4.mid} et \textit{004\_jazz-funk\_116\_beat\_4-4.wav} du GMD.\\Cette transcription a été entièrement faite avec Lilypond (voir le code lilypond sur le git \url{https://github.com/MartinDigard/Stage_M2_Inria})
+La figure \ref{partition_ref} est la transcription manuelle des fichiers \textit{004\_jazz-funk\_116\_beat\_4-4.mid} et \textit{004\_jazz-funk\_116\_beat\_4-4.wav} du GMD.\\Cette transcription a été entièrement faite avec Lilypond (voir le code lilypond sur le git \url{https://github.com/MartinDigard/Stage_M2_Inria})
 Il s’agit d’une partition d’un 4/4 binaire dont le fichier MIDI est annoncé dans le GMD de style «jazz-funk» probablement en raison de la ride de type shabada rapide (le ternaire devient binaire avec la vitesse) combiné avec l’after-beat de type rock (caisse-claire sur les deux et quatre).\\
 La transcription des données audio et MIDI contenues dans ces fichiers a permis une analyse plus approndie des critères à relever pour chaque évènement MIDI et de la manière de les considérer dans un objectif de transcription en partition lisible pour un musicien (Voir la section \ref{modelisation_transcription}).
 \section{Expérimentation théorique d’un système}
-\subsection*{Motifs}
+Cette expérimentation théorique, basée sur la partition de référence de la figure \ref{partition_ref}, montre le procédé de création d’un \textit{système} et des règles qui en découlent (métrique, choix de grammaire, règles de séparation des voix et de simplification de l’écriture). Le \textit{système} devra ensuite être implémenté pour appliquer des tests qui seront effectués, dans un premier temps, sur la partition de référence.
+\subsection*{Motifs et gammes}
 \begin{figure}[h]
-	\includegraphics[height=30mm, width=40mm]{z_images/4_experimentations/2_demonstration_systeme/0_motifs_4-4_binaires.png}
-	\caption{Motifs}
+	\centering
+	\includegraphics[height=43mm, width=40mm]{z_images/4_experimentations/2_experimentation_theorique/0_motifs_4-4_binaires.png}
+	\includegraphics[height=55mm, width=85mm]{z_images/4_experimentations/2_experimentation_theorique/1_gammes_4-4_binaires.png}
+	\caption{Motifs et gammes}
+	\label{motifs}
 \end{figure}
-Les motifs 1 et 2 peuvent être extraits de la figure 3.8. Ces deux motifs sont très classiques et seront réutilisables aussi dans d’autres contextes.\\
-Le motif 1 est joué jusqu’à la mesure 18 avec des variations et des breaks.\\
-Le motif 2 est joué des mesures 23 à 28.\\\\
-\subsection*{Gammes}
-\includegraphics[height=70mm, width=95mm]{z_images/4_experimentations/2_demonstration_systeme/1_gammes_4-4_binaires.png}\\
-
-\subsection*{Systèmes}
-\includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/2_demonstration_systeme/2_systeme_4-4_binaire.png}
-\includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/2_demonstration_systeme/3_systeme_4-4_binaire.png}
+\subsubsection{Motifs}
+À partir de la partition de référence, deux motifs peuvent être systématisés : les motifs 1 et 2 de la figure \ref{motifs}. Le motif 1 est joué jusqu’à la mesure 18 avec des variations et des breaks et le motif 2 est joué des mesures 23 à 28. Ces deux motifs sont très classiques et pourront être détectés dans de nombreuses performances.\\
+\subsubsection{Gammes}
+Nous utiliserons le motifs 1 pour la suite de l’expérimentation.
 \newpage
-
+\subsection*{Systèmes}
+\begin{figure}[h]
+	\includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/2_experimentation_theorique/2_systeme_4-4_binaire.png}
+\end{figure}
 \subsection*{Démonstration}
 \label{demo_sys}
 \textbf{Représentation des systèmes en arbres de rythmes}
@@ -168,48 +170,62 @@ Ainsi l’arbre syntaxique de départ sera divisé en autant d’instruments qui
 	[.Temps\ 4 [t ][ [bd\\pf ][t ]]] ]]}\\
 
 \textbf{Règles de simplifications pour le 4/4 binaire}\\
-Simplifier l’écriture de chaque voix (\textit{Règles établis par le système})\\
-\resizebox{70pt}{!} {
-	\Tree[.1/4 [t ][x ][x ][x ] ]
-}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-\resizebox{70pt}{!} {
-	\Tree[.1/4 [r ][x ][x ][x ] ]
-}\\\\
-
-\resizebox{70pt}{!} {
-	\Tree[.1/4 [x ][t ][x ][x ]]
-}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-\resizebox{50pt}{!} {
-	\Tree[.1/4 [x ][ [x ][x ]]]
-}\\\\
-
-\resizebox{70pt}{!} {
-	\Tree[.1/4 [t ][x ][x ][t ] ]
-}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-\resizebox{50pt}{!} {
-	\Tree[.1/4 [ [r ][x ]][x ] ]
-}\\\\
-
-\resizebox{50pt}{!} {
-	\Tree[.1/4 [t ][ [x ][x ]]]
-}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-\resizebox{50pt}{!} {
-	\Tree[.1/4 [r ][ [x ][x ]]]
-}\\\\
-
-\resizebox{50pt}{!} {
-	\Tree[.1/4 [t ][ [x ][t ]] ]
-}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-\resizebox{30pt}{!} {
-	\Tree[.1/4 [r ][x ] ]
-}\\\\
-
-\resizebox{50pt}{!} {
-	\Tree[.1/4 [x ][ [x ][t ]] ]
-}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-\resizebox{30pt}{!} {
-	\Tree[.1/4 [x ][x ] ]
-}
+Simplifier l’écriture de chaque voix (\textit{Règles établis par le système})
+\begin{figure}[h]
+	\centering
+	\resizebox{70pt}{!} {
+		\Tree[.1/4 [t ][x ][x ][x ] ]
+	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+	\resizebox{70pt}{!} {
+		\Tree[.1/4 [r ][x ][x ][x ] ]
+	}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\resizebox{70pt}{!} {
+		\Tree[.1/4 [x ][t ][x ][x ]]
+	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+	\resizebox{50pt}{!} {
+		\Tree[.1/4 [x ][ [x ][x ]]]
+	}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\resizebox{70pt}{!} {
+		\Tree[.1/4 [t ][x ][x ][t ] ]
+	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+	\resizebox{50pt}{!} {
+		\Tree[.1/4 [ [r ][x ]][x ] ]
+	}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\resizebox{50pt}{!} {
+		\Tree[.1/4 [t ][ [x ][x ]]]
+	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+	\resizebox{50pt}{!} {
+		\Tree[.1/4 [r ][ [x ][x ]]]
+	}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\resizebox{50pt}{!} {
+		\Tree[.1/4 [t ][ [x ][t ]] ]
+	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+	\resizebox{30pt}{!} {
+		\Tree[.1/4 [r ][x ] ]
+	}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\resizebox{50pt}{!} {
+		\Tree[.1/4 [x ][ [x ][t ]] ]
+	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+	\resizebox{30pt}{!} {
+		\Tree[.1/4 [x ][x ] ]
+	}
+\end{figure}\newpage
+La méthode des \textit{systèmes} étant basée sur une approche dictionnaire, cette expérimentation théorique a pour but d’orienter la recherche d’autres systèmes par observation du jeu de données et de montrer comment les construire pour agrandir la base de connaissance de Qparse pour l’ADT.
 \section{Développement}
 \subsection*{DrumCode}
 Adaptation de la modélisation pour la transcription en cpp.
