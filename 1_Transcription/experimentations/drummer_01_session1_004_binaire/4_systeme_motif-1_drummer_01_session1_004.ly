@@ -25,7 +25,7 @@ down = \drummode {
 	  \new DrumVoice { \voiceOne \up }
 	  \new DrumVoice { \voiceTwo \down }
 	>>
-	\addlyrics { "Motif 1, texte 1a." }
+	\addlyrics { "Motif 1, gamme 1a." }
   >>
 }
 
@@ -47,7 +47,7 @@ down = \drummode {
 	  \new DrumVoice { \voiceOne \up }
 	  \new DrumVoice { \voiceTwo \down }
 	>>
-	\addlyrics { "Motif 1, texte 1b." }
+	\addlyrics { "Motif 1, gamme 1b." }
   >>
 }
 
@@ -67,7 +67,7 @@ down = \drummode {
 	  \new DrumVoice { \voiceOne \up }
 	  \new DrumVoice { \voiceTwo \down }
 	>>
-	\addlyrics { "Motif 1, texte 2a." }
+	\addlyrics { "Motif 1, gamme 2a." }
   >>
 }
 
@@ -89,7 +89,7 @@ down = \drummode {
 	  \new DrumVoice { \voiceOne \up }
 	  \new DrumVoice { \voiceTwo \down }
 	>>
-	\addlyrics { "Motif 1, texte 2b." }
+	\addlyrics { "Motif 1, gamme 2b." }
   >>
 }
 
@@ -111,6 +111,6 @@ down = \drummode {
 	  \new DrumVoice { \voiceOne \up }
 	  \new DrumVoice { \voiceTwo \down }
 	>>
-	\addlyrics { "Motif 1, texte 2c." }
+	\addlyrics { "Motif 1, gamme 2c." }
   >>
 }
