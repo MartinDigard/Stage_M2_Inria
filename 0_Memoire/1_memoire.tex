@@ -147,13 +147,13 @@
 \makenomenclature
 \newcommand{\nocontentsline}[3]{}
 \newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
-\input{02_macros}
+\input{2_macros}
 \newcommand\tab[1][5mm]{\hspace*{#1}}
 \parindent=0em
 \begin{document}
 \sloppy
 \dominitoc
-\include{03_page-de-garde}
+\include{3_page-de-garde}
 \newpage
 \setcounter{tocdepth}{1}
 \pdfbookmark[0]{Table des matières}{tablematieres}
@@ -169,34 +169,34 @@
 \chapter*{Introduction générale}
 \adjustmtc
 \addstarredchapter{Introduction générale} 
-\input{04_introduction_generale}
+\input{4_introduction_generale}
 
 
 \chapter{Contexte}
 \label{chap:05_contexte}
 \adjustmtc
 \minitoc
-\input{05_contexte}
+\input{5_contexte}
 
 \chapter{État de l’art}
 \label{chap:articles}
 \minitoc
-\input{06_etat_de_l_art}
+\input{6_etat_de_l_art}
 
 \chapter{Méthodes}
 \label{chap:07_methodes}
 \minitoc
-\input{07_methodes}
+\input{7_methodes}
 
 \chapter{Expérimentations}
 \label{chap:08_experimentations}
 \minitoc
-\input{08_experimentations}
+\input{8_experimentations}
 
 \chapter{Discussion}
 \label{chap:09_discussion}
 \minitoc
-\input{09_discussion}
+\input{9_discussion}
 
 
 \cleardoublepage\pdfbookmark[-1]{Conclusion générale}{conclusion}
