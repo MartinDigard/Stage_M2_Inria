@@ -117,66 +117,75 @@ Cette expérimentation théorique, basée sur la partition de référence de la 
 Les gammes de la figure \ref{motifs_gammes} étayent toutes les combinaisons d’un motif en 4/4 binaires jusqu’aux doubles croches.\\
 Les lignes 1 et 2 traitent les croches. La ligne 1 a 2 mesures dont la première ne contient que des noires et la deuxième que des croches en l’air. Ces deux possibilités sont combinées de manière circulaire dans les 3 mesures de la deuxième ligne.\\
 Les lignes 3, 4 et 5 traitent les doubles-croches. La ligne 3 a 2 mesures dont la première ne contient que des croches et la deuxième que des doubles-croches en l’air. Ces deux possibilités sont combinées de manière circulaire dans les lignes 4 et 5 qui contiennent chacunes 3 mesures.
-\subsection*{Systèmes}
-Le motif 1 de la figure \ref{motifs_gammes} est utilisé pour la suite de l’expérimentation théorique.
+\subsection*{Systèmes — motifs et gammes combinés}
+Pour la suite de l’expérimentation théorique, nous utiliserons le motif 1 de la figure \ref{motifs_gammes}.\\
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/2_experimentation_theorique/2_systeme_4-4_binaire.png}
-	\caption{Motif et gammes combinés}
-	\label{sys_motif_1}
-\end{figure}\\
-La figure \ref{sys_motif_1} ci-dessus illustre le système complet (motif et gammes combinés).
-\newpage
-\subsection*{Démonstration}
+	\caption{Partition d’un système en 4/4 binaire}
+	\label{sys_binaire}
+\end{figure}
+\subsection*{Représentation du système en arbres de rythmes}
 \label{demo_sys}
-\textbf{Représentation des systèmes en arbres de rythmes}
+\begin{figure}[h]
+	\centering
+	\resizebox{350pt}{!} {
+		\Tree[.Motif\ 1\ +\ gamme\ 1a
+		[.Mesure\ 1
+		[.Temps\ 1 [rd\\bd ][ [rd\\pf ][rd ]]]
+		[.Temps\ 2 [rd\\cc ][ [rd\\pf ][rd ]]]
+		[.Temps\ 3 [rd\\bd ][ [rd\\pf ][rd ]]]
+		[.Temps\ 4 [rd\\cc ][ [rd\\pf ][rd ]]] ]
+		[.Mesure\ 2
+		[.Temps\ 1 [rd ][ [rd\\bd\\pf ][rd ]]]
+		[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
+		[.Temps\ 3 [rd ][ [rd\\bd\\pf ][rd ]]]
+		[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]]}
+	\caption{Arbre de rythme — système}
+	\label{arbre_sys}
+\end{figure}
+L’arbre de la figure \ref{arbre_sys} servira de base pour le suite de l’expérimentation. Comme indiqué à la racine de l’arbre, il représente la première ligne de la figure \ref{sys_binaire}. Même si cet arbre représente parfaitement le rythme concerné, il manque des indications de notation telles que les voix spécifiques à chaque partie du rythme ainsi que les choix d’écriture pour les distances qui séparent les notes de chaque voix entre elles en termes de durée.
+\subsection*{Réécriture — séparation des voix et simplification}
 
-\resizebox{440pt}{!} {
-	\Tree[.Motif\ 1\ +\ Texte\ 1a
-	[.Mesure\ 1
-	[.Temps\ 1 [rd\\bd ][ [rd\\pf ][rd ]]]
-	[.Temps\ 2 [rd\\cc ][ [rd\\pf ][rd ]]]
-	[.Temps\ 3 [rd\\bd ][ [rd\\pf ][rd ]]]
-	[.Temps\ 4 [rd\\cc ][ [rd\\pf ][rd ]]] ]
-	[.Mesure\ 2
-	[.Temps\ 1 [rd ][ [rd\\bd\\pf ][rd ]]]
-	[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
-	[.Temps\ 3 [rd ][ [rd\\bd\\pf ][rd ]]]
-	[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]]}
-\textbf{Réécriture}
-\textit{Règles établies par le système}\\
-\textbf{Séparation des voix}\\
-\\\\
-Ainsi l’arbre syntaxique de départ sera divisé en autant d’instruments qui le constituent et les voix seront regroupées de manière cohérentes.
-\textit{Voix haute}\\
-\resizebox{440pt}{!} {
-	\Tree[.Motif\ 1\ +\ Texte\ 1a
-	[.Mesure\ 1
-	[.Temps\ 1 [rd ][ [rd ][rd ]]]
-	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
-	[.Temps\ 3 [rd ][ [rd ][rd ]]]
-	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
-	[.Mesure\ 2
-	[.Temps\ 1 [rd ][ [rd ][rd ]]]
-	[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
-	[.Temps\ 3 [rd ][ [rd ][rd ]]]
-	[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]]}\\
-
-\textit{Voix basse}\\
-\resizebox{440pt}{!} {
-	\Tree[.Motif\ 1\ +\ Texte\ 1a
-	[.Mesure\ 1
-	[.Temps\ 1 [bd ][ [pf ][t ]]]
-	[.Temps\ 2 [t ][ [pf ][t ]]]
-	[.Temps\ 3 [bd ][ [pf ][t ]]]
-	[.Temps\ 4 [t ][ [pf ][t ]]] ]
-	[.Mesure\ 2
-	[.Temps\ 1 [t ][ [bd\\pf ][t ]]]
-	[.Temps\ 2 [t ][ [bd\\pf ][t ]]]
-	[.Temps\ 3 [t ][ [bd\\pf ][t ]]]
-	[.Temps\ 4 [t ][ [bd\\pf ][t ]]] ]]}\\
-
-\textbf{Règles de simplifications pour le 4/4 binaire}\\
+\subsubsection{La séparation des voix}
+Ainsi l’arbre syntaxique de départ est divisé en autant d’instruments qui le constituent et les voix seront regroupées en suivant les régles du système.
+\begin{figure}[h]
+	\centering
+	\resizebox{350pt}{!} {
+		\Tree[.Motif\ 1\ +\ Texte\ 1a
+		[.Mesure\ 1
+		[.Temps\ 1 [rd ][ [rd ][rd ]]]
+		[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+		[.Temps\ 3 [rd ][ [rd ][rd ]]]
+		[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]
+		[.Mesure\ 2
+		[.Temps\ 1 [rd ][ [rd ][rd ]]]
+		[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
+		[.Temps\ 3 [rd ][ [rd ][rd ]]]
+		[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]]}
+	\caption{Arbre de rythme — voix haute}
+	\label{voix_haute}
+\end{figure}\\
+La voix haute regroupe la ride et la caisse-claire sur les ligatures du haut.
+\begin{figure}[h]
+	\centering
+	\resizebox{350pt}{!} {
+		\Tree[.Motif\ 1\ +\ Texte\ 1a
+		[.Mesure\ 1
+		[.Temps\ 1 [bd ][ [pf ][t ]]]
+		[.Temps\ 2 [t ][ [pf ][t ]]]
+		[.Temps\ 3 [bd ][ [pf ][t ]]]
+		[.Temps\ 4 [t ][ [pf ][t ]]] ]
+		[.Mesure\ 2
+		[.Temps\ 1 [t ][ [bd\\pf ][t ]]]
+		[.Temps\ 2 [t ][ [bd\\pf ][t ]]]
+		[.Temps\ 3 [t ][ [bd\\pf ][t ]]]
+		[.Temps\ 4 [t ][ [bd\\pf ][t ]]] ]]}
+	\caption{Arbre de rythme — voix basse}
+	\label{voix_basse}
+\end{figure}\\
+La voix basse regroupe la grosse-caisse et le charley au pied sur les ligatures du bas.
+\subsubsection{Les règles de simplifications}
 Simplifier l’écriture de chaque voix (\textit{Règles établis par le système})
 \begin{figure}[h]
 	\centering
@@ -233,6 +242,7 @@ Simplifier l’écriture de chaque voix (\textit{Règles établis par le systèm
 	}
 \end{figure}\newpage
 La méthode des \textit{systèmes} étant basée sur une approche dictionnaire, cette expérimentation théorique a pour but d’orienter la recherche d’autres systèmes par observation du jeu de données et de montrer comment les construire pour agrandir la base de connaissance de Qparse pour l’ADT.
+\newpage
 \section{Développement}
 \subsection*{DrumCode}
 Adaptation de la modélisation pour la transcription en cpp.
