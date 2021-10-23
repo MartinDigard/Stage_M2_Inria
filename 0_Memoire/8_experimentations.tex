@@ -187,6 +187,7 @@ La voix haute regroupe la ride et la caisse-claire sur les ligatures du haut.
 La voix basse regroupe la grosse-caisse et le charley au pied sur les ligatures du bas.
 \subsubsection{Les règles de simplifications}
 L’objectif des simplifications est de réécrire les écarts de durées qui séparent les notes d’une manière appropriée pour la batterie et qui soit la plus simple possible.\\
+Pour la notation soit appropriée à la batterie, il faut que les ligatures relient les notes d’un temps entre elles (rendre la pulse visuelle).\\\\
 Pour les figures ci-dessous :
 \begin{itemize}
 	\item x = une note ;
@@ -194,6 +195,25 @@ Pour les figures ci-dessous :
 	\item t = une continuation (point ou liaison)
 \end{itemize}
 Simplifier l’écriture de chaque voix (\textit{Règles établis par le système})
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=40mm, width=55mm]{z_images/4_experimentations/2_experimentation_theorique/simpl.png}
+\end{figure}\\
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=10mm, width=25mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_0.png}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+	\includegraphics[height=10mm, width=20mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_1.png}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\resizebox{50pt}{!} {
+		\Tree[.1/4 [x ][ [x ][t ]] ]
+	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+	\resizebox{30pt}{!} {
+		\Tree[.1/4 [x ][x ] ]
+	}
+\end{figure}
+
 \begin{figure}[h]
 	\centering
 	\resizebox{70pt}{!} {
@@ -239,15 +259,8 @@ Simplifier l’écriture de chaque voix (\textit{Règles établis par le systèm
 		\Tree[.1/4 [r ][x ] ]
 	}
 \end{figure}
-\begin{figure}[h]
-	\centering
-	\resizebox{50pt}{!} {
-		\Tree[.1/4 [x ][ [x ][t ]] ]
-	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-	\resizebox{30pt}{!} {
-		\Tree[.1/4 [x ][x ] ]
-	}
-\end{figure}\newpage
+\newpage
+\subsection*{Objectif de cette expérimentation théorique}
 La méthode des \textit{systèmes} étant basée sur une approche dictionnaire, cette expérimentation théorique a pour but d’orienter la recherche d’autres systèmes par observation du jeu de données et de montrer comment les construire pour agrandir la base de connaissance de Qparse pour l’ADT.
 \newpage
 \section{Développement}
