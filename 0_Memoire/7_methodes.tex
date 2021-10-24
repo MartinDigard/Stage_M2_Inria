@@ -58,9 +58,9 @@ Ces symboles ne seront utiles que pour l’écriture des ouvertures de charley. 
 \end{figure}
 L’écriture de la batterie doit faire ressortir la pulsation. La première chose à prendre en compte pour analyser la figure \ref{point_liaison} est donc la nécessité de regrouper les notes par temps à l’aide des ligatures.\\
 Exemple 1 : ouverture de charley quantifiée mais pas notes pas regroupées par temps.\\
-Exemple 2 : bieeen !\\
+Exemple 2 : Ici, la liaison permet de regrouper les notes par temps en obtenant le même rythme que dans l’exemple 1.\\
 Exemple 3 et exemple 4 : les deux exemples sont valables mais le deuxième est le plus souvent utilisé car plus intuitif (regroupement par temps).\\
-En cas de nécessité de rallonger la durée d’une note pour la batterie, on privilégiera la liaison.
+En cas de nécessité de rallonger la durée d’une note au-delà de son temps initial et si cette note correspond à une ouverture de charley, on privilégiera la liaison.
 \subsection*{Les silences}
 \begin{figure}[h]
 	\centering
@@ -76,7 +76,10 @@ Physiquement, le charley est fermé par une pression du pied sur la pédale de c
 	\caption{Silence joué}
 	\label{silence joue}
 \end{figure}\\
-L’exemple 1 de la figure \ref{silence joue} montre ce qui est écrit dans les données MIDI et l’exemple 2 montre ce que le batteur doit penser en lisant la partition. Il faut aussi prendre en compte l’écriture surchargée que l’exemple 1 donnerait avec une partition comprenant plusieurs voix et plusieurs instruments jouant simultanément.
+L’exemple 1 de la figure \ref{silence joue} montre ce qui est écrit dans les données MIDI et l’exemple 2 montre ce que le batteur doit penser en lisant la partition. Il faut aussi prendre en compte l’écriture surchargée que l’exemple 1 donnerait avec une partition comprenant plusieurs voix et plusieurs instruments jouant simultanément.\\
+Lorsqu’une note est un charley ouvert, il faudra donc prendre en compte la note suivante pour l’écriture :\\
+- Si c’est un charley fermé joué à la main $\Rightarrow$ la note sera cf ;\\
+- Si c’est un charley fermé joué au pied $\Rightarrow$ la note sera un silence.
 \subsection*{Les équivalences rythmiques}
 Pour les instruments mélodiques, la liaison et le point sont les deux seules possibilités en cas d’équivalence rythmique pour des notes dont la durée de l’une à l’autre est ininterrompue. Mais pour la batterie, à part pour les ouvertures de charley (voir section \ref{hho}), les durées des notes n’ont pas d’importance. L’usage des silences pour combler la distance rythmique entre deux notes devient donc possible.\\
 Cela pris en compte, et étant donné que les indications de durée dans les têtes de notes sont peu recommandées (voir section \ref{hho}), l’écriture à l’aide de silences sera privilégiée comme indication de durée sauf dans les cas où cela reste impossible. Ce choix à pour but de n’avoir qu’une manière d’écrire toutes les notes, que leurs têtes de notes soit modifiées ou non.
@@ -166,7 +169,7 @@ Ci-dessous, le même arbre dont les codes des instruments sont remplacés par le
 	[ [51\\36 ][ [51\\44 ][51 ]]]
 	[ [51\\38 ][ [51\\44 ][51 ]]] ]
 \end{figure}\\
-Chacun des trois exemples de la figure \ref{sep_voix} est représenté par un des deux arbres syntaxiques ci-dessus.\newpage
+Chacun des trois exemples de la figure \ref{sep_voix} est représenté par un des deux arbres syntaxiques ci-dessus.
 \section{Qparse}
 La librairie Qparse\footnote{\url{https://qparse.gitlabpages.inria.fr}} implémente la quantification des rythmes basée sur des algorithmes d'analyse syntaxique pour les automates arborescents pondérés. En prenant en entrée une performance musicale symbolique (séquence de notes avec dates et durées en temps réel, typiquement un fichier MIDI), et une grammaire hors-contexte pondérée décrivant un langage de rythmes préférés, il produit une partition musicale. Plusieurs formats de sortie sont possibles, dont XML MEI.
 Les principaux contributeurs sont :
@@ -179,10 +182,10 @@ Les principaux contributeurs sont :
 \end{itemize}
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=95mm, width=130mm]{z_images/3_methodes/1_qparse/0_general_qparse.png}
+	\includegraphics[height=80mm, width=130mm]{z_images/3_methodes/1_qparse/0_general_qparse.png}
 	\caption{Présentation de Qparse}
 	\label{presentation_qparse}
-\end{figure}
+\end{figure}\newpage
 Explication des différentes étapes de la figure \ref{presentation_qparse}\footnote{\url{https://gitlab.inria.fr/qparse/qparselib/-/tree/distance/src/scoremodel}} :
 \begin{itemize}
 	\item \textbf{Input Qparse} :\\
@@ -281,7 +284,20 @@ Dans la plupart des méthodes, le charley n’est pas écrit car il est considé
 \end{figure}\\
 La figure \ref{afro_latin} montre un exemple minimaliste de système afro-latin \cite{system_drums}. Ce système doit être écrit sur trois voix car la voix centrale est souvent plus complexe qu’ici (que des noirs) et la mélanger avec le haut ou le bas serait surchargé et peu lisible.
 \subsubsection{Simplification de l’écriture}
-Les gammes qui accompagnent les motifs d’un système étayent toutes les combinaisons d’un système. Elles sont générées manuellement à partir de la simplification de chaque voix d’un système selon les principes de la section \ref{notation_batterie} (aller à la section \ref{demo_sys} pour voir un exemple). 
+Les explications qui suivent seront appuyé par une expérimentation théorique dans la section \ref{expe_theo}.\\\\
+Les gammes qui accompagnent les motifs d’un système étayent toutes les combinaisons d’un système et elles permettent, combinées avec le motif d’un système, de définir les règles de simplification propres à celui-ci.\\\\
+Voici les différentes étapes à suivre :
+\begin{itemize}
+	\item Pour chaque gamme du système, faire un arbre de rythme représentant la gamme combinée avec le motif du système ;
+	\item Pour chaque arbre de rythmes obtenus, séparer les voix et faire un arbre de rythme par voix ;
+	\item Pour chaque voix (arbre de rythmes) obtenus, extraire tous les nœuds qui nécessitent une simplification et écrire la règle.\\
+\end{itemize}
+Certaines précisions concernant l’extraction de ces règles sont nécessaires. Il s’agit de précisions à propos de la durée, des silences et de la présence ou non d’ouverture de charley dans les instruments joués. Nous avons discuté de ces problèmes dans le chapitre \ref{methodes}.\\\\
+Voici quelques règles inhérentes à la simplication de l’écriture pour la batterie :\\
+Toutes les continuations (t) qui se trouvent en début de temps (figures \ref{2}, \ref{4} et \ref{5}) sont transformées en silences (r) sauf si la note précédente est un charley ouvert ?\\
+Même si on favorise l’usage des silences pour l’écart entre les notes n’appartenant pas au même temps, on les supprime systèmatiquement pour 2 notes au sein d’un même temps et favorise, une liaison si co, un point si pas co et nécessaire, un simple ajustement de la figure de note si suffisant. \\
+Exemple :\\
+METTRE FIGURE ICI !
 \section*{Conclusion}
 Nous avons formalisé une notation de la batterie, modélisé cette notation pour la transcription de données MIDI en partition, nous avons décrit Qparse.\\
 Enfin, nous avons exposé une approche de type dictionnaire (les « systèmes ») pour détecter une métrique, choisir une grammaire pondérée appropriée et énoncer des règles de séparation des voix et de simplification de l’écriture.

@@ -102,6 +102,7 @@ La figure \ref{partition_ref} est la transcription manuelle des fichiers \textit
 Il s’agit d’une partition d’un 4/4 binaire dont le fichier MIDI est annoncé dans le GMD de style «jazz-funk» probablement en raison de la ride de type shabada rapide (le ternaire devient binaire avec la vitesse) combiné avec l’after-beat de type rock (caisse-claire sur les deux et quatre).\\
 La transcription des données audio et MIDI contenues dans ces fichiers a permis une analyse plus approndie des critères à relever pour chaque évènement MIDI et de la manière de les considérer dans un objectif de transcription en partition lisible pour un musicien (Voir la section \ref{modelisation_transcription}).
 \section{Expérimentation théorique d’un système}
+\label{expe_theo}
 Cette expérimentation théorique, basée sur la partition de référence de la figure \ref{partition_ref}, montre le procédé de création d’un \textit{système} et des règles qui en découlent (métrique, choix de grammaire, règles de séparation des voix et de simplification de l’écriture). Le \textit{système} devra ensuite être implémenté pour appliquer des tests qui seront effectués, dans un premier temps, sur la partition de référence.
 \subsection*{Motifs et gammes}
 \begin{figure}[h]
@@ -186,15 +187,13 @@ La voix haute regroupe la ride et la caisse-claire sur les ligatures du haut.
 \end{figure}\\
 La voix basse regroupe la grosse-caisse et le charley au pied sur les ligatures du bas.
 \subsubsection{Les règles de simplifications}
-L’objectif des simplifications est de réécrire les écarts de durées qui séparent les notes d’une manière appropriée pour la batterie et qui soit la plus simple possible.\\
-Pour la notation soit appropriée à la batterie, il faut que les ligatures relient les notes d’un temps entre elles (rendre la pulse visuelle).\\\\
+L’objectif des règles de simplifications est de réécrire les écarts de durées qui séparent les notes d’une manière appropriée pour la batterie et qui soit la plus simple possible. Les ligatures relient les notes d’un temps entre elles (rendre la pulse visuelle).\\\\
 Pour les figures ci-dessous :
 \begin{itemize}
 	\item x = une note ;
 	\item r = un silence ;
 	\item t = une continuation (point ou liaison)
 \end{itemize}
-Simplifier l’écriture de chaque voix (\textit{Règles établis par le système})
 \begin{figure}[h]
 	\centering
 	\resizebox{50pt}{!} {
@@ -206,6 +205,7 @@ Simplifier l’écriture de chaque voix (\textit{Règles établis par le systèm
 	\includegraphics[height=10mm, width=25mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_0.png}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
 	\includegraphics[height=10mm, width=20mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_1.png}
 	\caption{}
+	\label{1}
 \end{figure}
 \begin{figure}[h]
 	\centering
@@ -218,6 +218,7 @@ Simplifier l’écriture de chaque voix (\textit{Règles établis par le systèm
 	\includegraphics[height=10mm, width=25mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_2.png}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
 	\includegraphics[height=10mm, width=20mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_3.png}
 	\caption{}
+	\label{2}
 \end{figure}
 \begin{figure}[h]
 	\centering
@@ -230,7 +231,8 @@ Simplifier l’écriture de chaque voix (\textit{Règles établis par le systèm
 	\includegraphics[height=10mm, width=25mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_4.png}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
 	\includegraphics[height=10mm, width=20mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_5.png}
 	\caption{}
-\end{figure}
+	\label{3}
+\end{figure}\newpage
 \begin{figure}[h]
 	\centering
 	\resizebox{70pt}{!} {
@@ -242,6 +244,7 @@ Simplifier l’écriture de chaque voix (\textit{Règles établis par le systèm
 	\includegraphics[height=10mm, width=25mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_8.png}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
 	\includegraphics[height=10mm, width=25mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_9.png}
 	\caption{}
+	\label{4}
 \end{figure}
 \begin{figure}[h]
 	\centering
@@ -258,15 +261,14 @@ Simplifier l’écriture de chaque voix (\textit{Règles établis par le systèm
 		\Tree[.1/4 [r ][x ][x ][x ] ]
 	}
 	\caption{}
+	\label{5}
 \end{figure}
-%	\includegraphics[height=11mm, width=30mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_6.png}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-%	\includegraphics[height=11mm, width=30mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_7.png}
-%	\caption{}
-%\end{figure}
-%
+%Toutes les continuations (t) qui se trouvent en début de temps (figures \ref{2}, \ref{4} et \ref{5}) sont transformées en silences (r) sauf si la note précédente est un charley ouvert.\\
+%Même si on favorise l’usage des silences pour l’écart entre les notes n’appartenant pas au même temps, on les supprime systèmatiquement pour 2 notes au sein d’un même temps.\\
+%Exemples :\\
 %\begin{figure}[h]
 %	\centering
-%	
+%	\includegraphics[height=30mm, width=30mm]{z_images/}
 %\end{figure}
 \subsection*{Objectif de cette expérimentation théorique}
 La méthode des \textit{systèmes} étant basée sur une approche dictionnaire, cette expérimentation théorique a pour but d’orienter la recherche d’autres systèmes par observation du jeu de données et de montrer comment les construire pour agrandir la base de connaissance de Qparse pour l’ADT.
