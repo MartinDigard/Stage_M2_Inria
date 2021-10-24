@@ -263,8 +263,9 @@ Pour les figures ci-dessous :
 	\caption{}
 	\label{5}
 \end{figure}
-
-\subsection*{Objectif de cette expérimentation théorique}
+Ces règles ont été tirées de l’ensemble des arbres du système. Les arbres manquants seront mis en annexe.\\\\
+Les règles remplacent par un silence les continuations (t) qui sont au début d’un temps. Cela est valable pour ce système mais lorsqu’il y a des ouvertures de charley, cela n’est pas toujours applicable. Ce problème est évoqué de le chapitre \ref{methodes}.\\\\
+$\Rightarrow$ \textbf{Objectif de cette expérimentation théorique} :\\
 La méthode des \textit{systèmes} étant basée sur une approche dictionnaire, cette expérimentation théorique a pour but d’orienter la recherche d’autres systèmes par observation du jeu de données et de montrer comment les construire pour agrandir la base de connaissance de Qparse pour l’ADT.
 \newpage
 \section{Développement}
@@ -277,7 +278,6 @@ Les Jams permettent de passer du monophonique au polyphonique.
 \label{gram_pond}
 Tests effectués avec le fichier midi suivant :\\\\
 \includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/3_developpement/0_midi_2bars_fill.png}\\\\
-%\textit{Voix basse}\\
 Un premier test convaincant est effectué avec la grammaire suivante :\\\\
 // bar level\\
 0 -> C0                1\\
@@ -323,17 +323,5 @@ Les temps de la première mesure du fichier MIDI sont bien quantifié mais ceux 
 Les Onsets sont correctement triés au niveau des doubles croches mais certaines doubles croches sont inutilement subdivisées en triples croches (les 2ème, 3ème et 4ème doubles croches sur le premier temps ci-dessus).\\\\
 \textbf{2ème exemple :}\\
 Après une augmentation du poids des triples croches dans la grammaire (monté de 1 à 5)et une baisse de tous les autres poids (descendu de 1 à 0.5), et mis à part le troisième temps de la 2ème mesure, tous les Onsets sont bien triés et aucuns ne sont subdivisés.
-
-
-
-
-
-
-%\newpage
-%\section{Résultats et discussion}
-%\subsection{Résultats}
-%\subsection{Évaluation}
-%1 - Transcription manuelle à partir de fichier midi et/ou wav d’une partition contenant des systèmes. Écriture des systèmes contenues dans la partition (arbres, séparation des voix, réécriture)\\\\
-
 \section*{Conclusion}
 Conclusion de ce chapitre.

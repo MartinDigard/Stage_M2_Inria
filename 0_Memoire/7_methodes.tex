@@ -295,41 +295,63 @@ Voici les différentes étapes à suivre :
 Certaines précisions concernant l’extraction de ces règles sont nécessaires. Il s’agit de précisions à propos de la durée, des silences et de la présence ou non d’ouverture de charley dans les instruments joués. Nous avons discuté de ces problèmes dans le chapitre \ref{methodes}.\\\\
 Voici quelques règles inhérentes à la simplication de l’écriture pour la batterie :\\
 Toutes les continuations (t) qui se trouvent en début de temps (figures \ref{2}, \ref{4} et \ref{5}) sont transformées en silences (r) sauf si la note précédente est un charley ouvert ?\\
-Même si on favorise l’usage des silences pour l’écart entre les notes n’appartenant pas au même temps, on les supprime systèmatiquement pour 2 notes au sein d’un même temps et favorise, une liaison si co, un point si pas co et nécessaire, un simple ajustement de la figure de note si suffisant.\\\\
-Soit l’arbre ci-dessous dans lequel b et c sont des continuations (t) :
+Même si on favorise l’usage des silences pour l’écart entre les notes n’appartenant pas au même temps, on les supprime systèmatiquement pour 2 notes au sein d’un même temps et favorise, une liaison si co, un point si pas co et nécessaire, un simple ajustement de la figure de note si suffisant.
 \begin{figure}[h]
 	\centering
+	Arbre 1
 	\resizebox{70pt}{!} {
 		\Tree[.1/4 [a ][b ][c ][d ] ]
+	}\\
+	Arbre 2\ \ \ \ \ \ \ \ 
+	\resizebox{50pt}{!} {
+		\Tree[.2/4 
+		[ [.a ]] 
+		[ [b ][c ]] ]
 	}
-	\caption{Simplification — exemple 1}
-	\label{ex_simp_1}
+	\caption{Simplification}
+	\label{simplification}
 \end{figure}
-\begin{itemize}
-	\item Si a n’est pas un charley ouvert :\\
-	$\Rightarrow$ Suite 1.
-	\item Si a est un charley ouvert :
-	\begin{itemize}
-		\item Si d est un 
-	\end{itemize}
-\end{itemize}
 \begin{figure}[h]
 	\centering
-		\includegraphics[height=10mm, width=20mm]{z_images/3_methodes/2_systemes/4_simplification.png}
-	\caption{Suite 1}
-\end{figure}
-%\begin{figure}[h]
-%	\centering
-%	\resizebox{70pt}{!} {
-%		\Tree[.1/4 [x ][t ][t ][x ] ]
-%	}
-%	\ \ \ \ \ $\Rightarrow$\ \ \ \ \ ?
-%	%\resizebox{70pt}{!} {
-%	%	\Tree[.1/4 [x ][x ][x ][x ] ]
-%	%}
-%	\caption{Simplification — exemple 2}
-%	\label{ex_simpl}
-%\end{figure}
+	\includegraphics[height=50mm, width=20mm]{z_images/3_methodes/2_systemes/4_simplification_0.png}
+	\includegraphics[height=50mm, width=20mm]{z_images/3_methodes/2_systemes/4_simplification_1.png}
+	\caption{}
+	\label{suites}
+\end{figure}\\
+Soit l’arbre 1 de la figure \ref{simplification} dans lequel :\\
+a et d sont des instruments de la batterie (x) ;\\
+b et c sont des continuations (t) ;
+Pour chacune des conditions suivantes, une suite de la figure \ref{suites} est attribuée :
+\begin{itemize}
+	\item Si a n’est pas un co :\\
+	$\Rightarrow$ Suite 1a.
+	\item Si a est un co :
+	\begin{itemize}
+		\item Si d est un cf :\\
+		$\Rightarrow$ Suite 2a.
+		\item Si d est un pf :\\
+		$\Rightarrow$ Suite 3a : d deviens un silence (r).\\
+	\end{itemize}
+\end{itemize}
+Soit l’arbre 2 de la figure \ref{simplification} dans lequel :\\
+a et c sont des instruments de la batterie (x) ;\\
+b est une continuation (t) ;
+Pour chacune des conditions suivantes, une suite de la figure \ref{suites} est attribuée :
+\begin{itemize}
+	\item Si a n’est pas un co :\\
+	$\Rightarrow$ Suite 1b, b devient un silence.
+	\item Si a est un co :
+	\begin{itemize}
+		\item Si c est un cf :\\
+		$\Rightarrow$ Suite 2b, b devient une liaison et c devient un cf.
+		\item Si c est un pf :\\
+		$\Rightarrow$ Suite 3b : b deviens une liaison et c devient un silence.\\
+	\end{itemize}
+\end{itemize}
+\textit{Rappel :\\cf = charley fermé joué à la main ;\\co = charley ouvert joué à la main ;\\ pf = charley fermé joué au pied.}\\
+
+\textbf{Problème : le cf et le co ne seront jamais sur la même voix que le pf… Par conséquent, les règles concernant les charleys ouverts doivent-elles être appliquées sur l’arbre de parsing de l’input ?…}
+
 \section*{Conclusion}
 Nous avons formalisé une notation de la batterie, modélisé cette notation pour la transcription de données MIDI en partition, nous avons décrit Qparse.\\
 Enfin, nous avons exposé une approche de type dictionnaire (les « systèmes ») pour détecter une métrique, choisir une grammaire pondérée appropriée et énoncer des règles de séparation des voix et de simplification de l’écriture.
