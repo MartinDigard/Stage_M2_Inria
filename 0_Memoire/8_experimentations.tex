@@ -1,5 +1,5 @@
 \section*{Introduction}
-Dans ce chapitre, nous présenterons le jeu de données et les analyses audio-MIDI. Nous ferons ensuite l’expérimentation théorique d’un \textit{système} implémentable qui devra être utilisé comme base de connaissances pour augmenter la rapidité et la qualité en sortie de Qparse. Enfin, nous présenterons les différentes contributions de développement.
+Dans ce chapitre, nous présenterons le jeu de données et les analyses audio-MIDI. Nous ferons ensuite l’expérimentation théorique d’un \textit{système} implémentable qui devra être utilisé comme base de connaissances pour augmenter la rapidité et la qualité en sortie de Qparse. Nous présenterons ensuite les avancées réalisée dans ce travail et une réflexion sur les moyens de l’évaluer. Enfin, nous finirons par une discussion sur l’ensemble du travail réalisé.
 \section{Le jeu de données}
 Nous avons utilisé le Groove MIDI Dataset\footnote{\url{https://magenta.tensorflow.org/datasets/groove}} \cite{groove2019} (GMD) qui est un jeu de données mis à disposition par Google sous la licence Creative Commons Attribution 4.0 International (CC BY 4.0).\\
 Le GMD est composé de 13,6 heures de batterie sous forme de fichiers MIDI et audio alignés. Il contient 1150 fichiers MIDI et plus de 22 000 mesures de batterie dans les styles les plus courants et avec différentes qualités de jeu. Tout le contenu a été joué par des humains sur la batterie électronique Roland TD-11 (figure \ref{electro_drums}).\newpage
@@ -269,13 +269,13 @@ Les règles remplacent par un silence les continuations (t) qui sont au début d
 $\Rightarrow$ \textbf{Objectif de cette expérimentation théorique} :\\
 La méthode des \textit{systèmes} étant basée sur une approche dictionnaire, cette expérimentation théorique a pour but d’orienter la recherche d’autres systèmes par observation du jeu de données et de montrer comment les construire pour agrandir la base de connaissance de Qparse pour l’ADT.
 \newpage
-\section{Développement}
-\subsection*{DrumCode}
-Adaptation de la modélisation pour la transcription en cpp.
-\subsection*{Tests unitaires sur les Jams}
-\label{jam_tests}
+\section{Résultats et discussion}
+Cette section regroupe les avancées qui ont été réalisées par rapport aux objectifs de départ ainsi qu’une réflexion sur le moyen d’évaluer les résultats de l’ADT avec Qparse. Nous avons améliorer le système de quantification de Qparse pour la batterie, notamment le passage à la polyphonie avec les Jams. Nous avons pu obtenir des arbres de parsing correctes en améliorant les grammaires avec des fichiers MIDI courts. Puis, une sortie MEI a été aussi été obtenu (encore à vérifier).
+\subsection*{Les Jams}
 Les Jams permettent de passer du monophonique au polyphonique.
-\subsection*{Parsing}
+%\subsubsection*{Tests unitaires sur les Jams}
+\label{jam_tests}
+\subsection*{Le parsing}
 \label{gram_pond}
 Tests effectués avec le fichier midi suivant :\\\\
 \includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/3_developpement/0_midi_2bars_fill.png}\\\\
@@ -324,5 +324,41 @@ Les temps de la première mesure du fichier MIDI sont bien quantifié mais ceux 
 Les Onsets sont correctement triés au niveau des doubles croches mais certaines doubles croches sont inutilement subdivisées en triples croches (les 2ème, 3ème et 4ème doubles croches sur le premier temps ci-dessus).\\\\
 \textbf{2ème exemple :}\\
 Après une augmentation du poids des triples croches dans la grammaire (monté de 1 à 5)et une baisse de tous les autres poids (descendu de 1 à 0.5), et mis à part le troisième temps de la 2ème mesure, tous les Onsets sont bien triés et aucuns ne sont subdivisés.
-\section*{Conclusion}
-Conclusion de ce chapitre.
+\subsection*{Évaluation}
+Pour l’évaluation, il aurait fallu produire un module.\\
+L’évaluation est-elle automatique ou manuelle ?\\
+Possibilité d’un export lilypond en arbre pour comparer l’ouput avec la transcription manuelle.\\
+Possibilité de transformer lilypond(output) et lilypond(ref) en ScoreModel ou MEI pour les comparer et faire des statistiques. Si transformés en MEI : diffscore de Francesco.
+Possibilité de transformer lilypond(output) et lilypond(ref) en MusicXML pour les comparer ou dans Music21.
+L’expérimentation peut-être considérer comme une évaluation manuelle ? (magicien d’Oz)\\
+Lilypond vers MIDI + ouput vers MIDI $\Rightarrow$ Comparaison des MIDI dumpés.\\
+\subsection*{Discussion}
+Dans cette section, nous discuterons sur la pertinence de l’ensemble des choix qui ont été faits. Nous ferons un bilan des différentes avancés qui ont été faites ou non et nous tenterons d’en expliquer la ou les raisons.
+%\subsection{Bilan sur les travaux réalisés}
+%\subsection*{Résultats}
+%\section{Travaux futures}
+Écrire des règles de réécriture spécifique aux charley avec un système approprié.
+Le jeu de système
+\begin{itemize}
+	\item implémenter un pattern…\\
+	$\Rightarrow$ manque de temps ?\\
+	\item La partie résultat est manquante car :\\
+	$\Rightarrow$ Sujet très difficile ;\\
+	$\Rightarrow$ Matcher les motifs peut être fait ultérieurement ;\\
+	\tab Mais ce travail aurait été indispensable pour obtenir une quan-\tab tité de résultats qui justifieraient une évaluation automatique \tab permettant de faire des graphiques.\\
+	\item L’évaluation fut entièrement manuelle car :\\
+	$\Rightarrow$ Très dure automatiquement : il faut comparer 2 partitions (réf \tab VS output)
+\end{itemize}
+\begin{itemize}
+	\item Le ternaire jazz (voir expérience 2)
+	\item Reconnaissance d’un motif sur le MIDI\\
+	Reconnaître un motif (système) sur une mesure de l’input (un fichier midi représentant des données audios)\\
+	$\Rightarrow$ Motif (système) reconnu : true ou false\\
+	Si true :\\
+	- Choisir la grammaire correspondante ;\\
+	- Parser le MIDI ;\\
+	- Appliquer les règles de réécritures (Séparation des voix et simplification)
+	\item Nous travaillerons aussi sur la détection de répétitions sur plusieurs mesures afin de pouvoir corriger des erreurs sur une des mesures qui aurait dû être identique aux autres mais qui présente des différences.
+	\item dans quelle catégorie mettre le shuffle ?
+\end{itemize}
+Sujet passionnant mais difficile. Obtenir la totalité des critères pour le mémoire n’aurait pas pu être fait sans bâcler. Une base solide spécifique à la batterie a été générée. Elle sera un bon point de départ pour les travaux futurs dont plusieurs propositions sont énoncés dans le présent document.
