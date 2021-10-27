@@ -29,22 +29,25 @@ def main():
     args = parser.parse_args()
     midi_input = args.midi_input
     midi_output = args.midi_output
-    midi = pretty_midi.PrettyMIDI('1_midi_test.mid')
+    midi = pretty_midi.PrettyMIDI(midi_input)
 
 
     # Pré-traitement
-    division = int(midi_input.split('\n')[0].split()[3].split('=')[1])
-    lines = [line for line in midi_input.split('\n')
-             if line.startswith("Time")
-             and line.split()[1].startswith("Note")]
-    events = [f"point[{num}]: {line}" for num, line in enumerate(lines)]
+    for instruments in midi.instruments:
+        for events in instruments.notes:
+            print(events)
+    #division = int(midi_input.split('\n')[0].split()[3].split('=')[1])
+    #lines = [line for line in midi_input.split('\n')
+    #         if line.startswith("Time")
+    #         and line.split()[1].startswith("Note")]
+    #events = [f"point[{num}]: {line}" for num, line in enumerate(lines)]
 
     # Formatage ligne par ligne et écriture dans un fichier de sortie
     if os.path.exists(midi_output):
         os.remove(midi_output)
-    with open(midi_output, 'a') as output:
-        for line in events:
-            output.write(f"{format_event(line, division)}\n")
+    # with open(midi_output, 'a') as output:
+    #     for line in midi:
+    #         output.write(f"{format_event(line, division)}\n")
 
 
 if __name__ == "__main__":
