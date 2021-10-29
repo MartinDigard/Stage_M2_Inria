@@ -1,5 +1,6 @@
 """
-Convertit un fichier MEI en partition…
+Convertit un fichier MEI en partition.
+Voir dans resultats_et_evaluation/
 """
 
 import argparse
