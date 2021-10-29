@@ -1,5 +1,8 @@
 """
 Convertit un fichier MEI en lilypond ?
+
+Voir la doc :
+http://web.mit.edu/music21/doc/moduleReference/moduleLilyTranslate.html
 """
 
 # import re
