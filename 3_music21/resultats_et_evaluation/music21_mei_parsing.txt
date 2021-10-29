@@ -1,0 +1,43 @@
+{0.0} <music21.metadata.Metadata object at 0x7fe36d6ce6d0>
+{0.0} <music21.stream.Part 0x7fe36d6dcac0>
+    {0.0} <music21.stream.Measure 1 offset=0.0>
+        {0.0} <music21.clef.TrebleClef>
+        {0.0} <music21.meter.TimeSignature 4/4>
+        {0.0} <music21.stream.Voice 1>
+            {0.0} <music21.chord.Chord F4 E5 G5>
+            {0.25} <music21.chord.Chord F4 E5 G5>
+            {0.5} <music21.chord.Chord F4 E5>
+            {0.75} <music21.chord.Chord F4 E5>
+            {1.0} <music21.note.Note E>
+            {1.0} <music21.note.Note F>
+            {1.25} <music21.note.Note F>
+            {1.5} <music21.chord.Chord F4 E5>
+            {1.75} <music21.chord.Chord F4 E5>
+            {2.0} <music21.chord.Chord F4 E5 G5>
+            {2.25} <music21.chord.Chord F4 E5 G5>
+            {2.5} <music21.chord.Chord F4 E5>
+            {2.75} <music21.chord.Chord F4 E5>
+            {3.0} <music21.chord.Chord F4 E5 G5>
+            {3.25} <music21.chord.Chord F4 E5 G5>
+            {3.5} <music21.chord.Chord F4 E5>
+            {3.75} <music21.chord.Chord F4 E5>
+    {4.0} <music21.stream.Measure 2 offset=4.0>
+        {0.0} <music21.stream.Voice 1>
+            {0.0} <music21.note.Note B>
+            {0.25} <music21.note.Note B>
+            {0.5} <music21.chord.Chord B4 G5>
+            {0.75} <music21.note.Note B>
+            {1.0} <music21.chord.Chord B4 G5>
+            {1.25} <music21.note.Note B>
+            {1.5} <music21.chord.Chord B4 G5>
+            {1.75} <music21.chord.Chord B4 G5>
+            {2.0} <music21.chord.Chord B4 G5>
+            {2.25} <music21.note.Note E>
+            {2.375} <music21.note.Note E>
+            {2.5} <music21.chord.Chord E5 G5>
+            {2.75} <music21.note.Note E>
+            {3.0} <music21.chord.Chord F4 G5>
+None
+Error at line 24 col 47: no instrument found for part 'P9049c7e154d016a6a64005b532ffe2b4'
+QMutex: destroying locked mutex
+None
