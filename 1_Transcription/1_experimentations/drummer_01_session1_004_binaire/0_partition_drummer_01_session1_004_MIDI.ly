@@ -1,4 +1,4 @@
-\version "2.22.1"
+\version "2.20.0"
 \language français
 \include "../../0_drum_style_perso.ly"
 
