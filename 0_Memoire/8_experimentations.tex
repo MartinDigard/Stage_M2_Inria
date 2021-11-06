@@ -1,12 +1,27 @@
 \section*{Introduction}
-Dans ce chapitre, nous présenterons le jeu de données et les analyses audio-MIDI. Nous ferons ensuite l’expérimentation théorique d’un \textit{système} implémentable qui devra être utilisé comme base de connaissances pour augmenter la rapidité et la qualité en sortie de Qparse. Nous présenterons ensuite les avancées réalisée dans ce travail et une réflexion sur les moyens de l’évaluer. Enfin, nous finirons par une discussion sur l’ensemble du travail réalisé.
+Dans ce chapitre, nous présenterons le jeu de données et les analyses
+audio-MIDI. Nous ferons ensuite l’expérimentation théorique d’un
+\textit{système} implémentable qui devra être utilisé comme base de
+connaissances pour augmenter la rapidité et la qualité en sortie de Qparse.
+Nous présenterons ensuite les avancées réalisée dans ce travail et une
+réflexion sur les moyens de l’évaluer. Enfin, nous finirons par une discussion
+sur l’ensemble du travail réalisé.
 \section{Le jeu de données}
-Nous avons utilisé le Groove MIDI Dataset\footnote{\url{https://magenta.tensorflow.org/datasets/groove}} \cite{groove2019} (GMD) qui est un jeu de données mis à disposition par Google sous la licence Creative Commons Attribution 4.0 International (CC BY 4.0).\\
-Le GMD est composé de 13,6 heures de batterie sous forme de fichiers MIDI et audio alignés. Il contient 1150 fichiers MIDI et plus de 22 000 mesures de batterie dans les styles les plus courants et avec différentes qualités de jeu. Tout le contenu a été joué par des humains sur la batterie électronique Roland TD-11 (figure \ref{electro_drums}).\newpage
+Nous avons utilisé le Groove MIDI
+Dataset\footnote{\url{https://magenta.tensorflow.org/datasets/groove}}
+\cite{groove2019} (GMD) qui est un jeu de données mis à disposition par Google
+sous la licence Creative Commons Attribution 4.0 International (CC BY 4.0).\\
+Le GMD est composé de 13,6 heures de batterie sous forme de fichiers MIDI et
+audio alignés. Il contient 1150 fichiers MIDI et plus de 22 000 mesures de
+batterie dans les styles les plus courants et avec différentes qualités de jeu.
+Tout le contenu a été joué par des humains sur la batterie électronique Roland
+TD-11 (figure \ref{electro_drums}).\newpage
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=35mm, width=60mm]{z_images/4_experimentations/0_groove/0_roland.png}\ \ 
-	\includegraphics[height=35mm, width=60mm]{z_images/4_experimentations/0_groove/1_roland.png}
+	\includegraphics[height=35mm, width=60mm]
+    {z_images/4_experimentations/0_groove/0_roland.png}\ \ 
+	\includegraphics[height=35mm, width=60mm]
+    {z_images/4_experimentations/0_groove/1_roland.png}
 	\caption{Batterie électronique}
 	\label{electro_drums}
 	\textit{Source :} \url{https://www.youtube.com/watch?v=BX1V_IE0g2c}
