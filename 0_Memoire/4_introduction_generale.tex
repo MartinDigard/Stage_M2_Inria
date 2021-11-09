@@ -1,24 +1,35 @@
+% !TEX root = 1_memoire.tex
 Ce mémoire de recherche, effectué en parallèle d’un stage à l’Inria dans le
 cadre du master de traitement automatique des langues de l’Inalco, contient
 une proposition originale ainsi que diverses contributions ayant toutes pour
+\florent{"ayant toutes pour objectif..." $\to$ dans le domaine de la transcription musicale automatique 
 objectif d’améliorer \textbf{qparse}, un outil de transcription automatique de
-la musique sur sa capacité à transcrire la batterie. Nous ne parlerons donc pas
-directement de langues naturelles, mais de l’écriture automatique de partitions
+et plus spécifiquement, dans le cas de la batterie.}
+la musique sur sa capacité à transcrire la batterie. 
+Nous ne parlerons donc pas
+\florent{transcription musicale, suivant des méthodes communes/issues du TAL (éviter les négations)}
+directement de langues naturelles, mais de l’écriture
+\florent{"l’écriture" $\to$ la génération}
+automatique de partitions
 de musique à partir de données audio ou symboliques. La musique et les langues
 naturelles sont deux moyens que nous servent à exprimer nos ressentis sur le
 monde et les choses : « La musique s’écrit et se lit aussi facilement qu’on lit
 et écrit les paroles que nous prononçons. » \cite{danhauser}.
-Cette exercice nécessitera la manipulation d’un langage
-musical codifié avec une grammaire (solfège, durées, nuances, volumes) et
+Cet exercice nécessite la manipulation d’un langage
+musical codifié par une grammaire (solfège, durées, nuances, volumes) et
 soulèvera des problématiques concernées par les techniques du traitement
-automatique des langues.\\
+automatique des langues.
+
 L’écriture musicale offre de nombreuses possibilités pour la transcription d’un
 rythme donné. Le contexte musical ainsi que la lisibilité d’une partition pour
 un batteur entraîné conditionnent les choix d’écriture. Reconnaître la
 métrique principale d’un rythme, la façon de regrouper les notes par les
 ligatures, ou simplement décider d’un usage pour une durée parmi les
 différentes continuations possibles (notes pointées, liaisons, silences, etc.)
-constituent autant de possibilités que de difficultés.\\\\
+constituent autant de possibilités que de difficultés.
+
+\florent{il faut revoir la fin, avec une description rapide du problème, 
+         de la méthode suivie et des contributions} %suivi d'un petit plan par parties.
 Voici la proposition de ce mémoire ainsi que les contributions apportées lors
 du stage :
 Rédiger entièrement la liste à puce qui suit.
@@ -51,6 +62,8 @@ Au lieu du paragraphe final : Nous présenterons dans un premier temps les
 parallèles entre TAL et MIR, puis les spécificités de la notation pour la
 batterie……… 
 
+\florent{ce paragraphe final (plan) est bien. 
+         tu peux ajouter les numéros de sections avec $\backslash$ref}
 Nous présenterons le contexte suivi d’un état de l’art et nous définirons de
 manière générale le processus de transcription automatique de la musique pour
 enfin étayer les méthodes utilisées pour la transcription automatique de la
