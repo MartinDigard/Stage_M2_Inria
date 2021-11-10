@@ -3,32 +3,46 @@
 La transcription automatique de la musique (AMT) est un défi ancien
 \cite{first_one} et difficile qui n’est toujours pas résolu. Il a engendré une
 pluie de sous-tâches qui ont donné naissance au domaine de la recherche
-d’information musicale (MIR). Actuellement, de nombreux travaux de MIR font
+d’information musicale (MIR). \florent{cf. ismir.net}
+Actuellement, de nombreux travaux de MIR font
 appel au traitement automatique des langues (TAL) \footnote{NLP4MuSA, the 2nd
 Workshop on Natural Language Processing for Music and Spoken Audio, co-located
 with ISMIR 2021.}.\\
 Dans ce chapitre, nous parlerons de l’informatique musicale, nous tenterons
 d’établir les liens existants entre le MIR et le TAL ainsi qu’entre les notions
-de langage musical et langue naturelle. Nous traiterons également de l’utilité
-et du problème de l’AMT et de la transcription automatique de la batterie
+de langage musical et langue naturelle. Nous traiterons également 
+\florent{du problème de l’AMT, de ses applications}
+de l’utilité et du problème de l’AMT et de la transcription automatique de la batterie
 (ADT).\\
 Enfin, nous décrirons les représentations de la musique qui sont nécessaires à
 la compréhension du présent travail.
 \section{TAL et MIR}
 L'informatique musicale \cite{mus_inf} est une étude du traitement de la
-musique \cite{book_muller}, en particulier des représentations musicales, de la
+musique \cite{book_muller}, 
+\florent{je réfererais plutôt à "Computer Music": 
+utilisation de méthodes numériques pour l'analyse et la synthèse
+de musique, qu'il s'agisse d'innformation audio ou symbolique
+(aide à l'écriture, transcription, base de partitions...) de musique}
+en particulier des représentations musicales, de la
 transformée de Fourier pour la musique \cite{fourier}, de l'analyse de la
 structure de la musique et de la reconnaissance des accords\footnote{En
 musique, un accord est un ensemble de notes considéré comme formant un tout du
 point de vue de l'harmonie. Le plus souvent, ces notes sont jouées
 simultanément ; mais les accords peuvent aussi s'exprimer par des notes
-successives}. D'autres sujets de recherche en informatique musicale comprennent
+successives}. 
+\florent{vaste champ de recherche pluridisciplinaire, à l'intersection de acoustique, signal, synthèse sonore, informatique, sciences cognitives, neurosciences, musicologie...}
+\florent{On peut citer: ...}
+D'autres sujets de recherche en informatique musicale comprennent
 la modélisation informatique de la musique, l'analyse informatique de la
 musique, la reconnaissance optique de la musique, les éditeurs audio
 numériques, les moteurs de recherche de musique en ligne, la recherche
-d'informations musicales et les questions cognitives dans la musique.\\
+d'informations musicales et les questions cognitives 
+\florent{? psycho-acoustique, neuro-sciences ?}
+dans la musique.\\
 Le MIR\footnote{https://ismir.net/} apparaît vers le début des années 2000
-\cite{MIR_1}. C’est une science interdisciplinaire qui fait appel à de nombreux
+\cite{MIR_1}. 
+\florent{sujet: la recherche et extraction d'information à partir de données musicales.}
+C’est une science interdisciplinaire qui fait appel à de nombreux
 domaines comme la musicologie, l’analyse musicale, la psychologie, les sciences
 de l’information, le traitement du signal et les méthodes d’apprentissage
 automatisé en informatique. Cette discipline récente a notamment été soutenue
@@ -40,7 +54,8 @@ et à la musique.\\\\
 \begin{figure}[!h]
 	\centering
 	\includegraphics[height=85mm, width=120mm]{z_images/1_contexte/0_Bernstein.png}
-\end{figure}\\
+\end{figure}
+
 Aborder la musique à travers le TAL nécessite une réflexion autour de la
 musique en tant que langage ainsi que la possibilité de comparer ce même
 langage avec les langues naturelles. Quelques travaux en neurosciences ont
@@ -56,9 +71,10 @@ de recherche en TAL. Keller \textit{et al.} \cite{keller:hal-03279850} ont
 exploré le potentiel de ces techniques à travers les plongements de mots et le
 mécanisme d’attention pour la modélisation de données musicales. La question du
 sens d’une phrase musicale apparaît, selon eux, à la fois comme une limite et
-un défi majeur pour l’étude de cette analogie.\\\\
+un défi majeur pour l’étude de cette analogie.
 % \textit{Ici, Digression sur la musicologie calculatoire vs linguistique computationnelle ?}\\\\
-D’autres travaux très récents, ont aussi été révélés lors de la
+
+\florent{exemples / illustration de la proximité thématique ?}D’autres travaux très récents, ont aussi été révélés lors de la
 \textit{première conférence sur le NLP pour la musique et l'audio
 (NLP4MusA 2020)}. Lors de cette conférence, Jiang \textit{et al.}
 \cite{Jiang2020DiscoveringMR} ont présenté leur implémentation d’un modèle de
@@ -79,30 +95,56 @@ manière d’écrire la musique et texte comme manière d’écrire la parole.\\
 	\caption{speechToText vs AMT}
 	\label{spToTxt_vs_AMT}
 \end{table}
+\florent{objectifs similaires sur le papier: speech-to-text, 
+         problèmes et applications aussi comparables: transcription, synthèse, 
+         séparation de sources... 
+         Mais information de nature différente 
+         cf. sous-tâches comme beat tracking et inférence de tempo en musique.}
+
+
 \section{La transcription automatique de la musique}
+\florent{il faut réorganiser cette partie: 
+         1. objectif 2. applications 3. problèmes et méthodes scientifiques}
 En musique, la transcription\footnote{\url{
-https://en.wikipedia.org/wiki/Transcription_(music)}} est la pratique
+https://en.wikipedia.org/wiki/Transcription_(music)}} 
+\florent{pas très bien écrit. ne pas citer wikipedia mais article de survey}
+\florent{conversion d'une performance musicale en musique écrite, en général et notation occidentale}
+est la pratique
 consistant à noter un morceau ou un son qui n'était auparavant pas noté et/ou
 pas populaire en tant que musique écrite, par exemple, une improvisation de
 jazz ou une bande sonore de jeu vidéo. Lorsqu'un musicien est chargé de créer
 une partition à partir d'un enregistrement et qu'il écrit les notes qui
 composent le morceau en notation musicale, on dit qu'il a créé une
-transcription musicale de cet enregistrement.\\
+transcription musicale de cet enregistrement.
+
 L'objectif de la transcription automatique de la musique (AMT)
 \cite{future_directions} est de convertir la performance d'un musicien en
-notation musicale - un peu comme la conversion de la parole en texte dans le
+notation musicale - un peu comme 
+\florent{à l'instar de la}
+la conversion de la parole en texte dans le
 traitement du langage naturel. L’AMT a des intérêt multiples, notamment pour la
-transcription de solos ou encore pour la constitution de corpus musicologiques,
+transcription de solos 
+\florent{préservation du patrimoine}
+ou encore pour la constitution de corpus musicologiques,
+\florent{e.g. musique de tradition orale (ethno-musicologie)}
 ou encore pour l'interprétation de la musique et l'analyse du contenu musical
-\cite{SHIBATA2021262}. Par exemple, un grand nombre de fichiers audio et vidéo
+\cite{SHIBATA2021262}. 
+\florent{citer un survey pour les applications (pas \cite{SHIBATA2021262})}
+Par exemple, un grand nombre de fichiers audio et vidéo
 musicaux sont disponibles sur le Web, et pour la plupart d'entre eux, il est
 difficile de trouver les partitions musicales correspondantes, qui sont
 nécessaires pour pratiquer la musique, faire des reprises et effectuer une
 analyse musicale détaillée. Les partitions de musique classique sont facilement
-accessibles et il y a peu de demandes de nouvelles transcriptions. D'un point
+accessibles et il y a peu de demandes de nouvelles transcriptions. 
+\florent{pas d'accord avec ça. problème des partitions libres de droit.}
+\florent{l'intérêt est aussi d'avoir des partitions au contenu exploitable (texte ou XML) 
+         vs images (pdf...)
+cf. par ex. cette présentation d'OpenScore à FOSDEM https://archive.fosdem.org/2017/schedule/event/openscore/ et mes transparents sur le sujet}
+D'un point
 de vue pratique, des demandes beaucoup plus commerciales et académiques sont
-attendues dans le domaine de la musique populaire \cite{SHIBATA2021262}. Les
-modèles grammaticaux qui représentent la structure hiérarchique des séquences
+attendues dans le domaine de la musique populaire \cite{SHIBATA2021262}. 
+\florent{là on passe aux approches scientifiques}
+Les modèles grammaticaux qui représentent la structure hiérarchique des séquences
 d'accords se sont avérés très utiles dans les analyses récentes de l'harmonie
 du jazz \cite{harasimjazz}.
 Comme déjà évoqué précédemment, il s’agit d’un problème ancien et difficile.
@@ -111,8 +153,8 @@ C’est un « graal » de l’informatique musicale. En 1976, H. C. Longuet-Higg
 dans le but d’écrire automatiquement des partitions à partir de données audio
 en se basant sur un mimétisme psychologique de l’approche humaine. De même pour
 les chercheurs en audio James A. Moorer, Martin Piszczalski et Bernard Galler
-qui, en 1977\footnote{\url{https://en.wikipedia.org/wiki/Transcription_(music)}
-}, ont utilisé leurs connaissances en ingénierie de l’audio et du numérique
+qui, en 1977\footnote{\url{https://en.wikipedia.org/wiki/Transcription_(music)}}, 
+ont utilisé leurs connaissances en ingénierie de l’audio et du numérique
 pour programmer un ordinateur afin de lui faire analyser un enregistrement
 musical numérique de manière à détecter les lignes mélodiques, les accords et
 les accents rythmiques des instruments à percussion.\\
@@ -151,28 +193,37 @@ transcription musicale. On y observe plusieurs sous-tâches de l’AMT :
 connexions entre les systèmes qui incluent la fusion d'informations et une
 communication plus interactive entre les systèmes.}
 \end{figure}\newpage
+
 \section{La transcription automatique de la batterie}
 La batterie est un instrument récent qui s’est longtemps passé de partition. En
 effet pour un batteur, la qualité de lecteur lorsqu’elle était nécessaire,
 résidait essentiellement dans sa capacité à lire les partitions des autres
 instrumentistes (par exemple, les grilles d’accords et la mélodie du thème en
 jazz) afin d’improviser un accompagnement approprié que personne ne pouvait
-écrire pour lui à sa place.\\
+écrire pour lui à sa place.
+
 Les partitions de batterie sont arrivées par nécessité avec la pédagogie et
-l’émergence d’écoles de batterie partout dans le monde. Un autre facteur qui a
+l’émergence d’écoles de batterie partout dans le monde. 
+\florent{cite méthode et école Agostini ?}
+Un autre facteur qui a
 contribué à l’expansion des partitions de batterie est l’émergence de la
 musique assistée par ordinateur (MAO). En effet, l’usage de boîtes à rythmes ou
 de séquenceurs permettant d’expérimenter soi-même l’écriture de rythmes en les
 écoutant mixés avec d’autres instruments sur des machines a permis  aux
 compositeurs de s’émanciper de la création d’un batteur en lui fournissant une
 partition contenant les parties exactes qu’ils voulaient entendre sur leur
-musique.\\
+musique.
+
 La batterie a un statut à part dans l’univers de l’AMT puisqu'il s'agit
 d'instruments sans hauteur (du point de vue harmonique), d'événements sonores
 auxquels une durée est rarement attribuée et de notations spécifiques (symboles
-des têtes de notes).\\
-Les applications de l’ADT seraient utiles, non seulement dans tous les domaines
-musicaux contenant de la batterie dont certains manquent de partitions,
+des têtes de notes).
+\florent{citer \cite{Review_ADT} ici}
+
+Les applications de l’ADT \florent{ADT pas défini}
+seraient utiles, non seulement dans tous les domaines
+musicaux contenant \florent{"contenant" -> concernés par}
+de la batterie dont certains manquent de partitions,
 notamment les musiques d’improvisation (jazz, pop) \cite{future_directions},
 mais aussi de manière plus générale dans le domaine du MIR : si les ordinateurs
 étaient capables d'analyser la partie de la batterie dans la musique
@@ -190,17 +241,20 @@ tels que l'éducation musicale et la production musicale.
 \florent{citer M. Müller FMP pour cette section?}
 
 \subsection*{Les données audio}
+\florent{trop technique. ne pas recopier wikipédia}
 Le fichier WAV\footnote{https://en.wikipedia.org/wiki/WAV} est une instance du
 Resource Interchange File Format (RIFF) défini par IBM et Microsoft. Le format
 RIFF agit comme une "enveloppe" pour divers formats de codage audio.
 Bien qu'un fichier WAV puisse contenir de l'audio compressé, le format audio
-WAV le plus courant est l'audio non compressé au format LPCM (linear pulse-code
-modulation). Le LPCM est également le format de codage audio standard des CD
+WAV le plus courant est l'audio non compressé au format LPCM (linear pulse-code modulation). 
+\florent{LPCM pas utile ici. parle juste échantillons et compression.}
+Le LPCM est également le format de codage audio standard des CD
 audio, qui stockent des données audio LPCM à deux canaux échantillonnées à
 44 100 Hz avec 16 bits par échantillon. Comme le LPCM n'est pas compressé et
 conserve tous les échantillons d'une piste audio, les utilisateurs
 professionnels ou les experts en audio peuvent utiliser le format WAV avec
 l'audio LPCM pour obtenir une qualité audio maximale.
+\florent{tu peux mentionner le format spectral (analyse harmonique) crucial en MIR audio.}
 
 \subsection*{Les données MIDI}
 Le MIDI\footnote{\url{https://en.wikipedia.org/wiki/MIDI}} (Musical Instrument Digital Interface) 
@@ -230,7 +284,9 @@ Chaque évènement MIDI rassemble un ensemble d’informations sur la hauteur, l
          la "durée" est une distance entre 2 événemtns ON et OFF (c'est important dans ton travail).
          le screenshot n'est pas utile, écrit plutôt une liste itemize}
 
-Pour la batterie, les évènements sont considérés sans durée, nous ignorerons donc les offsets (« Off Event »), les « Off Tick » et les « Duration ». Le \textit{channel} ne nous sera pas utile non plus.\\
+Pour la batterie, les évènements sont considérés sans durée, nous ignorerons donc les offsets (« Off Event »), les « Off Tick » et les « Duration ». 
+Le \textit{channel} ne nous sera pas utile non plus.
+
 \textit{Ici, définir Tick et channel.}
 
 Voici un exemple de piano-roll midi pour la batterie :
@@ -282,7 +338,7 @@ Un des avantages de ce format est qu’il peut être converti aussi bien en donn
 
 Le figure \ref{MusicXML} représente un do en clef de sol de la durée d’une ronde sur une mesure en 4/4.
 \florent{inconvénient: format.s verbeux et ambigus. 
-         -> on utilise pour la transcription une représentation intermédiaire abstraite décrite plus loin.}
+-> on utilise pour la transcription une représentation intermédiaire abstraite décrite plus loin.}
 
 
 \section*{Conclusion}
