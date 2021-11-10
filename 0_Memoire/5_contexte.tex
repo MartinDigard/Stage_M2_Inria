@@ -82,11 +82,46 @@ manière d’écrire la musique et texte comme manière d’écrire la parole.\\
 \section{La transcription automatique de la musique}
 En musique, la transcription\footnote{\url{
 https://en.wikipedia.org/wiki/Transcription_(music)}} est la pratique
-consistant à noter un morceau ou un son qui n'était auparavant pas noté et/ou pas populaire en tant que musique écrite, par exemple, une improvisation de jazz ou une bande sonore de jeu vidéo. Lorsqu'un musicien est chargé de créer une partition à partir d'un enregistrement et qu'il écrit les notes qui composent le morceau en notation musicale, on dit qu'il a créé une transcription musicale de cet enregistrement.\\
-L'objectif de la transcription automatique de la musique (AMT) \cite{future_directions} est de convertir la performance d'un musicien en notation musicale - un peu comme la conversion de la parole en texte dans le traitement du langage naturel. L’AMT a des intérêt multiples, notamment pour la transcription de solos ou encore pour la constitution de corpus musicologiques, ou encore pour l'interprétation de la musique et l'analyse du contenu musical \cite{SHIBATA2021262}. Par exemple, un grand nombre de fichiers audio et vidéo musicaux sont disponibles sur le Web, et pour la plupart d'entre eux, il est difficile de trouver les partitions musicales correspondantes, qui sont nécessaires pour pratiquer la musique, faire des reprises et effectuer une analyse musicale détaillée. Les partitions de musique classique sont facilement accessibles et il y a peu de demandes de nouvelles transcriptions. D'un point de vue pratique, des demandes beaucoup plus commerciales et académiques sont attendues dans le domaine de la musique populaire \cite{SHIBATA2021262}. Les modèles grammaticaux qui représentent la structure hiérarchique des séquences d'accords se sont avérés très utiles dans les analyses récentes de l'harmonie du jazz \cite{harasimjazz}.
-Comme déjà évoqué précédemment, il s’agit d’un problème ancien et difficile. C’est un « graal » de l’informatique musicale. En 1976, H. C. Longuet-Higgins \cite{first_one} évoquait déjà la représentation musicale en arbre syntaxique dans le but d’écrire automatiquement des partitions à partir de données audio en se basant sur un mimétisme psychologique de l’approche humaine. De même pour les chercheurs en audio James A. Moorer, Martin Piszczalski et Bernard Galler qui, en 1977\footnote{\url{https://en.wikipedia.org/wiki/Transcription_(music)}}, ont utilisé leurs connaissances en ingénierie de l’audio et du numérique pour programmer un ordinateur afin de lui faire analyser un enregistrement musical numérique de manière à détecter les lignes mélodiques, les accords et les accents rythmiques des instruments à percussion.\\
-La tâche de transcription automatique de la musique comprend deux activités distinctes : l'analyse d'un morceau de musique et l'impression d'une partition à partir de cette analyse.\\\\
-La figure \ref{AMT_presentation} est une proposition de Benetos \textit{et al.} \cite{future_directions} qui représente l'architecture générale d'un système de transcription musicale. On y observe plusieurs sous-tâches de l’AMT :
+consistant à noter un morceau ou un son qui n'était auparavant pas noté et/ou
+pas populaire en tant que musique écrite, par exemple, une improvisation de
+jazz ou une bande sonore de jeu vidéo. Lorsqu'un musicien est chargé de créer
+une partition à partir d'un enregistrement et qu'il écrit les notes qui
+composent le morceau en notation musicale, on dit qu'il a créé une
+transcription musicale de cet enregistrement.\\
+L'objectif de la transcription automatique de la musique (AMT)
+\cite{future_directions} est de convertir la performance d'un musicien en
+notation musicale - un peu comme la conversion de la parole en texte dans le
+traitement du langage naturel. L’AMT a des intérêt multiples, notamment pour la
+transcription de solos ou encore pour la constitution de corpus musicologiques,
+ou encore pour l'interprétation de la musique et l'analyse du contenu musical
+\cite{SHIBATA2021262}. Par exemple, un grand nombre de fichiers audio et vidéo
+musicaux sont disponibles sur le Web, et pour la plupart d'entre eux, il est
+difficile de trouver les partitions musicales correspondantes, qui sont
+nécessaires pour pratiquer la musique, faire des reprises et effectuer une
+analyse musicale détaillée. Les partitions de musique classique sont facilement
+accessibles et il y a peu de demandes de nouvelles transcriptions. D'un point
+de vue pratique, des demandes beaucoup plus commerciales et académiques sont
+attendues dans le domaine de la musique populaire \cite{SHIBATA2021262}. Les
+modèles grammaticaux qui représentent la structure hiérarchique des séquences
+d'accords se sont avérés très utiles dans les analyses récentes de l'harmonie
+du jazz \cite{harasimjazz}.
+Comme déjà évoqué précédemment, il s’agit d’un problème ancien et difficile.
+C’est un « graal » de l’informatique musicale. En 1976, H. C. Longuet-Higgins
+\cite{first_one} évoquait déjà la représentation musicale en arbre syntaxique
+dans le but d’écrire automatiquement des partitions à partir de données audio
+en se basant sur un mimétisme psychologique de l’approche humaine. De même pour
+les chercheurs en audio James A. Moorer, Martin Piszczalski et Bernard Galler
+qui, en 1977\footnote{\url{https://en.wikipedia.org/wiki/Transcription_(music)}
+}, ont utilisé leurs connaissances en ingénierie de l’audio et du numérique
+pour programmer un ordinateur afin de lui faire analyser un enregistrement
+musical numérique de manière à détecter les lignes mélodiques, les accords et
+les accents rythmiques des instruments à percussion.\\
+La tâche de transcription automatique de la musique comprend deux activités
+distinctes : l'analyse d'un morceau de musique et l'impression d'une partition
+à partir de cette analyse.\\\\
+La figure \ref{AMT_presentation} est une proposition de Benetos \textit{et al.}
+\cite{future_directions} qui représente l'architecture générale d'un système de
+transcription musicale. On y observe plusieurs sous-tâches de l’AMT :
 \begin{itemize}
 	\item La séparation des sources à partir de l’audio.
 	\item Le système de transcription :
@@ -102,54 +137,70 @@ La figure \ref{AMT_presentation} est une proposition de Benetos \textit{et al.} 
 		\end{itemize}
 	\end{itemize}
 	\item Apprentissage sur des modèles accoustiques et musicologiques.
-	\item \textit{Optionnel :} Informations fournies de manière externe, soit fournie en amont (genre, instruments,…), soit par interaction avec un utilisateur (infos sur une partition incomplète).
+	\item \textit{Optionnel :} Informations fournies de manière externe, soit
+        fournie en amont (genre, instruments,…), soit par interaction avec un
+        utilisateur (infos sur une partition incomplète).
 \end{itemize}
 \begin{figure}[!h]
 	\centering
 	\includegraphics[height=95mm, width=130mm]{z_images/1_contexte/1_general_process.png}
 	\caption{Transcription automatique}
 	\label{AMT_presentation}
-	\textit{Les sous-systèmes et algorithmes optionnels sont présentés à l'aide de lignes pointillées. Les doubles flèches mettent en évidence les connexions entre les systèmes qui incluent la fusion d'informations et une communication plus interactive entre les systèmes.}
-\end{figure} %\newpage
-\florent{éviter newpage}
-
+	\textit{Les sous-systèmes et algorithmes optionnels sont présentés à l'aide
+    de lignes pointillées. Les doubles flèches mettent en évidence les
+connexions entre les systèmes qui incluent la fusion d'informations et une
+communication plus interactive entre les systèmes.}
+\end{figure}\newpage
 \section{La transcription automatique de la batterie}
-\florent{tres bonne section}
-La batterie est un instrument récent qui s’est longtemps passé de partition. En effet pour un batteur, la qualité de lecteur lorsqu’elle était nécessaire, résidait essentiellement dans sa capacité à lire les partitions des autres instrumentistes (par exemple, les grilles d’accords et la mélodie du thème en jazz) afin d’improviser un accompagnement approprié que personne ne pouvait écrire pour lui à sa place.
+La batterie est un instrument récent qui s’est longtemps passé de partition. En
+effet pour un batteur, la qualité de lecteur lorsqu’elle était nécessaire,
+résidait essentiellement dans sa capacité à lire les partitions des autres
+instrumentistes (par exemple, les grilles d’accords et la mélodie du thème en
+jazz) afin d’improviser un accompagnement approprié que personne ne pouvait
+écrire pour lui à sa place.\\
+Les partitions de batterie sont arrivées par nécessité avec la pédagogie et
+l’émergence d’écoles de batterie partout dans le monde. Un autre facteur qui a
+contribué à l’expansion des partitions de batterie est l’émergence de la
+musique assistée par ordinateur (MAO). En effet, l’usage de boîtes à rythmes ou
+de séquenceurs permettant d’expérimenter soi-même l’écriture de rythmes en les
+écoutant mixés avec d’autres instruments sur des machines a permis  aux
+compositeurs de s’émanciper de la création d’un batteur en lui fournissant une
+partition contenant les parties exactes qu’ils voulaient entendre sur leur
+musique.\\
+La batterie a un statut à part dans l’univers de l’AMT puisqu'il s'agit
+d'instruments sans hauteur (du point de vue harmonique), d'événements sonores
+auxquels une durée est rarement attribuée et de notations spécifiques (symboles
+des têtes de notes).\\
+Les applications de l’ADT seraient utiles, non seulement dans tous les domaines
+musicaux contenant de la batterie dont certains manquent de partitions,
+notamment les musiques d’improvisation (jazz, pop) \cite{future_directions},
+mais aussi de manière plus générale dans le domaine du MIR : si les ordinateurs
+étaient capables d'analyser la partie de la batterie dans la musique
+enregistrée, cela permettrait une variété de tâches de traitement de la musique
+liées au rythme. En particulier, la détection et la classification des
+événements sonores de la batterie par des méthodes informatiques est considérée
+comme un problème de recherche important et stimulant dans le domaine plus
+large de la recherche d'informations musicales \cite{Review_ADT}.\\
+L'ADT est un sujet de recherche crucial pour la compréhension des aspects
+rythmiques de la musique, et a un impact potentiel sur des domaines plus larges
+tels que l'éducation musicale et la production musicale.
 
-Les partitions de batterie sont arrivées par nécessité avec la pédagogie et l’émergence d’écoles de batterie partout dans le monde. 
-\florent{cite méthode et école Agostini ?}
-Un autre facteur qui a contribué à l’expansion des partitions de batterie est l’émergence de la musique assistée par ordinateur (MAO). En effet, l’usage de boîtes à rythmes ou de séquenceurs permettant d’expérimenter soi-même l’écriture de rythmes en les écoutant mixés avec d’autres instruments sur des machines a permis  aux compositeurs de s’émanciper de la création d’un batteur en lui fournissant une partition contenant les parties exactes qu’ils voulaient entendre sur leur musique.\\
-La batterie a un statut à part dans l’univers de l’AMT puisqu'il s'agit d'instruments sans hauteur (du point de vue harmonique), d'événements sonores auxquels une durée est rarement attribuée et de notations spécifiques (symboles des têtes de notes).
-\florent{citer \cite{Review_ADT} ici}
-
-Les applications de l’ADT seraient utiles dans tous les domaines musicaux 
-\florent{ADT pas défini}
-contenant de la batterie dont certains manque de partitions, 
-\florent{"contenant" -> concernés par}
-notamment les musiques d’improvisation (jazz, pop) \cite{future_directions}.
-%
-Mais aussi de manière plus générale dans le domaine du MIR. 
-\florent{manque verbe}
-Si les ordinateurs étaient capables d'analyser la partie de la batterie dans la musique enregistrée, 
-cela permettrait 
-\florent{permettrait de faciliter}
-une variété de tâches de traitement de la musique liées au rythme. En particulier, la détection et la classification des événements sonores de la batterie par des méthodes informatiques est considérée comme un problème de recherche important et stimulant dans le domaine plus large de la recherche d'informations musicales \cite{Review_ADT}.
-
-L'ADT est un sujet de recherche crucial pour la compréhension des aspects rythmiques de la musique, et a un impact potentiel sur des domaines plus larges tels que l'éducation musicale et la production musicale.
 
 \section{Les représentations de la musique}
 \florent{citer M. Müller FMP pour cette section?}
 
 \subsection*{Les données audio}
-\florent{trop technique. ne pas recopier wikipédia}
-Le fichier WAV\footnote{https://en.wikipedia.org/wiki/WAV} est une instance du Resource Interchange File Format (RIFF) défini par IBM et Microsoft. 
-Le format RIFF agit comme une "enveloppe" pour divers formats de codage audio.
-Bien qu'un fichier WAV puisse contenir de l'audio compressé, 
-le format audio WAV le plus courant est l'audio non compressé au format LPCM (linear pulse-code modulation). 
-\florent{LPCM pas utile ici. parle juste échantillons et compression.}
-Le LPCM est également le format de codage audio standard des CD audio, qui stockent des données audio LPCM à deux canaux échantillonnées à 44 100 Hz avec 16 bits par échantillon. Comme le LPCM n'est pas compressé et conserve tous les échantillons d'une piste audio, les utilisateurs professionnels ou les experts en audio peuvent utiliser le format WAV avec l'audio LPCM pour obtenir une qualité audio maximale.
-\florent{tu peux mentionner le format spectral (analyse harmonique) crucial en MIR audio.}
+Le fichier WAV\footnote{https://en.wikipedia.org/wiki/WAV} est une instance du
+Resource Interchange File Format (RIFF) défini par IBM et Microsoft. Le format
+RIFF agit comme une "enveloppe" pour divers formats de codage audio.
+Bien qu'un fichier WAV puisse contenir de l'audio compressé, le format audio
+WAV le plus courant est l'audio non compressé au format LPCM (linear pulse-code
+modulation). Le LPCM est également le format de codage audio standard des CD
+audio, qui stockent des données audio LPCM à deux canaux échantillonnées à
+44 100 Hz avec 16 bits par échantillon. Comme le LPCM n'est pas compressé et
+conserve tous les échantillons d'une piste audio, les utilisateurs
+professionnels ou les experts en audio peuvent utiliser le format WAV avec
+l'audio LPCM pour obtenir une qualité audio maximale.
 
 \subsection*{Les données MIDI}
 Le MIDI\footnote{\url{https://en.wikipedia.org/wiki/MIDI}} (Musical Instrument Digital Interface) 
@@ -238,4 +289,3 @@ Le figure \ref{MusicXML} représente un do en clef de sol de la durée d’une r
 Dans ce chapitre, nous avons établi que le MIR s’intéresse de plus en plus au TAL, et que, par ce biais, il y a des liens possibles entre le langage musical et les langues naturelles, le plus proche étant probablement le phénomène d’écriture des sons de l’un comme de l’autre.\\
 Nous avons également établi que le MIR est né de l’AMT qui est un problème ancien et très difficile et qu’il serait toujours très utile de le résoudre (autant pour l’AMT que pour l’ADT).\\
 Et enfin, nous avons décrit les représentations de la musique nécessaires à la compréhension du présent mémoire, allant du son jusqu’à l’écriture.
-
