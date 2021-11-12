@@ -1,27 +1,51 @@
 \section*{Introduction}
-Dans ce chapitre, nous expliquerons en détail les méthodes que nous avons employées pour l’ADT.\\
-Pour commencer, nous exposerons une description de la notation de la batterie ainsi qu’une modélisation de celle-ci pour la représentation des données rythmiques en arbres syntaxiques. Nous poursuiverons avec une présentation de qparse\footnote{https://qparse.gitlabpages.inria.fr/}, un outil de transcription qui est développé par Florent Jacquemard (Inria) au sein du laboratoire Cedric au CNAM.\\
+Dans ce chapitre, nous expliquerons en détail les méthodes que nous avons
+employées pour l’ADT.\\
+Pour commencer, nous exposerons une description de la notation de la batterie
+ainsi qu’une modélisation de celle-ci pour la représentation des données
+rythmiques en arbres syntaxiques. Nous poursuiverons avec une présentation de
+qparse\footnote{https://qparse.gitlabpages.inria.fr/}, un outil de
+transcription qui est développé par Florent Jacquemard (Inria) au sein du
+laboratoire Cedric au CNAM.\\
 Enfin, nous présenterons les systèmes. 
 \section{La notation de la batterie}
 \label{notation_batterie}
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=10mm, width=25mm]{z_images/3_methodes/0_notation_de_la_batterie/0_figures_de_notes.png}
+	\includegraphics[height=10mm, width=25mm]{
+    z_images/3_methodes/0_notation_de_la_batterie/0_figures_de_notes.png}
+    \caption{}
+    \label{4_notes}
 \end{figure}
-Une figure de note \cite{danhauser} de musique combine plusieurs critères\footnote{\url{https://fr.wikipedia.org/wiki/Note_de_musique}} :
+La figure \ref{4_notes} montre 4 figures de notes les plus courantes dont les
+noms et les durées sont respectivement, de gauche à droite :
+\begin{itemize}
+    \item La ronde, elle vaut 4 ;
+    \item La blanche, elle vaut 2 ;
+    \item La noire, elle vaut 1 ;
+    \item La croche, elle vaut 1/2.
+\end{itemize}
+Une figure de note \cite{danhauser} de musique combine plusieurs critères
+\footnote{\url{https://fr.wikipedia.org/wiki/Note_de_musique}} :
 \begin{itemize}
 	\item Une tête de note :\\
-	Sa position sur la portée indique la hauteur de la note. La tête de note peut aussi indiquer une durée.
+	Sa position sur la portée indique la hauteur de la note. La tête de note
+    peut aussi indiquer une durée.
 	\item Une hampe :\\
-	Indicatrice d’appartenance à une voix en fonction de sa direction et indicatrice d’une durée représentée par sa présence ou non (blanche ≠ ronde)
-	\item Un crochet : La durée d’une note est divisée par deux à chaque crochet ajouté à la hampe d’une figure de note.
+	Indicatrice d’appartenance à une voix en fonction de sa direction et
+    indicatrice d’une durée représentée par sa présence ou non (blanche ≠
+    ronde)
+	\item Un crochet : La durée d’une note est divisée par deux à chaque
+        crochet ajouté à la hampe d’une figure de note.
 \end{itemize}
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=50mm, width=80mm]{z_images/3_methodes/0_notation_de_la_batterie/1_rapport_figures_notes.png}
+	\includegraphics[height=50mm, width=80mm]{
+    z_images/3_methodes/0_notation_de_la_batterie/1_rapport_figures_notes.png}
 	\caption{Rapport des figures de notes}\cite{danhauser}
 	\label{rapp_fig_notes}
 \end{figure}
+
 La figure \ref{rapp_fig_notes} montre les rapports de durée entre les figures de notes. Plus les durées sont longues, plus elles sont marquées par la tête de note (la note carrée fait deux fois la durée d’une ronde) ou la présence ou non de la hampe. À partir de la noire (3ème lignes en partant du haut), on ajoute un crochet à la hampe d’une figure de notes pour diviser sa durée par 2. Les notes à crochet (croche , double-croche, triple…) peuvent être reliées ou non par des ligatures (Voir les 4 dernière lignes de la figure \ref{rapp_fig_notes}).
 \subsection*{Les hauteurs et les têtes de notes}
 Pour la transcription, nous proposons une notation inspirée du recueil de pièces pour batterie de J.-F. Juskowiak \cite{jusko} et des méthodes de batterie Agostini \cite{ago_meth_3}, car nous trouvons la position des éléments cohérente et intuitive.\\

@@ -2,53 +2,91 @@
 \section*{Introduction}
 Dans ce chapitre, nous 
 \florent{présenterons quelques travaux antérieurs}
-observerons les différentes avancées qui ont déjà eu lieu dans le domaine de la transcription automatique 
-de la musique et de la batterie afin de situer notre démarche.
+observerons les différentes avancées qui ont déjà eu lieu dans le domaine de la
+transcription automatique de la musique et de la batterie afin de situer notre
+démarche.
 
-Nous aborderons le passage crucial du monophonique au polyphonique dans la transcription. Nous ferons un point sur les deux grandes parties de l’AMT de bout en bout : de l’audio vers le MIDI puis des données MIDI vers l’écriture d’une partition. Ensuite, nous discuterons des approches linéaires et des approches hiérarchiques.
+Nous aborderons le passage crucial du monophonique au polyphonique dans la
+transcription. Nous ferons un point sur les deux grandes parties de l’AMT de
+bout en bout : de l’audio vers le MIDI puis des données MIDI vers l’écriture
+d’une partition. Ensuite, nous discuterons des approches linéaires et des
+approches hiérarchiques.
 
 \section{Monophonique et polyphonique}
-Les premiers travaux
-\florent{en transcription?}
-ont été faits sur l’identification des instruments monophoniques\footnote{Instruments produisant une note à la fois, ou plusieurs notes de même durée (monophonie par accord).} \cite{future_directions}. Actuellement, le problème de l'estimation automatique de la hauteur des signaux monophoniques peut être considéré comme résolu, mais dans la plupart des contextes musicaux, les instruments sont polyphoniques. L'estimation des hauteurs multiples (détection multi-pitchs ou F0 multiples) est le problème central de la création d'un système de transcription de musique polyphonique. Il s’agit de la détection de notes qui peuvent apparaître simultanément et être produites par plusieurs instruments différents. Ce défi est donc majeur pour la batterie puisque c’est un instrument qui est lui-même constitué de plusieurs instruments (caisse-claire, grosse-caisse, cymbales, toms, etc…). Le fort degré de chevauchement entre les durées ainsi qu’entre les fréquences complique l’identification des instruments polyphoniques. Cette tâche est étroitement liée à la séparation des sources et concerne aussi la séparation des voix. Les performances des systèmes actuels ne sont pas encore suffisantes pour permettre la création d'un système automatisé capable de transcrire de la musique polyphonique sans restrictions sur le degré de polyphonie ou le type d'instrument. Cette question reste donc encore ouverte. 
+Les premiers travaux en transcription ont été faits sur l’identification des
+instruments monophoniques\footnote{Instruments produisant une note à la fois,
+ou plusieurs notes de même durée en cas de monophonie par accord (flûte,
+clarinette, sax, hautbois, basson, trombone, trompette, cor, etc…)}
+\cite{future_directions}. Actuellement, le problème de l'estimation automatique
+de la hauteur des signaux monophoniques peut être considéré comme résolu, mais
+dans la plupart des contextes musicaux, les instruments sont polyphoniques
+\footnote{guitare, piano, basse, violon, alto, violoncelle, contrebasse,
+glockenspiel, marimba, etc…}. L'estimation des hauteurs multiples (détection
+multi-pitchs ou F0 multiples) est le problème central de la création d'un
+système de transcription de musique polyphonique. Il s’agit de la détection de
+notes qui peuvent apparaître simultanément et être produites par plusieurs
+instruments différents. Ce défi est donc majeur pour la batterie puisque c’est
+un instrument qui est lui-même constitué de plusieurs instruments
+(caisse-claire, grosse-caisse, cymbales, toms, etc…). Le fort degré de
+chevauchement entre les durées ainsi qu’entre les fréquences complique
+l’identification des instruments polyphoniques. Cette tâche est étroitement
+liée à la séparation des sources et concerne aussi la séparation des voix. Les
+performances des systèmes actuels ne sont pas encore suffisantes pour permettre
+la création d'un système automatisé capable de transcrire de la musique
+polyphonique sans restrictions sur le degré de polyphonie ou le type
+d'instrument. Cette question reste donc encore ouverte. 
 
 \section{Audio vers MIDI}
-%\textit{Utilité de l’audio vers MIDI dans la vraie vie $\Rightarrow$ p. 4 et 5 de \cite{Review_ADT}.}\\\\
-Jusqu’à aujourd’hui, les recherches se sont majoritairement concentrées sur le traitement du signal 
-\florent{de signaux audio}
-vers la génération du MIDI \cite{AMT_for_2_Instru}. 
-\florent{MIDI \textbf{non-quantifié} = performance (à expliquer)}
+Jusqu’à aujourd’hui, les recherches se sont majoritairement concentrées sur le
+traitement du signal \florent{de signaux audio} vers la génération du MIDI
+\cite{AMT_for_2_Instru}. \florent{MIDI \textbf{non-quantifié} = performance (à
+expliquer)}
 
 Cette partie englobe plusieurs sous-tâches dont la détection multi-pitchs, 
 la détection des onset et des offset, 
 \florent{en général tempo et quantification ne sont pas traités ici, 
 le but est seulement la génération d'un MIDI non quantifié}
 \florent{cela pourra être utile d'avoir une explication (ici ou en 1.4) 
-sur la différence entre les timings de performance (dont le MIDI non-quantifié est un enregistrement symbolique)
-et les timing des partitions. avec 2 unités temporelles différentes (secondes et temps), en relation par tempo.}
-l'estimation du tempo, la quantification du rythme, 
-la classification des genres musicaux, etc…
-\florent{classification des genres? ce n'est pas de la transcription!
-séparation des sources oui.}
+sur la différence entre les timings de performance (dont le MIDI non-quantifié
+est un enregistrement symbolique) et les timing des partitions. avec 2 unités
+temporelles différentes (secondes et temps), en relation par tempo.}
+l'estimation du tempo, la quantification du rythme, la classification des
+genres musicaux, etc… \florent{classification des genres? ce n'est pas de la
+transcription! séparation des sources oui.}
 
-\florent{avant l'ADT, il faudrait dire 2 mots sur les techniques utilisées (cf. survey AMT Benetos et al.)}
+\florent{avant l'ADT, il faudrait dire 2 mots sur les techniques utilisées (cf.
+survey AMT Benetos et al.)}
 
-En ADT \cite{Review_ADT}, plusieurs stratégies de répartition pré/post-processing sont possibles pour la détection multi-pitchs. Entamer la détection dès le pré-processing, en supprimant les features non-pertinentes pendant la séparation des sources afin d’obtenir une meilleure détection des instruments de la batterie, est une démarche intuitive : supprimer la structure harmonique pour atténuer l’influence des instruments à hauteurs 
-\florent{haute fréquence, aigus ?}
-sur la détection grosse-caisse et caisse-claire en est un exemple. 
-Mais certaines études montrent que des expériences similaires ont donné des résultats non-concluants et que la suppression des instruments à hauteurs peut avoir des effets néfastes sur les performances de l’ADT. En outre, les systèmes d’ADT basés sur des RNN ou des NMF font la séparation des sources pendant l’optimisation, ce qui réduit la nécessité de la faire pendant le pré-processing.
+En ADT \cite{Review_ADT}, plusieurs stratégies de répartition
+pré/post-processing sont possibles pour la détection multi-pitchs. Entamer la
+détection dès le pré-processing, en supprimant les features non-pertinentes
+pendant la séparation des sources afin d’obtenir une meilleure détection des
+instruments de la batterie, est une démarche intuitive : supprimer la structure
+harmonique pour atténuer l’influence des instruments à hauteurs \florent{haute
+fréquence, aigus ?} sur la détection grosse-caisse et caisse-claire en est un
+exemple. 
+Mais certaines études montrent que des expériences similaires ont donné des
+résultats non-concluants et que la suppression des instruments à hauteurs peut
+avoir des effets néfastes sur les performances de l’ADT. En outre, les systèmes
+d’ADT basés sur des réseaux de neurones récurrents (RNN) ou sur des
+factorisations matricielles non négative font la séparation des sources pendant
+l’optimisation, ce qui réduit la nécessité de la faire pendant le
+pré-processing.
 
 Pour la reconnaissance des instruments, une approche possible \cite{Eronen} 
-est de mettre un modèle probabiliste dans l’étape de la classification des évènements 
-\florent{classification des évènements? la phrase semble redondante}
-afin de classer les différents sons de la batterie. 
-Cette méthode permet de se passer de samples audio isolés en modélisant la progression temporelle 
-des features avec un HMM. 
-Les features sont transformés en représentations statistiques indépendantes.
-\florent{pas clair... peut–être juste mentionner les modèles probabilistes utilisés}
-L’approche AdaMa \cite{adama_1} est une autre approche de la même catégorie ; 
-elle commence par une estimation initiale des sons de la batterie qui sont itérativement raffinés 
-pour correspondre à (pour matcher) l’enregistrement visé.
+est de mettre un modèle probabiliste dans l’étape de la classification des
+évènements \florent{classification des évènements? la phrase semble redondante}
+afin de classer les différents sons de la batterie. Cette méthode permet de se
+passer de samples audio isolés en modélisant la progression temporelle des
+\textit{features}\footnote{Features : caractéristiques individuelles mesurables
+d'un phénomène dans le domaine de l'apprentissage automatique et de la
+reconnaissance des formes} avec un modèle de markow caché (HMM). Les
+\textit{features} sont transformés en représentations statistiques
+indépendantes. \florent{pas clair... peut–être juste mentionner les modèles
+probabilistes utilisés} L’approche AdaMa \cite{adama_1} est une autre approche
+de la même catégorie ; elle commence par une estimation initiale des sons de la
+batterie qui sont itérativement raffinés pour correspondre à (pour matcher)
+l’enregistrement visé.
 %- Extraction of rhythmic information (tempo, beat, and musical timing)\\
 
 \section{MIDI vers partition}
@@ -68,9 +106,12 @@ pour correspondre à (pour matcher) l’enregistrement visé.
 % avec groupement rhytmiques hérarchiques, cf. section 1.4.
 % dans ces travaux, la structuration des données en npartition est déléguée à un néditeur de 
 % partitions MuseScore, avec des résultats assez inégaux.
-Le plus souvent, lorsque les articles abordent la transcription automatique de bout en bout (de l’audio à la partition), l’appellation « score » (\textit{partition}) désigne un ouput au format Music XML, ou simplement MIDI. 
-Par exemple, dans \cite{SHIBATA2021262}, la chaîne de traitement va jusqu’à la génération d’une séquence MIDI quantifiée qui est importée dans MuseScore 
-pour en extraire manuellement un fichier MusicXML contenant plusieurs voix.
+Le plus souvent, lorsque les articles abordent la transcription automatique de
+bout en bout (de l’audio à la partition), l’appellation « \textit{score} »
+(partition) désigne un ouput au format Music XML, ou simplement MIDI. 
+Par exemple, dans \cite{SHIBATA2021262}, la chaîne de traitement va jusqu’à la
+génération d’une séquence MIDI quantifiée qui est importée dans MuseScore pour
+en extraire manuellement un fichier MusicXML contenant plusieurs voix.
 
 Seuls quelques travaux récents s’intéressent de près à la création d’outils permettant la génération de partition. 
 Le problème de la conversion d'une séquence d'évènements musicaux symboliques 
