@@ -43,7 +43,9 @@ Autres critères spécifiques au GMD :
 \end{itemize}
 
 \subsection*{Format des données}
-Le Roland TD-11 divise les données enregistrées en plusieurs pistes distinctes :
+Le Roland TD-11 
+\florent{enregistre les données dans des fichiers MIDI}
+divise les données enregistrées en plusieurs pistes distinctes :
 \begin{itemize}
 	\item une pour le tempo et l’indication de mesure ;
 	\item une pour les changements de contrôle (position de la pédale de charley) ;
@@ -53,11 +55,17 @@ Les changements de contrôle sont placés sur le canal 0 et les notes sur le can
 Pour simplifier le traitement de ces données, ces trois pistes ont été fusionnées en une seule piste qui a été mise sur le canal 9.\\\\
 « Control Changes
 The TD-11 also records control changes specifying the position of the hi-hat pedal on each hit. We have preserved this information under control 4. »\\(\url{https://magenta.tensorflow.org/datasets/groove})\\$\Rightarrow$ ??? Je ne comprends pas encore comment trouver ce type d’informations dans les fichiers MIDI.\\L’utilisation de pretty\_midi devient urgente !
+
 \section{Analyse MIDI-Audio}
 \label{analyse_midi_audio}
+\florent{= analyses et transcriptions manuelles}
 Ces analyses ont été faites dans le cadre de transcriptions manuelles à partir de fichiers MIDI et Audio du GMD.
+
+
 \subsection*{Comparaisons de transcriptions}
 Pour les comparaisons de transcriptions, les transcriptions manuelles (TM) ont été éditées à l’aide de Lilypond\footnote{\url{http://lilypond.org/}} ou MuseScore\footnote{\url{https://musescore.com/}} et les transcriptions automatiques (TA) ont toutes été générées manuellement avec MuseScore.
+\florent{méthodologie tr. manuelle. import MIDI pour MuseScore}
+
 
 \subsubsection{Exemple d’analyse 1}
 \begin{figure}[h]
@@ -108,8 +116,11 @@ Pour les comparaisons de transcriptions, les transcriptions manuelles (TM) ont �
 \end{figure}
 
 Sur le temps 4 de la mesure 1, la deuxième croche a été transcrite d’une manière excessivement complexe! %\newpage
+\florent{conclusion sur ces exemples}
+
 
 \subsubsection{Exemple avec des flas}
+\florent{sauf erreur, les "flas" ne sont pas définis. $\to$ sections 1.4 (appogiatures) et 3.1 (flas)?}
 Transcription manuelle\\
 \includegraphics[height=25mm, width=95mm]{z_images/4_experimentations/1_analyse_midi_audio/2_transcriptions_flas/0_124_funk_95_fill_4-4.png}\\
 Transcription automatique\\\\
@@ -135,6 +146,9 @@ La figure \ref{partition_ref} est la transcription manuelle des fichiers \textit
 Il s’agit d’une partition d’un 4/4 binaire dont le fichier MIDI est annoncé dans le GMD de style «jazz-funk» probablement en raison de la ride de type shabada rapide (le ternaire devient binaire avec la vitesse) combiné avec l’after-beat de type rock (caisse-claire sur les deux et quatre).
 
 La transcription des données audio et MIDI contenues dans ces fichiers a permis une analyse plus approndie des critères à relever pour chaque évènement MIDI et de la manière de les considérer dans un objectif de transcription en partition lisible pour un musicien (Voir la section \ref{modelisation_transcription}).
+
+\florent{des conclusions sur la transcription manuelle?
+difficultés, durée? nb de passes... pourquoi LilyPondet pas MuseScore?}
 
 \section{Expérimentation théorique d’un système}
 \label{expe_theo}
@@ -307,21 +321,41 @@ Pour les figures ci-dessous :
 	\caption{}
 	\label{5}
 \end{figure}
-Ces règles ont été tirées de l’ensemble des arbres du système. Les arbres manquants seront mis en annexe.\\\\
-Les règles remplacent par un silence les continuations (t) qui sont au début d’un temps. Cela est valable pour ce système mais lorsqu’il y a des ouvertures de charley, cela n’est pas toujours applicable. Ce problème est évoqué de le chapitre \ref{methodes}.\\\\
-$\Rightarrow$ \textbf{Objectif de cette expérimentation théorique} :\\
+
+Ces règles ont été tirées de l’ensemble des arbres du système. Les arbres manquants seront mis en annexe.
+
+Les règles remplacent par un silence les continuations (t) qui sont au début d’un temps. Cela est valable pour ce système mais lorsqu’il y a des ouvertures de charley, cela n’est pas toujours applicable. Ce problème est évoqué de le chapitre \ref{methodes}.
+
+$\Rightarrow$ \textbf{Objectif de cette expérimentation théorique} :
+
 La méthode des \textit{systèmes} étant basée sur une approche dictionnaire, cette expérimentation théorique a pour but d’orienter la recherche d’autres systèmes par observation du jeu de données et de montrer comment les construire pour agrandir la base de connaissance de Qparse pour l’ADT.
-\newpage
+
 \section{Résultats et discussion}
-Cette section regroupe les avancées qui ont été réalisées par rapport aux objectifs de départ ainsi qu’une réflexion sur le moyen d’évaluer les résultats de l’ADT avec Qparse. Nous avons améliorer le système de quantification de Qparse pour la batterie, notamment le passage à la polyphonie avec les Jams. Nous avons pu obtenir des arbres de parsing correctes en améliorant les grammaires avec des fichiers MIDI courts. Puis, une sortie MEI a été aussi été obtenu (encore à vérifier).
+\florent{je vois 2 problématiques et contrib. principales:
+1) transcription polyphonique par parsing (verrou): jams etc
+2) réécriture, pour séparation en voix et simplification, aidée (guidée) par système.
+Ce serait bien de présenter la contrib. 1 dans une section (comme 4.3 pour 2), 
+avant d'aborder résultats et discussion}
+
+Cette section regroupe les avancées qui ont été réalisées par rapport aux objectifs de départ ainsi qu’une réflexion sur le moyen d’évaluer les résultats de l’ADT avec Qparse. Nous avons améliorer le système de quantification de Qparse pour la batterie, notamment le passage à la polyphonie avec les Jams. 
+
+Nous avons pu obtenir des arbres de parsing corrects en améliorant les grammaires avec des fichiers MIDI courts. 
+Puis, une sortie MEI a été aussi été obtenu (encore à vérifier).
+
 \subsection*{Les Jams}
 Les Jams permettent de passer du monophonique au polyphonique.
 %\subsubsection*{Tests unitaires sur les Jams}
 \label{jam_tests}
+\florent{il faut revenir ici sur le parsing, et la notion d'alignement sur arbres syntaxiques pour définir les jams.
+illustrer avec les exemples précédents.}
+
 \subsection*{Le parsing}
 \label{gram_pond}
-Tests effectués avec le fichier midi suivant :\\\\
-\includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/3_developpement/0_midi_2bars_fill.png}\\\\
+\florent{revenir (rapidement) sur la méthodologie suivie.}
+
+Tests effectués avec le fichier midi suivant :
+\includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/3_developpement/0_midi_2bars_fill.png}
+
 Un premier test convaincant est effectué avec la grammaire suivante :\\\\
 // bar level\\
 0 -> C0                1\\
