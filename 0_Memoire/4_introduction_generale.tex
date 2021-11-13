@@ -1,24 +1,23 @@
 % !TEX root = 1_memoire.tex
 Ce mémoire de recherche, effectué en parallèle d’un stage à l’Inria dans le
 cadre du master de traitement automatique des langues de l’Inalco, contient
-une proposition originale ainsi que diverses contributions ayant toutes pour
-\florent{"ayant toutes pour objectif..." $\to$ dans le domaine de la transcription musicale automatique 
-objectif d’améliorer \textbf{qparse}, un outil de transcription automatique de
-et plus spécifiquement, dans le cas de la batterie.}
-la musique sur sa capacité à transcrire la batterie. 
-Nous ne parlerons donc pas
-\florent{transcription musicale, suivant des méthodes communes/issues du TAL (éviter les négations)}
-directement de langues naturelles, mais de l’écriture
-\florent{"l’écriture" $\to$ la génération}
-automatique de partitions
-de musique à partir de données audio ou symboliques. La musique et les langues
-naturelles sont deux moyens que nous servent à exprimer nos ressentis sur le
-monde et les choses : « La musique s’écrit et se lit aussi facilement qu’on lit
-et écrit les paroles que nous prononçons. » \cite{danhauser}.
-Cet exercice nécessite la manipulation d’un langage
-musical codifié par une grammaire (solfège, durées, nuances, volumes) et
-soulèvera des problématiques concernées par les techniques du traitement
-automatique des langues.
+une proposition originale ainsi que diverses contributions dans le domaine de
+la transcription automatique de la musique. Les travaux qui seront exposés ont
+tous pour objectif d’améliorer \textbf{qparse}, un outil de transcription
+automatique de la musique, et seront axés spécifiquement sur le cas de la
+batterie. Nous parlerons donc de transcription musicale, en suivant des
+méthodes communes au domaine du traitement automatique des langues (TAL) plutôt
+que directement de langues naturelles, et nous parlerons aussi de génération
+automatique de partitions de musique à partir de données audio ou symboliques.
+La musique et les langues naturelles sont deux moyens qui nous servent à
+exprimer nos ressentis sur le monde et les choses : « La musique s’écrit et se
+lit aussi facilement qu’on lit et écrit les paroles que nous prononçons. »
+% Rendre la citation de danhauser explicite ?
+\cite{danhauser}.
+
+L’exercice exposé dans ce mémoire nécessitera la manipulation
+d’un langage musical codifié par une grammaire (solfège, durées, nuances,
+volumes) et soulèvera des problématiques concernées par les techniques du TAL.
 
 L’écriture musicale offre de nombreuses possibilités pour la transcription d’un
 rythme donné. Le contexte musical ainsi que la lisibilité d’une partition pour
@@ -26,48 +25,70 @@ un batteur entraîné conditionnent les choix d’écriture. Reconnaître la
 métrique principale d’un rythme, la façon de regrouper les notes par les
 ligatures, ou simplement décider d’un usage pour une durée parmi les
 différentes continuations possibles (notes pointées, liaisons, silences, etc.)
-constituent autant de possibilités que de difficultés.
+constituent autant de possibilités que de difficultés. De plus, la batterie
+est dotée d’une écriture spécifique par rapport à la majorité des
+instruments. Il a donc fallu modéliser plusieurs critères concernant sa
+représentation. Cette modélisation étaient jusqu’à présent inexistante.
 
-\florent{il faut revoir la fin, avec une description rapide du problème, 
-         de la méthode suivie et des contributions} %suivi d'un petit plan par parties.
-Voici la proposition de ce mémoire ainsi que les contributions apportées lors
-du stage :
-Rédiger entièrement la liste à puce qui suit.
-\begin{itemize}
-	\item Proposition principale : les systèmes (\ref{systemes_methodes},
-		\ref{expe_theo}) :\\
-	Recherche de rythmes génériques en amont dans la chaîne de traitement.\\
-	$\Rightarrow$ L’objectif de fixer des choix le plus tôt possible afin de
-	simplifier le reste des calculs en éliminant une partie d’entre eux. Ces
-	choix concernent notamment la métrique et les règles de réécriture.
-	\item Une description de la notation de la batterie
-		(\ref{notation_batterie})
-	\item Une modélisation de la transcription de la batterie
-		(\ref{modelisation_transcription})
-	\item Analyse MIDI-Audio (\ref{analyse_midi_audio})
-	\item Transcription manuelle de partition \ref{partition_entiere}
-	\item Expérimentation théorique d’un système \ref{expe_theo}
-	\item Théorie et tests unitaires pour le passage au polyphonique
-		(\ref{jam_tests})
-	\item Création de grammaires pondérées pour la batterie (\ref{gram_pond})
-	\item Contributions sur la branche « distance » dans :
-	\begin{itemize}
-		\item qparselib/notes/cluster.md
-		\item qparselib/src/segment/import/ :\\
-		DrumCode hpp et cpp\\
-	\end{itemize}
-\end{itemize}
+%\florent{il faut revoir la fin, avec une description rapide du problème, 
+         %de la méthode suivie et des contributions} %suivi d'un petit plan par parties.
 
-Au lieu du paragraphe final : Nous présenterons dans un premier temps les
-parallèles entre TAL et MIR, puis les spécificités de la notation pour la
-batterie……… 
 
-\florent{ce paragraphe final (plan) est bien. 
-         tu peux ajouter les numéros de sections avec $\backslash$ref}
-Nous présenterons le contexte suivi d’un état de l’art et nous définirons de
-manière générale le processus de transcription automatique de la musique pour
-enfin étayer les méthodes utilisées pour la transcription automatique de la
-batterie, et nous présenterons les principales contributions apportées à
-l’outil qparse. Nous décrirons ensuite le corpus ainsi que les différentes
-expérimentations menées. Nous concluerons par une discussion sur les résultats
-obtenus et les pistes d’améliorations futures à explorer.
+% Voici la proposition principale de ce mémoire :
+
+
+La proposition principale de ce mémoire est basée sur la recherche de rythmes
+génériques sur l’\textit{input}. Ces rythmes sont des \textit{patterns}
+standards de batterie définis au préalable et accompagnés par les différentes
+combinaisons qui leur sont propres. On les nomme systèmes (voir sections
+\ref{systemes_methodes}, \ref{expe_theo}). L’objectif des systèmes est de fixer
+des choix le plus tôt possible afin de simplifier le reste des calculs en
+éliminant une partie d’entre eux. Ces choix concernent notamment la métrique
+et les règles de réécriture.
+
+% Et voici les contributions apportées lors du stage :
+
+La proposition ci-dessus a nécessité plusieurs sous-tâches dont une description
+de la notation de la batterie (\ref{notation_batterie}) ainsi qu’une
+modélisation pour la transcription de la batterie
+(\ref{modelisation_transcription}).
+
+Plusieurs trancriptions manuelles ont été effectuées afin d’analyser les
+contenus des fichiers MIDI et Audio (\ref{analyse_midi_audio}) et de faire des
+comparaisons de transcription avec des outils déjà existants
+\footnote{MuseScore3}. Une partition entière a aussi était transcrite
+manuellement afin de repérer les éléments importants pour la modélisation et
+faire les liens entre les critères des données d’input avec \ref{partition_entiere}
+L’ensemble de ces sous-tâches a permis la création expérimentation théorique
+d’un système \ref{expe_theo}.
+
+- Une fois proposition élaboré et verrouillé\\
+- construire la chaîne jusqu’au bout\\
+- nous avons pu la pousser jusqu’à la polyphonique en théorie et en
+implémentation, ma contribution sur ce sujet étant la théorie sur la détection
+de l’identité de notes dans un cluster (accord), l’implémentation de tests
+unitaires sur les Jams (\ref{jam_tests}) et la création de grammaires pondérées
+spécifiques à la batterie (\ref{gram_pond})
+
+
+Les codes cpp sur la drum ont pu être construit en parti grâce aux travaux
+réalisés dans ce mémoire de recherche.
+
+% 
+%	 Contributions sur la branche « distance » dans :
+%	\begin{itemize}
+%		\item qparselib/notes/cluster.md
+%		\item qparselib/src/segment/import/ :\\
+%		DrumCode hpp et cpp\\
+%	\end{itemize}
+%\end{itemize}
+
+Nous présenterons le contexte (chapitre \ref{contexte}) suivi d’un état de l’art
+(chapitre \ref{etat_de_l_art}) et nous définirons de manière générale le
+processus de transcription automatique de la musique pour enfin étayer les
+méthodes (chapitre \ref{methodes}) utilisées pour la transcription automatique
+de la batterie.  Nous décrirons ensuite le corpus ainsi que les différentes
+expérimentations menées (chapitre \ref{experimentations}). Nous concluerons par
+une discussion sur les résultats obtenus et les pistes d’améliorations futures
+à explorer. Les contributions apportées à l’outil qparse seront exposées dans
+les chapitres \ref{methodes} et \ref{experimentations}.
