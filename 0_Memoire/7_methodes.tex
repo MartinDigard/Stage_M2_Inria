@@ -305,24 +305,60 @@ Ci-dessous, le même arbre dont les codes des instruments sont remplacés par le
 	[ [51\\38 ][ [51\\44 ][51 ]]] ]
 \end{figure}
 
-Chacun des trois exemples de la figure \ref{sep_voix} est représenté par un des deux arbres syntaxiques ci-dessus.\newpage
+Chacun des trois exemples de la figure \ref{sep_voix} est représenté par un des deux arbres syntaxiques ci-dessus.
+%\newpage
+
+
 \section{Qparse}
-La librairie Qparse\footnote{\url{https://qparse.gitlabpages.inria.fr}} implémente la quantification des rythmes basée sur des algorithmes d'analyse syntaxique pour les automates arborescents pondérés. En prenant en entrée une performance musicale symbolique (séquence de notes avec dates et durées en temps réel, typiquement un fichier MIDI), et une grammaire hors-contexte pondérée décrivant un langage de rythmes préférés, il produit une partition musicale. Plusieurs formats de sortie sont possibles, dont XML MEI.
+\florent{choisir titre plus explicite, par ex. analyse syntaxique pour la transcription musicale}
+La librairie Qparse\footnote{\url{https://qparse.gitlabpages.inria.fr}} 
+implémente la quantification des rythmes \florent{quantification rhythmique + structuration de partition}
+\florent{qparse est un outil pour la transcription musicale, qui, 
+à partir d'une performance symbolique, séquentielle et non quantifiée, 
+produit une partition structurée.}
+\florent{Il effectue conjointement des tâches de quantification rhythmique et 
+d'inférence de la structure de la partition à l'aide de technique de parsing / analyse syntaxique.}
+\florent{Le but du parsing/analyse syntaxique est en effet la structuration d'une représentation séquentielle 
+en entrée (un mot fini), suivant un modèle de langage.}
+\florent{ref. Grune Jacobs "Parsing techniques" Springer 2007}
+\florent{dans le cas de qparse, le "mot" d'entrée est typiquement au format MIDI, 
+et le modèle de langage est un  un automate d'arbres pondéré représentant des préférences
+en terme de notation musicale à produire.}
+\florent{ref. "Handbook of weighted automata"}
+basée sur des algorithmes d'analyse syntaxique pour les automates arborescents pondérés. 
+En prenant en entrée une performance musicale symbolique 
+(séquence de notes avec dates et durées en temps réel, typiquement un fichier MIDI), 
+et une grammaire 
+\florent{grammaire $\neq$ automate. il faut choisir entre les 2 (pour la suite aussi)} 
+hors-contexte pondérée décrivant un langage de rythmes préférés, 
+il produit une partition musicale. 
+Plusieurs formats de sortie sont possibles, dont XML, MEI.
+
 Les principaux contributeurs sont :
 \begin{itemize}
 	\item Florent Jacquemard (Inria) : développeur principal.
-	\item Francesco Foscarin (PhD, CNAM) : construction de grammaire automatique à partir de corpus ; Evaluation.
+	\item Francesco Foscarin (PhD, CNAM) : \florent{apprentissage} construction de grammaire automatique 
+	à partir de corpus ; Evaluation.
 	\item Clement Poncelet (Salzburg U.) : integration de la librairie Midifile pour les input MIDI.
 	\item Philippe Rigaux (CNAM) : production de partition au format MEI et de modèle intermédiaire de partition en sortie.
 	\item Masahiko Sakai (Nagoya U.) : mesure de la distance input/output pour la quantification et CMake framework ; évaluation.
 \end{itemize}
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=80mm, width=130mm]{z_images/3_methodes/1_qparse/0_general_qparse.png}
 	\caption{Présentation de Qparse}
 	\label{presentation_qparse}
-\end{figure}\newpage
-Explication des différentes étapes de la figure \ref{presentation_qparse}\footnote{\url{https://gitlab.inria.fr/qparse/qparselib/-/tree/distance/src/scoremodel}} :
+\end{figure}
+\florent{la figure 3.11 est trop compliquée.
+rhythm grammar $\to$ automate d'arbres pondéré.
+Parse Tree $\to$ arbre syntaxique.
+qtz MIDI file : inutile.
+Score Model $\to$ représentation intermédiaire de partition.
+Score Model, Engr. Model : inutile. garder juste la fleche Rewriting sur S.M.}
+
+Explication des différentes étapes 
+de la figure~\ref{presentation_qparse}\footnote{\url{https://gitlab.inria.fr/qparse/qparselib/-/tree/distance/src/scoremodel}} :
 \begin{itemize}
 	\item \textbf{Input Qparse} :\\
 	Un fichier MIDI (séquence d’événements datés (piano roll) accompagné d’un fichier contenant une grammaire pondérée) ;
@@ -350,15 +386,30 @@ Plusieurs enjeux :
 		\item Impossibilité de traiter plusieurs voix et de reconnaître les accords.
 	\end{itemize}
 \end{itemize}
+
+
 \section{Les systèmes}
 \label{systemes_methodes}
+\florent{il faudrait expliquer là que le but est d'avoir des schemas types (= système) pour calculer la séparation en voix.
+       = une heuristique pour éviter d'avoir à explorer une grande combinatoire.
+       et que, une fois le système déterminé (ou sélectionné), la séparation se fait par réécriture du modèle
+       (règles de projection et simplification)}
 Un système est la combinaison d’un ou de plusieurs éléments qui jouent un rythme en boucle (motif) et d’un autre élément qui joue un texte rythmique variable mais en respectant les règles propres au système (gamme).
+
 \subsection*{Définitions}
+\florent{je ne comprend pas bien la définition de système : motif + gamme ou motif + gamme + texte?
+la déf. des gammes n'est pas du tout claire.}
+\florent{est-ce que le motif est fixe et les gammes variables? 
+est-ce le motif qui détermine la métrique et les voix?}
+
 \textit{\textbf{Système :}} motif + gamme/texte\\
 \textit{\textbf{Motif :}} rythmes coordonnés joués avec 2 ou 3 membres en boucle (répartis sur 1 ou 2 voix)\\
 \textit{\textbf{Texte :}} rythme irrégulier joué avec un seul membre sur le motif (réparti sur 1 voix).\\
-\textit{\textbf{Gamme :}} la gamme d’un système considère l’ensemble des combinaisons que le batteur pourrait rencontrer en interprétant un texte rythmique à l’aide du système.\\\\
-Un ensemble de systèmes comprenant leur métrique et leurs règles spécifiques de réécriture sera nécessaire. Les systèmes devront être distribués dans 4 grandes catégories :
+\textit{\textbf{Gamme :}} la gamme d’un système considère l’ensemble des combinaisons que le batteur pourrait rencontrer en interprétant un texte rythmique à l’aide du système.
+
+Un ensemble de systèmes comprenant leur métrique et leurs règles spécifiques de réécriture sera nécessaire. 
+\florent{métrique n'est pas défini. règles de réécriture non plus}
+Les systèmes devront être distribués dans 4 grandes catégories :
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|} \hline
@@ -383,19 +434,50 @@ Les systèmes devront être matchés sur l’input MIDI afin de :
 	\item choisir une grammaire appropriée ;
 	\item fournir les règles de réécriture (séparation des voix et simplification.\\
 \end{itemize}
-La partie \textit{motif} des systèmes sera utilisée pour la \textbf{définition des métriques}. Le \textit{motif} et la gammes des systèmes seront utilisés pour la \textbf{séparation des voix}. Les règles de \textbf{simplification} (les combinaisons de réécritures) seront extraites des voix séparées des systèmes.
+
+\florent{bien. il faudrait expliquer ça avant.}
+La partie \textit{motif} des systèmes sera utilisée pour la \textbf{définition des métriques}. 
+Le \textit{motif} et la gammes des systèmes seront utilisés pour la \textbf{séparation des voix}. 
+Les règles de \textbf{simplification} (les combinaisons de réécritures) seront extraites des voix séparées des systèmes.
+\florent{pas exactement. les règles de projection et simplification font la séparation en voix: 
+à partir d'un arbre syntaxique comme celui de 3.2, elles extraient 2 arbres, chacun contenant les 
+évenements d'une seule voix}
+
 \subsubsection{Détection d’indication de mesure}
-La détection de la métrique est importante, non seulement pour connaître le nombre de temps par mesure ainsi que le nombre de subdivisions pour chacun de ces temps, mais aussi pour savoir comment écrire l’unité de temps et ses subdivisions.
+La détection de la métrique est importante, 
+\florent{métrique $\neq$ signature rythmique (c'est plus général). 
+Il aurait fallu présenter rapidement la notation des signatures rythmiques, par exemple en 1.4}
+non seulement pour connaître le nombre de temps par mesure ainsi que le nombre de subdivisions pour chacun de ces temps, mais aussi pour savoir comment écrire l’unité de temps et ses subdivisions.
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=40mm, width=40mm]{z_images/3_methodes/2_systemes/0_simple_VS_complexe.png}
 	\caption{Métrique}
 	\label{subdivisions}
-\end{figure}\newpage
-La figure \ref{subdivisions} montre deux indications de mesure différentes. L’une (exemple 1) est \textit{simple} (2 temps binaires sur lesquels sont joués des triolets), l’autre (exemple 2) est \textit{complexe} (2 temps ternaires). Le jazz est traditionnellement écrit en binaire avec ou sans triolet (même si cette musique est dite ternaire alors que le rock ternaire sera plutôt écrit comme dans l’exemple 2).
+\end{figure} %\newpage
+
+La figure \ref{subdivisions} montre deux indications de mesure différentes. 
+L’une (exemple 1) est \textit{simple} (2 temps binaires sur lesquels sont joués des triolets), 
+l’autre (exemple 2) est \textit{complexe} (2 temps ternaires). 
+Le jazz est traditionnellement écrit en binaire avec ou sans triolet (même si cette musique est dite ternaire alors que le rock ternaire sera plutôt écrit comme dans l’exemple 2).
+
 \subsubsection{Choix d’une grammaire}
-Il faut prendre en compte l’existence potentielle de plusieurs grammaires dédiées chacunes à un type de contenu MIDI. Le choix d’une grammaire pondérée doit être fait avant le parsing puisque Qparse prend en entrée un fichier MIDI et un fichier wta (grammaire). C’est pour cette raison que la métrique doit être définie avant le choix de la grammaire.\\
-Pour les expériences effectuées avec le Groove MIDI Data Set, le style et l’indication de mesure sont récupérables par les noms des fichiers MIDI, mais il faudra par la suite les trouver automatiquement sans autres indications que les données MIDI elles-mêmes. Par conséquent, les motifs des systèmes devront être recherchés sur l’input \textit{(fichiers MIDI)} avant le lancement du parsing, afin de déterminer la métrique en amont. Cette tâche devra probablement être effectuée en Machine Learning.\newpage
+Il faut prendre en compte l’existence potentielle de plusieurs grammaires dédiées chacune à un type de contenu MIDI. 
+\florent{le lien entre grammaire et signature rythmique n'est pas clair ici. 
+Il aurait fallu expliquer le rôle des grammaires (automates) en 3.3}
+Le choix d’une grammaire pondérée doit être fait avant le parsing puisque Qparse prend en entrée un fichier MIDI et un fichier wta (grammaire). C’est pour cette raison que la métrique doit être définie avant le choix de la grammaire.
+
+Pour les expériences effectuées avec le Groove MIDI Data Set, 
+\florent{Groove MIDI Data Set pas présenté}
+le style et l’indication de mesure sont récupérables par les noms des fichiers MIDI, 
+\florent{méta-données}
+mais il faudra par la suite les trouver automatiquement sans autres indications 
+que les données \florent{contenu} MIDI elles-mêmes. 
+Par conséquent, les motifs des systèmes devront être recherchés sur l’input \textit{(fichiers MIDI)} 
+avant le lancement du parsing, afin de déterminer la métrique en amont. 
+Cette tâche devra probablement être effectuée en Machine Learning. %\newpage
+
+
 \subsubsection{Séparation des voix}
 \label{sys_sep_voix}
 \begin{figure}[h]
@@ -404,6 +486,10 @@ Pour les expériences effectuées avec le Groove MIDI Data Set, le style et l’
 	\caption{Motif 4-4 binaire}
 	\label{binaire}
 \end{figure}
+
+\florent{les description ic sont assez techniques et difficile à suivre.
+avant de détailler des exemples, il faudrait décrire les objectifs et 
+le principe de la procédure.}
 Ici, le système est construit sur un modèle rock en 4/4 : after-beat sur les 2 et 4 avec un choix de répartition des cymbales type fast-jazz. Le système est constitué par défaut du motif rd/pf/cc (voir \ref{pitchs_instru}) et d’un texte joué à la grosse-caisse. La première ligne de la figure \ref{binaire} est appelée « Irréductible » car il n’y a pas d’autre choix pertinent pour la répartition de la ride et du charley au pied. La troisième séparation proposée est privilégiée car elle répartit selon 2 voix, une voix pour les mains (rd + cc) et une voix pour les pieds (pf + gc). Ce choix paraît plus équilibré car deux instruments sont utilisés par voix et plus logique pour le lecteur puisque les mains sont en haut et les pieds en bas.
 \begin{figure}[h]
 	\centering
@@ -411,27 +497,44 @@ Ici, le système est construit sur un modèle rock en 4/4 : after-beat sur les 2
 	\caption{Motif 4-4 jazz}
 	\label{jazz}
 \end{figure}\\
-Dans la plupart des méthodes, le charley n’est pas écrit car il est considéré comme évident en jazz traditionnel. Ce qui facilite grandement l’écriture : la ride et les crash sur la voix du haut et le reste sur la voix du bas. Ici, le parti pris est de tout écrire. Dans l’exemple ci-dessus, les mesures 1 et 2 combinées avec le \textit{motif} de la première ligne, sont des cas typiques de la batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la grosse caisse entre très souvent dans le flot des combinaisons de toms et de caisse claire et son écriture séparée serait inutilement compliquée et peu intuitive pour le lecteur. Le choix de séparation sera donc de laisser les cymbales en haut et toms, caisse-claire, grosse-caisse et pédale de charley en bas.
+Dans la plupart des méthodes, le charley n’est pas écrit car il est considéré comme évident en jazz traditionnel. Ce qui facilite grandement l’écriture : la ride et les crash sur la voix du haut et le reste sur la voix du bas. Ici, le parti pris est de tout écrire. 
+Dans l’exemple ci-dessus, 
+\florent{quel exemple?}
+les mesures 1 et 2 combinées avec le \textit{motif} de la première ligne, sont des cas typiques de la batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la grosse caisse entre très souvent dans le flot des combinaisons de toms et de caisse claire et son écriture séparée serait inutilement compliquée et peu intuitive pour le lecteur. Le choix de séparation sera donc de laisser les cymbales en haut et toms, caisse-claire, grosse-caisse et pédale de charley en bas.
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=20mm, width=70mm]{z_images/3_methodes/2_systemes/3_separation_afro-latins.png}
 	\caption{Système 4-4 afro-latin}
 	\label{afro_latin}
-\end{figure}\\
-La figure \ref{afro_latin} montre un exemple minimaliste de système afro-latin \cite{system_drums}. Ce système doit être écrit sur trois voix car la voix centrale est souvent plus complexe qu’ici (que des noirs) et la mélanger avec le haut ou le bas serait surchargé et peu lisible.
+\end{figure}
+
+La figure \ref{afro_latin} montre un exemple minimaliste de système afro-latin \cite{system_drums}. 
+Ce système doit être écrit sur trois voix car la voix centrale est souvent plus complexe qu’ici (que des noirs) et la mélanger avec le haut ou le bas serait surchargé et peu lisible.
+
 \subsubsection{Simplification de l’écriture}
-Les explications qui suivent seront appuyé par une expérimentation théorique dans la section \ref{expe_theo}.\\\\
-Les gammes qui accompagnent les motifs d’un système étayent toutes les combinaisons d’un système et elles permettent, combinées avec le motif d’un système, de définir les règles de simplification propres à celui-ci.\\\\
+Les explications qui suivent seront appuyé par une expérimentation théorique dans la section \ref{expe_theo}.
+
+Les gammes qui accompagnent les motifs d’un système étayent toutes les combinaisons d’un système et elles permettent, combinées avec le motif d’un système, de définir les règles de simplification propres à celui-ci.
+
 Voici les différentes étapes à suivre :
 \begin{itemize}
 	\item Pour chaque gamme du système, faire un arbre de rythme représentant la gamme combinée avec le motif du système ;
 	\item Pour chaque arbre de rythmes obtenus, séparer les voix et faire un arbre de rythme par voix ;
-	\item Pour chaque voix (arbre de rythmes) obtenus, extraire tous les nœuds qui nécessitent une simplification et écrire la règle.\\
+	\item Pour chaque voix (arbre de rythmes) obtenus, extraire tous les nœuds qui nécessitent une simplification et écrire la règle.
 \end{itemize}
-Certaines précisions concernant l’extraction de ces règles sont nécessaires. Il s’agit de précisions à propos de la durée, des silences et de la présence ou non d’ouverture de charley dans les instruments joués. Nous avons discuté de ces problèmes dans le chapitre \ref{methodes}.\\\\
-Voici quelques règles inhérentes à la simplication de l’écriture pour la batterie :\\
-Toutes les continuations (t) qui se trouvent en début de temps (figures \ref{2}, \ref{4} et \ref{5}) sont transformées en silences (r) sauf si la note précédente est un charley ouvert ?\\
+
+Certaines précisions concernant l’extraction de ces règles sont nécessaires. 
+Il s’agit de précisions à propos de la durée, des silences et de la présence ou non d’ouverture de charley dans les instruments joués. 
+Nous avons discuté de ces problèmes dans le chapitre \ref{methodes}.
+
+Voici quelques règles inhérentes à la simplication de l’écriture pour la batterie :
+Toutes les continuations (t) qui se trouvent en début de temps 
+(figures \ref{2}, \ref{4} et \ref{5}) sont transformées en silences (r) sauf si la note précédente est un charley ouvert ?
+\florent{ce sont des figures et notations du chapitre suivant!}
+
 Même si on favorise l’usage des silences pour l’écart entre les notes n’appartenant pas au même temps, on les supprime systèmatiquement pour 2 notes au sein d’un même temps et favorise, une liaison si co, un point si pas co et nécessaire, un simple ajustement de la figure de note si suffisant.
+
 \begin{figure}[h]
 	\centering
 	Arbre 1
@@ -453,10 +556,13 @@ Même si on favorise l’usage des silences pour l’écart entre les notes n’
 	\includegraphics[height=50mm, width=20mm]{z_images/3_methodes/2_systemes/4_simplification_1.png}
 	\caption{}
 	\label{suites}
-\end{figure}\\
-Soit l’arbre 1 de la figure \ref{simplification} dans lequel :\\
+\end{figure}
+
+Soit l’arbre 1 de la figure \ref{simplification} dans lequel :
+\florent{itemize}
 a et d sont des instruments de la batterie (x) ;\\
 b et c sont des continuations (t) ;
+
 Pour chacune des conditions suivantes, une suite de la figure \ref{suites} est attribuée :
 \begin{itemize}
 	\item Si a n’est pas un co :\\
@@ -486,8 +592,10 @@ Pour chacune des conditions suivantes, une suite de la figure \ref{suites} est a
 \end{itemize}
 \textit{Rappel :\\cf = charley fermé joué à la main ;\\co = charley ouvert joué à la main ;\\ pf = charley fermé joué au pied.}\\
 
-\textbf{Problème : le cf et le co ne seront jamais sur la même voix que le pf… Par conséquent, les règles concernant les charleys ouverts doivent-elles être appliquées sur l’arbre de parsing de l’input ?…}
+\textbf{Problème : le cf et le co ne seront jamais sur la même voix que le pf… 
+Par conséquent, les règles concernant les charleys ouverts doivent-elles être appliquées sur l’arbre de parsing de l’input ?…}
 
 \section*{Conclusion}
-Nous avons formalisé une notation de la batterie, modélisé cette notation pour la transcription de données MIDI en partition, nous avons décrit Qparse.\\
+Nous avons formalisé une notation de la batterie, modélisé cette notation pour la transcription de données MIDI en partition, nous avons décrit Qparse.
+
 Enfin, nous avons exposé une approche de type dictionnaire (les « systèmes ») pour détecter une métrique, choisir une grammaire pondérée appropriée et énoncer des règles de séparation des voix et de simplification de l’écriture.

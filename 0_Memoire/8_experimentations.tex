@@ -1,3 +1,5 @@
+% !TEX root = 1_memoire.tex
+
 \section*{Introduction}
 Dans ce chapitre, nous présenterons le jeu de données et les analyses
 audio-MIDI. Nous ferons ensuite l’expérimentation théorique d’un
@@ -26,6 +28,7 @@ TD-11 (figure \ref{electro_drums}).\newpage
 	\label{electro_drums}
 	\textit{Source :} \url{https://www.youtube.com/watch?v=BX1V_IE0g2c}
 \end{figure}
+
 Autres critères spécifiques au GMD :
 \begin{itemize}
 	\item Toutes les performances ont été jouées au métronome et à un tempo
@@ -38,6 +41,7 @@ Autres critères spécifiques au GMD :
 	\item Il a été demandé à 4 batteurs d’enregistrer le même groupe de 10 rythmes dans leurs styles respectifs. Ils sont dans les dossiers eval-session du GMD.
 	\item Les sorties audio synthétisées ont été alignées à 2 ms près sur leur fichier MIDI.
 \end{itemize}
+
 \subsection*{Format des données}
 Le Roland TD-11 divise les données enregistrées en plusieurs pistes distinctes :
 \begin{itemize}
@@ -54,6 +58,7 @@ The TD-11 also records control changes specifying the position of the hi-hat ped
 Ces analyses ont été faites dans le cadre de transcriptions manuelles à partir de fichiers MIDI et Audio du GMD.
 \subsection*{Comparaisons de transcriptions}
 Pour les comparaisons de transcriptions, les transcriptions manuelles (TM) ont été éditées à l’aide de Lilypond\footnote{\url{http://lilypond.org/}} ou MuseScore\footnote{\url{https://musescore.com/}} et les transcriptions automatiques (TA) ont toutes été générées manuellement avec MuseScore.
+
 \subsubsection{Exemple d’analyse 1}
 \begin{figure}[h]
 	\centering
@@ -65,7 +70,9 @@ Pour les comparaisons de transcriptions, les transcriptions manuelles (TM) ont �
 	\item Erreur d’indication de mesure (3/4 au lieu de 4/4) ;
 	\item Les silences de la mesure 1 de la TA sont inutilement surchargés ;
 	\item La noire du temps 4 de la mesure 1 de la TM est devenue les deux premières notes (une double-croche et une croche) d’un triolet sur le temps 1 de la mesure 2 de la TA.
-\end{itemize}\newpage
+\end{itemize}%\newpage
+
+
 \subsubsection{Exemple d’analyse 2}
 \begin{figure}[h]
 	\centering
@@ -75,8 +82,9 @@ Pour les comparaisons de transcriptions, les transcriptions manuelles (TM) ont �
 \end{figure}
 \begin{itemize}
 	\item Les doubles croches ont été interprétées en quintolet
-	\item La deuxième double-croche est devenue une croche.\\
+	\item La deuxième double-croche est devenue une croche.
 \end{itemize}
+
 \subsubsection{Exemple d’analyse 3}
 \begin{figure}[h]
 	\centering
@@ -84,6 +92,7 @@ Pour les comparaisons de transcriptions, les transcriptions manuelles (TM) ont �
 	\includegraphics[height=24mm, width=50mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/3_manuelle.png}\ \ \ \ 
 	\includegraphics[height=25mm, width=55mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/2_musescore.png}
 \end{figure}
+
 \begin{itemize}
 	\item Les grosses-caisses, les charleys et les caisses-claires ont été décalés d’un temps vers la droite.
 	\item Les toms basses des temps 1 et 2 de la mesure 2 de la TM ont été décalés d’une double croche vers la droite dans la TA.
@@ -96,13 +105,16 @@ Pour les comparaisons de transcriptions, les transcriptions manuelles (TM) ont �
 	\centering
 	\includegraphics[height=19mm, width=50mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/3_manuelle.png}\ \ \ \ 
 	\includegraphics[height=19mm, width=70mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/2_musescore.png}
-\end{figure}\\
-Sur le temps 4 de la mesure 1, la deuxième croche a été transcrite d’une manière excessivement complexe !\newpage
+\end{figure}
+
+Sur le temps 4 de la mesure 1, la deuxième croche a été transcrite d’une manière excessivement complexe! %\newpage
+
 \subsubsection{Exemple avec des flas}
 Transcription manuelle\\
 \includegraphics[height=25mm, width=95mm]{z_images/4_experimentations/1_analyse_midi_audio/2_transcriptions_flas/0_124_funk_95_fill_4-4.png}\\
 Transcription automatique\\\\
 \includegraphics[height=20mm, width=130mm]{z_images/4_experimentations/1_analyse_midi_audio/2_transcriptions_flas/1_124_funk_95_fill_4-4.png}\\
+
 \begin{itemize}
 	\item Le premier fla est reconnu comme étant un triolet contenant une quadruple croche suivie d’une triple croche au lieu d’une seule note ornementée.
 	\item Le deuxième fla est reconnu comme étant un accord.
@@ -110,6 +122,7 @@ Transcription automatique\\\\
 	\item La TA ne reconnaît qu’une mesure quand la TM en transcrit deux. En effet, la TA a divisé par deux la durée des notes afin de les faire tenir dans une mesure à 4 temps dont les unités de temps sont les noires. Par exemple, le soupir du temps 2 de la TM devient un demi-soupir sur le contre-temps du temps 1 dans la TA. Ou encore, la noire (pf, voir le tableau \ref{pitchs_instru}) sur le temps 1 de la mesure 2 de la TM suivie d’un demi-soupir devient une croche pointée sur le temps 3 de la TA.
 	\item Autre problème : certaines têtes de notes sont mal attribuées. Par exemple, le charley ouvert en l’air sur le temps 2 de la mesure 2 de la TM devrait avoir le même symbole sur la TA. Idem pour les cross-sticks.
 \end{itemize}\newpage
+
 \subsection*{Transcription de partition}
 \label{partition_entiere}
 \begin{figure}[h]
@@ -117,12 +130,21 @@ Transcription automatique\\\\
 	\caption{Partition de référence}
 	\label{partition_ref}
 \end{figure}
+
 La figure \ref{partition_ref} est la transcription manuelle des fichiers \textit{004\_jazz-funk\_116\_beat\_4-4.mid} et \textit{004\_jazz-funk\_116\_beat\_4-4.wav} du GMD.\\Cette transcription a été entièrement faite avec Lilypond (voir le code lilypond sur le git \url{https://github.com/MartinDigard/Stage_M2_Inria})
-Il s’agit d’une partition d’un 4/4 binaire dont le fichier MIDI est annoncé dans le GMD de style «jazz-funk» probablement en raison de la ride de type shabada rapide (le ternaire devient binaire avec la vitesse) combiné avec l’after-beat de type rock (caisse-claire sur les deux et quatre).\\
+Il s’agit d’une partition d’un 4/4 binaire dont le fichier MIDI est annoncé dans le GMD de style «jazz-funk» probablement en raison de la ride de type shabada rapide (le ternaire devient binaire avec la vitesse) combiné avec l’after-beat de type rock (caisse-claire sur les deux et quatre).
+
 La transcription des données audio et MIDI contenues dans ces fichiers a permis une analyse plus approndie des critères à relever pour chaque évènement MIDI et de la manière de les considérer dans un objectif de transcription en partition lisible pour un musicien (Voir la section \ref{modelisation_transcription}).
+
 \section{Expérimentation théorique d’un système}
 \label{expe_theo}
-Cette expérimentation théorique, basée sur la partition de référence de la figure \ref{partition_ref}, montre le procédé de création d’un \textit{système} et des règles qui en découlent (métrique, choix de grammaire, règles de séparation des voix et de simplification de l’écriture). Le \textit{système} devra ensuite être implémenté pour appliquer des tests qui seront effectués, dans un premier temps, sur la partition de référence.
+\florent{Le titre est contradictoire, et l'explication pas très claire}
+Cette expérimentation théorique, basée sur la partition de référence de la figure \ref{partition_ref}, 
+montre le procédé de création d’un \textit{système} et des règles qui en découlent 
+(métrique, choix de grammaire, règles de séparation des voix et de simplification de l’écriture). 
+Le \textit{système} devra ensuite être implémenté pour appliquer des tests qui seront effectués, 
+dans un premier temps, sur la partition de référence.
+
 \subsection*{Motifs et gammes}
 \begin{figure}[h]
 	\centering
@@ -131,12 +153,15 @@ Cette expérimentation théorique, basée sur la partition de référence de la 
 	\caption{Motifs et gammes}
 	\label{motifs_gammes}
 \end{figure}
+
 \subsubsection{Motifs}
 À partir de la partition de référence, les deux motifs de la figure \ref{motifs_gammes} peuvent être systématisés. Le motif 1 est joué du début jusqu’à la mesure 18 avec des variations et des fills et le motif 2 est joué de la mesures 23 à la mesure 28 avec des variations. Ces deux motifs sont très classiques et pourront être détectés dans de nombreuses performances.\\
+
 \subsubsection{Gammes}
 Les gammes de la figure \ref{motifs_gammes} étayent toutes les combinaisons d’un motif en 4/4 binaires jusqu’aux doubles croches.\\
 Les lignes 1 et 2 traitent les croches. La ligne 1 a 2 mesures dont la première ne contient que des noires et la deuxième que des croches en l’air. Ces deux possibilités sont combinées de manière circulaire dans les 3 mesures de la deuxième ligne.\\
 Les lignes 3, 4 et 5 traitent les doubles-croches. La ligne 3 a 2 mesures dont la première ne contient que des croches et la deuxième que des doubles-croches en l’air. Ces deux possibilités sont combinées de manière circulaire dans les lignes 4 et 5 qui contiennent chacunes 3 mesures.
+
 \subsection*{Systèmes — motifs et gammes combinés}
 Pour la suite de l’expérimentation théorique, nous utiliserons le motif 1 de la figure \ref{motifs_gammes}.\\
 \begin{figure}[h]
