@@ -1,24 +1,42 @@
 % !TEX root = 1_memoire.tex
+QUOI ?
+
 Ce mémoire de recherche, effectué en parallèle d’un stage à l’Inria dans le
 cadre du master de traitement automatique des langues de l’Inalco, contient
 une proposition originale ainsi que diverses contributions dans le domaine de
 la transcription automatique de la musique. Les travaux qui seront exposés ont
 tous pour objectif d’améliorer \textbf{qparse}, un outil de transcription
 automatique de la musique, et seront axés spécifiquement sur le cas de la
-batterie. Nous parlerons donc de transcription musicale, en suivant des
-méthodes communes au domaine du traitement automatique des langues (TAL) plutôt
-que directement de langues naturelles, et nous parlerons aussi de génération
-automatique de partitions de musique à partir de données audio ou symboliques.
-La musique et les langues naturelles sont deux moyens qui nous servent à
-exprimer nos ressentis sur le monde et les choses : « La musique s’écrit et se
-lit aussi facilement qu’on lit et écrit les paroles que nous prononçons. »
-% Rendre la citation de danhauser explicite ?
-\cite{danhauser}.
+batterie.
 
-L’exercice exposé dans ce mémoire nécessitera la manipulation
-d’un langage musical codifié par une grammaire (solfège, durées, nuances,
-volumes) et soulèvera des problématiques concernées par les techniques du TAL.
+Nous parlerons de transcription musicale, en suivant des méthodes communes au
+domaine du traitement automatique des langues (TAL) plutôt que directement de
+langues naturelles, et nous parlerons aussi de génération automatique de
+partitions de musique à partir de données audio ou symboliques. En considérant
+que la musique et les langues naturelles sont deux moyens qui nous servent à
+exprimer nos ressentis sur le monde et les choses, ce travail reposera sur une
+citation de l’ouvrage de Danhauser \cite{danhauser} : « La musique s’écrit et
+se lit aussi facilement qu’on lit et écrit les paroles que nous prononçons. »
+L’exercice exposé dans ce mémoire nécessitera donc la manipulation d’un langage
+musical codifié par une grammaire (solfège, durées, nuances, volumes) et
+soulèvera des problématiques concernées par les techniques du TAL.\\
 
+POURQUOI ?
+\begin{itemize}
+	\item sujet traité : la batterie
+	\item intérêt spécifique de la génération de partition de batterie comparativement
+  au autres instrument
+	\item patrimoine
+	\item rapidité de génération (musicien ou enseignement)
+	\item …\\
+\end{itemize}
+
+\florent{il faut revoir la fin, avec une description rapide du problème, de la
+méthode suivie et des contributions suivi d'un petit plan par parties.} 
+
+
+COMMENT ?\\
+$\to$ Problèmatique :\\
 L’écriture musicale offre de nombreuses possibilités pour la transcription d’un
 rythme donné. Le contexte musical ainsi que la lisibilité d’une partition pour
 un batteur entraîné conditionnent les choix d’écriture. Reconnaître la
@@ -27,15 +45,12 @@ ligatures, ou simplement décider d’un usage pour une durée parmi les
 différentes continuations possibles (notes pointées, liaisons, silences, etc.)
 constituent autant de possibilités que de difficultés. De plus, la batterie
 est dotée d’une écriture spécifique par rapport à la majorité des
-instruments. Il a donc fallu modéliser plusieurs critères concernant sa
+instruments.\\
+
+$\to$ Méthodes :\\
+$\to$ Contributions :\\
+Il a donc fallu modéliser plusieurs critères concernant sa
 représentation. Cette modélisation étaient jusqu’à présent inexistante.
-
-%\florent{il faut revoir la fin, avec une description rapide du problème, 
-         %de la méthode suivie et des contributions} %suivi d'un petit plan par parties.
-
-
-% Voici la proposition principale de ce mémoire :
-
 
 La proposition principale de ce mémoire est basée sur la recherche de rythmes
 génériques sur l’\textit{input}. Ces rythmes sont des \textit{patterns}
@@ -45,6 +60,8 @@ combinaisons qui leur sont propres. On les nomme systèmes (voir sections
 des choix le plus tôt possible afin de simplifier le reste des calculs en
 éliminant une partie d’entre eux. Ces choix concernent notamment la métrique
 et les règles de réécriture.
+
+
 
 % Et voici les contributions apportées lors du stage :
 
@@ -72,7 +89,7 @@ spécifiques à la batterie (\ref{gram_pond})
 
 
 Les codes cpp sur la drum ont pu être construit en parti grâce aux travaux
-réalisés dans ce mémoire de recherche.
+réalisés dans ce mémoire de recherche.\\
 
 % 
 %	 Contributions sur la branche « distance » dans :
@@ -82,7 +99,7 @@ réalisés dans ce mémoire de recherche.
 %		DrumCode hpp et cpp\\
 %	\end{itemize}
 %\end{itemize}
-
+PLAN\\
 Nous présenterons le contexte (chapitre \ref{contexte}) suivi d’un état de l’art
 (chapitre \ref{etat_de_l_art}) et nous définirons de manière générale le
 processus de transcription automatique de la musique pour enfin étayer les
