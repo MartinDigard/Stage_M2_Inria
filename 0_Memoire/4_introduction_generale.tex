@@ -13,13 +13,16 @@ Nous parlerons de transcription musicale, en suivant des méthodes communes au
 domaine du traitement automatique des langues (TAL) plutôt que directement de
 langues naturelles, et nous parlerons aussi de génération automatique de
 partitions de musique à partir de données audio ou symboliques. En considérant
-que la musique et les langues naturelles sont deux moyens qui nous servent à
+que la musique à l’instar des langues naturelles est un moyen qui nous sert à
 exprimer nos ressentis sur le monde et les choses, ce travail reposera sur une
 citation de l’ouvrage de Danhauser \cite{danhauser} : « La musique s’écrit et
 se lit aussi facilement qu’on lit et écrit les paroles que nous prononçons. »
 L’exercice exposé dans ce mémoire nécessitera donc la manipulation d’un langage
-musical codifié par une grammaire (solfège, durées, nuances, volumes) et
-soulèvera des problématiques concernées par les techniques du TAL.\\
+musical qui peut être analysé à l’aide de théories formelles et d’outils
+adéquats comme des grammaires (solfège, durées, nuances, volumes) et
+soulèvera des problématiques qui peuvent être résolues par l’utilisation de
+méthodes issues de l’informatique et de l’analyse des langues et des
+langages.\\
 
 POURQUOI ?
 \begin{itemize}
@@ -31,8 +34,8 @@ POURQUOI ?
 	\item …\\
 \end{itemize}
 
-\florent{il faut revoir la fin, avec une description rapide du problème, de la
-méthode suivie et des contributions suivi d'un petit plan par parties.} 
+<flo>il faut revoir la fin, avec une description rapide du problème, de la
+méthode suivie et des contributions suivi d'un petit plan par parties.</flo> 
 
 
 COMMENT ?\\
@@ -40,17 +43,17 @@ $\to$ Problèmatique :\\
 L’écriture musicale offre de nombreuses possibilités pour la transcription d’un
 rythme donné. Le contexte musical ainsi que la lisibilité d’une partition pour
 un batteur entraîné conditionnent les choix d’écriture. Reconnaître la
-métrique principale d’un rythme, la façon de regrouper les notes par les
+métrique principale d’un rythme, la façon de regrouper les notes par des
 ligatures, ou simplement décider d’un usage pour une durée parmi les
 différentes continuations possibles (notes pointées, liaisons, silences, etc.)
-constituent autant de possibilités que de difficultés. De plus, la batterie
-est dotée d’une écriture spécifique par rapport à la majorité des
-instruments.\\
+constituent autant de possibilités que de difficultés <dam>que de choix de
+représentation à réaliser ?</dam>. De plus, la batterie est dotée d’une écriture
+spécifique par rapport à la majorité des instruments.\\
 
 $\to$ Méthodes :\\
 $\to$ Contributions :\\
-Il a donc fallu modéliser plusieurs critères concernant sa
-représentation. Cette modélisation étaient jusqu’à présent inexistante.
+<louison>liste des contributions : donner une échelle, un point de comparaison, du
+contexte, pour pouvoir mesurer l'importance de chaque contribution</louison>
 
 La proposition principale de ce mémoire est basée sur la recherche de rythmes
 génériques sur l’\textit{input}. Ces rythmes sont des \textit{patterns}
@@ -59,46 +62,46 @@ combinaisons qui leur sont propres. On les nomme systèmes (voir sections
 \ref{systemes_methodes}, \ref{expe_theo}). L’objectif des systèmes est de fixer
 des choix le plus tôt possible afin de simplifier le reste des calculs en
 éliminant une partie d’entre eux. Ces choix concernent notamment la métrique
-et les règles de réécriture.
+et les règles de réécriture.\\
 
+La proposition ci-dessus a nécessité plusieurs sous-tâches :
+\begin{itemize}
+    \item une modélisation de la notation de la batterie
+        (fusion de \ref{notation_batterie} et de
+        \ref{modelisation_transcription}) qui était jusqu’à présent
+        inexistante.
+    \item plusieurs trancriptions manuelles dans le but d’analyser les contenus
+        des fichiers MIDI et Audio (\ref{analyse_midi_audio}) et de faire des
+        comparaisons de transcription avec des outils déjà existants
+        \footnote{MuseScore3}.
+    \item une partition de référence transcrite manuellement sur l’entièreté
+        d’une performance du jeu de données afin de repérer les éléments
+        importants pour la modélisation et de faire les liens entre les
+        critères des données d’\textit{input} avec l’écriture finale
+        (\ref{partition_ref}). Cette partition avait aussi pour objectif
+        d’effectuer des tests et des évaluations.
+    \item le passage au polyphonique en théorie et en implémentation impliquant
+        la théorie sur la détection de l’identité de notes dans un Jam
+        \footnote{groupe de notes rassemblées en raison d’un faible écart entre
+            leur emplacements temporels} et l’implémentation de tests unitaires
+            sur le traitement des Jams (\ref{jam_tests}).
+    \item  la création de grammaires pondérées spécifiques à
+        la batterie (\ref{gram_pond})\\
+\end{itemize}
 
+L’ensemble de ces sous-tâches a permis deux réalisations principales :
+1) Obtenir des arbres de rythmes corrects en \textit{output} de qparse avec des
+exemples courts proches de la partition de référence. \\
+2) La création d’une expérimentation théorique d’un système \ref{expe_theo}
+dont le but premier est de démontrer qu’elle est implémentable et applicable à
+d’autres type de rythmes et dont le second objectif est de donner une méthode
+de création d’un système à partir d’une partition.\\
+Ces deux réalisations recouvrent une partie du chemin à parcourir puisque pour
+effectuer des évaluations conséquentes sur résultat, la chaîne de traitement
+doit être finie afin de pouvoir vérifier de manière empirique que les systèmes,
+qui constituent ma contribution principale pour ce mémoire, ont permis
+d’améliorer qparse pour la transcription automatique de la batterie.\\
 
-% Et voici les contributions apportées lors du stage :
-
-La proposition ci-dessus a nécessité plusieurs sous-tâches dont une description
-de la notation de la batterie (\ref{notation_batterie}) ainsi qu’une
-modélisation pour la transcription de la batterie
-(\ref{modelisation_transcription}).
-
-Plusieurs trancriptions manuelles ont été effectuées afin d’analyser les
-contenus des fichiers MIDI et Audio (\ref{analyse_midi_audio}) et de faire des
-comparaisons de transcription avec des outils déjà existants
-\footnote{MuseScore3}. Une partition entière a aussi était transcrite
-manuellement afin de repérer les éléments importants pour la modélisation et
-faire les liens entre les critères des données d’input avec \ref{partition_entiere}
-L’ensemble de ces sous-tâches a permis la création expérimentation théorique
-d’un système \ref{expe_theo}.
-
-- Une fois proposition élaboré et verrouillé\\
-- construire la chaîne jusqu’au bout\\
-- nous avons pu la pousser jusqu’à la polyphonique en théorie et en
-implémentation, ma contribution sur ce sujet étant la théorie sur la détection
-de l’identité de notes dans un cluster (accord), l’implémentation de tests
-unitaires sur les Jams (\ref{jam_tests}) et la création de grammaires pondérées
-spécifiques à la batterie (\ref{gram_pond})
-
-
-Les codes cpp sur la drum ont pu être construit en parti grâce aux travaux
-réalisés dans ce mémoire de recherche.\\
-
-% 
-%	 Contributions sur la branche « distance » dans :
-%	\begin{itemize}
-%		\item qparselib/notes/cluster.md
-%		\item qparselib/src/segment/import/ :\\
-%		DrumCode hpp et cpp\\
-%	\end{itemize}
-%\end{itemize}
 PLAN\\
 Nous présenterons le contexte (chapitre \ref{contexte}) suivi d’un état de l’art
 (chapitre \ref{etat_de_l_art}) et nous définirons de manière générale le
