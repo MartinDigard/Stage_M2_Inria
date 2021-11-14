@@ -1,118 +1,109 @@
-% !TEX root = 1_memoire.tex
 \section*{Introduction}
-La transcription automatique de la musique (AMT) est un défi ancien
-\cite{first_one} et difficile qui n’est toujours pas résolu. Il a engendré une
-pluie de sous-tâches qui ont donné naissance au domaine de la recherche
-d’information musicale (MIR). \florent{cf. ismir.net}
-Actuellement, de nombreux travaux de MIR font
-appel au traitement automatique des langues (TAL) \footnote{NLP4MuSA, the 2nd
-Workshop on Natural Language Processing for Music and Spoken Audio, co-located
-with ISMIR 2021.}.\\
-Dans ce chapitre, nous parlerons de l’informatique musicale, nous tenterons
-d’établir les liens existants entre le MIR et le TAL ainsi qu’entre les notions
-de langage musical et langue naturelle. Nous traiterons également 
-\florent{du problème de l’AMT, de ses applications}
-de l’utilité et du problème de l’AMT et de la transcription automatique de la
-batterie (ADT).\\
+La transcription automatique de la musique (TAM) est un défi ancien
+\cite{first_one} et difficile qui n’est toujours pas résolu de manière
+satisfaisante par les systèmes actuels. Il a engendré une
+grande variété de sous-tâches qui ont donné naissance au domaine de la
+recherche d’information musicale (RIM)\footnote{\url{https://ismir.net/}}.
+Actuellement, en raison de la nature séquentielle et symbolique des données
+musicales et du fait que les travaux en TAL sont assez avancés en analyse de
+données séquentielles ainsi qu’en traitement du signal, de nombreux travaux de
+RIM font appel au TAL. Certains de ces travaux se concentrent notamment sur
+l’analyse des paroles de chansons\footnote{NLP4MuSA, the 2nd Workshop on
+Natural Language Processing for Music and Spoken Audio, co-located with ISMIR
+2021.}. <moi>Mais d’autres traitent directement la musique + ref.</moi>
+
+Dans ce chapitre, nous parlerons de l’informatique musicale, nous montrerons
+les liens existants entre le RIM et le TAL ainsi qu’entre les notions de
+langage musical et langue naturelle. Nous traiterons également du problème de
+l’AMT et de ses applications.
+
 Enfin, nous décrirons les représentations de la musique qui sont nécessaires à
 la compréhension du présent travail.
-\section{TAL et MIR}
-L'informatique musicale \cite{mus_inf} est une étude du traitement de la
-musique \cite{book_muller}, 
-\florent{je réfererais plutôt à "Computer Music": 
-utilisation de méthodes numériques pour l'analyse et la synthèse
-de musique, qu'il s'agisse d'innformation audio ou symbolique
-(aide à l'écriture, transcription, base de partitions...) de musique}
-en particulier des représentations musicales, de la
-transformée de Fourier pour la musique \cite{fourier}, de l'analyse de la
-structure de la musique et de la reconnaissance des accords\footnote{En
+\section{Langues naturelles et musique en informatique}
+COMPUTER MUSIC\\
+L'informatique musicale ou \textit{Computer Music} regroupe l’ensemble des
+méthodes permettant de créer ou d’analyser des données musicales à l’aide
+d’outils informatiques \cite{book_muller}. Ce domaine implique l’utilisation de
+méthodes numériques pour l'analyse et la synthèse de musique\footnote{Voir la
+transformée de Fourier pour la musique dans \cite{fourier}}, qu'il s'agisse
+d’informations audio, ou symboliques (aide à l'écriture, transcription, base de
+partitions...). Un exemple de tâche dans ce domaine pourrait être l’analyse de
+la structure de la musique et de la reconnaissance des accords\footnote{En
 musique, un accord est un ensemble de notes considéré comme formant un tout du
 point de vue de l'harmonie. Le plus souvent, ces notes sont jouées
 simultanément ; mais les accords peuvent aussi s'exprimer par des notes
-successives}. 
-\florent{vaste champ de recherche pluridisciplinaire, à l'intersection de
-acoustique, signal, synthèse sonore, informatique, sciences cognitives,
-neurosciences, musicologie...}
-\florent{On peut citer: ...}
-D'autres sujets de recherche en informatique musicale comprennent
-la modélisation informatique de la musique, l'analyse informatique de la
-musique, la reconnaissance optique de la musique, les éditeurs audio
-numériques, les moteurs de recherche de musique en ligne, la recherche
-d'informations musicales et les questions cognitives 
-\florent{? psycho-acoustique, neuro-sciences ?}
-dans la musique.\\
-Le MIR\footnote{https://ismir.net/} apparaît vers le début des années 2000
-\cite{MIR_1}. 
-\florent{sujet: la recherche et extraction d'information à partir de données
-musicales.}
-C’est une science interdisciplinaire qui fait appel à de nombreux
-domaines comme la musicologie, l’analyse musicale, la psychologie, les sciences
-de l’information, le traitement du signal et les méthodes d’apprentissage
-automatisé en informatique. Cette discipline récente a notamment été soutenue
-par de grandes compagnies du web\footnote{\url{https://research.deezer.com/}}
-\footnote{\url{https://magenta.tensorflow.org/}}
+successive}.\\
+
+RIM\\
+La RIM est née du domaine de l’informatique musicale et apparaît vers le début
+des années 2000 \cite{MIR_1}. L’objectif de cette science est la recherche et
+l’extraction d’informations à partir de données musicales. Il s’agit d’un vaste
+champ de recherche pluridisciplinaire, à l'intersection de acoustique, signal,
+synthèse sonore, informatique, sciences cognitives, neurosciences, musicologie,
+psycho-acoustique, etc. Cette discipline récente a notamment été soutenue par
+de grandes entreprises technologiques\footnote{\url{
+https://research.deezer.com/}} \footnote{\url{https://magenta.tensorflow.org/}}
 \footnote{\url{https://research.atspotify.com/}} qui veulent développer des
 systèmes de recommandation de musique ou des moteurs de recherche dédiés au son
-et à la musique.\\\\
-\begin{figure}[!h]
-	\centering
-	\includegraphics[height=85mm, width=120mm]{
-    z_images/1_contexte/0_Bernstein.png}
-\end{figure}
-\florent{ne pas include ce slide, citer Berstein et Chomski est suffisant}
+et à la musique.\\
 
-
-Aborder la musique à travers le TAL nécessite une réflexion autour de la
-musique en tant que langage ainsi que la possibilité de comparer ce même
-langage avec les langues naturelles. Quelques travaux en neurosciences ont
-abordé la question, notamment par observation des processus cognitifs et
-neuronaux que les systèmes de traitement de ces deux langages avaient en
-commun. Dans le travail de Poulin-Charronnat \textit{et al.}
-\cite{poulincharronnat:hal-01985213}, la musique est reconnue comme étant un
-système complexe spécifique à l’être humain dont une des similitudes avec les
-langues naturelles est l’émergence de régularités reconnues implicitement par
-le système cognitif. La question de la pertinence de l’analogie entre langues
-naturelles et langage musical a également été soulevée à l’occasion de projets
-de recherche en TAL. Keller \textit{et al.} \cite{keller:hal-03279850} ont
-exploré le potentiel de ces techniques à travers les plongements de mots et le
-mécanisme d’attention pour la modélisation de données musicales. La question du
-sens d’une phrase musicale apparaît, selon eux, à la fois comme une limite et
-un défi majeur pour l’étude de cette analogie.
-\florent{on cite souvent la sémiotique (F. de Saussure) dans ce contexte.}
-% \textit{Ici, Digression sur la musicologie calculatoire vs linguistique
-% computationnelle ?}\\\\
+RIM et TAL \\
+\florent{Citer Berstein et Chomski à partir du slide
+z\_images/1\_contexte/0\_Bernstein.png}
+Aborder la musique comme un langage avec des méthodes de TAL nécessite une
+réflexion autour de la musique en tant que langage ainsi que la possibilité de
+comparer ce même langage avec les langues naturelles. Quelques travaux en
+neurosciences ont abordé ces questions, notamment par observation des processus
+cognitifs et neuronaux que les systèmes de traitement de ces deux productions
+humaines avaient en commun. Dans le travail de Poulin-Charronnat
+\textit{et al.} \cite{poulincharronnat:hal-01985213}, la musique est reconnue
+comme étant un système complexe spécifique à l’être humain dont une des
+similitudes avec les langues naturelles est l’émergence de régularités
+reconnues implicitement par le système cognitif. La question de la pertinence
+de l’analogie entre langues naturelles et langage musical a également été
+soulevée à l’occasion de projets de recherche en TAL. Keller \textit{et al.}
+\cite{keller:hal-03279850} ont exploré le potentiel de ces techniques à travers
+les plongements de mots et le mécanisme d’attention pour la modélisation de
+données musicales. La question de la sémantique d’une phrase musicale apparaît,
+selon eux, à la fois comme une limite et un défi majeur pour l’étude de cette
+analogie. Ces considérations nous rapproche de la sémiologie de F. de Saussure
+en tant que science générale des signes et dont la langue ne serait qu’un
+cas particulier, caractérisé par l’arbitrariété totale de ses unités
+\cite{wunderli2017ferdinand}.
 
 \florent{exemples / illustration de la proximité thématique ?}D’autres travaux
 très récents, ont aussi été révélés lors de la \textit{première conférence sur
 le NLP pour la musique et l'audio (NLP4MusA 2020)}. Lors de cette conférence,
 Jiang \textit{et al.} \cite{Jiang2020DiscoveringMR} ont présenté leur
-implémentation d’un modèle de langage musical auto-attentif visant à améliorer
-le mécanisme d'attention par élément, déjà très largement utilisé dans les
-modèles de séquence modernes pour le texte et la musique.\\
-Le domaine du TAL qui se rapproche le plus du MIR est la reconnaissance de la
+implémentation d’un modèle de langage musical visant à améliorer le mécanisme
+d'attention par élément, déjà très largement utilisé dans les modèles de
+séquence modernes pour le texte et la musique.\\
+Le domaine du TAL qui se rapproche le plus du RIM est la reconnaissance de la
 parole (Speech to text). En effet, la séparation des sources ont des approches
 similaires dans les deux domaines. De plus, il existe un lien entre partition
 musicale comme manière d’écrire la musique et texte comme manière d’écrire la
-parole.\\\\
+parole.
+
+La transcription musicale est la notation d’une œuvre musicale initialement non
+écrite.
+
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|} \hline
 		Domaines & Similitudes & Différences \\ \hline
 		Speech to text & signal $\Rightarrow$ phonèmes $\Rightarrow$
         texte & données linéaires\\
-		AMT & signal $\Rightarrow$ MIDI $\Rightarrow$ partition & données
+		AMT & signal $\Rightarrow$ notes, accords $\Rightarrow$ partition & données
         structurées\\ \hline
 	\end{tabular}
 	\caption{speechToText vs AMT}
-	\label{spToTxt_vs_AMT}
+	\label{spToTxt_vs_TAM}
 \end{table}
-\florent{objectifs similaires sur le papier: speech-to-text, 
-         problèmes et applications aussi comparables: transcription, synthèse, 
-         séparation de sources... 
-         Mais information de nature différente 
-         cf. sous-tâches comme beat tracking et inférence de tempo en musique.}
-
-
+La tableau \ref{spToTxt_vs_TAM} montre des différences et des similitudes entre
+les deux domaines. objectifs similaires sur le papier: speech-to-text,
+problèmes et applications aussi comparables: transcription, synthèse,
+séparation de sources... Mais information de nature différente cf. sous-tâches
+comme beat tracking et inférence de tempo en musique.
 \section{La transcription automatique de la musique}
 \florent{il faut réorganiser cette partie: 
          1. objectif 2. applications 3. problèmes et méthodes scientifiques}
@@ -148,12 +139,13 @@ nécessaires pour pratiquer la musique, faire des reprises et effectuer une
 analyse musicale détaillée. Les partitions de musique classique sont facilement
 accessibles et il y a peu de demandes de nouvelles transcriptions. 
 \florent{pas d'accord avec ça. problème des partitions libres de droit.}
-\florent{l'intérêt est aussi d'avoir des partitions au contenu exploitable (texte ou XML) 
-         vs images (pdf...)
-cf. par ex. cette présentation d'OpenScore à FOSDEM https://archive.fosdem.org/2017/schedule/event/openscore/ et mes transparents sur le sujet}
-D'un point
-de vue pratique, des demandes beaucoup plus commerciales et académiques sont
-attendues dans le domaine de la musique populaire \cite{SHIBATA2021262}. 
+\florent{l'intérêt est aussi d'avoir des partitions au contenu exploitable
+    (texte ou XML) vs images (pdf...) cf. par ex. cette présentation
+d'OpenScore à FOSDEM https://archive.fosdem.org/2017/schedule/event/openscore/
+et mes transparents sur le sujet}
+D'un point de vue pratique, des demandes beaucoup plus commerciales et
+académiques sont attendues dans le domaine de la musique populaire
+\cite{SHIBATA2021262}. 
 \florent{là on passe aux approches scientifiques}
 Les modèles grammaticaux qui représentent la structure hiérarchique des séquences
 d'accords se sont avérés très utiles dans les analyses récentes de l'harmonie
