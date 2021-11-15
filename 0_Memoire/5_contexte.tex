@@ -21,24 +21,24 @@ Enfin, nous décrirons les représentations de la musique qui sont nécessaires 
 la compréhension du présent travail.
 \section{Langues naturelles et musique en informatique}
 COMPUTER MUSIC\\
-L'informatique musicale ou \textit{Computer Music} regroupe l’ensemble des
+L’informatique musicale ou \textit{Computer Music} regroupe l’ensemble des
 méthodes permettant de créer ou d’analyser des données musicales à l’aide
 d’outils informatiques \cite{book_muller}. Ce domaine implique l’utilisation de
-méthodes numériques pour l'analyse et la synthèse de musique\footnote{Voir la
-transformée de Fourier pour la musique dans \cite{fourier}}, qu'il s'agisse
-d’informations audio, ou symboliques (aide à l'écriture, transcription, base de
+méthodes numériques pour l’analyse et la synthèse de musique\footnote{Voir la
+transformée de Fourier pour la musique dans \cite{fourier}}, qu’il s’agisse
+d’informations audio, ou symboliques (aide à l’écriture, transcription, base de
 partitions...). Un exemple de tâche dans ce domaine pourrait être l’analyse de
 la structure de la musique et de la reconnaissance des accords\footnote{En
 musique, un accord est un ensemble de notes considéré comme formant un tout du
-point de vue de l'harmonie. Le plus souvent, ces notes sont jouées
-simultanément ; mais les accords peuvent aussi s'exprimer par des notes
+point de vue de l’harmonie. Le plus souvent, ces notes sont jouées
+simultanément ; mais les accords peuvent aussi s’exprimer par des notes
 successive}.\\
 
 RIM\\
 La RIM est née du domaine de l’informatique musicale et apparaît vers le début
 des années 2000 \cite{MIR_1}. L’objectif de cette science est la recherche et
 l’extraction d’informations à partir de données musicales. Il s’agit d’un vaste
-champ de recherche pluridisciplinaire, à l'intersection de acoustique, signal,
+champ de recherche pluridisciplinaire, à l’intersection de acoustique, signal,
 synthèse sonore, informatique, sciences cognitives, neurosciences, musicologie,
 psycho-acoustique, etc. Cette discipline récente a notamment été soutenue par
 de grandes entreprises technologiques\footnote{\url{
@@ -80,10 +80,10 @@ particulier, caractérisé par l’arbitrariété totale de ses unités
 
 D’autres travaux
 très récents, ont aussi été révélés lors de la \textit{première conférence sur
-le NLP pour la musique et l'audio (NLP4MusA 2020)}. Lors de cette conférence,
+le NLP pour la musique et l’audio (NLP4MusA 2020)}. Lors de cette conférence,
 Jiang \textit{et al.} \cite{Jiang2020DiscoveringMR} ont présenté leur
 implémentation d’un modèle de langage musical visant à améliorer le mécanisme
-d'attention par élément, déjà très largement utilisé dans les modèles de
+d’attention par élément, déjà très largement utilisé dans les modèles de
 séquence modernes pour le texte et la musique.\\
 Le domaine du TAL qui se rapproche le plus du RIM est la reconnaissance de la
 parole (Speech to text). En effet, la séparation des sources ont des approches
@@ -114,17 +114,17 @@ tracking et inférence de tempo en musique}).
 
 \section{La transcription automatique de la musique}
 1. OBJECTIF\\
-Lorsqu'un musicien est chargé de créer une partition à partir d'un
-enregistrement et qu'il écrit les notes qui composent le morceau en notation
-musicale, on dit qu'il a créé une transcription musicale de cet enregistrement.
-L'objectif de la TAM \cite{future_directions} est de convertir la performance
-d'un musicien en notation musicale — à l'instar de la conversion de la parole
+Lorsqu’un musicien est chargé de créer une partition à partir d’un
+enregistrement et qu’il écrit les notes qui composent le morceau en notation
+musicale, on dit qu’il a créé une transcription musicale de cet enregistrement.
+L’objectif de la TAM \cite{future_directions} est de convertir la performance
+d’un musicien en notation musicale — à l’instar de la conversion de la parole
 en texte dans le traitement du langage naturel. Cette définition peut être
 comprise de deux manières différentes selon les articles scientifiques :
-1) Processus de conversion d'un enregistrement audio en une notation pianoroll
+1) Processus de conversion d’un enregistrement audio en une notation pianoroll
 (une représentation bidimensionnelle des notes de musique dans le temps)
-2) Processus de conversion d'un enregistrement en notation musicale commune
-\footnote{Ici, on parle de notation occidentale.} (c'est-à-dire une
+2) Processus de conversion d’un enregistrement en notation musicale commune
+\footnote{Ici, on parle de notation occidentale.} (c’est-à-dire une
 partition).\\
 
 2. APPLICATIONS\\
@@ -134,18 +134,18 @@ d’une improvisation en temps réel afin de pouvoir reproduire sa performance
 ultérieurement. Une autre application notable est la préservation du patrimoine
 par exemple dans les styles musicaux où il n’existe peu de partitions (le
 jazz, la pop, les musiques de tradition orale \footnote{ethno-musicologie}, …).
-La TAM est aussi utile pour la recherche et l'annotation automatique
-d'informations musicales, pour l’analyse musicologique\footnote{par exemple
+La TAM est aussi utile pour la recherche et l’annotation automatique
+d’informations musicales, pour l’analyse musicologique\footnote{par exemple
 par la constitution de corpus musicologiques} ou encore pour les systèmes
 musicaux interactifs.
 
 Un grand nombre de fichiers audio et vidéos musicaux sont disponibles sur le
-Web, et pour la plupart d'entre eux, il est difficile de trouver les partitions
+Web, et pour la plupart d’entre eux, il est difficile de trouver les partitions
 musicales correspondantes, qui sont pourtant nécessaires pour pratiquer la
 musique, faire des reprises ou effectuer une analyse musicale détaillée.
 
 
-Mais l'intérêt de la TAM est aussi d'avoir des partitions au contenu
+Mais l’intérêt de la TAM est aussi d’avoir des partitions au contenu
 exploitable, avec des formats texte ou XML (entre autres…) dont les données
 sont manipulables, contrairement à de simples images en pdf
 \footnote{Voir \url{https://archive.fosdem.org/2017/schedule/event/openscore/}
@@ -153,7 +153,7 @@ sont manipulables, contrairement à de simples images en pdf
 
 3. PROBLÈMES ET MÉTHODES SCIENTIFIQUES\\
 Les modèles grammaticaux qui représentent la structure hiérarchique des séquences
-d'accords se sont avérés très utiles dans les analyses récentes de l'harmonie
+d’accords se sont avérés très utiles dans les analyses récentes de l’harmonie
 du jazz \cite{harasimjazz}.
 Comme déjà évoqué précédemment, il snagit d’un problème ancien et difficile.
 C’est un « graal » de l’informatique musicale. En 1976, H. C. Longuet-Higgins
@@ -167,12 +167,12 @@ pour programmer un ordinateur afin de lui faire analyser un enregistrement
 musical numérique de manière à détecter les lignes mélodiques, les accords et
 les accents rythmiques des instruments à percussion.\\
 La tâche de transcription automatique de la musique comprend deux activités
-distinctes : l'analyse d'un morceau de musique et l'impression d'une partition
+distinctes : l’analyse d’un morceau de musique et l’impression d’une partition
 à partir de cette analyse.\\\\
 La figure \ref{AMT_presentation} est une proposition de Benetos \textit{et al.}
 \cite{future_directions} \florent{la figure ne correspond pas à ton travail. 
          ici "score" = MIDI performance. 
-         Tu peux lister les sous-tâches en section 2.2}qui représente l'architecture générale d'un système de
+         Tu peux lister les sous-tâches en section 2.2}qui représente l’architecture générale d’un système de
 transcription musicale. On y observe plusieurs sous-tâches de l’AMT :
 \begin{itemize}
 	\item La séparation des sources à partir de l’audio.
@@ -182,9 +182,9 @@ transcription musicale. On y observe plusieurs sous-tâches de l’AMT :
 		$\Rightarrow$ Algorithmes de détection des multi-pitchs et de suivi des \tab notes.\\
 		Quatres sous-tâches optionnelles accompagnent ces algorithmes :
 		\begin{itemize}
-			\item identification de l'instrument ;
-			\item estimation de la tonalité et de l'accord ;
-			\item détection de l'apparition et du décalage ;
+			\item identification de l’instrument ;
+			\item estimation de la tonalité et de l’accord ;
+			\item détection de l’apparition et du décalage ;
 			\item estimation du tempo et du rythme.
 		\end{itemize}
 	\end{itemize}
@@ -198,9 +198,9 @@ transcription musicale. On y observe plusieurs sous-tâches de l’AMT :
 	\includegraphics[height=95mm, width=130mm]{z_images/1_contexte/1_general_process.png}
 	\caption{Transcription automatique}
 	\label{AMT_presentation}
-	\textit{Les sous-systèmes et algorithmes optionnels sont présentés à l'aide
+	\textit{Les sous-systèmes et algorithmes optionnels sont présentés à l’aide
     de lignes pointillées. Les doubles flèches mettent en évidence les
-connexions entre les systèmes qui incluent la fusion d'informations et une
+connexions entre les systèmes qui incluent la fusion d’informations et une
 communication plus interactive entre les systèmes.}
 \end{figure}%\newpage
 \florent{éviter newpage}
@@ -225,8 +225,8 @@ d’autres instruments sur des machines a permis aux compositeurs de s’émanci
 de la création d’un batteur en lui fournissant une partition contenant les
 parties exactes qu’ils voulaient entendre sur leur musique.
 
-La batterie a un statut à part dans l’univers de l’AMT puisqu'il s'agit
-d'instruments sans hauteur (du point de vue harmonique), d'événements sonores
+La batterie a un statut à part dans l’univers de l’AMT puisqu’il s’agit
+d’instruments sans hauteur (du point de vue harmonique), d’événements sonores
 auxquels une durée est rarement attribuée et de notations spécifiques (symboles
 des têtes de notes).
 \florent{citer \cite{Review_ADT} ici}
@@ -237,15 +237,15 @@ musicaux contenant \florent{"contenant" -> concernés par}
 de la batterie dont certains manquent de partitions,
 notamment les musiques d’improvisation (jazz, pop) \cite{future_directions},
 mais aussi de manière plus générale dans le domaine du MIR : si les ordinateurs
-étaient capables d'analyser la partie de la batterie dans la musique
+étaient capables d’analyser la partie de la batterie dans la musique
 enregistrée, cela permettrait \florent{permettrait de faciliter} une variété de tâches de traitement de la musique
 liées au rythme. En particulier, la détection et la classification des
 événements sonores de la batterie par des méthodes informatiques est considérée
 comme un problème de recherche important et stimulant dans le domaine plus
-large de la recherche d'informations musicales \cite{Review_ADT}.\\
-L'ADT est un sujet de recherche crucial pour la compréhension des aspects
+large de la recherche d’informations musicales \cite{Review_ADT}.\\
+L’ADT est un sujet de recherche crucial pour la compréhension des aspects
 rythmiques de la musique, et a un impact potentiel sur des domaines plus larges
-tels que l'éducation musicale et la production musicale.
+tels que l’éducation musicale et la production musicale.
 
 
 \section{Les représentations de la musique}
@@ -256,22 +256,22 @@ tels que l'éducation musicale et la production musicale.
 Le fichier WAV\footnote{https://en.wikipedia.org/wiki/WAV} est une instance du
 Resource Interchange File Format (RIFF) défini par IBM et Microsoft. Le format
 RIFF agit comme une "enveloppe" pour divers formats de codage audio.
-Bien qu'un fichier WAV puisse contenir de l'audio compressé, le format audio
-WAV le plus courant est l'audio non compressé au format LPCM (linear pulse-code modulation). 
+Bien qu’un fichier WAV puisse contenir de l’audio compressé, le format audio
+WAV le plus courant est l’audio non compressé au format LPCM (linear pulse-code modulation). 
 \florent{LPCM pas utile ici. parle juste échantillons et compression.}
 Le LPCM est également le format de codage audio standard des CD
 audio, qui stockent des données audio LPCM à deux canaux échantillonnées à
-44 100 Hz avec 16 bits par échantillon. Comme le LPCM n'est pas compressé et
-conserve tous les échantillons d'une piste audio, les utilisateurs
+44 100 Hz avec 16 bits par échantillon. Comme le LPCM n’est pas compressé et
+conserve tous les échantillons d’une piste audio, les utilisateurs
 professionnels ou les experts en audio peuvent utiliser le format WAV avec
-l'audio LPCM pour obtenir une qualité audio maximale.
+l’audio LPCM pour obtenir une qualité audio maximale.
 \florent{tu peux mentionner le format spectral (analyse harmonique) crucial en MIR audio.}
 
 \subsection*{Les données MIDI}
 Le MIDI\footnote{\url{https://en.wikipedia.org/wiki/MIDI}} (Musical Instrument Digital Interface) 
 \florent{ne pas copier wikipédia verbatim. source: midi.org
          MIDI est un protocole temps réel pour échanger des messages (événement) et un format de fichier.}
-est une norme technique qui décrit un protocole de communication, une interface numérique et des connecteurs électriques permettant de connecter une grande variété d'instruments de musique électroniques, d'ordinateurs et d'appareils audio connexes pour jouer, éditer et enregistrer de la musique.
+est une norme technique qui décrit un protocole de communication, une interface numérique et des connecteurs électriques permettant de connecter une grande variété d’instruments de musique électroniques, d’ordinateurs et d’appareils audio connexes pour jouer, éditer et enregistrer de la musique.
 
 \florent{fichier MIDI = séquence événements MIDI + dates (timestamp) ~ performance musicale symbolique}
 \florent{donner ici les données des événements et expliquer ON/OFF (clavier)}
@@ -291,9 +291,9 @@ Chaque évènement MIDI rassemble un ensemble d’informations sur la hauteur, l
 	\includegraphics[height=40mm, width=50mm]{z_images/1_contexte/3_evenements_midi.png}
 	\caption{Critère pour un évènement}
 \end{figure} %\newpage
-\florent{il n'y a pas de duration d'événement dans un MIDI file. 
-         la "durée" est une distance entre 2 événemtns ON et OFF (c'est important dans ton travail).
-         le screenshot n'est pas utile, écrit plutôt une liste itemize}
+\florent{il n’y a pas de duration d’événement dans un MIDI file. 
+         la "durée" est une distance entre 2 événemtns ON et OFF (c’est important dans ton travail).
+         le screenshot n’est pas utile, écrit plutôt une liste itemize}
 
 Pour la batterie, les évènements sont considérés sans durée, nous ignorerons donc les offsets (« Off Event »), les « Off Tick » et les « Duration ». 
 Le \textit{channel} ne nous sera pas utile non plus.
@@ -319,23 +319,23 @@ Une partition de musique\footnote{\url{https://fr.wikipedia.org/wiki/Partition\_
 \begin{itemize}
 	\item la hauteur ;
 	\item la durée ;
-	\item l'intensité ;
+	\item l’intensité ;
 	\item le timbre.
 \end{itemize}
 \florent{expliquer un peu plus avec exemple. 
-ce serait mieux d'avoir un ex. avec des nuances, accents, appogiatures...}
+ce serait mieux d’avoir un ex. avec des nuances, accents, appogiatures...}
 
-Ainsi que de leurs combinaisons appelées à former l'ossature de l'œuvre musicale dans son déroulement temporel, à la fois :
+Ainsi que de leurs combinaisons appelées à former l’ossature de l’œuvre musicale dans son déroulement temporel, à la fois :
 \begin{itemize}
 	\item diachronique (succession des instants, ce qui constitue en musique la mélodie) ;
-	\item et synchronique (simultanéité des sons, c'est-à-dire l'harmonie).
+	\item et synchronique (simultanéité des sons, c’est-à-dire l’harmonie).
 \end{itemize}
-\florent{explications sur l'aspect structuré (hiérarchie) : les mesures, les groupes ryhtmiques...
-         c'est important ici}
+\florent{explications sur l’aspect structuré (hiérarchie) : les mesures, les groupes ryhtmiques...
+         c’est important ici}
 
 \subsection*{Le format MusicXML}
 \florent{existe plusieurs formats XML: MusicXML, MEI, MNX, qui sont autant de schemas XML}
-MusicXML est un format de fichier basé sur XML pour représenter la notation musicale occidentale. Ce format est ouvert, entièrement documenté et peut être utilisé librement dans le cadre de l'accord de spécification finale de la communauté du W3C.
+MusicXML est un format de fichier basé sur XML pour représenter la notation musicale occidentale. Ce format est ouvert, entièrement documenté et peut être utilisé librement dans le cadre de l’accord de spécification finale de la communauté du W3C.
 \florent{standard W3C = MNX (en cours)}
 
 Un des avantages de ce format est qu’il peut être converti aussi bien en données MIDI qu’en partition musicale, ce qui en fait une interface homme/machine.
