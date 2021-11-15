@@ -48,12 +48,17 @@ systèmes de recommandation de musique ou des moteurs de recherche dédiés au s
 et à la musique.\\
 
 RIM et TAL \\
-\florent{Citer Berstein et Chomski à partir du slide
-z\_images/1\_contexte/0\_Bernstein.png}
 Aborder la musique comme un langage avec des méthodes de TAL nécessite une
 réflexion autour de la musique en tant que langage ainsi que la possibilité de
-comparer ce même langage avec les langues naturelles. Quelques travaux en
-neurosciences ont abordé ces questions, notamment par observation des processus
+comparer ce même langage avec les langues naturelles. Léonard Bernstein
+\cite{lbernstein} a donné une série de six conférences publiques à Harvard
+fondées en grande partie sur les théories linguistiques que Noam Chomsky a
+exposées dans son livre « Language and Mind ». Lors de la première conférence,
+qui a eu lieu le 9 octobre 1973, Bernstein a avoué être hanté par la notion
+d’une grammaire musicale mondiale innée et il analyse dans ses trois premières
+conférences, la musique en termes linguistiques (phonologie, syntaxe et
+sémantique). Quelques travaux en neurosciences ont
+également abordé ces questions, notamment par observation des processus
 cognitifs et neuronaux que les systèmes de traitement de ces deux productions
 humaines avaient en commun. Dans le travail de Poulin-Charronnat
 \textit{et al.} \cite{poulincharronnat:hal-01985213}, la musique est reconnue
@@ -67,11 +72,13 @@ les plongements de mots et le mécanisme d’attention pour la modélisation de
 données musicales. La question de la sémantique d’une phrase musicale apparaît,
 selon eux, à la fois comme une limite et un défi majeur pour l’étude de cette
 analogie. Ces considérations nous rapproche de la sémiologie de F. de Saussure
-en tant que science générale des signes et dont la langue ne serait qu’un
-cas particulier, caractérisé par l’arbitrariété totale de ses unités
+en tant que science générale des signes et dont la langue ne serait qu’un cas
+particulier, caractérisé par l’arbitrariété totale de ses unités
 \cite{wunderli2017ferdinand}.
 
-\florent{exemples / illustration de la proximité thématique ?}D’autres travaux
+\florent{exemples / illustration de la proximité thématique ?}
+
+D’autres travaux
 très récents, ont aussi été révélés lors de la \textit{première conférence sur
 le NLP pour la musique et l'audio (NLP4MusA 2020)}. Lors de cette conférence,
 Jiang \textit{et al.} \cite{Jiang2020DiscoveringMR} ont présenté leur
@@ -82,10 +89,10 @@ Le domaine du TAL qui se rapproche le plus du RIM est la reconnaissance de la
 parole (Speech to text). En effet, la séparation des sources ont des approches
 similaires dans les deux domaines. De plus, il existe un lien entre partition
 musicale comme manière d’écrire la musique et texte comme manière d’écrire la
-parole.
-
-La transcription musicale est la notation d’une œuvre musicale initialement non
-écrite.
+parole. La transcription musicale étant la notation d’une œuvre musicale
+initialement non écrite, l’analogie avec l’écriture de la parole est aisée. Le
+tableau \ref{spToTxt_vs_TAM} montre des différences et des similitudes entre
+les deux domaines.
 
 \begin{table}[h]
 	\centering
@@ -99,58 +106,56 @@ La transcription musicale est la notation d’une œuvre musicale initialement n
 	\caption{speechToText vs AMT}
 	\label{spToTxt_vs_TAM}
 \end{table}
-La tableau \ref{spToTxt_vs_TAM} montre des différences et des similitudes entre
-les deux domaines. objectifs similaires sur le papier: speech-to-text,
-problèmes et applications aussi comparables: transcription, synthèse,
-séparation de sources... Mais information de nature différente cf. sous-tâches
-comme beat tracking et inférence de tempo en musique.
-\section{La transcription automatique de la musique}
-\florent{il faut réorganiser cette partie: 
-         1. objectif 2. applications 3. problèmes et méthodes scientifiques}
-En musique, la transcription\footnote{\url{
-https://en.wikipedia.org/wiki/Transcription_(music)}} 
-\florent{pas très bien écrit. ne pas citer wikipedia mais article de survey}
-\florent{conversion d'une performance musicale en musique écrite, en général et notation occidentale}
-est la pratique
-consistant à noter un morceau ou un son qui n'était auparavant pas noté et/ou
-pas populaire en tant que musique écrite, par exemple, une improvisation de
-jazz ou une bande sonore de jeu vidéo. Lorsqu'un musicien est chargé de créer
-une partition à partir d'un enregistrement et qu'il écrit les notes qui
-composent le morceau en notation musicale, on dit qu'il a créé une
-transcription musicale de cet enregistrement.
+Non seulement les objectifs sont similaires, mais les problèmes et les
+applications, eux aussi, sont comparables (transcription, synthèse, séparation
+de sources, … ). Il faut néanmoins relever que les informations sont traitées
+sont de nature différente (voir \textit{mettre ref vers sous-tâches comme beat
+tracking et inférence de tempo en musique}).
 
-L'objectif de la transcription automatique de la musique (AMT)
-\cite{future_directions} est de convertir la performance d'un musicien en
-notation musicale - un peu comme 
-\florent{à l'instar de la}
-la conversion de la parole en texte dans le
-traitement du langage naturel. L’AMT a des intérêt \florent{applications} multiples, notamment pour la
-transcription de solos 
-\florent{préservation du patrimoine}
-ou encore pour la constitution de corpus musicologiques,
-\florent{e.g. musique de tradition orale (ethno-musicologie)}
-ou encore pour l'interprétation de la musique et l'analyse du contenu musical
-\cite{SHIBATA2021262}. 
-\florent{citer un survey pour les applications (pas \cite{SHIBATA2021262})}
-Par exemple, un grand nombre de fichiers audio et vidéo
-musicaux sont disponibles sur le Web, et pour la plupart d'entre eux, il est
-difficile de trouver les partitions musicales correspondantes, qui sont
-nécessaires pour pratiquer la musique, faire des reprises et effectuer une
-analyse musicale détaillée. Les partitions de musique classique sont facilement
-accessibles et il y a peu de demandes de nouvelles transcriptions. 
-\florent{pas d'accord avec ça. problème des partitions libres de droit.}
-\florent{l'intérêt est aussi d'avoir des partitions au contenu exploitable
-    (texte ou XML) vs images (pdf...) cf. par ex. cette présentation
-d'OpenScore à FOSDEM https://archive.fosdem.org/2017/schedule/event/openscore/
-et mes transparents sur le sujet}
-D'un point de vue pratique, des demandes beaucoup plus commerciales et
-académiques sont attendues dans le domaine de la musique populaire
-\cite{SHIBATA2021262}. 
-\florent{là on passe aux approches scientifiques}
+\section{La transcription automatique de la musique}
+1. OBJECTIF\\
+Lorsqu'un musicien est chargé de créer une partition à partir d'un
+enregistrement et qu'il écrit les notes qui composent le morceau en notation
+musicale, on dit qu'il a créé une transcription musicale de cet enregistrement.
+L'objectif de la TAM \cite{future_directions} est de convertir la performance
+d'un musicien en notation musicale — à l'instar de la conversion de la parole
+en texte dans le traitement du langage naturel. Cette définition peut être
+comprise de deux manières différentes selon les articles scientifiques :
+1) Processus de conversion d'un enregistrement audio en une notation pianoroll
+(une représentation bidimensionnelle des notes de musique dans le temps)
+2) Processus de conversion d'un enregistrement en notation musicale commune
+\footnote{Ici, on parle de notation occidentale.} (c'est-à-dire une
+partition).\\
+
+2. APPLICATIONS\\
+La TAM a des applications multiples \cite{future_directions} dont la plus
+directe est de donner la possibilité à un musicien de générer la partition
+d’une improvisation en temps réel afin de pouvoir reproduire sa performance
+ultérieurement. Une autre application notable est la préservation du patrimoine
+par exemple dans les styles musicaux où il n’existe peu de partitions (le
+jazz, la pop, les musiques de tradition orale \footnote{ethno-musicologie}, …).
+La TAM est aussi utile pour la recherche et l'annotation automatique
+d'informations musicales, pour l’analyse musicologique\footnote{par exemple
+par la constitution de corpus musicologiques} ou encore pour les systèmes
+musicaux interactifs.
+
+Un grand nombre de fichiers audio et vidéos musicaux sont disponibles sur le
+Web, et pour la plupart d'entre eux, il est difficile de trouver les partitions
+musicales correspondantes, qui sont pourtant nécessaires pour pratiquer la
+musique, faire des reprises ou effectuer une analyse musicale détaillée.
+
+
+Mais l'intérêt de la TAM est aussi d'avoir des partitions au contenu
+exploitable, avec des formats texte ou XML (entre autres…) dont les données
+sont manipulables, contrairement à de simples images en pdf
+\footnote{Voir \url{https://archive.fosdem.org/2017/schedule/event/openscore/}
+    et 0\_slides-Martin.pdf.}.\\
+
+3. PROBLÈMES ET MÉTHODES SCIENTIFIQUES\\
 Les modèles grammaticaux qui représentent la structure hiérarchique des séquences
 d'accords se sont avérés très utiles dans les analyses récentes de l'harmonie
 du jazz \cite{harasimjazz}.
-Comme déjà évoqué précédemment, il s’agit d’un problème ancien et difficile.
+Comme déjà évoqué précédemment, il snagit d’un problème ancien et difficile.
 C’est un « graal » de l’informatique musicale. En 1976, H. C. Longuet-Higgins
 \cite{first_one} évoquait déjà la représentation musicale en arbre syntaxique
 dans le but d’écrire automatiquement des partitions à partir de données audio
