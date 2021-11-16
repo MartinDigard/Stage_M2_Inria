@@ -1,11 +1,25 @@
 \section*{Introduction}
-Dans ce chapitre, nous présenterons le jeu de données et les analyses
-audio-MIDI. Nous ferons ensuite l’expérimentation théorique d’un
-\textit{système} implémentable qui devra être utilisé comme base de
-connaissances pour augmenter la rapidité et la qualité en sortie de Qparse.
-Nous présenterons ensuite les avancées réalisée dans ce travail et une
-réflexion sur les moyens de l’évaluer. Enfin, nous finirons par une discussion
-sur l’ensemble du travail réalisé.
+Dans ce chapitre, nous présenterons le jeu de données et les analyse MIDI-Audio
+et transcriptions manuelles.
+
+Problèmatique : passage au polyphonique indispensable pour la suite du travail
+et pour l’expérimentation des systèmes rythmiques. Finir la chaîne de
+traitement indispensable pour obtenir des résultats chiffrés possible à
+évaluer.
+
+Nous présenterons mes deux contributions principales :
+\begin{itemize}
+    \item les différentes étapes de résolution du passage au polyphonique.
+    \item l’expérimentation d’un système rythmique implémentable qui devra être
+        utilisé comme base de connaissances pour augmenter la rapidité et la
+        qualité en sortie de Qparse et comme une méthode de création de
+        nouveaux systèmes rythmiques.
+\end{itemize}
+
+Enfin, nous finirons par une discussion sur
+les avancées réalisées dans ce travail, la pertinence des choix qui ont été
+faits et les moyens d’évaluer les résultats potentiels.
+
 \section{Le jeu de données}
 Nous avons utilisé le Groove MIDI
 Dataset\footnote{\url{https://magenta.tensorflow.org/datasets/groove}}
@@ -15,7 +29,7 @@ Le GMD est composé de 13,6 heures de batterie sous forme de fichiers MIDI et
 audio alignés. Il contient 1150 fichiers MIDI et plus de 22 000 mesures de
 batterie dans les styles les plus courants et avec différentes qualités de jeu.
 Tout le contenu a été joué par des humains sur la batterie électronique Roland
-TD-11 (figure \ref{electro_drums}).\newpage
+TD-11 (figure \ref{electro_drums}).
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=35mm, width=60mm]
@@ -33,58 +47,75 @@ Autres critères spécifiques au GMD :
         choisi par le batteur.
 	\item 80\% de la durée du GMD a été joué par des batteurs professionnels
         qui ont pu improviser dans un large éventail de styles. Les données
-        sont donc diversifiées en termes de styles et de qualités de jeu (professionnel ou amateur).
-	\item Les batteurs avaient pour instruction de jouer des séquences de plusieurs minutes ainsi que des fills\footnote{Un \textit{fill} est une séquence de relance dont la durée dépasse rarement 2 mesures. Il est souvent joué à la fin d’un cycle pour annoncer le suivant.}
-	\item Chaque performance est annotée d’un style (fourni par le batteur), d’une métrique et d’un tempo ainsi que d’une identification anonyme du batteur.
-	\item Il a été demandé à 4 batteurs d’enregistrer le même groupe de 10 rythmes dans leurs styles respectifs. Ils sont dans les dossiers eval-session du GMD.
-	\item Les sorties audio synthétisées ont été alignées à 2 ms près sur leur fichier MIDI.
+        sont donc diversifiées en termes de styles et de qualités de jeu
+        (professionnel ou amateur).
+	\item Les batteurs avaient pour instruction de jouer des séquences de
+        plusieurs minutes ainsi que des fills\footnote{Un \textit{fill} est une
+        séquence de relance dont la durée dépasse rarement 2 mesures. Il est
+        souvent joué à la fin d’un cycle pour annoncer le suivant.}
+	\item Chaque performance est annotée d’un style (fourni par le batteur),
+        d’une signature rythmique et d’un tempo ainsi que d’une identification
+        anonyme du batteur.
+	\item Il a été demandé à 4 batteurs d’enregistrer le même groupe de 10
+        rythmes dans leurs styles respectifs. Ils sont dans les dossiers
+        eval-session du GMD.
+	\item Les sorties audio synthétisées ont été alignées à 2 ms près sur leur
+        fichier MIDI.
 \end{itemize}
 
 \subsection*{Format des données}
-Le Roland TD-11 
-\florent{enregistre les données dans des fichiers MIDI}
-divise les données enregistrées en plusieurs pistes distinctes :
+Le Roland TD-11 enregistre les données dans des fichiers MIDI et les divise en
+plusieurs pistes distinctes :
 \begin{itemize}
 	\item une pour le tempo et l’indication de mesure ;
-	\item une pour les changements de contrôle (position de la pédale de charley) ;
+	\item une pour les changements de contrôle (position de la pédale de
+        charley) ;
 	\item une pour les notes.\\
 \end{itemize}
-Les changements de contrôle sont placés sur le canal 0 et les notes sur le canal 9 (qui est le canal canonique pour la batterie).\\
-Pour simplifier le traitement de ces données, ces trois pistes ont été fusionnées en une seule piste qui a été mise sur le canal 9.\\\\
-« Control Changes
-The TD-11 also records control changes specifying the position of the hi-hat pedal on each hit. We have preserved this information under control 4. »\\(\url{https://magenta.tensorflow.org/datasets/groove})\\$\Rightarrow$ ??? Je ne comprends pas encore comment trouver ce type d’informations dans les fichiers MIDI.\\L’utilisation de pretty\_midi devient urgente !
+Les changements de contrôle sont placés sur le canal 0 et les notes sur le
+canal 9 (qui est le canal canonique pour la batterie).\\
+Pour simplifier le traitement de ces données, ces trois pistes ont été
+fusionnées en une seule piste qui a été mise sur le canal 9.
 
-\section{Analyse MIDI-Audio}
+\section{Analyses et transcriptions manuelles}
 \label{analyse_midi_audio}
-\florent{= analyses et transcriptions manuelles}
-Ces analyses ont été faites dans le cadre de transcriptions manuelles à partir de fichiers MIDI et Audio du GMD.
-
+Ces analyses ont été faites dans le cadre de transcriptions manuelles à partir
+de fichiers MIDI et Audio du GMD.
 
 \subsection*{Comparaisons de transcriptions}
-Pour les comparaisons de transcriptions, les transcriptions manuelles (TM) ont été éditées à l’aide de Lilypond\footnote{\url{http://lilypond.org/}} ou MuseScore\footnote{\url{https://musescore.com/}} et les transcriptions automatiques (TA) ont toutes été générées manuellement avec MuseScore.
-\florent{méthodologie tr. manuelle. import MIDI pour MuseScore}
-
+Pour les comparaisons de transcriptions, les transcriptions manuelles (TM) ont
+été éditées à l’aide de Lilypond\footnote{\url{http://lilypond.org/}} ou
+MuseScore\footnote{\url{https://musescore.com/}} et les transcriptions
+automatiques (TA) ont toutes été générées par import d’un fichier MIDI dans
+MuseScore.
 
 \subsubsection{Exemple d’analyse 1}
 \begin{figure}[h]
-	\centering
-	Transcription manuelle $\Rightarrow$ Transcription automatique
-	\includegraphics[height=20mm, width=50mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/1_manuelle.png}\ \ \ \ 
-	\includegraphics[height=20mm, width=45mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/0_musescore.png}
+\centering
+Transcription manuelle $\Rightarrow$ Transcription automatique
+\includegraphics[height=20mm, width=50mm]{
+z_images/4_experimentations/1_analyses/0_drummer1_session3/1_manuelle.png}
+\ \ \ \ 
+\includegraphics[height=20mm, width=45mm]{
+z_images/4_experimentations/1_analyses/0_drummer1_session3/0_musescore.png}
 \end{figure}
 \begin{itemize}
 	\item Erreur d’indication de mesure (3/4 au lieu de 4/4) ;
 	\item Les silences de la mesure 1 de la TA sont inutilement surchargés ;
-	\item La noire du temps 4 de la mesure 1 de la TM est devenue les deux premières notes (une double-croche et une croche) d’un triolet sur le temps 1 de la mesure 2 de la TA.
-\end{itemize}%\newpage
-
+	\item La noire du temps 4 de la mesure 1 de la TM est devenue les deux
+        premières notes (une double-croche et une croche) d’un triolet sur le
+        temps 1 de la mesure 2 de la TA.
+\end{itemize}
 
 \subsubsection{Exemple d’analyse 2}
 \begin{figure}[h]
-	\centering
-	\tab Transcription manuelle $\Rightarrow$ Transcription automatique\\
-	\includegraphics[height=20mm, width=13mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/5_manuelle.png}\ \ \ \ 
-	\includegraphics[height=20mm, width=13mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/4_musescore.png}
+\centering
+\tab Transcription manuelle $\Rightarrow$ Transcription automatique\\
+\includegraphics[height=20mm, width=13mm]{
+z_images/4_experimentations/1_analyses/0_drummer1_session3/5_manuelle.png}
+\ \ \ \ 
+\includegraphics[height=20mm, width=13mm]{
+z_images/4_experimentations/1_analyses/0_drummer1_session3/4_musescore.png}
 \end{figure}
 \begin{itemize}
 	\item Les doubles croches ont été interprétées en quintolet
@@ -93,61 +124,104 @@ Pour les comparaisons de transcriptions, les transcriptions manuelles (TM) ont �
 
 \subsubsection{Exemple d’analyse 3}
 \begin{figure}[h]
-	\centering
-	Transcription manuelle $\Rightarrow$ Transcription automatique
-	\includegraphics[height=24mm, width=50mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/3_manuelle.png}\ \ \ \ 
-	\includegraphics[height=25mm, width=55mm]{z_images/4_experimentations/1_analyse_midi_audio/0_drummer1_session3/2_musescore.png}
+\centering
+Transcription manuelle $\Rightarrow$ Transcription automatique
+\includegraphics[height=24mm, width=50mm]{
+z_images/4_experimentations/1_analyses/0_drummer1_session3/3_manuelle.png}
+\ \ \ \ 
+\includegraphics[height=25mm, width=55mm]{
+z_images/4_experimentations/1_analyses/0_drummer1_session3/2_musescore.png}
 \end{figure}
 
 \begin{itemize}
-	\item Les grosses-caisses, les charleys et les caisses-claires ont été décalés d’un temps vers la droite.
-	\item Les toms basses des temps 1 et 2 de la mesure 2 de la TM ont été décalés d’une double croche vers la droite dans la TA.
-	\item La première caisse-claire de la mesure 1 devient binaire dans la TA alors qu’elle appartenait à un triolet dans la TM.
-	\item Le triolet de tom-basse du temps 4 de la mesure 2 de la TA n’existe pas la TM.\\
+	\item Les grosses-caisses, les charleys et les caisses-claires ont été
+        décalés d’un temps vers la droite.
+	\item Les toms basses des temps 1 et 2 de la mesure 2 de la TM ont été
+        décalés d’une double croche vers la droite dans la TA.
+	\item La première caisse-claire de la mesure 1 devient binaire dans la TA
+        alors qu’elle appartenait à un triolet dans la TM.
+	\item Le triolet de tom-basse du temps 4 de la mesure 2 de la TA n’existe
+        pas la TM.\\
 \end{itemize}
+
 \subsubsection{Exemple d’analyse 4}
 \tab \tab Transcription manuelle $\Rightarrow$ Transcription automatique
 \begin{figure}[h]
-	\centering
-	\includegraphics[height=19mm, width=50mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/3_manuelle.png}\ \ \ \ 
-	\includegraphics[height=19mm, width=70mm]{z_images/4_experimentations/1_analyse_midi_audio/1_drummer1_session1/2_musescore.png}
+\centering
+\includegraphics[height=19mm, width=50mm]{
+z_images/4_experimentations/1_analyses/1_drummer1_session1/3_manuelle.png}
+\ \ \ \ 
+\includegraphics[height=19mm, width=70mm]{
+z_images/4_experimentations/1_analyses/1_drummer1_session1/2_musescore.png}
 \end{figure}
 
-Sur le temps 4 de la mesure 1, la deuxième croche a été transcrite d’une manière excessivement complexe! %\newpage
+Sur le temps 4 de la mesure 1, la deuxième croche a été transcrite d’une
+manière excessivement complexe!
 \florent{conclusion sur ces exemples}
 
 
 \subsubsection{Exemple avec des flas}
-\florent{sauf erreur, les "flas" ne sont pas définis. $\to$ sections 1.4 (appogiatures) et 3.1 (flas)?}
+\florent{sauf erreur, les "flas" ne sont pas définis. $\to$ sections 1.4
+(appogiatures) et 3.1 (flas)?}
 Transcription manuelle\\
-\includegraphics[height=25mm, width=95mm]{z_images/4_experimentations/1_analyse_midi_audio/2_transcriptions_flas/0_124_funk_95_fill_4-4.png}\\
+\includegraphics[height=25mm, width=95mm]{
+z_images/4_experimentations/1_analyses/2_flas/0_124_funk_95_fill_4-4.png}\\
 Transcription automatique\\\\
-\includegraphics[height=20mm, width=130mm]{z_images/4_experimentations/1_analyse_midi_audio/2_transcriptions_flas/1_124_funk_95_fill_4-4.png}\\
+\includegraphics[height=20mm, width=130mm]{
+z_images/4_experimentations/1_analyses/2_flas/1_124_funk_95_fill_4-4.png}\\
 
 \begin{itemize}
-	\item Le premier fla est reconnu comme étant un triolet contenant une quadruple croche suivie d’une triple croche au lieu d’une seule note ornementée.
+	\item Le premier fla est reconnu comme étant un triolet contenant une
+        quadruple croche suivie d’une triple croche au lieu d’une seule note
+        ornementée.
 	\item Le deuxième fla est reconnu comme étant un accord.
-	\item Les deux double en l’air sur le temps 4 de la TM sont mal quantifiée dans la TA. 
-	\item La TA ne reconnaît qu’une mesure quand la TM en transcrit deux. En effet, la TA a divisé par deux la durée des notes afin de les faire tenir dans une mesure à 4 temps dont les unités de temps sont les noires. Par exemple, le soupir du temps 2 de la TM devient un demi-soupir sur le contre-temps du temps 1 dans la TA. Ou encore, la noire (pf, voir le tableau \ref{pitchs_instru}) sur le temps 1 de la mesure 2 de la TM suivie d’un demi-soupir devient une croche pointée sur le temps 3 de la TA.
-	\item Autre problème : certaines têtes de notes sont mal attribuées. Par exemple, le charley ouvert en l’air sur le temps 2 de la mesure 2 de la TM devrait avoir le même symbole sur la TA. Idem pour les cross-sticks.
+	\item Les deux double en l’air sur le temps 4 de la TM sont mal quantifiée
+        dans la TA. 
+	\item La TA ne reconnaît qu’une mesure quand la TM en transcrit deux. En
+        effet, la TA a divisé par deux la durée des notes afin de les faire
+        tenir dans une mesure à 4 temps dont les unités de temps sont les
+        noires. Par exemple, le soupir du temps 2 de la TM devient un
+        demi-soupir sur le contre-temps du temps 1 dans la TA. Ou encore, la
+        noire (pf, voir le tableau \ref{pitchs_instru}) sur le temps 1 de la
+        mesure 2 de la TM suivie d’un demi-soupir devient une croche pointée
+        sur le temps 3 de la TA.
+	\item Autre problème : certaines têtes de notes sont mal attribuées. Par
+        exemple, le charley ouvert en l’air sur le temps 2 de la mesure 2 de
+        la TM devrait avoir le même symbole sur la TA. Idem pour les
+        cross-sticks.
 \end{itemize}\newpage
 
 \subsection*{Transcription de partition}
 \label{partition_entiere}
 \begin{figure}[h]
-	\includegraphics[height=120mm, width=160mm]{z_images/4_experimentations/1_analyse_midi_audio/3_partition.png}
-	\caption{Partition de référence}
+    \includegraphics[height=120mm, width=160mm]{
+    z_images/4_experimentations/1_analyses/3_partition.png}
+    \caption{Partition de référence}
 	\label{partition_ref}
 \end{figure}
 
-La figure \ref{partition_ref} est la transcription manuelle des fichiers \textit{004\_jazz-funk\_116\_beat\_4-4.mid} et \textit{004\_jazz-funk\_116\_beat\_4-4.wav} du GMD.\\Cette transcription a été entièrement faite avec Lilypond (voir le code lilypond sur le git \url{https://github.com/MartinDigard/Stage_M2_Inria})
-Il s’agit d’une partition d’un 4/4 binaire dont le fichier MIDI est annoncé dans le GMD de style «jazz-funk» probablement en raison de la ride de type shabada rapide (le ternaire devient binaire avec la vitesse) combiné avec l’after-beat de type rock (caisse-claire sur les deux et quatre).
+La figure \ref{partition_ref} est la transcription manuelle des fichiers
+\textit{004\_jazz-funk\_116\_beat\_4-4.mid} et
+\textit{004\_jazz-funk\_116\_beat\_4-4.wav} du GMD.
 
-La transcription des données audio et MIDI contenues dans ces fichiers a permis une analyse plus approndie des critères à relever pour chaque évènement MIDI et de la manière de les considérer dans un objectif de transcription en partition lisible pour un musicien (Voir la section \ref{modelisation_transcription}).
+Cette transcription a été entièrement faite avec Lilypond (voir le code
+lilypond sur le git \url{https://github.com/MartinDigard/Stage_M2_Inria}). Il
+s’agit d’une partition d’un 4/4 binaire dont le fichier MIDI est annoncé dans
+le GMD de style «jazz-funk» probablement en raison de la ride de type shabada
+rapide (le ternaire devient binaire avec la vitesse) combiné avec l’after-beat
+de type rock (caisse-claire sur les deux et quatre).
 
+La transcription des données audio et MIDI contenues dans ces fichiers a permis
+une analyse plus approndie des critères à relever pour chaque évènement MIDI et
+de la manière de les considérer dans un objectif de transcription en partition
+lisible pour un musicien (Voir la section \ref{modelisation_transcription}).
 \florent{des conclusions sur la transcription manuelle?
 difficultés, durée? nb de passes... pourquoi LilyPondet pas MuseScore?}
+
 \section{Transcription polyphonique par parsing (?verrou?)}
+<flo>Sujet de cette partie -> première problématique / contribution
+principale : transcription polyphonique par parsing (verrou): jams etc</flo>
+
 \subsection*{Les Jams}
 Les Jams permettent de passer du monophonique au polyphonique.
 %\subsubsection*{Tests unitaires sur les Jams}
@@ -210,13 +284,16 @@ Après une augmentation du poids des triples croches dans la grammaire (monté d
 
 
 
-\section{Expérimentation théorique d’un système}
+\section{Expérimentation d’un système rythmique}
 \label{expe_theo}
+<flo>Sujet de cette partie -> deuxième problèmatique / contribution
+principale : réécriture, pour séparation en voix et simplification, aidée
+(guidée) par système rythmique.</flo>
 \florent{Le titre est contradictoire, et l'explication pas très claire}
 Cette expérimentation théorique, basée sur la partition de référence de la figure \ref{partition_ref}, 
-montre le procédé de création d’un \textit{système} et des règles qui en découlent 
-(métrique, choix de grammaire, règles de séparation des voix et de simplification de l’écriture). 
-Le \textit{système} devra ensuite être implémenté pour appliquer des tests qui seront effectués, 
+montre le procédé de création d’un \textit{système rythmique} et des règles qui en découlent 
+(signature rythmique, choix de grammaire, règles de séparation des voix et de simplification de l’écriture). 
+Le \textit{système rythmique} devra ensuite être implémenté pour appliquer des tests qui seront effectués, 
 dans un premier temps, sur la partition de référence.
 
 \subsection*{Motifs et gammes}
@@ -236,15 +313,15 @@ Les gammes de la figure \ref{motifs_gammes} étayent toutes les combinaisons d�
 Les lignes 1 et 2 traitent les croches. La ligne 1 a 2 mesures dont la première ne contient que des noires et la deuxième que des croches en l’air. Ces deux possibilités sont combinées de manière circulaire dans les 3 mesures de la deuxième ligne.\\
 Les lignes 3, 4 et 5 traitent les doubles-croches. La ligne 3 a 2 mesures dont la première ne contient que des croches et la deuxième que des doubles-croches en l’air. Ces deux possibilités sont combinées de manière circulaire dans les lignes 4 et 5 qui contiennent chacunes 3 mesures.
 
-\subsection*{Systèmes — motifs et gammes combinés}
+\subsection*{système rythmiques — motifs et gammes combinés}
 Pour la suite de l’expérimentation théorique, nous utiliserons le motif 1 de la figure \ref{motifs_gammes}.\\
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/2_experimentation_theorique/2_systeme_4-4_binaire.png}
-	\caption{Partition d’un système en 4/4 binaire}
+	\caption{Partition d’un système rythmique en 4/4 binaire}
 	\label{sys_binaire}
 \end{figure}
-\subsection*{Représentation du système en arbres de rythmes}
+\subsection*{Représentation du système rythmique en arbres de rythmes}
 \label{demo_sys}
 \begin{figure}[h]
 	\centering
@@ -260,14 +337,14 @@ Pour la suite de l’expérimentation théorique, nous utiliserons le motif 1 de
 		[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
 		[.Temps\ 3 [rd ][ [rd\\bd\\pf ][rd ]]]
 		[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]]}
-	\caption{Arbre de rythme — système}
+	\caption{Arbre de rythme — système rythmique}
 	\label{arbre_sys}
 \end{figure}
 L’arbre de la figure \ref{arbre_sys} servira de base pour le suite de l’expérimentation. Comme indiqué à la racine de l’arbre, il représente la première ligne de la figure \ref{sys_binaire}. Même si cet arbre représente parfaitement le rythme concerné, il manque des indications de notation telles que les voix spécifiques à chaque partie du rythme ainsi que les choix d’écriture pour les distances qui séparent les notes de chaque voix entre elles en termes de durée.
 \subsection*{Réécriture — séparation des voix et simplification}
 
 \subsubsection{La séparation des voix}
-Ainsi l’arbre syntaxique de départ est divisé en autant d’instruments qui le constituent et les voix seront regroupées en suivant les régles du système.
+Ainsi l’arbre syntaxique de départ est divisé en autant d’instruments qui le constituent et les voix seront regroupées en suivant les régles du système rythmique.
 \begin{figure}[h]
 	\centering
 	\resizebox{350pt}{!} {
@@ -382,20 +459,16 @@ Pour les figures ci-dessous :
 	\label{5}
 \end{figure}
 
-Ces règles ont été tirées de l’ensemble des arbres du système. Les arbres manquants seront mis en annexe.
+Ces règles ont été tirées de l’ensemble des arbres du système rythmique. Les arbres manquants seront mis en annexe.
 
-Les règles remplacent par un silence les continuations (t) qui sont au début d’un temps. Cela est valable pour ce système mais lorsqu’il y a des ouvertures de charley, cela n’est pas toujours applicable. Ce problème est évoqué de le chapitre \ref{methodes}.
+Les règles remplacent par un silence les continuations (t) qui sont au début d’un temps. Cela est valable pour ce système rythmique mais lorsqu’il y a des ouvertures de charley, cela n’est pas toujours applicable. Ce problème est évoqué de le chapitre \ref{methodes}.
 
 $\Rightarrow$ \textbf{Objectif de cette expérimentation théorique} :
 
-La méthode des \textit{systèmes} étant basée sur une approche dictionnaire, cette expérimentation théorique a pour but d’orienter la recherche d’autres systèmes par observation du jeu de données et de montrer comment les construire pour agrandir la base de connaissance de Qparse pour l’ADT.
+La méthode des \textit{système rythmiques} étant basée sur une approche dictionnaire, cette expérimentation théorique a pour but d’orienter la recherche d’autres système rythmiques par observation du jeu de données et de montrer comment les construire pour agrandir la base de connaissance de Qparse pour l’ADT.
 
 \section{BILAN : résultats — évaluation — discussion}
-\florent{je vois 2 problématiques et contrib. principales:
-1) transcription polyphonique par parsing (verrou): jams etc
-2) réécriture, pour séparation en voix et simplification, aidée (guidée) par système.
-Ce serait bien de présenter la contrib. 1 dans une section (comme 4.3 pour 2), 
-avant d'aborder résultats et discussion}
+
 Cette section regroupe les avancées qui ont été réalisées par rapport aux objectifs de départ ainsi qu’une réflexion sur le moyen d’évaluer les résultats de l’ADT avec Qparse. Nous avons améliorer le système de quantification de Qparse pour la batterie, notamment le passage à la polyphonie avec les Jams. 
 
 Nous avons pu obtenir des arbres de parsing corrects en améliorant les grammaires avec des fichiers MIDI courts. 
@@ -427,7 +500,7 @@ faites ou non et nous tenterons d’en expliquer la ou les raisons.
         local possible à évaluer au lieu d’attendre que la chaîne arrive
         jusqu’à la génération d’une partition mais cela n’était pas prioritaire
         pendant le stage.
-    \item Création d’un jeu de système basique réprésentatif des
+    \item Création d’un jeu de système rythmique basique réprésentatif des
         différents styles à recouvrir. Ce jeu n’a pas pu être créé, car comme
         vu plus haut, je me suis focalisé sur un exemple pour pouvoir le
         vérifier entièrement et dans l’espoir de pouvoir le tester en fin de
@@ -450,9 +523,9 @@ Lilypond vers MIDI + ouput vers MIDI $\Rightarrow$ Comparaison des MIDI dumpés.
 
 	%\item Le ternaire jazz (voir expérience 2)
 	%\item Reconnaissance d’un motif sur le MIDI\\
-	%Reconnaître un motif (système) sur une mesure de l’input (un fichier midi
+	%Reconnaître un motif (système rythmique) sur une mesure de l’input (un fichier midi
     %représentant des données audios)\\
-	%$\Rightarrow$ Motif (système) reconnu : true ou false\\
+	%$\Rightarrow$ Motif (système rythmique) reconnu : true ou false\\
 	%Si true :\\
 	%- Choisir la grammaire correspondante ;\\
 	%- Parser le MIDI ;\\
@@ -462,7 +535,7 @@ Lilypond vers MIDI + ouput vers MIDI $\Rightarrow$ Comparaison des MIDI dumpés.
     %plusieurs mesures afin de pouvoir corriger des erreurs sur une des mesures
     %qui aurait dû être identique aux autres mais qui présente des différences.
 	%\item dans quelle catégorie mettre le shuffle ?\\
-    %\item écrire des règles de réécriture spécifique aux charley avec un système
+    %\item écrire des règles de réécriture spécifique aux charley avec un système rythmique
     %approprié.
 
 \end{itemize}
