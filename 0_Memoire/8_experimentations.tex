@@ -147,6 +147,68 @@ La transcription des données audio et MIDI contenues dans ces fichiers a permis
 
 \florent{des conclusions sur la transcription manuelle?
 difficultés, durée? nb de passes... pourquoi LilyPondet pas MuseScore?}
+\section{Transcription polyphonique par parsing (?verrou?)}
+\subsection*{Les Jams}
+Les Jams permettent de passer du monophonique au polyphonique.
+%\subsubsection*{Tests unitaires sur les Jams}
+\label{jam_tests}
+\florent{il faut revenir ici sur le parsing, et la notion d'alignement sur arbres syntaxiques pour définir les jams.
+illustrer avec les exemples précédents.}
+
+\subsection*{Le parsing}
+\label{gram_pond}
+\florent{revenir (rapidement) sur la méthodologie suivie.}
+
+Tests effectués avec le fichier midi suivant :
+\includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/3_developpement/0_midi_2bars_fill.png}
+
+Un premier test convaincant est effectué avec la grammaire suivante :\\\\
+// bar level\\
+0 -> C0                1\\
+0 -> E1                1\\
+0 -> U4(1, 1, 1, 1)    1\\
+
+// half bar level\\
+9 -> C0                1\\
+9 -> E1                1\\
+
+// beat level\\
+1 -> C0                1\\
+1 -> E1                1\\
+1 -> T2(2, 2)          1\\
+1 -> T4(4, 4, 4, 4)    1\\
+
+// croche level\\
+2 -> C0                1\\
+2 -> E1                1\\
+
+// double level\\
+4 -> C0                1\\
+4 -> E1                1\\
+4 -> E2                1\\
+4 -> T2(6, 6)          1\\
+
+// triple level\\
+6 -> E1                1\\\\
+Cette grammaire sépare les ligatures par temps au niveau de la mesure. Puis, au niveau du temps, elle autorise les divisions par deux (croches) et par quatre (doubles-croches). Tous les poids sont réglés sur 1. L’arbre de parsing en résultant est considéré comme « convaincant » car il découpe correctement les mesures et les temps.
+\\\\
+\resizebox{450pt}{!} {
+\Tree[.Mesure\ 1
+[.Temps\ 1 [0-ON\\1-ON\\2-ON ][3-OFF\\4-OFF\\5-OFF ][6-ON\\7-ON ][8-OFF\\9-OFF ]]
+[.Temps\ 2 [10-ON\\11-ON ][12-OFF\\13-OFF ][14-ON\\15-ON ][16-OFF\\17-OFF ]]
+[.Temps\ 3 [18-ON\\19-ON\\20-ON ][21-OFF\\22-OFF\\23-OFF ][24-ON\\25-ON ][26-OFF\\27-OFF ]]
+[.Temps\ 4 [28-ON\\29-ON\\30-ON ][31-OFF\\32-OFF\\33-OFF ][34-ON\\35-ON ][36-OFF\\37-OFF ]]
+]}\\\\\\
+Les temps de la première mesure du fichier MIDI sont bien quantifié mais ceux de la deuxième mesure présentent quelques défauts de quantification visibles dès le premier temps.\\\\
+\resizebox{300pt}{!} {
+\Tree[.Mesure\ 2
+[.Temps\ 1 [38-ON ][ [39-OFF ][40-ON ] ][ [41-OFF\\42-ON ][43-ON ] ][ [44-OFF\\45-OFF ][46-ON ] ]]
+]}\\\\\\
+Les Onsets sont correctement triés au niveau des doubles croches mais certaines doubles croches sont inutilement subdivisées en triples croches (les 2ème, 3ème et 4ème doubles croches sur le premier temps ci-dessus).\\\\
+\textbf{2ème exemple :}\\
+Après une augmentation du poids des triples croches dans la grammaire (monté de 1 à 5)et une baisse de tous les autres poids (descendu de 1 à 0.5), et mis à part le troisième temps de la 2ème mesure, tous les Onsets sont bien triés et aucuns ne sont subdivisés.
+
+
 
 \section{Expérimentation théorique d’un système}
 \label{expe_theo}
@@ -328,86 +390,19 @@ $\Rightarrow$ \textbf{Objectif de cette expérimentation théorique} :
 
 La méthode des \textit{systèmes} étant basée sur une approche dictionnaire, cette expérimentation théorique a pour but d’orienter la recherche d’autres systèmes par observation du jeu de données et de montrer comment les construire pour agrandir la base de connaissance de Qparse pour l’ADT.
 
-\section{Résultats et discussion}
+\section{BILAN : résultats — évaluation — discussion}
 \florent{je vois 2 problématiques et contrib. principales:
 1) transcription polyphonique par parsing (verrou): jams etc
 2) réécriture, pour séparation en voix et simplification, aidée (guidée) par système.
 Ce serait bien de présenter la contrib. 1 dans une section (comme 4.3 pour 2), 
 avant d'aborder résultats et discussion}
-
 Cette section regroupe les avancées qui ont été réalisées par rapport aux objectifs de départ ainsi qu’une réflexion sur le moyen d’évaluer les résultats de l’ADT avec Qparse. Nous avons améliorer le système de quantification de Qparse pour la batterie, notamment le passage à la polyphonie avec les Jams. 
 
 Nous avons pu obtenir des arbres de parsing corrects en améliorant les grammaires avec des fichiers MIDI courts. 
 Puis, une sortie MEI a été aussi été obtenu (encore à vérifier).
 
-\subsection*{Les Jams}
-Les Jams permettent de passer du monophonique au polyphonique.
-%\subsubsection*{Tests unitaires sur les Jams}
-\label{jam_tests}
-\florent{il faut revenir ici sur le parsing, et la notion d'alignement sur arbres syntaxiques pour définir les jams.
-illustrer avec les exemples précédents.}
 
-\subsection*{Le parsing}
-\label{gram_pond}
-\florent{revenir (rapidement) sur la méthodologie suivie.}
 
-Tests effectués avec le fichier midi suivant :
-\includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/3_developpement/0_midi_2bars_fill.png}
-
-Un premier test convaincant est effectué avec la grammaire suivante :\\\\
-// bar level\\
-0 -> C0                1\\
-0 -> E1                1\\
-0 -> U4(1, 1, 1, 1)    1\\
-
-// half bar level\\
-9 -> C0                1\\
-9 -> E1                1\\
-
-// beat level\\
-1 -> C0                1\\
-1 -> E1                1\\
-1 -> T2(2, 2)          1\\
-1 -> T4(4, 4, 4, 4)    1\\
-
-// croche level\\
-2 -> C0                1\\
-2 -> E1                1\\
-
-// double level\\
-4 -> C0                1\\
-4 -> E1                1\\
-4 -> E2                1\\
-4 -> T2(6, 6)          1\\
-
-// triple level\\
-6 -> E1                1\\\\
-Cette grammaire sépare les ligatures par temps au niveau de la mesure. Puis, au niveau du temps, elle autorise les divisions par deux (croches) et par quatre (doubles-croches). Tous les poids sont réglés sur 1. L’arbre de parsing en résultant est considéré comme « convaincant » car il découpe correctement les mesures et les temps.
-\\\\
-\resizebox{450pt}{!} {
-\Tree[.Mesure\ 1
-[.Temps\ 1 [0-ON\\1-ON\\2-ON ][3-OFF\\4-OFF\\5-OFF ][6-ON\\7-ON ][8-OFF\\9-OFF ]]
-[.Temps\ 2 [10-ON\\11-ON ][12-OFF\\13-OFF ][14-ON\\15-ON ][16-OFF\\17-OFF ]]
-[.Temps\ 3 [18-ON\\19-ON\\20-ON ][21-OFF\\22-OFF\\23-OFF ][24-ON\\25-ON ][26-OFF\\27-OFF ]]
-[.Temps\ 4 [28-ON\\29-ON\\30-ON ][31-OFF\\32-OFF\\33-OFF ][34-ON\\35-ON ][36-OFF\\37-OFF ]]
-]}\\\\\\
-Les temps de la première mesure du fichier MIDI sont bien quantifié mais ceux de la deuxième mesure présentent quelques défauts de quantification visibles dès le premier temps.\\\\
-\resizebox{300pt}{!} {
-\Tree[.Mesure\ 2
-[.Temps\ 1 [38-ON ][ [39-OFF ][40-ON ] ][ [41-OFF\\42-ON ][43-ON ] ][ [44-OFF\\45-OFF ][46-ON ] ]]
-]}\\\\\\
-Les Onsets sont correctement triés au niveau des doubles croches mais certaines doubles croches sont inutilement subdivisées en triples croches (les 2ème, 3ème et 4ème doubles croches sur le premier temps ci-dessus).\\\\
-\textbf{2ème exemple :}\\
-Après une augmentation du poids des triples croches dans la grammaire (monté de 1 à 5)et une baisse de tous les autres poids (descendu de 1 à 0.5), et mis à part le troisième temps de la 2ème mesure, tous les Onsets sont bien triés et aucuns ne sont subdivisés.
-\subsection*{Évaluation}
-Pour l’évaluation, il aurait fallu produire un module.\\
-L’évaluation est-elle automatique ou manuelle ?\\
-Possibilité d’un export lilypond en arbre pour comparer l’ouput avec la transcription manuelle.\\
-Possibilité de transformer lilypond(output) et lilypond(ref) en ScoreModel ou MEI pour les comparer et faire des statistiques. Si transformés en MEI : diffscore de Francesco.
-Possibilité de transformer lilypond(output) et lilypond(ref) en MusicXML pour les comparer ou dans Music21.
-L’expérimentation peut-être considérer comme une évaluation manuelle ? (magicien d’Oz)\\
-Lilypond vers MIDI + ouput vers MIDI $\Rightarrow$ Comparaison des MIDI dumpés.\\
-\subsection*{Discussion}
 Dans cette section, nous discuterons sur la pertinence de l’ensemble des choix
 qui ont été faits. Nous ferons un bilan des différentes avancés qui ont été
 faites ou non et nous tenterons d’en expliquer la ou les raisons.
@@ -437,13 +432,22 @@ faites ou non et nous tenterons d’en expliquer la ou les raisons.
         vu plus haut, je me suis focalisé sur un exemple pour pouvoir le
         vérifier entièrement et dans l’espoir de pouvoir le tester en fin de
         chaîne.
+\textbf{Évaluation}
+     Matcher les motifs aurait été indispensable pour obtenir une quantité
+        de résultats qui justifieraient une évaluation automatique permettant
+        de faire des graphiques.\\
+	 L’évaluation fut entièrement manuelle car :\\
+	$\Rightarrow$ Très dure automatiquement : il faut comparer 2 partitions
+    (réf \tab VS output)
+Pour l’évaluation, il aurait fallu produire un module.\\
+L’évaluation est-elle automatique ou manuelle ?\\
+Possibilité d’un export lilypond en arbre pour comparer l’ouput avec la transcription manuelle.\\
+Possibilité de transformer lilypond(output) et lilypond(ref) en ScoreModel ou MEI pour les comparer et faire des statistiques. Si transformés en MEI : diffscore de Francesco.
+Possibilité de transformer lilypond(output) et lilypond(ref) en MusicXML pour les comparer ou dans Music21.
+L’expérimentation peut-être considérer comme une évaluation manuelle ? (magicien d’Oz)\\
+Lilypond vers MIDI + ouput vers MIDI $\Rightarrow$ Comparaison des MIDI dumpés.\\
 
-    %\item Matcher les motifs aurait été indispensable pour obtenir une quantité
-    %    de résultats qui justifieraient une évaluation automatique permettant
-    %    de faire des graphiques.\\
-	%\item L’évaluation fut entièrement manuelle car :\\
-	%$\Rightarrow$ Très dure automatiquement : il faut comparer 2 partitions
-    %(réf \tab VS output)
+
 	%\item Le ternaire jazz (voir expérience 2)
 	%\item Reconnaissance d’un motif sur le MIDI\\
 	%Reconnaître un motif (système) sur une mesure de l’input (un fichier midi
