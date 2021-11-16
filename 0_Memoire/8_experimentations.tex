@@ -3,17 +3,17 @@ Dans ce chapitre, nous présenterons le jeu de données et les analyse MIDI-Audi
 et transcriptions manuelles.
 
 Problèmatique : passage au polyphonique indispensable pour la suite du travail
-et pour l’expérimentation des systèmes rythmiques. Finir la chaîne de
+et pour l’expérimentation des formes rythmiques. Finir la chaîne de
 traitement indispensable pour obtenir des résultats chiffrés possible à
 évaluer.
 
 Nous présenterons mes deux contributions principales :
 \begin{itemize}
     \item les différentes étapes de résolution du passage au polyphonique.
-    \item l’expérimentation d’un système rythmique implémentable qui devra être
+    \item l’expérimentation d’un forme rythmique implémentable qui devra être
         utilisé comme base de connaissances pour augmenter la rapidité et la
         qualité en sortie de Qparse et comme une méthode de création de
-        nouveaux systèmes rythmiques.
+        nouvelles formes rythmiques.
 \end{itemize}
 
 Enfin, nous finirons par une discussion sur
@@ -157,13 +157,9 @@ z_images/4_experimentations/1_analyses/1_drummer1_session1/2_musescore.png}
 
 Sur le temps 4 de la mesure 1, la deuxième croche a été transcrite d’une
 manière excessivement complexe!
-\florent{conclusion sur ces exemples}
 
-
-\subsubsection{Exemple avec des flas}
+\subsubsection{Exemple d’analyse 5 (flas)}
 \label{flas}
-\florent{sauf erreur, les "flas" ne sont pas définis. $\to$ sections 1.4
-(appogiatures) et 3.1 (flas)?}
 Transcription manuelle\\
 \includegraphics[height=25mm, width=95mm]{
 z_images/4_experimentations/1_analyses/2_flas/0_124_funk_95_fill_4-4.png}\\
@@ -190,7 +186,26 @@ z_images/4_experimentations/1_analyses/2_flas/1_124_funk_95_fill_4-4.png}\\
         exemple, le charley ouvert en l’air sur le temps 2 de la mesure 2 de
         la TM devrait avoir le même symbole sur la TA. Idem pour les
         cross-sticks.
-\end{itemize}\newpage
+\end{itemize}
+
+\subsubsection{Conclusion d’analyse}
+Ces analyses ont montré la difficulté pour un logiciel comme MuseScore d’offrir
+une partition lisible. Les raisons sont le fait que les fichiers MIDI ne sont
+pas encore quantifiés mais aussi qu’il n’y a pas de reconnaissance de la forme 
+du rythme impliquant sa position dans la mesure. Cette reconnaissance pourrait
+permettre de rectifier les problèmes de signature rythmique ainsi que les
+problèmes de décalage de temps. La reconnaissance de la forme du rythme
+permettrait aussi de supprimer les aberrations du type de celle de l’exemple
+d’analyse 4, puisque l’erreur sur cet exemple serait reconnue comme un élément
+qui ne rentre pas dans le cadre de la forme de rythme en question. La dernière
+raison qui rend le travail difficile est l’identification des flas, comment
+savoir si deux notes jouées très proches sont :
+\begin{itemize}
+    \item séparées et rapides,
+    \item mal jouées à l’unisson (accord),
+    \item ou forment un fla ?
+\end{itemize}
+
 
 \subsection*{Transcription de partition}
 \label{partition_entiere}
@@ -212,6 +227,7 @@ le GMD de style «jazz-funk» probablement en raison de la ride de type shabada
 rapide (le ternaire devient binaire avec la vitesse) combiné avec l’after-beat
 de type rock (caisse-claire sur les deux et quatre).
 
+\subsubsection{Conclusion sur les transcriptions manuelles}
 La transcription des données audio et MIDI contenues dans ces fichiers a permis
 une analyse plus approndie des critères à relever pour chaque évènement MIDI et
 de la manière de les considérer dans un objectif de transcription en partition
@@ -226,18 +242,20 @@ lisible pour un musicien (Voir la section \ref{modelisation_transcription}).
         (accents, ghost-notes, flas, …).\\
         lylipond reste néanmoins un choix très agréable, une fois ces
         difficultés surmontées.
-    \item Écrire cette premières partition m’a pris beaucoup de temps car j’ai
-        dû chercher comment écrire chaque nouvel évènement mais les autres
-        transcriptions ont été beaucoup plus rapide et très aisées.
+    \item Écrire la partition de la figure \ref{partition_ref} m’a pris
+        beaucoup de temps car j’ai dû chercher comment écrire chaque nouvel
+        évènement mais les autres transcriptions ont été beaucoup plus rapide
+        et très aisées.
     \item Même si cela représente un investissement au départ, je recommande
         lylipond pour écrire la batterie et je pense que c’est meilleur outil
         pour cette tâche pour le moment. On peut configurer absolument tout.
-    \item dans les autres logiciel d’éditiion de type musescore, la batterie
+    \item dans les autres logiciel d’édition de type musescore, la batterie
         est toujours confiné au système de notation américain.
     \item pour une comparaison entre système américain et système agostinien,
         voir section \ref{flas} est comparer les notations TM (agostinien) et
         TA (américain).
 \end{itemize}
+
 
 \section{Transcription polyphonique par parsing (?verrou?)}
 <flo>Sujet de cette partie -> première problématique / contribution
@@ -305,16 +323,16 @@ Après une augmentation du poids des triples croches dans la grammaire (monté d
 
 
 
-\section{Expérimentation d’un système rythmique}
+\section{Expérimentation d’une forme rythmique}
 \label{expe_theo}
 <flo>Sujet de cette partie -> deuxième problèmatique / contribution
 principale : réécriture, pour séparation en voix et simplification, aidée
-(guidée) par système rythmique.</flo>
+(guidée) par forme rythmique.</flo>
 \florent{Le titre est contradictoire, et l'explication pas très claire}
 Cette expérimentation théorique, basée sur la partition de référence de la figure \ref{partition_ref}, 
-montre le procédé de création d’un \textit{système rythmique} et des règles qui en découlent 
+montre le procédé de création d’un \textit{forme rythmique} et des règles qui en découlent 
 (signature rythmique, choix de grammaire, règles de séparation des voix et de simplification de l’écriture). 
-Le \textit{système rythmique} devra ensuite être implémenté pour appliquer des tests qui seront effectués, 
+Le \textit{forme rythmique} devra ensuite être implémenté pour appliquer des tests qui seront effectués, 
 dans un premier temps, sur la partition de référence.
 
 \subsection*{Motifs et gammes}
@@ -334,15 +352,15 @@ Les gammes de la figure \ref{motifs_gammes} étayent toutes les combinaisons d�
 Les lignes 1 et 2 traitent les croches. La ligne 1 a 2 mesures dont la première ne contient que des noires et la deuxième que des croches en l’air. Ces deux possibilités sont combinées de manière circulaire dans les 3 mesures de la deuxième ligne.\\
 Les lignes 3, 4 et 5 traitent les doubles-croches. La ligne 3 a 2 mesures dont la première ne contient que des croches et la deuxième que des doubles-croches en l’air. Ces deux possibilités sont combinées de manière circulaire dans les lignes 4 et 5 qui contiennent chacunes 3 mesures.
 
-\subsection*{système rythmiques — motifs et gammes combinés}
+\subsection*{formes rythmiques — motifs et gammes combinés}
 Pour la suite de l’expérimentation théorique, nous utiliserons le motif 1 de la figure \ref{motifs_gammes}.\\
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/2_experimentation_theorique/2_systeme_4-4_binaire.png}
-	\caption{Partition d’un système rythmique en 4/4 binaire}
+	\caption{Partition d’un forme rythmique en 4/4 binaire}
 	\label{sys_binaire}
 \end{figure}
-\subsection*{Représentation du système rythmique en arbres de rythmes}
+\subsection*{Représentation du forme rythmique en arbres de rythmes}
 \label{demo_sys}
 \begin{figure}[h]
 	\centering
@@ -358,14 +376,14 @@ Pour la suite de l’expérimentation théorique, nous utiliserons le motif 1 de
 		[.Temps\ 2 [rd\\cc ][ [rd\\bd\\pf ][rd ]]]
 		[.Temps\ 3 [rd ][ [rd\\bd\\pf ][rd ]]]
 		[.Temps\ 4 [rd\\cc ][ [rd\\bd\\pf ][rd ]]] ]]}
-	\caption{Arbre de rythme — système rythmique}
+	\caption{Arbre de rythme — forme rythmique}
 	\label{arbre_sys}
 \end{figure}
 L’arbre de la figure \ref{arbre_sys} servira de base pour le suite de l’expérimentation. Comme indiqué à la racine de l’arbre, il représente la première ligne de la figure \ref{sys_binaire}. Même si cet arbre représente parfaitement le rythme concerné, il manque des indications de notation telles que les voix spécifiques à chaque partie du rythme ainsi que les choix d’écriture pour les distances qui séparent les notes de chaque voix entre elles en termes de durée.
 \subsection*{Réécriture — séparation des voix et simplification}
 
 \subsubsection{La séparation des voix}
-Ainsi l’arbre syntaxique de départ est divisé en autant d’instruments qui le constituent et les voix seront regroupées en suivant les régles du système rythmique.
+Ainsi l’arbre syntaxique de départ est divisé en autant d’instruments qui le constituent et les voix seront regroupées en suivant les régles du forme rythmique.
 \begin{figure}[h]
 	\centering
 	\resizebox{350pt}{!} {
@@ -480,13 +498,13 @@ Pour les figures ci-dessous :
 	\label{5}
 \end{figure}
 
-Ces règles ont été tirées de l’ensemble des arbres du système rythmique. Les arbres manquants seront mis en annexe.
+Ces règles ont été tirées de l’ensemble des arbres du forme rythmique. Les arbres manquants seront mis en annexe.
 
-Les règles remplacent par un silence les continuations (t) qui sont au début d’un temps. Cela est valable pour ce système rythmique mais lorsqu’il y a des ouvertures de charley, cela n’est pas toujours applicable. Ce problème est évoqué de le chapitre \ref{methodes}.
+Les règles remplacent par un silence les continuations (t) qui sont au début d’un temps. Cela est valable pour ce forme rythmique mais lorsqu’il y a des ouvertures de charley, cela n’est pas toujours applicable. Ce problème est évoqué de le chapitre \ref{methodes}.
 
 $\Rightarrow$ \textbf{Objectif de cette expérimentation théorique} :
 
-La méthode des \textit{système rythmiques} étant basée sur une approche dictionnaire, cette expérimentation théorique a pour but d’orienter la recherche d’autres système rythmiques par observation du jeu de données et de montrer comment les construire pour agrandir la base de connaissance de Qparse pour l’ADT.
+La méthode des \textit{formes rythmiques} étant basée sur une approche dictionnaire, cette expérimentation théorique a pour but d’orienter la recherche d’autres formes rythmiques par observation du jeu de données et de montrer comment les construire pour agrandir la base de connaissance de Qparse pour l’ADT.
 
 \section{BILAN : résultats — évaluation — discussion}
 
@@ -521,7 +539,7 @@ faites ou non et nous tenterons d’en expliquer la ou les raisons.
         local possible à évaluer au lieu d’attendre que la chaîne arrive
         jusqu’à la génération d’une partition mais cela n’était pas prioritaire
         pendant le stage.
-    \item Création d’un jeu de système rythmique basique réprésentatif des
+    \item Création d’un jeu de forme rythmique basique réprésentatif des
         différents styles à recouvrir. Ce jeu n’a pas pu être créé, car comme
         vu plus haut, je me suis focalisé sur un exemple pour pouvoir le
         vérifier entièrement et dans l’espoir de pouvoir le tester en fin de
@@ -544,9 +562,9 @@ Lilypond vers MIDI + ouput vers MIDI $\Rightarrow$ Comparaison des MIDI dumpés.
 
 	%\item Le ternaire jazz (voir expérience 2)
 	%\item Reconnaissance d’un motif sur le MIDI\\
-	%Reconnaître un motif (système rythmique) sur une mesure de l’input (un fichier midi
+	%Reconnaître un motif (forme rythmique) sur une mesure de l’input (un fichier midi
     %représentant des données audios)\\
-	%$\Rightarrow$ Motif (système rythmique) reconnu : true ou false\\
+	%$\Rightarrow$ Motif (forme rythmique) reconnu : true ou false\\
 	%Si true :\\
 	%- Choisir la grammaire correspondante ;\\
 	%- Parser le MIDI ;\\
@@ -556,7 +574,7 @@ Lilypond vers MIDI + ouput vers MIDI $\Rightarrow$ Comparaison des MIDI dumpés.
     %plusieurs mesures afin de pouvoir corriger des erreurs sur une des mesures
     %qui aurait dû être identique aux autres mais qui présente des différences.
 	%\item dans quelle catégorie mettre le shuffle ?\\
-    %\item écrire des règles de réécriture spécifique aux charley avec un système rythmique
+    %\item écrire des règles de réécriture spécifique aux charley avec un forme rythmique
     %approprié.
 
 \end{itemize}
