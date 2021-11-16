@@ -2,13 +2,20 @@
 Dans ce chapitre, nous présenterons le jeu de données et les analyse MIDI-Audio
 et transcriptions manuelles.
 
-Problèmatique : passage au polyphonique indispensable pour la suite du travail
-et pour l’expérimentation des formes rythmiques. Finir la chaîne de
-traitement indispensable pour obtenir des résultats chiffrés possible à
-évaluer.
+Problèmatique :
 
-Nous présenterons mes deux contributions principales :
+choix d’un outil de transcription ?
+
+passage au polyphonique indispensable pour la suite du travail
+et pour l’usage des formes rythmiques.
+
+Finir la chaîne de traitement indispensable pour obtenir des résultats chiffrés
+possible à évaluer.
+
+Nous présenterons mes trois contributions principales :
 \begin{itemize}
+    \item le code lilypond normalisé pour la transcription de la batterie avec
+        la notation de type agostini.
     \item les différentes étapes de résolution du passage au polyphonique.
     \item l’expérimentation d’un forme rythmique implémentable qui devra être
         utilisé comme base de connaissances pour augmenter la rapidité et la
@@ -16,9 +23,9 @@ Nous présenterons mes deux contributions principales :
         nouvelles formes rythmiques.
 \end{itemize}
 
-Enfin, nous finirons par une discussion sur
-les avancées réalisées dans ce travail, la pertinence des choix qui ont été
-faits et les moyens d’évaluer les résultats potentiels.
+Enfin, nous finirons par une discussion sur les avancées réalisées dans ce
+travail, la pertinence des choix qui ont été faits et les moyens d’évaluer les
+résultats potentiels.
 
 \section{Le jeu de données}
 Nous avons utilisé le Groove MIDI
@@ -390,7 +397,7 @@ z_images/4_experimentations/2_reecriture_guidee/2_systeme_4-4_binaire.png}
 \caption{Partition d’un forme rythmique en 4/4 binaire}
 \label{sys_binaire}
 \end{figure}
-\subsection*{Représentation du forme rythmique en arbres de rythmes}
+\subsection*{Représentation de la forme rythmique en arbres de rythmes}
 \label{demo_sys}
 \begin{figure}[h]
 	\centering
@@ -535,24 +542,24 @@ z_images/4_experimentations/2_reecriture_guidee/simplification_9.png}
 	\caption{}
 	\label{4}
 \end{figure}
-\begin{figure}[h]
-	\centering
-	\resizebox{50pt}{!} {
-		\Tree[.1/4 [t ][ [x ][x ]]]
-	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-	\resizebox{50pt}{!} {
-		\Tree[.1/4 [r ][ [x ][x ]]]
-	}\\
-	\resizebox{70pt}{!} {
-		\Tree[.1/4 [t ][x ][x ][x ] ]
-	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-	\resizebox{70pt}{!} {
-		\Tree[.1/4 [r ][x ][x ][x ] ]
-	}
-	\caption{}
-	\label{5}
-\end{figure}
-
+%\begin{figure}[h]
+%	\centering
+%	\resizebox{50pt}{!} {
+%		\Tree[.1/4 [t ][ [x ][x ]]]
+%	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+%	\resizebox{50pt}{!} {
+%		\Tree[.1/4 [r ][ [x ][x ]]]
+%	}\\
+%	\resizebox{70pt}{!} {
+%		\Tree[.1/4 [t ][x ][x ][x ] ]
+%	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+%	\resizebox{70pt}{!} {
+%		\Tree[.1/4 [r ][x ][x ][x ] ]
+%	}
+%	\caption{}
+%	\label{5}
+%\end{figure}
+%\newpage
 Ces règles ont été tirées de l’ensemble des arbres de la forme rythmique. Les
 arbres manquants seront mis en annexe.
 
