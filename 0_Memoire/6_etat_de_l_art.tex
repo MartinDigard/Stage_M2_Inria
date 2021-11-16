@@ -1,13 +1,10 @@
-% !TEX root = 1_memoire.tex
 \section*{Introduction}
-Dans ce chapitre, nous 
-\florent{présenterons quelques travaux antérieurs}
-observerons les différentes avancées qui ont déjà eu lieu dans le domaine de la
-transcription automatique de la musique et de la batterie afin de situer notre
-démarche.
+Dans ce chapitre, nous présenterons quelques travaux antérieurs dans le domaine
+de la transcription automatique de la musique et de la batterie afin de situer
+notre démarche.
 
 Nous aborderons le passage crucial du monophonique au polyphonique dans la
-transcription. Nous ferons un point sur les deux grandes parties de l’AMT de
+transcription. Nous ferons un point sur les deux grandes parties de la TAM de
 bout en bout : de l’audio vers le MIDI puis des données MIDI vers l’écriture
 d’une partition. Ensuite, nous discuterons des approches linéaires et des
 approches hiérarchiques.
@@ -38,8 +35,8 @@ d'instrument. Cette question reste donc encore ouverte.
 
 \section{Audio vers MIDI}
 Jusqu’à aujourd’hui, les recherches se sont majoritairement concentrées sur le
-traitement du signal \florent{de signaux audio} vers la génération du MIDI
-\cite{AMT_for_2_Instru}. \florent{MIDI \textbf{non-quantifié} = performance (à
+traitement de signaux audio vers la génération du MIDI \cite{AMT_for_2_Instru}.
+\florent{MIDI \textbf{non-quantifié} = performance (à
 expliquer)}
 
 Cette partie englobe plusieurs sous-tâches dont la détection multi-pitchs, 
@@ -56,6 +53,46 @@ transcription! séparation des sources oui.}
 
 \florent{avant l'ADT, il faudrait dire 2 mots sur les techniques utilisées (cf.
 survey AMT Benetos et al.)}
+
+La figure \ref{AMT_presentation} est une proposition de Benetos \textit{et al.}
+\cite{future_directions} \florent{la figure ne correspond pas à ton travail.
+ici "score" = MIDI performance.} qui représente l’architecture générale d’un
+système de transcription musicale. On y observe plusieurs sous-tâches de
+la TAM :
+\begin{itemize}
+	\item La séparation des sources à partir de l’audio.
+	\item Le système de transcription :
+	\begin{itemize}
+		\item Cœur du système :\\
+		$\Rightarrow$ Algorithmes de détection des multi-pitchs<dam>un autre terme plus compréhensible ?</dam> et de suivi des \tab notes.\\
+		Quatres sous-tâches optionnelles accompagnent ces algorithmes :
+		\begin{itemize}
+			\item identification de l’instrument ;
+			\item estimation de la tonalité et de l’accord ;
+			\item détection de l’apparition et du décalage ;
+			\item estimation du tempo et du rythme.
+            \item <dam> ça serait bien d'avoir une vision approximative des données :
+- identification de l’instrument : valeur symbolique prise dans une liste prédéfinie ?
+- estimation de la tonalité et de l’accord : en note la gamme ou Hz ?
+- détection de l’apparition et du décalage : mesure de temps / durée
+- estimation du tempo et du rythme : ?</dam>
+		\end{itemize}
+	\end{itemize}
+	\item Apprentissage sur des modèles accoustiques et musicologiques.
+	\item \textit{Optionnel :} Informations fournies de manière externe, soit
+        fournie en amont (genre, instruments,…), soit par interaction avec un
+        utilisateur (infos sur une partition incomplète).
+\end{itemize}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[height=95mm, width=130mm]{z_images/1_contexte/1_general_process.png}
+	\caption{Transcription automatique <dam>remettre ici la citation de la capture d'écran avec la page</dam>}
+	\label{AMT_presentation}
+	\textit{Les sous-systèmes et algorithmes optionnels sont présentés à l’aide
+    de lignes pointillées. Les doubles flèches mettent en évidence les
+connexions entre les systèmes qui incluent la fusion d’informations et une
+communication plus interactive entre les systèmes.}
+\end{figure}%\newpage
 
 En ADT \cite{Review_ADT}, plusieurs stratégies de répartition
 pré/post-processing sont possibles pour la détection multi-pitchs. Entamer la
