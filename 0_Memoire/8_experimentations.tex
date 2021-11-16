@@ -172,8 +172,8 @@ z_images/4_experimentations/1_analyses/2_flas/1_124_funk_95_fill_4-4.png}\\
         quadruple croche suivie d’une triple croche au lieu d’une seule note
         ornementée.
 	\item Le deuxième fla est reconnu comme étant un accord.
-	\item Les deux double en l’air sur le temps 4 de la TM sont mal quantifiée
-        dans la TA. 
+	\item Les deux double en contre-temps sur le temps 4 de la TM sont mal
+        quantifiée dans la TA. 
 	\item La TA ne reconnaît qu’une mesure quand la TM en transcrit deux. En
         effet, la TA a divisé par deux la durée des notes afin de les faire
         tenir dans une mesure à 4 temps dont les unités de temps sont les
@@ -183,8 +183,8 @@ z_images/4_experimentations/1_analyses/2_flas/1_124_funk_95_fill_4-4.png}\\
         mesure 2 de la TM suivie d’un demi-soupir devient une croche pointée
         sur le temps 3 de la TA.
 	\item Autre problème : certaines têtes de notes sont mal attribuées. Par
-        exemple, le charley ouvert en l’air sur le temps 2 de la mesure 2 de
-        la TM devrait avoir le même symbole sur la TA. Idem pour les
+        exemple, le charley ouvert en contre-temps sur le temps 2 de la mesure
+        2 de la TM devrait avoir le même symbole sur la TA. Idem pour les
         cross-sticks.
 \end{itemize}
 
@@ -257,13 +257,12 @@ lisible pour un musicien (Voir la section \ref{modelisation_transcription}).
 \end{itemize}
 
 
-\section{Transcription polyphonique par parsing (?verrou?)}
+\section{Transcription polyphonique par parsing}
 <flo>Sujet de cette partie -> première problématique / contribution
 principale : transcription polyphonique par parsing (verrou): jams etc</flo>
 
 \subsection*{Les Jams}
 Les Jams permettent de passer du monophonique au polyphonique.
-%\subsubsection*{Tests unitaires sur les Jams}
 \label{jam_tests}
 \florent{il faut revenir ici sur le parsing, et la notion d'alignement sur arbres syntaxiques pour définir les jams.
 illustrer avec les exemples précédents.}
@@ -276,6 +275,7 @@ Tests effectués avec le fichier midi suivant :
 \includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/3_developpement/0_midi_2bars_fill.png}
 
 Un premier test convaincant est effectué avec la grammaire suivante :\\\\
+<dam>incompréhensible ainsi, c'est dommage</dam>
 // bar level\\
 0 -> C0                1\\
 0 -> E1                1\\
@@ -320,45 +320,75 @@ Les temps de la première mesure du fichier MIDI sont bien quantifié mais ceux 
 Les Onsets sont correctement triés au niveau des doubles croches mais certaines doubles croches sont inutilement subdivisées en triples croches (les 2ème, 3ème et 4ème doubles croches sur le premier temps ci-dessus).\\\\
 \textbf{2ème exemple :}\\
 Après une augmentation du poids des triples croches dans la grammaire (monté de 1 à 5)et une baisse de tous les autres poids (descendu de 1 à 0.5), et mis à part le troisième temps de la 2ème mesure, tous les Onsets sont bien triés et aucuns ne sont subdivisés.
+\newpage
 
 
+\section{Réécriture guidée par une forme rythmique}
+\label{reecriture_guidee}
+La démonstration qui suit est basée sur la partition de référence de la figure
+\ref{partition_ref} puisque la forme rythmique qui sera utilisée en est
+directement extraite.\\
 
-\section{Expérimentation d’une forme rythmique}
-\label{expe_theo}
-<flo>Sujet de cette partie -> deuxième problèmatique / contribution
-principale : réécriture, pour séparation en voix et simplification, aidée
-(guidée) par forme rythmique.</flo>
-\florent{Le titre est contradictoire, et l'explication pas très claire}
-Cette expérimentation théorique, basée sur la partition de référence de la figure \ref{partition_ref}, 
-montre le procédé de création d’un \textit{forme rythmique} et des règles qui en découlent 
-(signature rythmique, choix de grammaire, règles de séparation des voix et de simplification de l’écriture). 
-Le \textit{forme rythmique} devra ensuite être implémenté pour appliquer des tests qui seront effectués, 
-dans un premier temps, sur la partition de référence.
+Nous allons montrer :
+\begin{itemize}
+    \item la composition de cette forme rythmique ;
+    \item son état finale, c’est à dire toutes les combinaisons entièrement
+        écrites en notation correcte sur partition ;
+
+        $\Rightarrow$ cela constituera une référence pour la réécriture ;
+    \item un exemple de transformation de la forme rythmique en arbre de
+        rythme ;
+    \item l’application de la séparation des voix sur cet exemple basé sur la
+        référence citée précédemment (la forme rythmique en question) ;\\
+        $\Rightarrow$ l’arbre de départ sera alors séparé en autant d’arbres
+        qu’il y a de voix (deux arbres pour cette forme rythmique) ;
+    \item les règles de simplification propres à la forme rythmique dont nous
+        parlons. 
+\end{itemize}
+L’objectif de cette démonstration est de montrer comment un jeu de plusieurs
+formes rythmiques pourrait être implémenter dans le cadre d’une approche
+dictionnaire.
 
 \subsection*{Motifs et gammes}
 \begin{figure}[h]
-	\centering
-	\includegraphics[height=43mm, width=40mm]{z_images/4_experimentations/2_experimentation_theorique/0_motifs_4-4_binaires.png}
-	\includegraphics[height=55mm, width=85mm]{z_images/4_experimentations/2_experimentation_theorique/1_gammes_4-4_binaires.png}
-	\caption{Motifs et gammes}
-	\label{motifs_gammes}
+\centering
+\includegraphics[height=43mm, width=40mm]{
+z_images/4_experimentations/2_reecriture_guidee/0_motifs_4-4_binaires.png}
+\includegraphics[height=55mm, width=85mm]{
+z_images/4_experimentations/2_reecriture_guidee/1_gammes_4-4_binaires.png}
+\caption{Motifs et gammes}
+\label{motifs_gammes}
 \end{figure}
 
 \subsubsection{Motifs}
-À partir de la partition de référence, les deux motifs de la figure \ref{motifs_gammes} peuvent être systématisés. Le motif 1 est joué du début jusqu’à la mesure 18 avec des variations et des fills et le motif 2 est joué de la mesures 23 à la mesure 28 avec des variations. Ces deux motifs sont très classiques et pourront être détectés dans de nombreuses performances.\\
+À partir de la partition de référence, les deux motifs de la figure
+\ref{motifs_gammes} peuvent être systématisés. Le motif 1 est joué du début
+jusqu’à la mesure 18 avec des variations et des fills et le motif 2 est joué de
+la mesures 23 à la mesure 28 avec des variations. Ces deux motifs sont très
+classiques et pourront être détectés dans de nombreuses performances.\\
 
 \subsubsection{Gammes}
-Les gammes de la figure \ref{motifs_gammes} étayent toutes les combinaisons d’un motif en 4/4 binaires jusqu’aux doubles croches.\\
-Les lignes 1 et 2 traitent les croches. La ligne 1 a 2 mesures dont la première ne contient que des noires et la deuxième que des croches en l’air. Ces deux possibilités sont combinées de manière circulaire dans les 3 mesures de la deuxième ligne.\\
-Les lignes 3, 4 et 5 traitent les doubles-croches. La ligne 3 a 2 mesures dont la première ne contient que des croches et la deuxième que des doubles-croches en l’air. Ces deux possibilités sont combinées de manière circulaire dans les lignes 4 et 5 qui contiennent chacunes 3 mesures.
+Les gammes de la figure \ref{motifs_gammes} étayent toutes les combinaisons
+d’un motif en 4/4 binaires jusqu’aux doubles croches.\\
+Les lignes 1 et 2 traitent les croches. La ligne 1 a 2 mesures dont la première
+ne contient que des noires et la deuxième que des croches en contre-temps. Ces
+deux possibilités sont combinées de manière circulaire dans les 3 mesures de la
+deuxième ligne.\\
+Les lignes 3, 4 et 5 traitent les doubles-croches. La ligne 3 a 2 mesures dont
+la première ne contient que des croches et la deuxième que des doubles-croches
+en contre-temps. Ces deux possibilités sont combinées de manière circulaire
+dans les lignes 4 et 5 qui contiennent chacunes 3 mesures.
 
-\subsection*{formes rythmiques — motifs et gammes combinés}
-Pour la suite de l’expérimentation théorique, nous utiliserons le motif 1 de la figure \ref{motifs_gammes}.\\
+\subsection*{Formes rythmiques — motifs et gammes combinés}
+Pour la suite de cette démonstration, je utiliserai le motif 1 de la
+figure \ref{motifs_gammes}.<dam>à commenter un peu plus, notamment pour dire si
+la combinaison est faite automatiquement ou non</dam> 
 \begin{figure}[h]
-	\centering
-	\includegraphics[height=75mm, width=85mm]{z_images/4_experimentations/2_experimentation_theorique/2_systeme_4-4_binaire.png}
-	\caption{Partition d’un forme rythmique en 4/4 binaire}
-	\label{sys_binaire}
+\centering
+\includegraphics[height=75mm, width=85mm]{
+z_images/4_experimentations/2_reecriture_guidee/2_systeme_4-4_binaire.png}
+\caption{Partition d’un forme rythmique en 4/4 binaire}
+\label{sys_binaire}
 \end{figure}
 \subsection*{Représentation du forme rythmique en arbres de rythmes}
 \label{demo_sys}
@@ -379,11 +409,19 @@ Pour la suite de l’expérimentation théorique, nous utiliserons le motif 1 de
 	\caption{Arbre de rythme — forme rythmique}
 	\label{arbre_sys}
 \end{figure}
-L’arbre de la figure \ref{arbre_sys} servira de base pour le suite de l’expérimentation. Comme indiqué à la racine de l’arbre, il représente la première ligne de la figure \ref{sys_binaire}. Même si cet arbre représente parfaitement le rythme concerné, il manque des indications de notation telles que les voix spécifiques à chaque partie du rythme ainsi que les choix d’écriture pour les distances qui séparent les notes de chaque voix entre elles en termes de durée.
-\subsection*{Réécriture — séparation des voix et simplification}
+L’arbre de la figure \ref{arbre_sys} servira de base pour le suite de
+l’expérimentation. Comme indiqué à la racine de l’arbre, il représente la
+première ligne de la figure \ref{sys_binaire}. Même si cet arbre représente
+parfaitement le rythme concerné, il manque des indications de notation telles
+que les voix spécifiques à chaque partie du rythme ainsi que les choix
+d’écriture pour les distances qui séparent les notes de chaque voix entre elles
+en termes de durée.
 
+\subsection*{Réécriture — séparation des voix et simplification}
 \subsubsection{La séparation des voix}
-Ainsi l’arbre syntaxique de départ est divisé en autant d’instruments qui le constituent et les voix seront regroupées en suivant les régles du forme rythmique.
+Ainsi l’arbre syntaxique de départ est divisé en autant d’instruments qui le
+constituent et les voix seront regroupées en suivant les régles du forme
+rythmique.
 \begin{figure}[h]
 	\centering
 	\resizebox{350pt}{!} {
@@ -401,7 +439,8 @@ Ainsi l’arbre syntaxique de départ est divisé en autant d’instruments qui 
 	\caption{Arbre de rythme — voix haute}
 	\label{voix_haute}
 \end{figure}\\
-La voix haute regroupe la ride et la caisse-claire sur les ligatures du haut.
+La voix haute (figure \ref{voix_haute}) regroupe la ride et la caisse-claire
+sur les ligatures du haut.
 \begin{figure}[h]
 	\centering
 	\resizebox{350pt}{!} {
@@ -419,9 +458,13 @@ La voix haute regroupe la ride et la caisse-claire sur les ligatures du haut.
 	\caption{Arbre de rythme — voix basse}
 	\label{voix_basse}
 \end{figure}\\
-La voix basse regroupe la grosse-caisse et le charley au pied sur les ligatures du bas.
+La voix basse (figure \ref{voix_basse} regroupe la grosse-caisse et le charley
+au pied sur les ligatures du bas.
 \subsubsection{Les règles de simplifications}
-L’objectif des règles de simplifications est de réécrire les écarts de durées qui séparent les notes d’une manière appropriée pour la batterie et qui soit la plus simple possible. Les ligatures relient les notes d’un temps entre elles (rendre la pulse visuelle).\\\\
+L’objectif des règles de simplifications est de réécrire les écarts de durées
+qui séparent les notes d’une manière appropriée pour la batterie et qui soit la
+plus simple possible. Les ligatures relient les notes d’un temps entre elles
+afin de rendre la pulsation visuelle).\\\\
 Pour les figures ci-dessous :
 \begin{itemize}
 	\item x = une note ;
@@ -436,8 +479,11 @@ Pour les figures ci-dessous :
 	\resizebox{30pt}{!} {
 		\Tree[.1/4 [x ][x ] ]
 	}\\
-	\includegraphics[height=10mm, width=25mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_0.png}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-	\includegraphics[height=10mm, width=20mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_1.png}
+\includegraphics[height=10mm, width=25mm]{
+z_images/4_experimentations/2_reecriture_guidee/simplification_0.png}\ \ \ \ \ 
+$\Rightarrow$\ \ \ \ \
+\includegraphics[height=10mm, width=20mm]{
+z_images/4_experimentations/2_reecriture_guidee/simplification_1.png}
 	\caption{}
 	\label{1}
 \end{figure}
@@ -449,8 +495,11 @@ Pour les figures ci-dessous :
 	\resizebox{30pt}{!} {
 		\Tree[.1/4 [r ][x ] ]
 	}\\
-	\includegraphics[height=10mm, width=25mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_2.png}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-	\includegraphics[height=10mm, width=20mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_3.png}
+\includegraphics[height=10mm, width=25mm]{
+z_images/4_experimentations/2_reecriture_guidee/simplification_2.png}\ \ \ \ \ 
+$\Rightarrow$\ \ \ \ \
+\includegraphics[height=10mm, width=20mm]{
+z_images/4_experimentations/2_reecriture_guidee/simplification_3.png}
 	\caption{}
 	\label{2}
 \end{figure}
@@ -462,8 +511,11 @@ Pour les figures ci-dessous :
 	\resizebox{50pt}{!} {
 		\Tree[.1/4 [x ][ [x ][x ]]]
 	}\\
-	\includegraphics[height=10mm, width=25mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_4.png}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-	\includegraphics[height=10mm, width=20mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_5.png}
+\includegraphics[height=10mm, width=25mm]{
+z_images/4_experimentations/2_reecriture_guidee/simplification_4.png}\ \ \ \ \ 
+$\Rightarrow$\ \ \ \ \
+\includegraphics[height=10mm, width=20mm]{
+z_images/4_experimentations/2_reecriture_guidee/simplification_5.png}
 	\caption{}
 	\label{3}
 \end{figure}\newpage
@@ -475,8 +527,11 @@ Pour les figures ci-dessous :
 	\resizebox{50pt}{!} {
 		\Tree[.1/4 [ [r ][x ]][x ] ]
 	}\\
-	\includegraphics[height=10mm, width=25mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_8.png}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-	\includegraphics[height=10mm, width=25mm]{z_images/4_experimentations/2_experimentation_theorique/simplification_9.png}
+\includegraphics[height=10mm, width=25mm]{
+z_images/4_experimentations/2_reecriture_guidee/simplification_8.png}\ \ \ \ \ 
+$\Rightarrow$\ \ \ \ \
+\includegraphics[height=10mm, width=25mm]{
+z_images/4_experimentations/2_reecriture_guidee/simplification_9.png}
 	\caption{}
 	\label{4}
 \end{figure}
@@ -498,20 +553,32 @@ Pour les figures ci-dessous :
 	\label{5}
 \end{figure}
 
-Ces règles ont été tirées de l’ensemble des arbres du forme rythmique. Les arbres manquants seront mis en annexe.
+Ces règles ont été tirées de l’ensemble des arbres de la forme rythmique. Les
+arbres manquants seront mis en annexe.
 
-Les règles remplacent par un silence les continuations (t) qui sont au début d’un temps. Cela est valable pour ce forme rythmique mais lorsqu’il y a des ouvertures de charley, cela n’est pas toujours applicable. Ce problème est évoqué de le chapitre \ref{methodes}.
+Les règles remplacent par un silence les continuations (t) qui sont au début
+d’un temps. Cela est valable pour cette forme rythmique mais lorsqu’il y a des
+ouvertures de charley, cela n’est pas toujours applicable. Ce problème est
+évoqué de le chapitre \ref{methodes}.
 
-$\Rightarrow$ \textbf{Objectif de cette expérimentation théorique} :
-
-La méthode des \textit{formes rythmiques} étant basée sur une approche dictionnaire, cette expérimentation théorique a pour but d’orienter la recherche d’autres formes rythmiques par observation du jeu de données et de montrer comment les construire pour agrandir la base de connaissance de Qparse pour l’ADT.
+\subsection*{Conclusion sur cette réécriture guidée}
+La méthode des formes rythmiques étant basée sur une approche dictionnaire,
+Le premier objectif de cette réécriture guidée est d’orienter la recherche
+d’autres formes rythmiques par observation du jeu de données et de montrer
+comment les construire pour agrandir la base de connaissance de Qparse pour la
+transcription de la batterie.
 
 \section{BILAN : résultats — évaluation — discussion}
 
-Cette section regroupe les avancées qui ont été réalisées par rapport aux objectifs de départ ainsi qu’une réflexion sur le moyen d’évaluer les résultats de l’ADT avec Qparse. Nous avons améliorer le système de quantification de Qparse pour la batterie, notamment le passage à la polyphonie avec les Jams. 
+Cette section regroupe les avancées qui ont été réalisées par rapport aux
+objectifs de départ ainsi qu’une réflexion sur le moyen d’évaluer les résultats
+de l’ADT avec Qparse. Nous avons améliorer le système de quantification de
+Qparse pour la batterie, notamment le passage à la polyphonie avec les Jams. 
 
-Nous avons pu obtenir des arbres de parsing corrects en améliorant les grammaires avec des fichiers MIDI courts. 
-Puis, une sortie MEI a été aussi été obtenu (encore à vérifier).
+Nous avons pu obtenir des arbres de parsing corrects en améliorant les
+grammaires avec des fichiers MIDI courts. 
+
+Puis, une sortie MEI a aussi été obtenu (encore à vérifier).
 
 
 
@@ -552,30 +619,40 @@ faites ou non et nous tenterons d’en expliquer la ou les raisons.
 	$\Rightarrow$ Très dure automatiquement : il faut comparer 2 partitions
     (réf \tab VS output)
 Pour l’évaluation, il aurait fallu produire un module.\\
+<dam>je ne sais pas si tu auras encore le temps de faire ça, sinon il faudra
+décrire comment tu aurais aimé évaluer, proprement et sans résultats
+chiffrés</dam>
 L’évaluation est-elle automatique ou manuelle ?\\
-Possibilité d’un export lilypond en arbre pour comparer l’ouput avec la transcription manuelle.\\
-Possibilité de transformer lilypond(output) et lilypond(ref) en ScoreModel ou MEI pour les comparer et faire des statistiques. Si transformés en MEI : diffscore de Francesco.
-Possibilité de transformer lilypond(output) et lilypond(ref) en MusicXML pour les comparer ou dans Music21.
-L’expérimentation peut-être considérer comme une évaluation manuelle ? (magicien d’Oz)\\
-Lilypond vers MIDI + ouput vers MIDI $\Rightarrow$ Comparaison des MIDI dumpés.\\
+Possibilité d’un export lilypond en arbre pour comparer l’ouput avec la
+transcription manuelle.\\
+Possibilité de transformer lilypond(output) et lilypond(ref) en ScoreModel ou
+MEI pour les comparer et faire des statistiques. Si transformés en MEI :
+diffscore de Francesco.
+Possibilité de transformer lilypond(output) et lilypond(ref) en MusicXML pour
+les comparer ou dans Music21.
+L’expérimentation peut-être considérer comme une évaluation manuelle ?
+(magicien d’Oz)\\
+Lilypond vers MIDI + ouput vers MIDI $\Rightarrow$ Comparaison des MIDI
+dumpés.\\
 
-
-	%\item Le ternaire jazz (voir expérience 2)
-	%\item Reconnaissance d’un motif sur le MIDI\\
-	%Reconnaître un motif (forme rythmique) sur une mesure de l’input (un fichier midi
-    %représentant des données audios)\\
-	%$\Rightarrow$ Motif (forme rythmique) reconnu : true ou false\\
-	%Si true :\\
-	%- Choisir la grammaire correspondante ;\\
-	%- Parser le MIDI ;\\
-	%- Appliquer les règles de réécritures (Séparation des voix et
-    %simplification)
-	%\item Nous travaillerons aussi sur la détection de répétitions sur
-    %plusieurs mesures afin de pouvoir corriger des erreurs sur une des mesures
-    %qui aurait dû être identique aux autres mais qui présente des différences.
-	%\item dans quelle catégorie mettre le shuffle ?\\
-    %\item écrire des règles de réécriture spécifique aux charley avec un forme rythmique
-    %approprié.
+%\item Le ternaire jazz (voir expérience 2)
+%\item Reconnaissance d’un motif sur le MIDI\\
+%Reconnaître un motif (forme rythmique) sur une mesure de l’input (un fichier
+%midi
+%représentant des données audios)\\
+%$\Rightarrow$ Motif (forme rythmique) reconnu : true ou false\\
+%Si true :\\
+%- Choisir la grammaire correspondante ;\\
+%- Parser le MIDI ;\\
+%- Appliquer les règles de réécritures (Séparation des voix et
+%simplification)
+%\item Nous travaillerons aussi sur la détection de répétitions sur
+%plusieurs mesures afin de pouvoir corriger des erreurs sur une des mesures
+%qui aurait dû être identique aux autres mais qui présente des différences.
+%\item dans quelle catégorie mettre le shuffle ?\\
+%\item écrire des règles de réécriture spécifique aux charley avec un forme
+% rythmique
+%approprié.
 
 \end{itemize}
 
