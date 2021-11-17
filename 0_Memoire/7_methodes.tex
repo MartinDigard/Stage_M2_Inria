@@ -161,8 +161,10 @@ indication visuelle au début de chaque temps.
 \end{itemize}
 
 En cas de nécessité de prolonger la durée d’une note au-delà 
-de sa durée initial, et si cette note correspond à une ouverture de charley, on
-privilégiera donc la liaison.
+de son temps de départ (syncope) et si cette note ne correspond pas à une
+ouverture de charley, elle sera prolongerée sur le temps suivant à l’aide de
+silences dont le premier sera positionné sur le temps. Si la note syncopée est
+une ouverture de charley, on privilégiera la liaison pour sa prolongation.
 
 \subsection*{Les silences}
 Les silences sont parfois utilisés pour noter les fermetures de charley (après
@@ -170,83 +172,113 @@ une ouverture). Les fermetures du charley sont notées soit par un silence
 (correspondant à une fermeture de la pédale), soit par un écrasement de
 l’ouverture par un autre coup de charley fermé, au pied ou à la main.
 
-Physiquement, le charley est fermé par une pression du pied sur la pédale de
-charley. Dans les fichiers MIDI, cette pression est traduite par un charley
-joué au pied. Mais dans une vraie partition, cette écriture ne traduirait pas
-ce que le batteur doit penser.
-\florent{pas très clair}
-
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=40mm, width=40mm]{z_images/3_methodes/0_notation_de_la_batterie/5_silence_joue.png}
+	\includegraphics[height=40mm, width=40mm]{
+    z_images/3_methodes/0_notation_de_la_batterie/5_silence_joue.png}
 	\caption{Silence joué}
 	\label{silence joue}
 \end{figure}
 
-L’exemple 1 de la figure \ref{silence joue} montre ce qui est écrit dans les données MIDI et l’exemple 2 montre ce que le batteur doit penser en lisant la partition. Il faut aussi prendre en compte l’écriture surchargée que l’exemple 1 donnerait avec une partition comprenant plusieurs voix et plusieurs instruments jouant simultanément.
+L’écriture littérale de contenu MIDI peut ressembler à l’exemple 1 de la figure
+\ref{silence joue}. Sur cet exemple, le son de l’ouverture de charley est
+arrêté par une pression du pied sur la pédale et c’est ce que le batteur joue
+dans les faits. Mais il apparaît intuitivement que le but de la première note
+du deuxième temps n’est pas de générer un son de charley au pied mais
+uniquement de stopper l’ouverture. La notation de l’exemple 2 de la figure
+\ref{silence joue} serait donc préférable car elle représente mieux l’intention
+de ce rythme et elle n’empiète pas sur une potentielle voix basse qui pourrait
+le compléter (on évite une écriture surchargée).
 
-Lorsqu’une note est un charley ouvert, il faudra donc prendre en compte la note suivante pour l’écriture :
-\florent{itemize}
-- Si c’est un charley fermé joué à la main $\Rightarrow$ la note sera cf ;\\
-\florent{cf ?}
-- Si c’est un charley fermé joué au pied $\Rightarrow$ la note sera un silence.
-
+Lorsqu’une note est un charley ouvert, il faudra donc prendre en compte la note
+suivante pour l’écriture :
+\begin{enumerate}
+    \item si c’est un charley fermé joué à la main $\Rightarrow$ la note sera
+        un charley fermé joué à la main (cf) ;
+    \item si c’est un charley fermé joué au pied $\Rightarrow$ la note sera un
+        silence.
+\end{enumerate}
+La deuxième règle sera soumise au cadre imposé par certaines formes rythmiques
+pour lesquelles le charley joué au pied devra rester tel quel. 
 
 \subsection*{Les équivalences rythmiques}
-Pour les instruments mélodiques, 
-la liaison et le point sont les deux seules possibilités en cas d’équivalence rythmique pour des notes dont la durée de l’une à l’autre est ininterrompue. 
-\florent{phrase alambiquée... pour prolonger la durée?}
-Mais pour la batterie, à part dans le cas des ouvertures de charley (voir section \ref{hho}), 
-les durées des notes n’ont pas d’importance. 
-\florent{seuls comptent les date de début de notes \emph{onsets}.}
-L’usage des silences pour combler la distance rythmique entre deux notes devient donc possible.
+Pour les instruments mélodiques, dans le cas de notes dont la durée de l’une à
+l’autre est ininterrompue et si leur durée initiale est prolongée, seuls la
+liaison et le point permettent des notations équivalente. Mais pour la
+batterie et à part dans le cas des ouvertures de charley (voir section
+\ref{hho}), seules comptent des dates de début (onsets) : la durée du son n’a
+pas d’importance. L’usage des silences pour combler la distance rythmique entre
+deux notes devient donc possible.
 
-Cela pris en compte, et étant donné que les indications de durée dans les têtes de notes sont peu recommandées (voir section \ref{hho}), l’écriture à l’aide de silences sera privilégiée comme indication de durée sauf dans les cas où cela reste impossible. 
-Ce choix à pour but de n’avoir qu’une manière d’écrire toutes les notes, que leurs têtes de notes soit modifiées ou non.
+Cela pris en compte, et étant donné que les indications de durée dans les têtes
+de notes sont peu recommandées (voir section \ref{hho}), l’écriture à l’aide de
+silences sera privilégiée comme indication de durée sauf dans les cas où cela
+reste impossible. Ce choix à pour but de n’avoir qu’une manière d’écrire toutes
+les notes, quelles que soient leur tête de note (sauf pour le charley).
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=20mm, width=75mm]{z_images/3_methodes/0_notation_de_la_batterie/6_equivalence.png}
+	\includegraphics[height=20mm, width=75mm]{
+    z_images/3_methodes/0_notation_de_la_batterie/6_equivalence.png}
 	\caption{Équivalence}
 	\label{equivalence}
 \end{figure}
 
-Sur la figure \ref{equivalence}, théoriquement, il faudra choisir la notation de la deuxième mesure mais dans certains contextes, pour des raisons de lisibilité ou de surcharge, la version sans les silences de la troisième mesure pourra être choisie.
+Sur la figure \ref{equivalence}, théoriquement, il faudra choisir la notation
+de la deuxième mesure mais dans certains contextes, pour des raisons de
+lisibilité ou de surcharge, la version sans les silences de la troisième mesure
+pourra être choisie.
 
 \subsection*{Les voix}
-Les voix\footnote{\url{https://fr.wikipedia.org/wiki/Voix_(polyphonie)}} 
-désignent les différentes parties mélodiques constituant une composition musicale et destinées à être interprétées, simultanément ou successivement, par un ou plusieurs musiciens. 
-\florent{Pour les instruments mélodiques, un groupe de notes peut être organisé en \emph{voix},
-représentant des flots mélodiques joués en parallèle, avec une synchronisation plus ou moins stricte.}
-\florent{voix: citations possibles: 
-- "Joint Estimation of Note Values and Voices for Audio-to-Score Piano Transcription" Nakamura et al 2021 
- ou une des références de ce papier, par ex.  [15] ou [16].
-- ou thèse de Nicolas Guiomard-Kagan.}
-En batterie, une voix est l’ensemble des instruments qui, à eux seuls, constituent une phrase rythmique et sont regroupés à l’aide des ligatures. 
-\florent{une voix est charactérisée aussi pas orientation des hampes?}
-Plusieurs écritures étant possibles pour un même rythme, on peut regrouper les instruments de la batterie par voix. Sur une portée de batterie, il existe le plus souvent 1 ou 2 voix. Sur la figure \ref{sep_voix}, il faudra faire un choix entre les exemples 1, 2 et 3 qui sont trois façons équivalentes d’écrire le même rythme.
+Pour les instruments mélodiques, un groupe de notes peut être organisé en
+\emph{voix}, représentant des flots mélodiques joués en parallèle, avec une
+synchronisation plus ou moins stricte \cite{SHIBATA2021262}
+\cite{Guiomard-Kagan}.
+% voir ref [15] ou [16] de SHIBATA….
+
+En batterie, une voix est théoriquement l’ensemble des instruments qui, à eux
+seuls, constituent une phrase rythmique. Mais en pratique, les instruments
+peuvent aussi être divisés par voix dans le but de ne pas surcharger la
+notation ou pour que leur disposition soit représentée sur la
+partition (voir section \ref{notation_batterie}).
+Les voix sont charactérisées par l’orientation des hampes et plus présicément
+par les ligatures si les hampes sont dans la même direction (voir figure
+\ref{afro_latin}).
+
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=65mm, width=60mm]{z_images/3_methodes/0_notation_de_la_batterie/7_voix.png}
+	\includegraphics[height=65mm, width=60mm]{
+    z_images/3_methodes/0_notation_de_la_batterie/7_voix.png}
 	\caption{Séparation des voix}
 	\label{sep_voix}
-\end{figure}\\
-Ce choix se fera en fonction des instruments joués, de la nature plus ou moins systèmatique de leurs phrasés, et des associations logiques entre les instruments dans la distribution des rythmes sur la batterie (voir la section \ref{sys_sep_voix}).
+\end{figure}
+Sur la figure \ref{sep_voix}, il faudra faire un choix entre les exemples 1, 2
+et 3 qui sont trois façons équivalentes d’écrire le même rythme.
+Ce choix se fera en fonction des instruments joués, de la nature plus ou moins
+systèmatique de leurs phrasés, et des associations logiques entre les
+instruments dans la distribution des rythmes sur la batterie (voir la section
+\ref{sys_sep_voix}).
 
 \subsection*{Les accentuations et les ghost-notes}
-« Certaines notes dans une phrase musicale doivent, ainsi que les différentes syllabes d’un mot, être accentuées avec plus ou moins de force, porter une inflexion particulière. » \cite{danhauser}
+« Certaines notes dans une phrase musicale doivent, ainsi que les différentes
+syllabes d’un mot, être accentuées avec plus ou moins de force, porter une
+inflexion particulière. » \cite{danhauser}
 \begin{figure}[h]
-	\centering
-	\includegraphics[height=25mm, width=75mm]{z_images/3_methodes/0_notation_de_la_batterie/8_accents_et_ghost-notes_0.png}
-	\caption{Les accents et les ghost-notes}
-	\label{accents_et_gn}
+\centering
+\includegraphics[height=25mm, width=75mm]{
+z_images/3_methodes/0_notation_de_la_batterie/8_accents_et_ghost-notes_0.png}
+\caption{Les accents et les ghost-notes}
+\label{accents_et_gn}
 \end{figure}
 
 La figure \ref{accents_et_gn} ne prend en compte que les accents 
 \florent{3.9 = liste des seuls "instruments" qui peuvent être accentués?}
-que nous avons estimés nécessaires (voir la section \ref{velocite}). 
+que j’ai estimés nécessaires (voir la section \ref{velocite}). 
 Les accents sont marqués par le symbole~«~>~». 
-Il est positionné au-dessus des notes représentant des cymbales et en-dessous des notes représentant des toms ou la caisse claire. Ce choix a été fait pour la partition de la figure \ref{partition_ref} car elle est plus lisible ainsi, mais ces choix devront être adaptés en fonction des différents forme rythmiques reconnus (voir la section \ref{systemes_methodes}). Par exemple, pour les forme rythmiques jazz, les ligatures pour les toms et la caisse claire seront dirigés vers le bas, il faudra donc mettre les symboles d’accentuation correspondants au-dessus des têtes de notes.
+Il est positionné au-dessus des notes représentant des cymbales et en-dessous
+des notes représentant des toms ou la caisse claire. Ce choix a été fait pour
+la partition de la figure \ref{partition_ref} car elle est plus lisible ainsi,
+mais ces choix devront être adaptés en fonction des différents forme rythmiques reconnus (voir la section \ref{systemes_methodes}). Par exemple, pour les forme rythmiques jazz, les ligatures pour les toms et la caisse claire seront dirigés vers le bas, il faudra donc mettre les symboles d’accentuation correspondants au-dessus des têtes de notes.
 
 La dernière note de la figure \ref{accents_et_gn} montre un exemple de ghost-notes. 
 \florent{expliquer ce qu'est une \emph{ghost-notes}}
