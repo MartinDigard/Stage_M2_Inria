@@ -3,7 +3,7 @@ Dans ce chapitre, nous expliquerons en détail les méthodes que nous avons
 employées pour l’ADT.\\
 Pour commencer, nous exposerons une description de la notation de la batterie
 ainsi qu’une modélisation de celle-ci pour la représentation des données
-rythmiques en arbres syntaxiques. Nous poursuiverons avec une présentation de
+rythmiques en arbres syntaxiques. Nous poursuivrons avec une présentation de
 qparse\footnote{https://qparse.gitlabpages.inria.fr/}, un outil de
 transcription qui est développé à l'Inria, l'Université de Nagoya et plusieurs
 développeurs au sein du laboratoire Cedric au CNAM.
@@ -53,32 +53,36 @@ Cymbales crash & cr & crash \\ \hline
 	\caption{Noms des instruments de la batterie}
 	\label{nom_instru_batt}
 \end{table}
-\florent{pour aider, tu pourrais donner une figure représentant la batterie 
-         avec le nom des instruments et abbréviation.}
 La figure \ref{instru_batt}\footnote{Source : \url{
 https://www.superprof.fr/blog/composition-instrument-percussion/}} montre une
 batterie standard avec tous les instruments habituellement présent sur une
-batterie. Le tableau \ref{nom_instru_batt} donne dans l’ordre :
+batterie et la figure \ref{haut} donne leur représentation sur une partition.
+
+Le tableau \ref{nom_instru_batt} donne dans l’ordre :
 \begin{enumerate}
     \item les noms des instruments sur la figure \ref{instru_batt} ;
     \item leurs codes respectifs dans la figure \ref{haut} ;
     \item les noms que j’utiliserai dans le présent document pour y référer.
 \end{enumerate}
-En observant les figures \ref{instru_batt}, \ref{nom_instru_batt} et
-\ref{haut}, le les hauteurs sur la portée représentent :
-\begin{itemize}
-	\item La hauteur physique des instruments :\\
-	La caisse claire est centrale sur la portée et sur la batterie (au niveau de la ceinture, elle conditionne l’écart entre les pédales et aussi la position de tous les instruments basiques d’une batterie).\\
-	Tout ce qui en-dessous de la caisse-claire sur la portée est en dessous de la caisse-claire sur la batterie (pédales, tom basse) ;\\
-	Tout ce qui est au-dessus de la caisse-claire sur la portée, l’est aussi sur la batterie.\\
-	\item La hauteur des instruments en terme de fréquences :\\
-	Sauf pour le charley au pied et si l’on sépare en trois groupes (grosse-caisse, toms et cymbales), de bas en haut, les instruments vont du plus grave au plus aigu.
-\end{itemize}
+Les figures \ref{instru_batt}, \ref{haut} et le tableau \ref{nom_instru_batt}
+peuvent aider à comprendre pourquoi je trouve la notation agostinienne
+cohérente et intuitive.
 
-Les noms des instruments correspondant aux codes des notes 
-\florent{têtes de notes?}
-de la figure \ref{Hauteur et têtes de notes} sont dans le tableau
-\ref{pitchs_instru}.
+En effet, les hauteurs sur la portée représentent :
+\begin{enumerate}
+	\item La hauteur physique des instruments :\\
+	La caisse claire est centrale sur la portée et sur la batterie (au niveau
+    de la ceinture, elle conditionne l’écart entre les pédales et aussi la
+    position de tous les instruments basiques d’une batterie).\\
+	Tout ce qui en-dessous de la caisse claire sur la portée est en dessous de
+    la caisse claire sur la batterie (pédales, tom basse) ;\\
+	Tout ce qui est au-dessus de la caisse claire sur la portée, l’est aussi
+    sur la batterie.\\
+	\item La hauteur des instruments en terme de fréquences :\\
+	Sauf pour le charley au pied et si l’on sépare en trois groupes
+    (grosse caisse, toms et cymbales), de bas en haut, les instruments vont du
+    plus grave au plus aigu.
+\end{enumerate}
 
 \subsection*{Les durées}
 \label{hho}
@@ -90,17 +94,22 @@ main car ce phénomène n’existe pas dans les fichiers MIDI.}.
 \florent{certaines têtes de notes vides alors que leur durée n'est pas celle
 des blanches? expliquer les différences avec la notation conventionnelle cf
 1.4}
-Par conséquent : 1) les durées — sauf pour le charley — représenterons un écart
-temporel entre les notes et non une durée sonore et elles pourront donc être
-rallongée à l’aide de silences ; 2) les symboles rythmiques concernant les
-têtes de note ne pourront pas être utilisés pour exprimer les durées. Cela est
-valable aussi pour la présence ou non de la hampe puisque ce phénomène n’existe
-qu’avec les têtes de notes de type cercle-vide (opposition blanche-ronde).
-L’usage des blanches existe dans certaines partitions de batterie
-\cite{system_drums} mais cela reste dans des cas très rares. Certains logiciels
-permettent de faire des blanches avec des symboles spécifiques à la batterie ou
-aux percussions mais leur lecture reste peu aisée et leur utilisation pour la
-batterie est rarissime.\\
+
+Par conséquent :
+\begin{enumerate}
+    \item les durées — sauf pour le charley — représenterons un écart temporel
+        entre les notes et non une durée sonore et elles pourront donc être
+        rallongée à l’aide de silences ;
+    \item les symboles rythmiques concernant les têtes de note ne pourront pas
+        être utilisés pour exprimer les durées. Cela est valable aussi pour la
+        présence ou non de la hampe puisque ce phénomène n’existe qu’avec les
+        têtes de notes de type cercle-vide (opposition blanche-ronde). L’usage
+        des blanches existe dans certaines partitions de batterie
+        \cite{system_drums} mais cela reste dans des cas très rares. Certains
+        logiciels permettent de faire des blanches avec des symboles
+        spécifiques à la batterie ou aux percussions mais leur lecture reste
+        peu aisée et leur utilisation pour la batterie est rarissime.\\
+\end{enumerate}
 
 En résumé :
 \begin{itemize}
@@ -114,8 +123,15 @@ En résumé :
 \end{itemize}
 La durée d’une note peut être prolongée par divers symboles :
 \begin{itemize}
-	\item Le point (explication en-dessous de la figure \ref{point_liaison} ; \florent{expliquer comment, par ex. avec figure 3.4}
-	\item La liaison (explication en-dessous de la figure \ref{point_liaison} ;
+	\item Le point : il rallonge la durée d’une note de la moitié de sa valeur.
+        Dans la deuxième note de l’exemple 3 de la figure \ref{point_liaison}
+        est une noire pointée, elle vaut donc la durée d’une noire + une croche
+        (ou de trois croche) ;
+	\item La liaison : elle rallonge la durée de la première note de la durée
+        de la deuxième. La deuxième note de l’exemple 4 de la figure
+        \ref{point_liaison} est une croche qui est liée à une noire, sa durée
+        est donc équivalente à celle d’une croche + une noire (ou de trois
+        croches) ;
     \item les silences (pas pour les ouvertures de charley).
 \end{itemize}
 
@@ -127,35 +143,37 @@ La durée d’une note peut être prolongée par divers symboles :
 	\label{point_liaison}
 \end{figure}
 
-L’écriture de la batterie doit faire ressortir la pulsation\footnote{La
-position des temps}. 
-La première chose à prendre en compte pour analyser la figure \ref{point_liaison} est donc la nécessité de regrouper les notes par temps à l’aide des ligatures.
+Un autre élément concernant la notation des durées en batterie est la nécessité
+de faire ressortir la pulsation\footnote{La position des temps} de la rendre
+visuelle. La première chose à prendre en compte pour analyser la figure
+\ref{point_liaison} est donc la nécessité de regrouper les notes par temps à
+l’aide des ligatures. Le deuxième point est de s’arranger pour qu’il y ait une
+indication visuelle au début de chaque temps.
 
-Exemple 1 : ouverture de charley quantifiée mais pas notes pas regroupées par temps.\\
-Exemple 2 : Ici, la liaison permet de regrouper les notes par temps en obtenant le même rythme que dans l’exemple 1.\\
-Exemple 3 et exemple 4 : les deux exemples sont valables mais le deuxième est le plus souvent utilisé car plus intuitif (regroupement par temps).
+\begin{itemize}
+    \item Exemple 1 : l’ouverture de charley est quantifiée mais les notes ne
+        sont pas regroupées par temps.
+    \item Exemple 2 : Ici, la liaison permet de regrouper les notes par temps
+        en obtenant le même rythme que dans l’exemple 1.
+    \item Exemple 3 et exemple 4 : les deux exemples sont valables mais le
+        deuxième est le plus souvent utilisé car la liaison donne un repair
+        visuel sur le temps.\\
+\end{itemize}
 
 En cas de nécessité de prolonger la durée d’une note au-delà 
-de sa durée initial, et si cette note correspond à une ouverture de charley, on privilégiera la liaison.
-
+de sa durée initial, et si cette note correspond à une ouverture de charley, on
+privilégiera donc la liaison.
 
 \subsection*{Les silences}
-\florent{expliquer la notation (générale) des silebces en \S 1.4?}
-Les silences sont parfois utilisés pour quantifier 
-\florent{quantifier = noter? ou quantifier la durée?}
-les ouvertures de charley. 
-Les fermetures du charley sont notées soit par un silence (correspondant à une fermeture de la pédale), 
-soit par un écrasement de l’ouverture par un autre coup de charley fermé, au pied ou à la main.
+Les silences sont parfois utilisés pour noter les fermetures de charley (après
+une ouverture). Les fermetures du charley sont notées soit par un silence
+(correspondant à une fermeture de la pédale), soit par un écrasement de
+l’ouverture par un autre coup de charley fermé, au pied ou à la main.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[height=25mm, width=95mm]{z_images/3_methodes/0_notation_de_la_batterie/4_silences.png}
-	\caption{Les silences}
-	\label{silences}
-\end{figure}\newpage
-
-Physiquement, le charley est fermé par une pression du pied sur la pédale de charley. Dans les fichiers MIDI, cette pression est traduite par un charley joué au pied. Mais dans une vraie partition, 
-cette écriture ne traduirait pas ce que le batteur doit penser.
+Physiquement, le charley est fermé par une pression du pied sur la pédale de
+charley. Dans les fichiers MIDI, cette pression est traduite par un charley
+joué au pied. Mais dans une vraie partition, cette écriture ne traduirait pas
+ce que le batteur doit penser.
 \florent{pas très clair}
 
 \begin{figure}[h]
@@ -206,7 +224,7 @@ représentant des flots mélodiques joués en parallèle, avec une synchronisati
 - ou thèse de Nicolas Guiomard-Kagan.}
 En batterie, une voix est l’ensemble des instruments qui, à eux seuls, constituent une phrase rythmique et sont regroupés à l’aide des ligatures. 
 \florent{une voix est charactérisée aussi pas orientation des hampes?}
-Plusieurs écritures étant possibles pour un même rythme, on peut regrouper les instruments de la batterie par voix. Sur une portée de batterie, il existe le plus souvent 1 ou 2 voix. Sur la figure \ref{sep_voix}, il faudra faire un choix entre les exemples 1, 2 et 3 qui sont trois façons d’écrire le même rythme.
+Plusieurs écritures étant possibles pour un même rythme, on peut regrouper les instruments de la batterie par voix. Sur une portée de batterie, il existe le plus souvent 1 ou 2 voix. Sur la figure \ref{sep_voix}, il faudra faire un choix entre les exemples 1, 2 et 3 qui sont trois façons équivalentes d’écrire le même rythme.
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=65mm, width=60mm]{z_images/3_methodes/0_notation_de_la_batterie/7_voix.png}
@@ -228,7 +246,7 @@ La figure \ref{accents_et_gn} ne prend en compte que les accents
 \florent{3.9 = liste des seuls "instruments" qui peuvent être accentués?}
 que nous avons estimés nécessaires (voir la section \ref{velocite}). 
 Les accents sont marqués par le symbole~«~>~». 
-Il est positionné au-dessus des notes représentant des cymbales et en-dessous des notes représentant des toms ou la caisse-claire. Ce choix a été fait pour la partition de la figure \ref{partition_ref} car elle est plus lisible ainsi, mais ces choix devront être adaptés en fonction des différents forme rythmiques reconnus (voir la section \ref{systemes_methodes}). Par exemple, pour les forme rythmiques jazz, les ligatures pour les toms et la caisse-claire seront dirigés vers le bas, il faudra donc mettre les symboles d’accentuation correspondants au-dessus des têtes de notes.
+Il est positionné au-dessus des notes représentant des cymbales et en-dessous des notes représentant des toms ou la caisse claire. Ce choix a été fait pour la partition de la figure \ref{partition_ref} car elle est plus lisible ainsi, mais ces choix devront être adaptés en fonction des différents forme rythmiques reconnus (voir la section \ref{systemes_methodes}). Par exemple, pour les forme rythmiques jazz, les ligatures pour les toms et la caisse claire seront dirigés vers le bas, il faudra donc mettre les symboles d’accentuation correspondants au-dessus des têtes de notes.
 
 La dernière note de la figure \ref{accents_et_gn} montre un exemple de ghost-notes. 
 \florent{expliquer ce qu'est une \emph{ghost-notes}}
@@ -259,12 +277,12 @@ ICI, DESCRIPTION DES FLAS !
 		rb & ride-cloche (bell) & 53 \\
 		rc & ride-crash & 59 \\
 		cr & crash & 55 \\
-		cc & caisse-claire & 38, 40 \\
+		cc & caisse claire & 38, 40 \\
 		cs & cross-stick & 37 \\
 		ta & tom-alto & 48, 50 \\
 		tm & tom-medium & 45, 47 \\
 		tb & tom-basse & 43, 58 \\
-		gc & grosse-caisse & 36 \\ \hline
+		gc & grosse caisse & 36 \\ \hline
 	\end{tabular}
 	\caption{Pitchs et instruments}
 	\label{pitchs_instru}
@@ -294,7 +312,7 @@ nous a mené aux observations suivantes :
 	\item Pas d’intention d’accent ni de ghost-note pour une vélocité entre 40 et 89 ;
 	\item Les accents et les ghosts-notes ne sont significatifs ni pour les instruments joués au pied, ni pour les cymbales crash.\\
 	En effet, certaines vélocités en dessous de 40 étant détectées et inscrites dans les données MIDI sont dues au mouvement du talon du batteur qui bat la pulsation sans particulièrement jouer le charley. Ce mouvement est perçu par le capteur de la batterie électronique mais le charley n’est pas joué.
-	\item Au final, nous avons relevé les ghost-notes et les accents pour la caisse-claire ainsi que les accents pour les toms et les cymbales rythmiques (charley et ride).
+	\item Au final, nous avons relevé les ghost-notes et les accents pour la caisse claire ainsi que les accents pour les toms et les cymbales rythmiques (charley et ride).
 \end{itemize}
 
 
@@ -514,7 +532,7 @@ le principe de la procédure.}
 Ici, le forme rythmique est construit sur un modèle rock en 4/4 : after-beat
 sur les 2 et 4 avec un choix de répartition des cymbales type fast-jazz. La
 forme rythmique est constituée par défaut du motif rd/pf/cc (voir
-\ref{pitchs_instru}) et d’un gamme jouée à la grosse-caisse. La première ligne
+\ref{pitchs_instru}) et d’un gamme jouée à la grosse caisse. La première ligne
 de la figure \ref{binaire} est appelée « Irréductible » car il n’y a pas
 d’autre choix pertinent pour la répartition de la ride et du charley au pied.
 La troisième séparation proposée est privilégiée car elle répartit selon 2
@@ -532,7 +550,7 @@ z_images/3_methodes/2_systemes/2_separation_4-4_jazz.png}
 Dans la plupart des méthodes, le charley n’est pas écrit car il est considéré comme évident en jazz traditionnel. Ce qui facilite grandement l’écriture : la ride et les crash sur la voix du haut et le reste sur la voix du bas. Ici, le parti pris est de tout écrire. 
 Dans l’exemple ci-dessus, 
 \florent{quel exemple?}
-les mesures 1 et 2 combinées avec le \textit{motif} de la première ligne, sont des cas typiques de la batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la grosse caisse entre très souvent dans le flot des combinaisons de toms et de caisse claire et son écriture séparée serait inutilement compliquée et peu intuitive pour le lecteur. Le choix de séparation sera donc de laisser les cymbales en haut et toms, caisse-claire, grosse-caisse et pédale de charley en bas.
+les mesures 1 et 2 combinées avec le \textit{motif} de la première ligne, sont des cas typiques de la batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la grosse caisse entre très souvent dans le flot des combinaisons de toms et de caisse claire et son écriture séparée serait inutilement compliquée et peu intuitive pour le lecteur. Le choix de séparation sera donc de laisser les cymbales en haut et toms, caisse claire, grosse caisse et pédale de charley en bas.
 
 \begin{figure}[h]
 	\centering
