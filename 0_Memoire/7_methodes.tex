@@ -5,77 +5,67 @@ Pour commencer, nous exposerons une description de la notation de la batterie
 ainsi qu’une modélisation de celle-ci pour la représentation des données
 rythmiques en arbres syntaxiques. Nous poursuiverons avec une présentation de
 qparse\footnote{https://qparse.gitlabpages.inria.fr/}, un outil de
-transcription qui est développé à l'Inria, l'Université de Nagoya et 
-\florent{plusieurs développeurs}
-%(développeur principal: Florent Jacquemard - Inria) 
-au sein du laboratoire Cedric au CNAM.
+transcription qui est développé à l'Inria, l'Université de Nagoya et plusieurs
+développeurs au sein du laboratoire Cedric au CNAM.
 
-Enfin, nous présenterons les systèmes. 
-\florent{systèmes, une représentation théorique qui permet...}
+Enfin, nous présenterons les forme rythmiques, <flo>une représentation
+théorique qui permet…</flo> 
 
 \section{La notation de la batterie}
 \label{notation_batterie}
-\begin{figure}[h]
-	\centering
-	\includegraphics[height=10mm, width=25mm]{
-    z_images/3_methodes/0_notation_de_la_batterie/0_figures_de_notes.png}
-    \caption{}
-    \label{4_notes}
-\end{figure}
-La figure \ref{4_notes} montre 4 figures de notes les plus courantes dont les
-noms et les durées 
-\florent{durées exprimées en unité de temps musicale, appelée le \emph{temps}, cf. section...}
-sont respectivement, de gauche à droite :
-\begin{itemize}
-    \item La ronde, elle vaut 4 ; \florent{4 temps}
-    \item La blanche, elle vaut 2 ;
-    \item La noire, elle vaut 1 ;
-    \item La croche, elle vaut 1/2.
-\end{itemize}
-Une figure de note \cite{danhauser} de musique combine plusieurs critères
-\florent{plusieurs éléments}
-\footnote{\url{https://fr.wikipedia.org/wiki/Note_de_musique}} :
-\florent{plutôt que wikipedia cite Dannhauser ou autre ref. F.M. ou encore Gould 2011 Behind Bars}
-\begin{itemize}
-	\item Une tête de note :\\
-	Sa position sur la portée indique la hauteur de la note. La tête de note
-    peut aussi indiquer une durée.
-	\item Une hampe :\\
-	\florent{barre verticale liée à la tête de ntoe}
-	Indicatrice d’appartenance à une voix en fonction de sa direction \florent{haut ou bas}
-	et indicatrice d’une durée représentée par sa présence ou non (blanche ≠ ronde)
-	\item Un crochet : La durée d’une note est divisée par deux à chaque
-     crochet ajouté à la hampe d’une figure de note.
-\end{itemize}
-\begin{figure}[h]
-	\centering
-	\includegraphics[height=50mm, width=80mm]{
-    z_images/3_methodes/0_notation_de_la_batterie/1_rapport_figures_notes.png}
-	\caption{Rapport des figures de notes}\cite{danhauser}
-	\label{rapp_fig_notes}
-\end{figure}
-
-La figure \ref{rapp_fig_notes} montre les rapports de durée entre les figures de notes. Plus les durées sont longues, plus elles sont marquées par la tête de note (la note carrée fait deux fois la durée d’une ronde) ou la présence ou non de la hampe. À partir de la noire (3ème lignes en partant du haut), on ajoute un crochet à la hampe d’une figure de notes pour diviser sa durée par 2. 
-Les notes à crochet (croche, double-croche, triple-croche…) 
-peuvent être reliées ou non par des ligatures (voir les 4 dernières lignes de la figure \ref{rapp_fig_notes}).
-\florent{ce premier paragraphe (jusqu'ici) est redondant avec \S 1.4 (sub. partitions). déplacer en 1.4?
-         cf. proposition plus loin}
+Pour la transcription, j’ai choisi d’utiliser une notation inspirée du recueil
+de pièces pour batterie de J.-F. Juskowiak \cite{jusko} et des méthodes de
+batterie Agostini \cite{ago_meth_3}, car je trouve la position des éléments
+cohérente et intuitive (voir section \ref{hauteurs}).\newpage
 
 \subsection*{Les hauteurs et les têtes de notes}
+\label{hauteurs}
 \begin{figure}[h]
-    \centering
-    \includegraphics[height=50mm, width=80mm]{z_images/3_methodes/0_notation_de_la_batterie/batterie.png}
-    \caption{Les instruments de la batterie}
-    \label{instru_drum}
+\centering
+\includegraphics[height=50mm, width=80mm]{
+z_images/3_methodes/0_notation_de_la_batterie/batterie.png}
+\caption{Les instruments de la batterie}
+\label{instru_batt}
 \end{figure}
 
-Source figure \ref{instru_drum} : \url{https://www.superprof.fr/blog/composition-instrument-percussion/}.
+\begin{figure}[!h]
+\centering
+\includegraphics[height=25mm, width=130mm]{
+z_images/3_methodes/0_notation_de_la_batterie/2_hauteurs_et_tete_de_notes.png}
+\caption{Hauteur et têtes de notes}
+\label{haut}
+\end{figure}
 
-Pour la transcription, nous proposons une notation inspirée du recueil de pièces pour batterie de J.-F. Juskowiak \cite{jusko} et des méthodes de batterie Agostini \cite{ago_meth_3}, car nous trouvons la position des éléments cohérente et intuitive.
-
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|} \hline
+Noms figure \ref{instru_batt} & codes figure \ref{haut}  & référence \\ \hline
+Pédale de charleston & pf ou po & charley fermé ou ouvert au pied \\
+Grosse caisse & gc & grosse caisse \\
+Tom basse & tb & tom basse \\
+Caisse claire & cc & caisse claire \\
+Tom médium & tm & tom médium \\
+Tom alto & ta & tom alto \\
+Cymbales charleston & cf ou co & charley fermé ou ouvert à la main \\
+Cymbales ride & rd & ride \\
+Cymbales crash & cr & crash \\ \hline
+	\end{tabular}
+	\caption{Noms des instruments de la batterie}
+	\label{nom_instru_batt}
+\end{table}
 \florent{pour aider, tu pourrais donner une figure représentant la batterie 
          avec le nom des instruments et abbréviation.}
-En effet, les hauteurs sur la portée représentent :
+La figure \ref{instru_batt}\footnote{Source : \url{
+https://www.superprof.fr/blog/composition-instrument-percussion/}} montre une
+batterie standard avec tous les instruments habituellement présent sur une
+batterie. Le tableau \ref{nom_instru_batt} donne dans l’ordre :
+\begin{enumerate}
+    \item les noms des instruments sur la figure \ref{instru_batt} ;
+    \item leurs codes respectifs dans la figure \ref{haut} ;
+    \item les noms que j’utiliserai dans le présent document pour y référer.
+\end{enumerate}
+En observant les figures \ref{instru_batt}, \ref{nom_instru_batt} et
+\ref{haut}, le les hauteurs sur la portée représentent :
 \begin{itemize}
 	\item La hauteur physique des instruments :\\
 	La caisse claire est centrale sur la portée et sur la batterie (au niveau de la ceinture, elle conditionne l’écart entre les pédales et aussi la position de tous les instruments basiques d’une batterie).\\
@@ -84,42 +74,63 @@ En effet, les hauteurs sur la portée représentent :
 	\item La hauteur des instruments en terme de fréquences :\\
 	Sauf pour le charley au pied et si l’on sépare en trois groupes (grosse-caisse, toms et cymbales), de bas en haut, les instruments vont du plus grave au plus aigu.
 \end{itemize}
-\begin{figure}[!h]
-	\centering
-	\includegraphics[height=25mm, width=130mm]{z_images/3_methodes/0_notation_de_la_batterie/2_hauteurs_et_tete_de_notes.png}
-	\caption{Hauteur et têtes de notes}
-	\label{Hauteur et têtes de notes}
-\end{figure}
+
 Les noms des instruments correspondant aux codes des notes 
 \florent{têtes de notes?}
-de la figure \ref{Hauteur et têtes de notes} sont dans le tableau \ref{pitchs_instru}.
+de la figure \ref{Hauteur et têtes de notes} sont dans le tableau
+\ref{pitchs_instru}.
 
 \subsection*{Les durées}
 \label{hho}
-Comme nous venons de la voir, la majorité des instruments de la batterie sont représentés par les têtes des notes. 
-\florent{certaines têtes de notes vides alors que leur durée n'est pas celle des blanches?}
-\florent{pour clarifier cela, tu pourrais décrire en 1.4 la notation conventionnelles  (piano etc) 
-et ici uniquement ce qui est spécifique à la batterie, en expliquant les différences.}
-Par conséquent, les symboles rythmiques concernant la tête de note ne pourront pas être utilisés. Cela est valable aussi pour la présence ou non de la hampe puisque ce phénomène n’existe qu’avec les têtes de notes de type cercle-vide (opposition blanche-ronde). L’usage des blanches existe dans certaines partitions de batterie \cite{system_drums} mais cela reste dans des cas très rares. Certains logiciels permettent de faire des blanches avec des symboles spécifiques à la batterie ou aux percussions mais leur lecture reste peu aisée et leur utilisation pour la batterie est rarissime.\\
+Comme nous venons de la voir, la majorité des instruments de la batterie sont
+représentés par les têtes des notes. De plus, le seul instrument dont le son
+peut être arrêté de manière quantifiée et dont la durée sonore nous intéresse
+est le charley\footnote{Je ne prendrais pas en compte l’arrêt des cymbales à la
+main car ce phénomène n’existe pas dans les fichiers MIDI.}.
+\florent{certaines têtes de notes vides alors que leur durée n'est pas celle
+des blanches? expliquer les différences avec la notation conventionnelle cf
+1.4}
+Par conséquent : 1) les durées — sauf pour le charley — représenterons un écart
+temporel entre les notes et non une durée sonore et elles pourront donc être
+rallongée à l’aide de silences ; 2) les symboles rythmiques concernant les
+têtes de note ne pourront pas être utilisés pour exprimer les durées. Cela est
+valable aussi pour la présence ou non de la hampe puisque ce phénomène n’existe
+qu’avec les têtes de notes de type cercle-vide (opposition blanche-ronde).
+L’usage des blanches existe dans certaines partitions de batterie
+\cite{system_drums} mais cela reste dans des cas très rares. Certains logiciels
+permettent de faire des blanches avec des symboles spécifiques à la batterie ou
+aux percussions mais leur lecture reste peu aisée et leur utilisation pour la
+batterie est rarissime.\\
+
+En résumé :
+\begin{itemize}
+    \item toutes les notes ont une hampe ;
+    \item une notes dont la hampe n’a pas de crochet est toujours une noire ;
+    \item à part pour le charley ouvert, les durées n’expriment pas la durée
+        d’un son mais une distance temporelle entre deux notes.
+    \item à part pour le charley ouvert, la durée d’une note peut être
+        prolongée par un silence (exemple : une noire + un soupir pour exprimer
+        une blanche)\\
+\end{itemize}
 La durée d’une note peut être prolongée par divers symboles :
 \begin{itemize}
-	\item Le point ; \florent{expliquer comment, par ex. avec figure 3.4}
-	\item La liaison.
+	\item Le point (explication en-dessous de la figure \ref{point_liaison} ; \florent{expliquer comment, par ex. avec figure 3.4}
+	\item La liaison (explication en-dessous de la figure \ref{point_liaison} ;
+    \item les silences (pas pour les ouvertures de charley).
 \end{itemize}
-Ces symboles ne seront utiles que pour l’écriture des ouvertures de charley. Le charley est le seul instrument de la batterie dont la durée est quantifiée (les cymbales attrapées à la main peuvent l’être aussi mais cela est très rare.)%\newpage
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=80mm, width=40mm]{z_images/3_methodes/0_notation_de_la_batterie/3_point_et_liaison.png}
+	\includegraphics[height=80mm, width=40mm]{
+    z_images/3_methodes/0_notation_de_la_batterie/3_point_et_liaison.png}
 	\caption{Point et liaison}
 	\label{point_liaison}
 \end{figure}
 
-L’écriture de la batterie doit faire ressortir la pulsation. 
-\florent{= la position des temps}
+L’écriture de la batterie doit faire ressortir la pulsation\footnote{La
+position des temps}. 
 La première chose à prendre en compte pour analyser la figure \ref{point_liaison} est donc la nécessité de regrouper les notes par temps à l’aide des ligatures.
 
-\florent{faire un "enumerate"}
 Exemple 1 : ouverture de charley quantifiée mais pas notes pas regroupées par temps.\\
 Exemple 2 : Ici, la liaison permet de regrouper les notes par temps en obtenant le même rythme que dans l’exemple 1.\\
 Exemple 3 et exemple 4 : les deux exemples sont valables mais le deuxième est le plus souvent utilisé car plus intuitif (regroupement par temps).
@@ -217,7 +228,7 @@ La figure \ref{accents_et_gn} ne prend en compte que les accents
 \florent{3.9 = liste des seuls "instruments" qui peuvent être accentués?}
 que nous avons estimés nécessaires (voir la section \ref{velocite}). 
 Les accents sont marqués par le symbole~«~>~». 
-Il est positionné au-dessus des notes représentant des cymbales et en-dessous des notes représentant des toms ou la caisse-claire. Ce choix a été fait pour la partition de la figure \ref{partition_ref} car elle est plus lisible ainsi, mais ces choix devront être adaptés en fonction des différents systèmes reconnus (voir la section \ref{systemes_methodes}). Par exemple, pour les systèmes jazz, les ligatures pour les toms et la caisse-claire seront dirigés vers le bas, il faudra donc mettre les symboles d’accentuation correspondants au-dessus des têtes de notes.
+Il est positionné au-dessus des notes représentant des cymbales et en-dessous des notes représentant des toms ou la caisse-claire. Ce choix a été fait pour la partition de la figure \ref{partition_ref} car elle est plus lisible ainsi, mais ces choix devront être adaptés en fonction des différents forme rythmiques reconnus (voir la section \ref{systemes_methodes}). Par exemple, pour les forme rythmiques jazz, les ligatures pour les toms et la caisse-claire seront dirigés vers le bas, il faudra donc mettre les symboles d’accentuation correspondants au-dessus des têtes de notes.
 
 La dernière note de la figure \ref{accents_et_gn} montre un exemple de ghost-notes. 
 \florent{expliquer ce qu'est une \emph{ghost-notes}}
@@ -398,32 +409,32 @@ Plusieurs enjeux :
 \end{itemize}
 
 
-\section{Les systèmes}
+\section{Les forme rythmiques}
 \label{systemes_methodes}
-\florent{il faudrait expliquer là que le but est d'avoir des schemas types (= système) pour calculer la séparation en voix.
+\florent{il faudrait expliquer là que le but est d'avoir des schemas types (= forme rythmique) pour calculer la séparation en voix.
        = une heuristique pour éviter d'avoir à explorer une grande combinatoire.
-       et que, une fois le système déterminé (ou sélectionné), la séparation se fait par réécriture du modèle
+       et que, une fois le forme rythmique déterminé (ou sélectionné), la séparation se fait par réécriture du modèle
        (règles de projection et simplification)}
-Un système est la combinaison d’un ou de plusieurs éléments qui jouent un rythme en boucle (motif) et d’un autre élément qui joue un texte rythmique variable mais en respectant les règles propres au système (gamme).
+Un forme rythmique est la combinaison d’un ou de plusieurs éléments qui jouent un rythme en boucle (motif) et d’un autre élément qui joue un texte rythmique variable mais en respectant les règles propres au forme rythmique (gamme).
 
 \subsection*{Définitions}
-\florent{je ne comprend pas bien la définition de système : motif + gamme ou motif + gamme + texte?
+\florent{je ne comprend pas bien la définition de forme rythmique : motif + gamme ou motif + gamme + texte?
 la déf. des gammes n'est pas du tout claire.}
 \florent{est-ce que le motif est fixe et les gammes variables? 
-est-ce le motif qui détermine la métrique et les voix?}
+est-ce le motif qui détermine la signature rythmique et les voix?}
 
-\textit{\textbf{Système :}} motif + gamme/texte\\
+\textit{\textbf{forme rythmique :}} motif + gamme/texte\\
 \textit{\textbf{Motif :}} rythmes coordonnés joués avec 2 ou 3 membres en boucle (répartis sur 1 ou 2 voix)\\
 \textit{\textbf{Texte :}} rythme irrégulier joué avec un seul membre sur le motif (réparti sur 1 voix).\\
-\textit{\textbf{Gamme :}} la gamme d’un système considère l’ensemble des combinaisons que le batteur pourrait rencontrer en interprétant un texte rythmique à l’aide du système.
+\textit{\textbf{Gamme :}} la gamme d’un forme rythmique considère l’ensemble des combinaisons que le batteur pourrait rencontrer en interprétant un texte rythmique à l’aide du forme rythmique.
 
-Un ensemble de systèmes comprenant leur métrique et leurs règles spécifiques de réécriture sera nécessaire. 
-\florent{métrique n'est pas défini. règles de réécriture non plus}
-Les systèmes devront être distribués dans 4 grandes catégories :
+Un ensemble de forme rythmiques comprenant leur signature rythmique et leurs règles spécifiques de réécriture sera nécessaire. 
+\florent{signature rythmique n'est pas défini. règles de réécriture non plus}
+Les forme rythmiques devront être distribués dans 4 grandes catégories :
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|} \hline
-		Systèmes & Métriques & Subdivisions & Possibles & nb voix \\ \hline
+		forme rythmiques & signature rythmiques & Subdivisions & Possibles & nb voix \\ \hline
 		binaires & simple & doubles-croches & triolets, sextolets & 2 \\
 		jazz & simple & triolets & croches et doubles-croches & 2 \\
 		ternaires & complexe & croches & duolets, quartelets & 2 \\
@@ -431,38 +442,38 @@ Les systèmes devront être distribués dans 4 grandes catégories :
 	\end{tabular}
 	\caption{Sytèmes}
 \end{table}\\
-Nous exposerons 3 systèmes afin d’illustrer les propos de cette section :
+Nous exposerons 3 forme rythmiques afin d’illustrer les propos de cette section :
 \begin{itemize}
 	\item 4/4 binaire 
 	\item 4/4 jazz
 	\item 4/4 afro-cubain
 \end{itemize}
-\subsection*{Objectif des systèmes}
-Les systèmes devront être matchés sur l’input MIDI afin de :
+\subsection*{Objectif des forme rythmiques}
+Les forme rythmiques devront être matchés sur l’input MIDI afin de :
 \begin{itemize}
-	\item définir une métrique ;
+	\item définir une signature rythmique ;
 	\item choisir une grammaire appropriée ;
 	\item fournir les règles de réécriture (séparation des voix et simplification.\\
 \end{itemize}
 
 \florent{bien. il faudrait expliquer ça avant.}
-La partie \textit{motif} des systèmes sera utilisée pour la \textbf{définition des métriques}. 
-Le \textit{motif} et la gammes des systèmes seront utilisés pour la \textbf{séparation des voix}. 
-Les règles de \textbf{simplification} (les combinaisons de réécritures) seront extraites des voix séparées des systèmes.
+La partie \textit{motif} des forme rythmiques sera utilisée pour la \textbf{définition des signature rythmiques}. 
+Le \textit{motif} et la gammes des forme rythmiques seront utilisés pour la \textbf{séparation des voix}. 
+Les règles de \textbf{simplification} (les combinaisons de réécritures) seront extraites des voix séparées des forme rythmiques.
 \florent{pas exactement. les règles de projection et simplification font la séparation en voix: 
 à partir d'un arbre syntaxique comme celui de 3.2, elles extraient 2 arbres, chacun contenant les 
 évenements d'une seule voix}
 
 \subsubsection{Détection d’indication de mesure}
-La détection de la métrique est importante, 
-\florent{métrique $\neq$ signature rythmique (c'est plus général). 
-Il aurait fallu présenter rapidement la notation des signatures rythmiques, par exemple en 1.4}
-non seulement pour connaître le nombre de temps par mesure ainsi que le nombre de subdivisions pour chacun de ces temps, mais aussi pour savoir comment écrire l’unité de temps et ses subdivisions.
+La détection de la signature rythmique est importante, 
+non seulement pour connaître le nombre de temps par mesure ainsi que le nombre
+de subdivisions pour chacun de ces temps, mais aussi pour savoir comment écrire
+l’unité de temps et ses subdivisions.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=40mm, width=40mm]{z_images/3_methodes/2_systemes/0_simple_VS_complexe.png}
-	\caption{Métrique}
+	\caption{signature rythmique}
 	\label{subdivisions}
 \end{figure} %\newpage
 
@@ -475,7 +486,7 @@ Le jazz est traditionnellement écrit en binaire avec ou sans triolet (même si 
 Il faut prendre en compte l’existence potentielle de plusieurs grammaires dédiées chacune à un type de contenu MIDI. 
 \florent{le lien entre grammaire et signature rythmique n'est pas clair ici. 
 Il aurait fallu expliquer le rôle des grammaires (automates) en 3.3}
-Le choix d’une grammaire pondérée doit être fait avant le parsing puisque Qparse prend en entrée un fichier MIDI et un fichier wta (grammaire). C’est pour cette raison que la métrique doit être définie avant le choix de la grammaire.
+Le choix d’une grammaire pondérée doit être fait avant le parsing puisque Qparse prend en entrée un fichier MIDI et un fichier wta (grammaire). C’est pour cette raison que la signature rythmique doit être définie avant le choix de la grammaire.
 
 Pour les expériences effectuées avec le Groove MIDI Data Set, 
 \florent{Groove MIDI Data Set pas présenté}
@@ -483,8 +494,8 @@ le style et l’indication de mesure sont récupérables par les noms des fichie
 \florent{méta-données}
 mais il faudra par la suite les trouver automatiquement sans autres indications 
 que les données \florent{contenu} MIDI elles-mêmes. 
-Par conséquent, les motifs des systèmes devront être recherchés sur l’input \textit{(fichiers MIDI)} 
-avant le lancement du parsing, afin de déterminer la métrique en amont. 
+Par conséquent, les motifs des forme rythmiques devront être recherchés sur l’input \textit{(fichiers MIDI)} 
+avant le lancement du parsing, afin de déterminer la signature rythmique en amont. 
 Cette tâche devra probablement être effectuée en Machine Learning. %\newpage
 
 
@@ -500,12 +511,23 @@ Cette tâche devra probablement être effectuée en Machine Learning. %\newpage
 \florent{les description ic sont assez techniques et difficile à suivre.
 avant de détailler des exemples, il faudrait décrire les objectifs et 
 le principe de la procédure.}
-Ici, le système est construit sur un modèle rock en 4/4 : after-beat sur les 2 et 4 avec un choix de répartition des cymbales type fast-jazz. Le système est constitué par défaut du motif rd/pf/cc (voir \ref{pitchs_instru}) et d’un texte joué à la grosse-caisse. La première ligne de la figure \ref{binaire} est appelée « Irréductible » car il n’y a pas d’autre choix pertinent pour la répartition de la ride et du charley au pied. La troisième séparation proposée est privilégiée car elle répartit selon 2 voix, une voix pour les mains (rd + cc) et une voix pour les pieds (pf + gc). Ce choix paraît plus équilibré car deux instruments sont utilisés par voix et plus logique pour le lecteur puisque les mains sont en haut et les pieds en bas.
+Ici, le forme rythmique est construit sur un modèle rock en 4/4 : after-beat
+sur les 2 et 4 avec un choix de répartition des cymbales type fast-jazz. La
+forme rythmique est constituée par défaut du motif rd/pf/cc (voir
+\ref{pitchs_instru}) et d’un gamme jouée à la grosse-caisse. La première ligne
+de la figure \ref{binaire} est appelée « Irréductible » car il n’y a pas
+d’autre choix pertinent pour la répartition de la ride et du charley au pied.
+La troisième séparation proposée est privilégiée car elle répartit selon 2
+voix, une voix pour les mains (rd + cc) et une voix pour les pieds (pf + gc).
+Ce choix paraît plus équilibré car deux instruments sont utilisés par voix et
+plus logique pour le lecteur puisque les mains sont en haut et les pieds en
+bas.
 \begin{figure}[h]
-	\centering
-	\includegraphics[height=45mm, width=60mm]{z_images/3_methodes/2_systemes/2_separation_4-4_jazz.png}
-	\caption{Motif 4-4 jazz}
-	\label{jazz}
+\centering
+\includegraphics[height=45mm, width=60mm]{
+z_images/3_methodes/2_systemes/2_separation_4-4_jazz.png}
+\caption{Motif 4-4 jazz}
+\label{jazz}
 \end{figure}\\
 Dans la plupart des méthodes, le charley n’est pas écrit car il est considéré comme évident en jazz traditionnel. Ce qui facilite grandement l’écriture : la ride et les crash sur la voix du haut et le reste sur la voix du bas. Ici, le parti pris est de tout écrire. 
 Dans l’exemple ci-dessus, 
@@ -515,23 +537,22 @@ les mesures 1 et 2 combinées avec le \textit{motif} de la première ligne, sont
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=20mm, width=70mm]{z_images/3_methodes/2_systemes/3_separation_afro-latins.png}
-	\caption{Système 4-4 afro-latin}
+	\caption{forme rythmique 4-4 afro-latin}
 	\label{afro_latin}
 \end{figure}
 
-La figure \ref{afro_latin} montre un exemple minimaliste de système afro-latin \cite{system_drums}. 
-Ce système doit être écrit sur trois voix car la voix centrale est souvent plus complexe qu’ici (que des noirs) et la mélanger avec le haut ou le bas serait surchargé et peu lisible.
+La figure \ref{afro_latin} montre un exemple minimaliste de forme rythmique afro-latin \cite{system_drums}. 
+Ce forme rythmique doit être écrit sur trois voix car la voix centrale est souvent plus complexe qu’ici (que des noirs) et la mélanger avec le haut ou le bas serait surchargé et peu lisible.
 
 \subsubsection{Simplification de l’écriture}
-Les explications qui suivent seront appuyé par une expérimentation théorique 
-\florent{expérimentation théorique??}
-dans la section \ref{expe_theo}.
+Les explications qui suivent seront appuyé par une réécriture guidée par une
+forme rythmique dans la section \ref{reecriture_guidee}.
 
-Les gammes qui accompagnent les motifs d’un système étayent toutes les combinaisons d’un système et elles permettent, combinées avec le motif d’un système, de définir les règles de simplification propres à celui-ci.
+Les gammes qui accompagnent les motifs d’un forme rythmique étayent toutes les combinaisons d’un forme rythmique et elles permettent, combinées avec le motif d’un forme rythmique, de définir les règles de simplification propres à celui-ci.
 
 Voici les différentes étapes à suivre :
 \begin{itemize}
-	\item Pour chaque gamme du système, faire un arbre de rythme représentant la gamme combinée avec le motif du système ;
+	\item Pour chaque gamme du forme rythmique, faire un arbre de rythme représentant la gamme combinée avec le motif du forme rythmique ;
 	\item Pour chaque arbre de rythmes obtenus, séparer les voix et faire un arbre de rythme par voix ;
 	\item Pour chaque voix (arbre de rythmes) obtenus, extraire tous les nœuds qui nécessitent une simplification et écrire la règle.
 \end{itemize}
@@ -604,10 +625,12 @@ Pour chacune des conditions suivantes, une suite de la figure \ref{suites} est a
 \end{itemize}
 \textit{Rappel :\\cf = charley fermé joué à la main ;\\co = charley ouvert joué à la main ;\\ pf = charley fermé joué au pied.}\\
 
-\textbf{Problème : le cf et le co ne seront jamais sur la même voix que le pf… 
-Par conséquent, les règles concernant les charleys ouverts doivent-elles être appliquées sur l’arbre de parsing de l’input ?…}
-
 \section*{Conclusion}
-Nous avons formalisé une notation de la batterie, modélisé cette notation pour la transcription de données MIDI en partition, nous avons décrit Qparse.
+<dam>à développer un peu plus</dam>
+Nous avons formalisé une notation de la batterie, modélisé cette notation pour
+la transcription de données MIDI en partition, nous avons décrit Qparse.
 
-Enfin, nous avons exposé une approche de type dictionnaire (les « systèmes ») pour détecter une métrique, choisir une grammaire pondérée appropriée et énoncer des règles de séparation des voix et de simplification de l’écriture.
+Enfin, nous avons exposé une approche de type dictionnaire (les « forme
+rythmiques ») pour détecter une signature rythmique, choisir une grammaire
+pondérée appropriée et énoncer des règles de séparation des voix et de
+simplification de l’écriture.
