@@ -1,12 +1,6 @@
 \version "2.20.0"
 \include "../../0_drum_style_perso.ly"
 
-
-%\header {
-%  midititle = "reference_partition"
-%}
-
-
 up = \drummode {
 
   \override Script.Y-offset = #'-1.0
