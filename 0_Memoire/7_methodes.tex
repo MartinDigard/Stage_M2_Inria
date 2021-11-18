@@ -412,7 +412,7 @@ Malgré le large panel de pitchs disponibles, il semblerait qu’aucun pitch ne
 désigne le charley ouvert joué au pied (« po » de la figure \ref{haut}).
 Pourtant, dans la batterie moderne, plusieurs rythmes ne peuvent fournir le son
 du charley ouvert qu’avec le pied car les mains jouent autre chose en même
-temps jouer. Cela doit en partie être dû à l’utilisation des boîtes à rythmes
+temps. Cela doit en partie être dû à l’utilisation des boîtes à rythmes
 en MAO qui ne nécessitent pas de faire des choix conditionnés par les
 limitations humaines (2 pieds, 2 mains, et beaucoup plus d’instruments…)
 
@@ -438,7 +438,8 @@ Voici une représentation qui fonctionne avec les 3 exemples de la figure
 	[ [rd\\cc ][ [rd\\pf ][rd ]]] ]
 \end{figure}
 
-Ci-dessous, le même arbre dont les codes des instruments sont remplacés par leurs données MIDI respectives :
+Ci-dessous, le même arbre dont les codes des instruments sont remplacés par
+leurs données MIDI respectives :
 \begin{figure}[h]
 	\Tree[ [ [51\\36 ][ [51\\44 ][51 ]]]
 	[ [51\\38 ][ [51\\44 ][51 ]]]
@@ -446,9 +447,10 @@ Ci-dessous, le même arbre dont les codes des instruments sont remplacés par le
 	[ [51\\38 ][ [51\\44 ][51 ]]] ]
 \end{figure}
 
-Chacun des trois exemples de la figure \ref{sep_voix} est représenté par un des deux arbres syntaxiques ci-dessus.
-%\newpage
-
+Chacun des trois exemples de la figure \ref{sep_voix} est représenté par un des
+deux arbres syntaxiques ci-dessus.
+<dam>complète un peu en précisant qu'on voit bien ici l'avantage des arbres
+pour analyser ou construire la structure (les phrases ?) musicale</dam>
 
 \section{Qparse}
 \florent{choisir titre plus explicite, par ex. analyse syntaxique pour la transcription musicale}
@@ -605,7 +607,7 @@ Le jazz est traditionnellement écrit en binaire avec ou sans triolet (même si 
 \subsubsection{Choix d’une grammaire}
 Il faut prendre en compte l’existence potentielle de plusieurs grammaires dédiées chacune à un type de contenu MIDI. 
 \florent{le lien entre grammaire et signature rythmique n'est pas clair ici. 
-Il aurait fallu expliquer le rôle des grammaires (automates) en 3.3}
+Il aurait fallu expliquer le rôle des grammaires (automates) en 3.3(devenu 3.4)}
 Le choix d’une grammaire pondérée doit être fait avant le parsing puisque Qparse prend en entrée un fichier MIDI et un fichier wta (grammaire). C’est pour cette raison que la signature rythmique doit être définie avant le choix de la grammaire.
 
 Pour les expériences effectuées avec le Groove MIDI Data Set, 
