@@ -487,30 +487,32 @@ structuration d'une représentation séquentielle en entrée (un mot fini),
 suivant un modèle de langage \cite{grune2007parsing}.
 Dans le cas de qparse, le "mot" d'entrée est typiquement au format MIDI, et le
 modèle de langage est un automate d'arbres pondéré représentant des préférences
-en terme de notation musicale à produire.
-\florent{ref. "Handbook of weighted automata"}
-basée sur des algorithmes d'analyse syntaxique pour les automates arborescents pondérés. 
-En prenant en entrée une performance musicale symbolique 
-(séquence de notes avec dates et durées en temps réel, typiquement un fichier MIDI), 
-et une grammaire 
-\florent{grammaire $\neq$ automate. il faut choisir entre les 2 (pour la suite aussi)} 
-hors-contexte pondérée décrivant un langage de rythmes préférés, 
-il produit une partition musicale. 
-Plusieurs formats de sortie sont possibles, dont XML, MEI.
+en terme de notation musicale à produire \cite{droste2009handbook}.
+basée sur des algorithmes d'analyse syntaxique pour les automates arborescents
+pondérés. En prenant en entrée une performance musicale symbolique (séquence de
+notes avec dates et durées en temps réel, typiquement un fichier MIDI), et une
+grammaire hors-contexte pondérée décrivant un langage de rythmes préférés, il
+produit une partition musicale. Plusieurs formats de sortie sont possibles,
+dont XML, MEI.
+\florent{grammaire $\neq$ automate. il faut choisir entre les 2 (pour la suite
+aussi)} 
 
 Les principaux contributeurs sont :
 \begin{itemize}
 	\item Florent Jacquemard (Inria) : développeur principal.
-	\item Francesco Foscarin (PhD, CNAM) : \florent{apprentissage} construction de grammaire automatique 
-	à partir de corpus ; Evaluation.
-	\item Clement Poncelet (Salzburg U.) : integration de la librairie Midifile pour les input MIDI.
-	\item Philippe Rigaux (CNAM) : production de partition au format MEI et de modèle intermédiaire de partition en sortie.
-	\item Masahiko Sakai (Nagoya U.) : mesure de la distance input/output pour la quantification et CMake framework ; évaluation.
+	\item Francesco Foscarin (PhD, CNAM) : apprentissage ; Evaluation.
+	\item Clement Poncelet (Salzburg U.) : integration de la librairie Midifile
+        pour les input MIDI.
+	\item Philippe Rigaux (CNAM) : production de partition au format MEI et de
+        modèle intermédiaire de partition en sortie.
+	\item Masahiko Sakai (Nagoya U.) : mesure de la distance input/output pour
+        la quantification et CMake framework ; évaluation.
 \end{itemize}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=80mm, width=130mm]{z_images/3_methodes/1_qparse/0_general_qparse.png}
+	\includegraphics[height=80mm, width=130mm]{
+    z_images/3_methodes/1_qparse/schema.png}
 	\caption{Présentation de Qparse}
 	\label{presentation_qparse}
 \end{figure}
