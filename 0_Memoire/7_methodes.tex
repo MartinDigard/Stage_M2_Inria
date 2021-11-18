@@ -367,6 +367,29 @@ accessible sur le git). Cette partition a été totalement transcrite
 manuellement avec lilypond par analyse des fichiers MIDI et audio
 correspondants.
 
+\begin{itemize}
+    \item difficultés principales : trouver une application permettant de
+        choisir librement la notation de la batterie. Lylipond le permet mais
+        beaucoup de recherches ont été nécessaires pour comprendre l’ensemble
+        des fonctionnalités permettant de faire fonctionner la notation
+        « agostinienne » ainsi que les diverses subtilités de notations
+        (accents, ghost-notes, flas, …).\\
+        lylipond reste néanmoins un choix très agréable, une fois ces
+        difficultés surmontées.
+    \item Écrire la partition de la figure \ref{partition_ref} m’a pris
+        beaucoup de temps car j’ai dû chercher comment écrire chaque nouvel
+        évènement mais les autres transcriptions ont été beaucoup plus rapide
+        et très aisées.
+    \item Même si cela représente un investissement au départ, je recommande
+        lylipond pour écrire la batterie et je pense que c’est meilleur outil
+        pour cette tâche pour le moment. On peut configurer absolument tout.
+    \item dans les autres logiciel d’édition de type musescore, la batterie
+        est toujours confiné au système de notation américain.
+    \item pour une comparaison entre système américain et système agostinien,
+        voir section \ref{flas} est comparer les notations TM (agostinien) et
+        TA (américain).
+\end{itemize}
+
 
 \section{Modélisation pour la transcription}
 \label{modelisation_transcription}
@@ -452,21 +475,19 @@ deux arbres syntaxiques ci-dessus.
 <dam>complète un peu en précisant qu'on voit bien ici l'avantage des arbres
 pour analyser ou construire la structure (les phrases ?) musicale</dam>
 
-\section{Qparse}
-\florent{choisir titre plus explicite, par ex. analyse syntaxique pour la transcription musicale}
-La librairie Qparse\footnote{\url{https://qparse.gitlabpages.inria.fr}} 
-implémente la quantification des rythmes \florent{quantification rhythmique + structuration de partition}
-\florent{qparse est un outil pour la transcription musicale, qui, 
-à partir d'une performance symbolique, séquentielle et non quantifiée, 
-produit une partition structurée.}
-\florent{Il effectue conjointement des tâches de quantification rhythmique et 
-d'inférence de la structure de la partition à l'aide de technique de parsing / analyse syntaxique.}
-\florent{Le but du parsing/analyse syntaxique est en effet la structuration d'une représentation séquentielle 
-en entrée (un mot fini), suivant un modèle de langage.}
-\florent{ref. Grune Jacobs "Parsing techniques" Springer 2007}
-\florent{dans le cas de qparse, le "mot" d'entrée est typiquement au format MIDI, 
-et le modèle de langage est un  un automate d'arbres pondéré représentant des préférences
-en terme de notation musicale à produire.}
+\section{Analyse syntaxique pour la transcription musicale}
+%\florent{quantification rhythmique + structuration de partition}
+Qparse\footnote{\url{https://qparse.gitlabpages.inria.fr}} est un outil pour la
+transcription musicale, qui, à partir d'une performance symbolique,
+séquentielle et non quantifiée, produit une partition structurée.
+Il effectue conjointement des tâches de quantification rhythmique et
+d'inférence de la structure de la partition à l'aide de technique de analyse
+syntaxique (\textit{parsing}). Le but du \textit{parsing} est en effet la
+structuration d'une représentation séquentielle en entrée (un mot fini),
+suivant un modèle de langage \cite{grune2007parsing}.
+Dans le cas de qparse, le "mot" d'entrée est typiquement au format MIDI, et le
+modèle de langage est un automate d'arbres pondéré représentant des préférences
+en terme de notation musicale à produire.
 \florent{ref. "Handbook of weighted automata"}
 basée sur des algorithmes d'analyse syntaxique pour les automates arborescents pondérés. 
 En prenant en entrée une performance musicale symbolique 
