@@ -85,7 +85,7 @@ Pour simplifier le traitement de ces données, ces trois pistes ont été
 fusionnées en une seule piste qui a été mise sur le canal 9.
 
 \section{Analyses et transcriptions manuelles}
-\label{analyse_midi_audio}
+\label{analyses_et_TM}
 Ces analyses ont été faites dans le cadre de transcriptions manuelles à partir
 de fichiers MIDI et Audio du GMD.
 
@@ -216,13 +216,6 @@ savoir si deux notes jouées très proches sont :
 
 \subsection*{Transcription de partition}
 \label{partition_entiere}
-\begin{figure}[h]
-    \includegraphics[height=120mm, width=160mm]{
-    z_images/4_experimentations/1_analyses/3_partition.png}
-    \caption{Partition de référence}
-	\label{partition_ref}
-\end{figure}
-
 La figure \ref{partition_ref} est la transcription manuelle des fichiers
 \textit{004\_jazz-funk\_116\_beat\_4-4.mid} et
 \textit{004\_jazz-funk\_116\_beat\_4-4.wav} du GMD.
@@ -233,6 +226,26 @@ s’agit d’une partition d’un 4/4 binaire dont le fichier MIDI est annoncé 
 le GMD de style «jazz-funk» probablement en raison de la ride de type shabada
 rapide (le ternaire devient binaire avec la vitesse) combiné avec l’after-beat
 de type rock (caisse-claire sur les deux et quatre).
+
+La transcription manuelle de la partition de la figure \ref{partition_ref} et
+l'analyse d'autre fichiers MIDI (voir section \ref{analyses_et_TM}) m’ont mené
+aux observations suivantes :
+\begin{itemize}
+	\item Vélocité inférieure à 40 : ghost-note ;
+	\item Vélocité supérieure à 90 : accent ;
+	\item Pas d’intention d’accent ni de ghost-note pour une vélocité entre 40
+        et 89 ;
+	\item Les accents et les ghosts-notes ne sont significatifs ni pour les
+        instruments joués au pied, ni pour les cymbales crash.\\
+	En effet, certaines vélocités en dessous de 40 étant détectées et inscrites
+    dans les données MIDI sont dues au mouvement du talon du batteur qui bat la
+    pulsation sans particulièrement jouer le charley. Ce mouvement est perçu
+    par le capteur de la batterie électronique mais le charley n’est pas joué.
+	\item Au final, j’ai relevé les ghost-notes et les accents pour la caisse
+        claire ainsi que les accents pour les toms et les cymbales rythmiques
+        (charley et ride).
+\end{itemize}
+
 
 \subsubsection{Conclusion sur les transcriptions manuelles}
 La transcription des données audio et MIDI contenues dans ces fichiers a permis

@@ -316,6 +316,58 @@ le premier est une ghost note et le deuxième une note normale ou accentuée.
     \caption{Définition du fla}
 \end{figure}
 
+\section{La transcription manuelle}
+Mis à part les figures du chapitre 1 et certains exemples d’analyses de la
+section \ref{analyses_et_TM}, toutes les partitions et figures de ce document
+ont généré avec lilypond\footnote{\url{http://lilypond.org/index.fr.html}}.\\
+
+\subsection*{Présentation de lilypond}
+« LilyPond est un logiciel de gravure musicale, destiné à produire des
+partitions de qualité optimale. Ce projet apporte à l’édition musicale
+informatisée l’esthétique typographique de la gravure traditionnelle. LilyPond
+est un logiciel libre rattaché au projet GNU. »\\
+
+En raison de :
+\begin{itemize}
+    \item notation agostini
+    \item grande liberté de choix
+    \item …
+\end{itemize}
+
+Lilypond est actuellement le meilleur de logiciel de gravure musicale pour la
+batterie.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[height=40mm, width=30mm]{
+    z_images/3_methodes/transcription_manuelle/drum_perso_1}
+    \includegraphics[height=70mm, width=50mm]{
+    z_images/3_methodes/transcription_manuelle/extrait_code.png}
+    \caption{lilypond — extraits de code}
+    \label{extrait_code}
+\end{figure}
+
+Sur la figure \ref{extrait_code} :
+\begin{itemize}
+    \item à gauche : configuration aménagée pour la notation de type agostini.
+    \item à droite : le début de code mesure par mesure pour la voix haute
+        d’une partition (en haut du fichier, inclusion du fichier de config)
+\end{itemize}
+
+\begin{figure}[h]
+    \includegraphics[height=120mm, width=160mm]{
+    z_images/4_experimentations/1_analyses/3_partition.png}
+    \caption{lilypond — transcription manuelle}
+	\label{partition_ref}
+\end{figure}
+
+La partition de la figure \ref{partition_ref} est le résultat du code de la
+figure \ref{extrait_code} (la totalité du code est mis en annexe et est
+accessible sur le git). Cette partition a été totalement transcrite
+manuellement avec lilypond par analyse des fichiers MIDI et audio
+correspondants.
+
+
 \section{Modélisation pour la transcription}
 \label{modelisation_transcription}
 \subsection*{Les pitchs}
@@ -365,41 +417,20 @@ en MAO qui ne nécessitent pas de faire des choix conditionnés par les
 limitations humaines (2 pieds, 2 mains, et beaucoup plus d’instruments…)
 
 \subsection*{La vélocité} \label{velocite}
-\florent{j'aurais fait une section à part sur la transcription manuelle, }
-La partition de la figure \ref{partition_ref} a été transcrite manuellement avec lilypond 
-\florent{citation lilypond}
-par analyse des fichiers MIDI et audio correspondants.
-
-Cette transcription 
-\florent{et l'analyse d'autre fichiers MIDI?}
-nous a mené aux observations suivantes :
-\begin{itemize}
-	\item Vélocité inférieure à 40 : ghost-note ;
-	\item Vélocité supérieure à 90 : accent ;
-	\item Pas d’intention d’accent ni de ghost-note pour une vélocité entre 40 et 89 ;
-	\item Les accents et les ghosts-notes ne sont significatifs ni pour les instruments joués au pied, ni pour les cymbales crash.\\
-	En effet, certaines vélocités en dessous de 40 étant détectées et inscrites dans les données MIDI sont dues au mouvement du talon du batteur qui bat la pulsation sans particulièrement jouer le charley. Ce mouvement est perçu par le capteur de la batterie électronique mais le charley n’est pas joué.
-	\item Au final, nous avons relevé les ghost-notes et les accents pour la caisse claire ainsi que les accents pour les toms et les cymbales rythmiques (charley et ride).
-\end{itemize}
-Pour les codes, \florent{les codes de notes n'ont pas encore été présentés...}
-on prend le code de la note et on ajoute un « a » pour un accent et un « g »
-pour une ghost-note.
-
-
+La vélocité déterminera si les notes sont accentuées ou sont des ghost notes.
+Pour les codes, je propose d’ajouter un suffix (« a » pour accent et «g» pour
+ghost note) à la fin du code d’une note accentuée ou d’une ghost note.
+Les choix pour déterminer si les notes sont accentuées ou sont des ghost notes
+seront donnée dans la section \ref{partition_entiere}.
 
 \subsection*{Les arbres de rythmes}
-Les arbres de rythmes représentent un rythme unique dont les possibilités 
-de notation sur une partition sont théoriquement multiples. 
-\florent{non c'est juste une représentation du rhythme, pas unique}
-\florent{expliquer le principe des RT: branchement = division d'intervalle temporel, 
-feuilles = les événements musicaux commençant au début de l'intervalle).
-références: 
-- Laurson "Patchwork: A Visual Programming Language", 1996.
-- OpenMusic: visual programming environment for music composition, analysis and research, 2011.}
-
-Voici une représentation de la figure \ref{sep_voix} 
-\florent{Fig. 3.8, ex. 1, 2 ou 3?}
-en arbre de rythmes avec les codes de chaque instrument :
+Les arbres de rythmes représentent un rythme dont les possibilités de notation
+sur une partition sont théoriquement multiples. Les branchements sont des
+divisions d’interval temporel, les feuilles sont des évènements musicaux
+commençant au début de l’interval \cite{Laurson1996PatchWorkA}
+\cite{Bresson_openmusicvisual} .\\
+Voici une représentation qui fonctionne avec les 3 exemples de la figure
+\ref{sep_voix} en arbre de rythmes avec les codes de chaque instrument :
 \begin{figure}[h]
 	\Tree[ [ [rd\\gc ][ [rd\\pf ][rd ]]]
 	[ [rd\\cc ][ [rd\\pf ][rd ]]]
