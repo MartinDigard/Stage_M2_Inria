@@ -18,11 +18,11 @@ de pièces pour batterie de J.-F. Juskowiak \cite{jusko} et des méthodes de
 batterie Agostini \cite{ago_meth_3}, car je trouve la position des éléments
 cohérente et intuitive (voir section \ref{hauteurs}).\newpage
 
-\subsection*{Les hauteurs et les têtes de notes}
-\label{hauteurs}
+%\subsection*{Les hauteurs et les têtes de notes}
+%\label{hauteurs}
 \begin{figure}[h]
 \centering
-\includegraphics[height=50mm, width=80mm]{
+\includegraphics[height=69mm, width=115mm]{
 z_images/3_methodes/0_notation_de_la_batterie/batterie.png}
 \caption{Les instruments de la batterie}
 \label{instru_batt}
@@ -52,7 +52,7 @@ Cymbales crash & cr & crash \\ \hline
 	\end{tabular}
 	\caption{Noms des instruments de la batterie}
 	\label{nom_instru_batt}
-\end{table}
+\end{table}\newpage
 La figure \ref{instru_batt}\footnote{Source : \url{
 https://www.superprof.fr/blog/composition-instrument-percussion/}} montre une
 batterie standard avec tous les instruments habituellement présent sur une
@@ -476,26 +476,24 @@ deux arbres syntaxiques ci-dessus.
 pour analyser ou construire la structure (les phrases ?) musicale</dam>
 
 \section{Analyse syntaxique pour la transcription musicale}
-%\florent{quantification rhythmique + structuration de partition}
 Qparse\footnote{\url{https://qparse.gitlabpages.inria.fr}} est un outil pour la
 transcription musicale, qui, à partir d'une performance symbolique,
-séquentielle et non quantifiée, produit une partition structurée.
-Il effectue conjointement des tâches de quantification rhythmique et
-d'inférence de la structure de la partition à l'aide de technique de analyse
-syntaxique (\textit{parsing}). Le but du \textit{parsing} est en effet la
-structuration d'une représentation séquentielle en entrée (un mot fini),
-suivant un modèle de langage \cite{grune2007parsing}.
+séquentielle et non quantifiée, produit une partition structurée. Il effectue
+conjointement des tâches de quantification rhythmique et d'inférence de la
+structure de la partition à l'aide de technique de analyse syntaxique
+(\textit{parsing}). Le but du \textit{parsing} est en effet la structuration
+d'une représentation séquentielle en entrée (un mot fini), suivant un modèle de
+langage \cite{grune2007parsing}.
+
 Dans le cas de qparse, le "mot" d'entrée est typiquement au format MIDI, et le
 modèle de langage est un automate d'arbres pondéré représentant des préférences
 en terme de notation musicale à produire \cite{droste2009handbook}.
-basée sur des algorithmes d'analyse syntaxique pour les automates arborescents
+basée sur des algorithmes d'analyse syntaxique pour les grammaire arborescentes
 pondérés. En prenant en entrée une performance musicale symbolique (séquence de
 notes avec dates et durées en temps réel, typiquement un fichier MIDI), et une
 grammaire hors-contexte pondérée décrivant un langage de rythmes préférés, il
 produit une partition musicale. Plusieurs formats de sortie sont possibles,
-dont XML, MEI.
-\florent{grammaire $\neq$ automate. il faut choisir entre les 2 (pour la suite
-aussi)} 
+dont les formats XML (MEI, MusicXML,…), lilypond,…
 
 Les principaux contributeurs sont :
 \begin{itemize}
@@ -507,21 +505,15 @@ Les principaux contributeurs sont :
         modèle intermédiaire de partition en sortie.
 	\item Masahiko Sakai (Nagoya U.) : mesure de la distance input/output pour
         la quantification et CMake framework ; évaluation.
-\end{itemize}
+\end{itemize}\newpage
 
 \begin{figure}[h]
-	\centering
-	\includegraphics[height=80mm, width=130mm]{
-    z_images/3_methodes/1_qparse/schema.png}
-	\caption{Présentation de Qparse}
-	\label{presentation_qparse}
+\centering
+\includegraphics[height=70mm, width=110mm]{
+z_images/3_methodes/1_Analyse_syntaxique/schema_qparse.png}
+\caption{Présentation de Qparse}
+\label{presentation_qparse}
 \end{figure}
-\florent{la figure 3.11 est trop compliquée.
-rhythm grammar $\to$ automate d'arbres pondéré.
-Parse Tree $\to$ arbre syntaxique.
-qtz MIDI file : inutile.
-Score Model $\to$ représentation intermédiaire de partition.
-Score Model, Engr. Model : inutile. garder juste la fleche Rewriting sur S.M.}
 
 Explication des différentes étapes 
 de la figure~\ref{presentation_qparse}\footnote{\url{https://gitlab.inria.fr/qparse/qparselib/-/tree/distance/src/scoremodel}} :
