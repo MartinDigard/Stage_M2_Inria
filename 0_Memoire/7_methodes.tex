@@ -8,7 +8,7 @@ qparse\footnote{https://qparse.gitlabpages.inria.fr/}, un outil de
 transcription qui est développé à l'Inria, l'Université de Nagoya et plusieurs
 développeurs au sein du laboratoire Cedric au CNAM.
 
-Enfin, nous présenterons les forme rythmiques, <flo>une représentation
+Enfin, nous présenterons les formes rythmiques, <flo>une représentation
 théorique qui permet…</flo> 
 
 \section{La notation de la batterie}
@@ -547,32 +547,52 @@ syntaxique global est créé ;
     <dam>rédiger un peu mieux réécriture 1 et 2</dam>
 \end{itemize}
 
-\section{Les forme rythmiques}
+\section{Les formes rythmiques}
 \label{systemes_methodes}
-\florent{il faudrait expliquer là que le but est d'avoir des schemas types (= forme rythmique) pour calculer la séparation en voix.
-       = une heuristique pour éviter d'avoir à explorer une grande combinatoire.
-       et que, une fois le forme rythmique déterminé (ou sélectionné), la séparation se fait par réécriture du modèle
-       (règles de projection et simplification)}
-Un forme rythmique est la combinaison d’un ou de plusieurs éléments qui jouent un rythme en boucle (motif) et d’un autre élément qui joue un texte rythmique variable mais en respectant les règles propres au forme rythmique (gamme).
-<dam>explique un peu mieux : en batterie il y a des motifs / rythmes répétés et une autre partie qu'on appelle "texte" et qui doit être cohérent avec le motif et utiliser une gamme etc.</dam>
+Il existe en batterie des motifs rythmiques répétés (joués en boucle). Ces
+motifs sont le résultat de la coordination de plusieurs instruments de la
+batterie, je les nommerai \textbf{motifs} dans la suite du document. Très
+souvent, un autre instrument est joué de manière indépendante sur le motif mais
+en respectant la cohérence rythmique du motif. Je nommerai \textbf{gamme}
+l’ensemble des combinaisons possibles pour cet autre instrument. La gamme d’un
+motif est toujours relative à sa signature rythmique. Enfin, j’ai nommé
+\textbf{forme rythmique} le couple motif-gamme.
+
+Le but est d'avoir des schemas types (forme rythmique) pour calculer la
+séparation en voix. Cela constituerait une heuristique pour éviter d'avoir à
+explorer une grande combinatoire. Une fois la forme rythmique déterminée, la
+séparation se fait par réécriture du modèle (règles de projection et
+simplification).
+
 \subsection*{Définitions}
-\florent{je ne comprend pas bien la définition de forme rythmique : motif + gamme ou motif + gamme + texte?
-la déf. des gammes n'est pas du tout claire.}
 \florent{est-ce que le motif est fixe et les gammes variables? 
 est-ce le motif qui détermine la signature rythmique et les voix?}
 
-\textit{\textbf{forme rythmique :}} motif + gamme/texte\\
-\textit{\textbf{Motif :}} rythmes coordonnés joués avec 2 ou 3 membres en boucle (répartis sur 1 ou 2 voix)\\
-\textit{\textbf{Texte :}} rythme irrégulier joué avec un seul membre sur le motif (réparti sur 1 voix).\\
-\textit{\textbf{Gamme :}} la gamme d’un forme rythmique considère l’ensemble des combinaisons que le batteur pourrait rencontrer en interprétant un texte rythmique à l’aide du forme rythmique.
+\begin{itemize}
+    \item \textbf{Motif :} rythmes coordonnés joués avec deux ou trois
+        instruments coordonnés en boucle (répartis sur 1 ou 2 voix) ;
+    \item \textbf{gamme :} Ensemble des combinaisons jouées par un autre
+        instrument sur le motif (réparti sur 1 voix) ;
+    \item \textit{\textbf{forme rythmique :}} motif + gamme
+\end{itemize}
 
-Un ensemble de forme rythmiques comprenant leur signature rythmique et leurs règles spécifiques de réécriture sera nécessaire. 
+Les motif sont fixes et les gammes regroupent un ensemble de possibilités qui
+peuvent être rencontrées en situation réelle (sur une partition ou lors d’une
+performance de batterie).
+
+Les motifs déterminent les signatures rythmiques des formes rythmiques, et donc
+de leur gammes respectives. Ils déterminent aussi avec quels instrument seront
+jouées les gammes.
+
+Un ensemble de formes rythmiques comprenant leur signature rythmique et leurs
+règles spécifiques de réécriture sera nécessaire. 
+
 \florent{signature rythmique n'est pas défini. règles de réécriture non plus}
-Les forme rythmiques devront être distribués dans 4 grandes catégories :
+Les formes rythmiques devront être distribués dans 4 grandes catégories :
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|} \hline
-		forme rythmiques & signature rythmiques & Subdivisions & Possibles & nb voix \\ \hline
+		formes rythmiques & signature rythmiques & Subdivisions & Possibles & nb voix \\ \hline
 		binaires & simple & doubles-croches & triolets, sextolets & 2 \\
 		jazz & simple & triolets & croches et doubles-croches & 2 \\
 		ternaires & complexe & croches & duolets, quartelets & 2 \\
@@ -580,14 +600,14 @@ Les forme rythmiques devront être distribués dans 4 grandes catégories :
 	\end{tabular}
 	\caption{Sytèmes}
 \end{table}\\
-Nous exposerons 3 forme rythmiques afin d’illustrer les propos de cette section :
+Nous exposerons 3 formes rythmiques afin d’illustrer les propos de cette section :
 \begin{itemize}
 	\item 4/4 binaire 
 	\item 4/4 jazz
 	\item 4/4 afro-cubain
 \end{itemize}
 \subsection*{Objectif des formes rythmiques}
-Les forme rythmiques devront être matchés sur l’input MIDI afin de :<dam>là aussi, rédige ça un peu mieux
+Les formes rythmiques devront être matchés sur l’input MIDI afin de :<dam>là aussi, rédige ça un peu mieux
 "Une fois un système défini, la transcription à partir de l'entrée MIDI sera facilitée par la reconnaissance du système qui contraindra la processus de transcription, il premettra de :"</dam>
 \begin{itemize}
 	\item définir une signature rythmique ;
@@ -596,9 +616,9 @@ Les forme rythmiques devront être matchés sur l’input MIDI afin de :<dam>là
 \end{itemize}
 
 \florent{bien. il faudrait expliquer ça avant.}
-La partie \textit{motif} des forme rythmiques sera utilisée pour la \textbf{définition des signature rythmiques}. 
-Le \textit{motif} et la gammes des forme rythmiques seront utilisés pour la \textbf{séparation des voix}. 
-Les règles de \textbf{simplification} (les combinaisons de réécritures) seront extraites des voix séparées des forme rythmiques.
+La partie \textit{motif} des formes rythmiques sera utilisée pour la \textbf{définition des signature rythmiques}. 
+Le \textit{motif} et la gammes des formes rythmiques seront utilisés pour la \textbf{séparation des voix}. 
+Les règles de \textbf{simplification} (les combinaisons de réécritures) seront extraites des voix séparées des formes rythmiques.
 \florent{pas exactement. les règles de projection et simplification font la séparation en voix: 
 à partir d'un arbre syntaxique comme celui de 3.2, elles extraient 2 arbres, chacun contenant les 
 évenements d'une seule voix}
@@ -633,7 +653,7 @@ le style et l’indication de mesure sont récupérables par les noms des fichie
 \florent{méta-données}
 mais il faudra par la suite les trouver automatiquement sans autres indications 
 que les données \florent{contenu} MIDI elles-mêmes. 
-Par conséquent, les motifs des forme rythmiques devront être recherchés sur l’input \textit{(fichiers MIDI)} 
+Par conséquent, les motifs des formes rythmiques devront être recherchés sur l’input \textit{(fichiers MIDI)} 
 avant le lancement du parsing, afin de déterminer la signature rythmique en amont. 
 Cette tâche devra probablement être effectuée par utilisation d'apprentissage automatique. %\newpage
 
