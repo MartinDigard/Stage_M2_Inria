@@ -219,43 +219,58 @@ de l’audio compressé ou non compressé.
 MIR audio.}
 
 \subsection*{Les données MIDI}
-Le MIDI\footnote{\url{https://en.wikipedia.org/wiki/MIDI}} (Musical Instrument
-Digital Interface) 
+Le MIDI\footnote{\url{https://en.wikipedia.org/wiki/MIDI}} (\textit{Musical
+    Instrument
+Digital Interface}) 
 \florent{ne pas copier wikipédia verbatim. source: midi.org
-         MIDI est un protocole temps réel pour échanger des messages (événement) et un format de fichier.}
-est une norme technique qui décrit un protocole de communication, une interface numérique et des connecteurs électriques permettant de connecter une grande variété d’instruments de musique électroniques, d’ordinateurs et d’appareils audio connexes pour jouer, éditer et enregistrer de la musique.
+         MIDI est un protocole temps réel pour échanger des messages
+     (événement) et un format de fichier.}
+est une norme technique qui décrit un protocole de communication, une interface
+numérique et des connecteurs électriques permettant de connecter une grande
+variété d’instruments de musique électroniques, d’ordinateurs et d’appareils
+audio connexes pour jouer, éditer et enregistrer de la musique.
 
-\florent{fichier MIDI = séquence événements MIDI + dates (timestamp) ~ performance musicale symbolique}
+\florent{fichier MIDI = séquence événements MIDI + dates (timestamp) ~
+performance musicale symbolique}
 \florent{donner ici les données des événements et expliquer ON/OFF (clavier)}
 Les données midi sont représentées sous forme de piano-roll. 
 
-Chaque point sur la figure \ref{piano_roll} est appelé « évènement MIDI » :
+Chaque point sur la figure \ref{piano_roll} est appelé
+« évènement MIDI »<dam>peut-être ajouté ("qui correspondrait, grossièrement,
+aux notes jouées par un instrument") ?</dam> :
+
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=40mm, width=50mm]{z_images/1_contexte/2_midi_piano.jpg}
+	\includegraphics[height=40mm, width=50mm]{
+    z_images/1_contexte/2_midi_piano.jpg}
 	\caption{Exemple évènements avec durée}
 	\label{piano_roll}
 \end{figure}
 
-Chaque évènement MIDI rassemble un ensemble d’informations sur la hauteur, la durée, le volume, etc… :
+Chaque évènement MIDI rassemble un ensemble d’informations sur la hauteur,
+la durée, le volume, etc… :
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=40mm, width=50mm]{z_images/1_contexte/3_evenements_midi.png}
+	\includegraphics[height=40mm, width=50mm]{
+    z_images/1_contexte/3_evenements_midi.png}
 	\caption{Critère pour un évènement}
 \end{figure} %\newpage
 \florent{il n’y a pas de duration d’événement dans un MIDI file. 
-         la "durée" est une distance entre 2 événemtns ON et OFF (c’est important dans ton travail).
+         la "durée" est une distance entre 2 événemtns ON et OFF (c’est
+         important dans ton travail).
          le screenshot n’est pas utile, écrit plutôt une liste itemize}
 
-Pour la batterie, les évènements sont considérés sans durée, nous ignorerons donc les offsets (« Off Event »), les « Off Tick » et les « Duration ». 
+Pour la batterie, les évènements sont considérés sans durée, nous ignorerons
+donc les offsets (« Off Event »), les « Off Tick » et les « Duration ». 
 Le \textit{channel} ne nous sera pas utile non plus.
 
-\textit{Ici, définir Tick et channel.}
+\textit{Ici, définir Tick et channel.}<dam>seulement si c’est util</dam>
 
 Voici un exemple de piano-roll midi pour la batterie :
 \begin{figure}[h!]
 	\centering
-	\includegraphics[height=40mm, width=50mm]{z_images/1_contexte/4_midi_batterie.png}
+	\includegraphics[height=40mm, width=50mm]{
+    z_images/1_contexte/4_midi_batterie.png}
 	\caption{Exemple évènements sans durée}
 \end{figure}
 
@@ -277,7 +292,8 @@ spécifique à la batterie, en expliquant les différences.}
 Expliquer aussi la notation générale des silences
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=25mm, width=95mm]{z_images/3_methodes/0_notation_de_la_batterie/4_silences.png}
+	\includegraphics[height=25mm, width=95mm]{
+    z_images/3_methodes/0_notation_de_la_batterie/4_silences.png}
 	\caption{Les silences}
 	\label{silences}
 \end{figure}
@@ -293,7 +309,8 @@ Expliquer aussi la notation générale des silences
 \end{figure}
 La figure \ref{4_notes} montre 4 figures de notes les plus courantes dont les
 noms et les durées 
-\florent{durées exprimées en unité de temps musicale, appelée le \emph{temps}, cf. section...}
+\florent{durées exprimées en unité de temps musicale, appelée le \emph{temps},
+cf. section...}
 sont respectivement, de gauche à droite :
 \begin{itemize}
     \item La ronde, elle vaut 4 ; \florent{4 temps}
@@ -304,7 +321,8 @@ sont respectivement, de gauche à droite :
 Une figure de note \cite{danhauser} de musique combine plusieurs critères
 \florent{plusieurs éléments}
 \footnote{\url{https://fr.wikipedia.org/wiki/Note_de_musique}} :
-\florent{plutôt que wikipedia cite Dannhauser ou autre ref. F.M. ou encore Gould 2011 Behind Bars}
+\florent{plutôt que wikipedia cite Dannhauser ou autre ref. F.M. ou encore
+Gould 2011 Behind Bars}
 \begin{itemize}
 	\item Une tête de note :\\
 	Sa position sur la portée indique la hauteur de la note. La tête de note
@@ -325,38 +343,57 @@ Une figure de note \cite{danhauser} de musique combine plusieurs critères
 	\label{rapp_fig_notes}
 \end{figure}
 
-La figure \ref{rapp_fig_notes} montre les rapports de durée entre les figures de notes. Plus les durées sont longues, plus elles sont marquées par la tête de note ou la présence ou non de la hampe. À partir de la noire (3ème lignes en partant du haut), on ajoute un crochet à la hampe d’une figure de notes pour diviser sa durée par 2. 
+La figure \ref{rapp_fig_notes} montre les rapports de durée entre les figures
+de notes. Plus les durées sont longues, plus elles sont marquées par la tête de
+note ou la présence ou non de la hampe. À partir de la noire (3ème lignes en
+partant du haut), on ajoute un crochet à la hampe d’une figure de notes pour
+diviser sa durée par 2. 
 Les notes à crochet (croche, double-croche, triple-croche…) 
-peuvent être reliées ou non par des ligatures (voir les 4 dernières lignes de la figure \ref{rapp_fig_notes}).
-\florent{ce premier paragraphe (jusqu'ici) est redondant avec \S 1.4 (sub. partitions). déplacer en 1.4?
+peuvent être reliées ou non par des ligatures (voir les 4 dernières lignes de
+la figure \ref{rapp_fig_notes}).
+\florent{ce premier paragraphe (jusqu'ici) est redondant avec \S 1.4 (sub.
+    partitions). déplacer en 1.4?
          cf. proposition plus loin}
 
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[height=30mm, width=120mm]{z_images/1_contexte/5_partition_piano.png}
+	\includegraphics[height=30mm, width=120mm]{
+    z_images/1_contexte/5_partition_piano.png}
 	\caption{Exemple de partition de piano}
 \end{figure}
+<dam>dis quel est ce morceau fais en sorte que  l’air soit connu</dam>
 
-Une partition de musique\footnote{\url{https://fr.wikipedia.org/wiki/Partition\_(musique)}} est un document qui porte la représentation systématique du langage musical sous forme écrite. Cette représentation est appelée transcription et elle sert à traduire les quatre caractéristiques du son musical :
+
+Une partition de musique
+\footnote{\url{https://fr.wikipedia.org/wiki/Partition\_(musique)}} est un
+document qui porte la représentation systématique du langage musical sous forme
+écrite. Cette représentation est appelée transcription et elle sert à traduire
+les quatre caractéristiques du son musical :
 \begin{itemize}
 	\item la hauteur ;
 	\item la durée ;
 	\item l’intensité ;
 	\item le timbre.
 \end{itemize}
+<dam>si tu arrives à metrre les types / valeurs possibles pour chacun...</dam>
 \florent{expliquer un peu plus avec exemple. 
 ce serait mieux d’avoir un ex. avec des nuances, accents, appogiatures...}
 
-Ainsi que de leurs combinaisons appelées à former l’ossature de l’œuvre musicale dans son déroulement temporel, à la fois :
+Ainsi que de leurs combinaisons appelées à former l’ossature de l’œuvre
+musicale dans son déroulement temporel, à la fois :
 \begin{itemize}
-	\item diachronique (succession des instants, ce qui constitue en musique la mélodie) ;
+	\item diachronique (succession des instants, ce qui constitue en musique la
+        mélodie) ;
 	\item et synchronique (simultanéité des sons, c’est-à-dire l’harmonie).
 \end{itemize}
-\florent{explications sur l’aspect structuré (hiérarchie) : les mesures, les groupes ryhtmiques...
+\florent{explications sur l’aspect structuré (hiérarchie) : les mesures, les
+    groupes ryhtmiques...
          c’est important ici}
 
 \subsection*{Les formats XML}
+<dam>si tu as la date d'apparition du format, éventuellement une citation un
+peu originelle</dam>
 Il existe plusieurs formats XML dédiés à la musique : MusicXML, MEI, MNX, …
 
 L’inconvénient de ces formats est qu’ils sont verbeux et ambigus, c’est
@@ -382,6 +419,15 @@ représente un do en clef de sol de la durée d’une ronde sur une mesure en 4/
 Un des avantages de ce format est qu’il peut être converti aussi bien en
 données MIDI qu’en partition musicale, ce qui en fait une interface
 homme/machine.
+<dam>c'est un peu ce que je mettais plus haut pour le MIDI, là on a une autre
+représentation, moins "audio" et plus "musique" bref tu peux développer cet
+aspect de représentation formelle et le questionner un peu.
+si tu as le temps et l'envie, tu pourrais poser le problème. qu'est)ce qu'une
+bonne représentation (et informatisable) de la musiqu ? quels sont les
+avantages / inconvénients de MIDI / MusicXML ?
+et enfin, la question centrale que tu pourrais déjà évoquer ici : dans quelle
+mesure les correspondances MIDI <=> MusicXML sont elles univoques, ou y-a-t-il
+plusieurs choix possibles (spoiler oui)</dam>
 
 \subsection*{appogiatures}
 <flo>Parler des appogiatures ici ?</flo>
@@ -389,14 +435,9 @@ homme/machine.
 <flo>présenter rapidement la notation des signatures rythmiques</flo>
 
 \section*{Conclusion}
-Dans ce chapitre, nous avons établi que la RIM s’intéresse de plus en plus au
+Dans ce chapitre, nous avons établi que la RIM<dam>"a connu un fort
+développement ces dernières années, et qu'il s'inspire de plus en plus de
+méthodes TAL"</dam> s’intéresse de plus en plus au
 TAL, et que, par ce biais, il y a des liens possibles entre le langage musical
 et les langues naturelles, le plus proche étant probablement le phénomène
-d’écriture des sons de l’un comme de l’autre.
-
-Nous avons également établi que la RIM est née de la TAM qui est un problème
-ancien et très difficile et qu’il serait toujours très utile de le résoudre
-(autant pour la TAM que pour la TAB).
-
-Et enfin, nous avons décrit les représentations de la musique nécessaires à la
-compréhension du présent mémoire, allant du son jusqu’à l’écriture.
+d’écriture<dam>de transcription ?</dam> des sons de l’un comme de l’autre.

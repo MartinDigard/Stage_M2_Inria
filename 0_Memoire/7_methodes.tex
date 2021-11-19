@@ -475,25 +475,35 @@ deux arbres syntaxiques ci-dessus.
 <dam>complète un peu en précisant qu'on voit bien ici l'avantage des arbres
 pour analyser ou construire la structure (les phrases ?) musicale</dam>
 
-\section{Analyse syntaxique pour la transcription musicale}
-Qparse\footnote{\url{https://qparse.gitlabpages.inria.fr}} est un outil pour la
-transcription musicale, qui, à partir d'une performance symbolique,
-séquentielle et non quantifiée, produit une partition structurée. Il effectue
-conjointement des tâches de quantification rhythmique et d'inférence de la
-structure de la partition à l'aide de technique de analyse syntaxique
-(\textit{parsing}). Le but du \textit{parsing} est en effet la structuration
-d'une représentation séquentielle en entrée (un mot fini), suivant un modèle de
-langage \cite{grune2007parsing}.
+\section{Analyse syntaxique pour la transcription}
+
+\begin{figure}[h]
+\centering
+\includegraphics[height=70mm, width=110mm]{
+z_images/3_methodes/1_Analyse_syntaxique/schema_qparse.png}
+\caption{Présentation de Qparse}
+\label{presentation_qparse}
+\end{figure}
+
+Comme le montre la figure \ref{presentation_qparse}, qparse\footnote{
+\url{https://qparse.gitlabpages.inria.fr}} est un outil pour la transcription
+musicale, qui, à partir d'une performance symbolique, séquentielle et non
+quantifiée, produit une partition structurée. Il effectue conjointement des
+tâches de quantification rhythmique et d'inférence de la structure de la
+partition à l'aide de techniques d’analyse syntaxique (\textit{parsing}). Le
+but du \textit{parsing} est en effet la structuration d'une représentation
+séquentielle en entrée (un mot fini), suivant un modèle de langage
+\cite{grune2007parsing}.
 
 Dans le cas de qparse, le "mot" d'entrée est typiquement au format MIDI, et le
-modèle de langage est un automate d'arbres pondéré représentant des préférences
-en terme de notation musicale à produire \cite{droste2009handbook}.
-basée sur des algorithmes d'analyse syntaxique pour les grammaire arborescentes
-pondérés. En prenant en entrée une performance musicale symbolique (séquence de
-notes avec dates et durées en temps réel, typiquement un fichier MIDI), et une
-grammaire hors-contexte pondérée décrivant un langage de rythmes préférés, il
-produit une partition musicale. Plusieurs formats de sortie sont possibles,
-dont les formats XML (MEI, MusicXML,…), lilypond,…
+modèle de langage est une grammaire d'arbres pondérés représentant des
+préférences en terme de notation musicale à produire \cite{droste2009handbook}.
+basée sur des algorithmes d'analyse syntaxique pour les grammaires
+arborescentes pondérées. En prenant en entrée une performance musicale
+symbolique (séquence de notes avec dates et durées en temps réel, typiquement
+un fichier MIDI), et une grammaire hors-contexte pondérée décrivant un langage
+de rythmes préférés, il produit une partition musicale. Plusieurs formats de
+sortie sont possibles, dont les formats XML (MEI, MusicXML,…), lilypond,…
 
 Les principaux contributeurs sont :
 \begin{itemize}
@@ -505,46 +515,37 @@ Les principaux contributeurs sont :
         modèle intermédiaire de partition en sortie.
 	\item Masahiko Sakai (Nagoya U.) : mesure de la distance input/output pour
         la quantification et CMake framework ; évaluation.
-\end{itemize}\newpage
-
-\begin{figure}[h]
-\centering
-\includegraphics[height=70mm, width=110mm]{
-z_images/3_methodes/1_Analyse_syntaxique/schema_qparse.png}
-\caption{Présentation de Qparse}
-\label{presentation_qparse}
-\end{figure}
-
-Explication des différentes étapes 
-de la figure~\ref{presentation_qparse}\footnote{\url{https://gitlab.inria.fr/qparse/qparselib/-/tree/distance/src/scoremodel}} :
-\begin{itemize}
-	\item \textbf{Input Qparse} :\\
-	Un fichier MIDI (séquence d’événements datés (piano roll) accompagné d’un fichier contenant une grammaire pondérée) ;
-	\item \textbf{Arbre de parsing} :\\
-	Les données MIDI sont quantifiées, les notes de dates proches sont alignées et les relations entre les notes sont identifiées (accords, fla, etc…) ; un arbre de parsing global est créé ;
-	\item \textbf{Score Model} :
-	\begin{itemize}
-		\item Les instruments sont identifiés dans scoremodel/import/tableImporterDrum.cpp ;
-		\item Réécriture 1 :\\
-		séparation des voix $\Rightarrow$ un arbre par voix $\Rightarrow$ représentation intermédiaire (RI) ;
-		\item Réécriture 2 :\\
-		simplification de l’écriture de chaque voix dans la RI ;
-	\end{itemize}
-    \item \textbf{Output} :\\
-    export de la partition. Plusieurs formats sont possibles (xml, mei, lilypond,… ).\\
-\end{itemize}
-Plusieurs enjeux :
-\begin{itemize}
-	\item Problème du MIDI avec Qparse :\\
-	ON-OFF en entrée $\Rightarrow$ 1 seul symbole en sortie.
-	\item Minimiser la distance entre le midi et la représentation en arbre.
-	\item Un des problèmes de Qparse était qu’il était limité au monophonique.\\
-	Quelles sont les limites du monophonique ?
-	\begin{itemize}
-		\item Impossibilité de traiter plusieurs voix et de reconnaître les accords.
-	\end{itemize}
 \end{itemize}
 
+\subsection*{Les enjeux}
+Plusieurs enjeux : <dam>idem à rédiger je suppose... un assez gros morceau
+puisqu'il contiendra une partie de ta problématique appliquée</dam>
+Le problème du MIDI avec Qparse\\
+ON-OFF en entrée $\Rightarrow$ 1 seul symbole en sortie.\\
+Minimiser la distance entre le midi et la représentation en arbre.\\
+Un des problèmes de Qparse était qu’il était limité au monophonique.\\
+Quelles sont les limites du monophonique ?\\
+Impossibilité de traiter plusieurs voix et de reconnaître les accords.
+
+\subsection*{La grammaire}
+Il s’agit d’une grammaire hors-contexte pondérée…
+
+\subsection*{Le parsing}
+Les données MIDI sont quantifiées, les notes de dates proches sont alignées et
+les relations entre les notes sont identifiées (accords, fla, etc…) ; un arbre
+syntaxique global est créé ;
+
+\subsection*{La représentation intermédiaire}
+\begin{itemize}
+    \item Les pitchs sont remplacés par les codes des instruments (voir tableau
+    \ref{nom_instru_batt} ;
+    \item réécriture 1 :\\
+    séparation des voix $\Rightarrow$ un arbre par voix
+    $\Rightarrow$ représentation intermédiaire (RI) ;
+    \item réécriture 2 :\\
+    simplification de l’écriture de chaque voix dans la RI.
+    <dam>rédiger un peu mieux réécriture 1 et 2</dam>
+\end{itemize}
 
 \section{Les forme rythmiques}
 \label{systemes_methodes}
@@ -553,7 +554,7 @@ Plusieurs enjeux :
        et que, une fois le forme rythmique déterminé (ou sélectionné), la séparation se fait par réécriture du modèle
        (règles de projection et simplification)}
 Un forme rythmique est la combinaison d’un ou de plusieurs éléments qui jouent un rythme en boucle (motif) et d’un autre élément qui joue un texte rythmique variable mais en respectant les règles propres au forme rythmique (gamme).
-
+<dam>explique un peu mieux : en batterie il y a des motifs / rythmes répétés et une autre partie qu'on appelle "texte" et qui doit être cohérent avec le motif et utiliser une gamme etc.</dam>
 \subsection*{Définitions}
 \florent{je ne comprend pas bien la définition de forme rythmique : motif + gamme ou motif + gamme + texte?
 la déf. des gammes n'est pas du tout claire.}
@@ -585,8 +586,9 @@ Nous exposerons 3 forme rythmiques afin d’illustrer les propos de cette sectio
 	\item 4/4 jazz
 	\item 4/4 afro-cubain
 \end{itemize}
-\subsection*{Objectif des forme rythmiques}
-Les forme rythmiques devront être matchés sur l’input MIDI afin de :
+\subsection*{Objectif des formes rythmiques}
+Les forme rythmiques devront être matchés sur l’input MIDI afin de :<dam>là aussi, rédige ça un peu mieux
+"Une fois un système défini, la transcription à partir de l'entrée MIDI sera facilitée par la reconnaissance du système qui contraindra la processus de transcription, il premettra de :"</dam>
 \begin{itemize}
 	\item définir une signature rythmique ;
 	\item choisir une grammaire appropriée ;
@@ -633,7 +635,7 @@ mais il faudra par la suite les trouver automatiquement sans autres indications
 que les données \florent{contenu} MIDI elles-mêmes. 
 Par conséquent, les motifs des forme rythmiques devront être recherchés sur l’input \textit{(fichiers MIDI)} 
 avant le lancement du parsing, afin de déterminer la signature rythmique en amont. 
-Cette tâche devra probablement être effectuée en Machine Learning. %\newpage
+Cette tâche devra probablement être effectuée par utilisation d'apprentissage automatique. %\newpage
 
 
 \subsubsection{Séparation des voix}
@@ -648,6 +650,7 @@ Cette tâche devra probablement être effectuée en Machine Learning. %\newpage
 \florent{les description ic sont assez techniques et difficile à suivre.
 avant de détailler des exemples, il faudrait décrire les objectifs et 
 le principe de la procédure.}
+<dam>assez dur à suivre ici, essayes de prendre de la hauteur et juste de t'appuyer sur l'exemple (sans trop le décrire en détail) pour dire quelles sont les difficultés et les choix de séparation de voix et comment un algorithme pourrait faire ces choix.</dam>
 Ici, le forme rythmique est construit sur un modèle rock en 4/4 : after-beat
 sur les 2 et 4 avec un choix de répartition des cymbales type fast-jazz. La
 forme rythmique est constituée par défaut du motif rd/pf/cc (voir
@@ -666,7 +669,7 @@ z_images/3_methodes/2_systemes/2_separation_4-4_jazz.png}
 \caption{Motif 4-4 jazz}
 \label{jazz}
 \end{figure}\\
-Dans la plupart des méthodes, le charley n’est pas écrit car il est considéré comme évident en jazz traditionnel. Ce qui facilite grandement l’écriture : la ride et les crash sur la voix du haut et le reste sur la voix du bas. Ici, le parti pris est de tout écrire. 
+Dans la plupart des méthodes, le charley n’est pas écrit car il est considéré comme évident en jazz traditionnel. Ce qui facilite grandement l’écriture : la ride et les crash <dam>termes non introduits... expliquer ou enlever</dam> sur la voix du haut et le reste sur la voix du bas. Ici, le parti pris est de tout écrire. 
 Dans l’exemple ci-dessus, 
 \florent{quel exemple?}
 les mesures 1 et 2 combinées avec le \textit{motif} de la première ligne, sont des cas typiques de la batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la grosse caisse entre très souvent dans le flot des combinaisons de toms et de caisse claire et son écriture séparée serait inutilement compliquée et peu intuitive pour le lecteur. Le choix de séparation sera donc de laisser les cymbales en haut et toms, caisse claire, grosse caisse et pédale de charley en bas.
@@ -679,7 +682,9 @@ les mesures 1 et 2 combinées avec le \textit{motif} de la première ligne, sont
 \end{figure}
 
 La figure \ref{afro_latin} montre un exemple minimaliste de forme rythmique afro-latin \cite{system_drums}. 
-Ce forme rythmique doit être écrit sur trois voix car la voix centrale est souvent plus complexe qu’ici (que des noirs) et la mélanger avec le haut ou le bas serait surchargé et peu lisible.
+Ce forme rythmique doit être écrite sur trois voix car la voix centrale est
+souvent plus complexe qu’ici où elle ne contient que des noires et la mélanger
+avec le haut ou le bas serait surchargé et peu lisible.
 
 \subsubsection{Simplification de l’écriture}
 Les explications qui suivent seront appuyé par une réécriture guidée par une
@@ -703,7 +708,10 @@ Toutes les continuations (t) qui se trouvent en début de temps
 (figures \ref{2}, \ref{4} et \ref{5}) sont transformées en silences (r) sauf si la note précédente est un charley ouvert ?
 \florent{ce sont des figures et notations du chapitre suivant!}
 
-Même si on favorise l’usage des silences pour l’écart entre les notes n’appartenant pas au même temps, on les supprime systèmatiquement pour 2 notes au sein d’un même temps et favorise, une liaison si co, un point si pas co et nécessaire, un simple ajustement de la figure de note si suffisant.
+Même si on favorise l’usage des silences pour l’écart entre les notes
+n’appartenant pas au même temps, on les supprime systèmatiquement pour 2 notes
+au sein d’un même temps et favorise, une liaison si co, un point si pas co et
+nécessaire, un simple ajustement de la figure de note si suffisant. <dam>reprendre un peu la rédaction</dam>
 
 \begin{figure}[h]
 	\centering
@@ -733,7 +741,8 @@ Soit l’arbre 1 de la figure \ref{simplification} dans lequel :
 a et d sont des instruments de la batterie (x) ;\\
 b et c sont des continuations (t) ;
 
-Pour chacune des conditions suivantes, une suite de la figure \ref{suites} est attribuée :
+Pour chacune des conditions suivantes, une suite<dam>pas défini</dam> de la
+figure \ref{suites} est attribuée :
 \begin{itemize}
 	\item Si a n’est pas un co :\\
 	$\Rightarrow$ Suite 1a.
