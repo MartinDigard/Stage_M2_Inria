@@ -8,7 +8,8 @@ qparse\footnote{https://qparse.gitlabpages.inria.fr/}, un outil de
 transcription qui est développé à l'Inria, l'Université de Nagoya et plusieurs
 développeurs au sein du laboratoire Cedric au CNAM.
 
-Enfin, nous présenterons les \textbf{formes rythmiques}, <flo>une représentation
+Enfin, nous présenterons les \textbf{formes rythmiques}, <flo>une
+représentation
 théorique qui permet…</flo> 
 
 \section{La notation de la batterie}
@@ -198,8 +199,9 @@ suivante pour l’écriture :
     \item si c’est un charley fermé joué au pied $\Rightarrow$ la note sera un
         silence.
 \end{enumerate}
-La deuxième règle sera soumise au cadre imposé par certaines \textbf{formes rythmiques}
-pour lesquelles le charley joué au pied devra rester tel quel. 
+La deuxième règle sera soumise au cadre imposé par certaines
+\textbf{formes rythmiques} pour lesquelles le charley joué au pied devra rester
+tel quel. 
 
 \subsection*{Les équivalences rythmiques}
 Pour les instruments mélodiques, dans le cas de notes dont la durée de l’une à
@@ -282,11 +284,11 @@ Les accents sont marqués par le symbole~«~>~». Ils sont positionnés au-dessu
 des notes représentant des cymbales et en-dessous des notes représentant des
 toms ou la caisse claire. Ce choix a été fait pour la partition de la figure
 \ref{partition_ref} car elle est plus lisible ainsi, mais ces choix devront
-être adaptés en fonction des différentes \textbf{formes rythmiques} reconnues (voir la
-section \ref{systemes_methodes}). Par exemple, pour les \textbf{formes rythmiques} jazz,
-les ligatures pour les toms et la caisse claire seront dirigées vers le bas, il
-faudra donc mettre les symboles d’accentuation correspondants au-dessus des
-têtes de notes.
+être adaptés en fonction des différentes \textbf{formes rythmiques} reconnues
+(voir la section \ref{systemes_methodes}). Par exemple, pour les
+\textbf{formes rythmiques} jazz, les ligatures pour les toms et la caisse
+claire seront dirigées vers le bas, il faudra donc mettre les symboles
+d’accentuation correspondants au-dessus des têtes de notes.
 
 La dernière note de la figure \ref{accents_et_gn} montre un exemple de notation
 pour une ghost note jouée à la caisse claire. Une ghost note
@@ -529,6 +531,39 @@ Impossibilité de traiter plusieurs voix et de reconnaître les accords.
 
 \subsection*{La grammaire}
 Il s’agit d’une grammaire hors-contexte pondérée…
+<dam>incompréhensible ainsi, c'est dommage</dam>
+// bar level\\
+0 -> C0                1\\
+0 -> E1                1\\
+0 -> U4(1, 1, 1, 1)    1\\
+
+// half bar level\\
+9 -> C0                1\\
+9 -> E1                1\\
+
+// beat level\\
+1 -> C0                1\\
+1 -> E1                1\\
+1 -> T2(2, 2)          1\\
+1 -> T4(4, 4, 4, 4)    1\\
+
+// croche level\\
+2 -> C0                1\\
+2 -> E1                1\\
+
+// double level\\
+4 -> C0                1\\
+4 -> E1                1\\
+4 -> E2                1\\
+4 -> T2(6, 6)          1\\
+
+// triple level\\
+6 -> E1                1\\\\
+Cette grammaire sépare les ligatures par temps au niveau de la mesure. Puis, au
+niveau du temps, elle autorise les divisions par deux (croches) et par quatre
+(doubles-croches). Tous les poids sont réglés sur 1. L’arbre de parsing en
+résultant est considéré comme « convaincant » car il découpe correctement les
+mesures et les temps.
 
 \subsection*{Le parsing}
 Les données MIDI sont quantifiées, les notes de dates proches sont alignées et
@@ -648,132 +683,144 @@ cette musique est dite ternaire alors que le rock ternaire sera plutôt écrit
 comme dans l’exemple 2).
 
 \subsubsection{Choix d’une grammaire}
-Il faut prendre en compte l’existence potentielle de plusieurs grammaires dédiées chacune à un type de contenu MIDI. 
-\florent{le lien entre grammaire et signature rythmique n'est pas clair ici. 
-Il aurait fallu expliquer le rôle des grammaires (automates) en 3.3(devenu 3.4)}
-Le choix d’une grammaire pondérée doit être fait avant le parsing puisque Qparse prend en entrée un fichier MIDI et un fichier wta (grammaire). C’est pour cette raison que la signature rythmique doit être définie avant le choix de la grammaire.
-
-Pour les expériences effectuées avec le Groove MIDI Data Set, 
-\florent{Groove MIDI Data Set pas présenté}
-le style et la signature rythmique sont récupérables par les noms des fichiers MIDI, 
-\florent{méta-données}
-mais il faudra par la suite les trouver automatiquement sans autres indications 
-que les données \florent{contenu} MIDI elles-mêmes. 
-Par conséquent, les \textbf{motifs} des \textbf{formes rythmiques} devront être recherchés sur l’input \textit{(fichiers MIDI)} 
-avant le lancement du parsing, afin de déterminer la signature rythmique en amont. 
-Cette tâche devra probablement être effectuée par utilisation d'apprentissage automatique. %\newpage
+Il faut prendre en compte l’existence potentielle de plusieurs grammaires
+qui regroupent les contenus MIDI par signature rythmique. Le choix d’une
+grammaire pondérée doit être fait avant le parsing puisque qparse prend en
+entrée un fichier MIDI et un fichier wta (grammaire). C’est pour cette raison
+que la signature rythmique doit être définie avant le choix de la grammaire.
+Il faudrait les trouver automatiquement sans autres indications que les
+contenus MIDI. Par conséquent, les \textbf{motifs} des
+\textbf{formes rythmiques} devront être recherchés sur l’input (fichiers MIDI)
+avant le lancement du parsing, afin de déterminer la signature rythmique en
+amont. Cette tâche devra probablement être effectuée par utilisation
+d'apprentissage automatique.
 
 
 \subsubsection{Séparation des voix}
-\textbf{gammes} des \textbf{formes rythmiques} seront utilisés pour la
-\textbf{séparation des voix}. 
+
+L’objectif de la procédure : ?
+
+Le principe de la procédure : ?
+
+Quelles sont les difficultés et les choix de séparation de voix et comment un
+algorithme pourrait faire ces choix ?
+
 \label{sys_sep_voix}
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=60mm, width=40mm]{z_images/3_methodes/2_systemes/1_separation_4-4_binaire.png}
+	\includegraphics[height=60mm, width=40mm]{
+    z_images/3_methodes/2_systemes/1_separation_4-4_binaire.png}
 	\caption{\textbf{motif} 4-4 binaire}
 	\label{binaire}
 \end{figure}
 
-\florent{les description ic sont assez techniques et difficile à suivre.
-avant de détailler des exemples, il faudrait décrire les objectifs et 
-le principe de la procédure.}
-<dam>assez dur à suivre ici, essayes de prendre de la hauteur et juste de t'appuyer sur l'exemple (sans trop le décrire en détail) pour dire quelles sont les difficultés et les choix de séparation de voix et comment un algorithme pourrait faire ces choix.</dam>
-Ici, le \textbf{forme rythmique} est construit sur un modèle rock en 4/4 : after-beat
-sur les 2 et 4 avec un choix de répartition des cymbales type fast-jazz. La
-\textbf{forme rythmique} est constituée par défaut du \textbf{motif} rd/pf/cc (voir
-\ref{pitchs_instru}) et d’un \textbf{gamme} jouée à la grosse caisse. La première ligne
-de la figure \ref{binaire} est appelée « Irréductible » car il n’y a pas
-d’autre choix pertinent pour la répartition de la ride et du charley au pied.
-La troisième séparation proposée est privilégiée car elle répartit selon 2
-voix, une voix pour les mains (rd + cc) et une voix pour les pieds (pf + gc).
-Ce choix paraît plus équilibré car deux instruments sont utilisés par voix et
-plus logique pour le lecteur puisque les mains sont en haut et les pieds en
-bas.
+
+Ici, la \textbf{forme rythmique} est construite sur un modèle rock avec une
+signature rythmique en 4/4.
+
+La première ligne de la figure \ref{binaire} est
+appelée « Irréductible » car il n’y a pas d’autre choix de séparation des voix
+pour la ride et le charley au pied.
+
+La troisième séparation proposée est privilégiée car elle répartit selon deux 
+voix, une voix pour les mains (ride et caisse claire) et une voix pour les
+pieds (charley et grosse caisse). Ce choix paraît plus équilibré car deux
+instruments sont utilisés par voix (contrairement séparations possibles 1 et 2
+de la figure \ref{binaire}) et plus logique pour le lecteur puisque les mains
+sont en haut et les pieds en bas.
+
 \begin{figure}[h]
 \centering
 \includegraphics[height=45mm, width=60mm]{
 z_images/3_methodes/2_systemes/2_separation_4-4_jazz.png}
-\caption{\textbf{motif} 4-4 jazz}
+\caption{\textbf{Motif} 4-4 jazz}
 \label{jazz}
-\end{figure}\\
-Dans la plupart des méthodes, le charley n’est pas écrit car il est considéré comme évident en jazz traditionnel. Ce qui facilite grandement l’écriture : la ride et les crash <dam>termes non introduits... expliquer ou enlever</dam> sur la voix du haut et le reste sur la voix du bas. Ici, le parti pris est de tout écrire. 
-Dans l’exemple ci-dessus, 
-\florent{quel exemple?}
-les mesures 1 et 2 combinées avec le \textit{\textbf{motif}} de la première ligne, sont des cas typiques de la batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la grosse caisse entre très souvent dans le flot des combinaisons de toms et de caisse claire et son écriture séparée serait inutilement compliquée et peu intuitive pour le lecteur. Le choix de séparation sera donc de laisser les cymbales en haut et toms, caisse claire, grosse caisse et pédale de charley en bas.
+\end{figure}
+\newpage
+Dans la plupart des méthodes, le charley n’est pas écrit car il est considéré
+comme évident en jazz traditionnel. Ici, le parti pris est de tout écrire.
+
+Dans la figure \ref{jazz}, les mesures 1 et 2 de la ligne « Exemple » combinées
+avec le \textbf{motif} de la première ligne, sont des cas typiques de la
+batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la
+grosse caisse entre très souvent dans le flot des combinaisons de toms et de
+caisse claire et son écriture séparée serait inutilement compliquée et peu
+intuitive pour le lecteur. Le choix de séparation sera donc de laisser les
+cymbales jouées à la main en haut, et les toms, la caisse claire, la grosse
+caisse et la pédale de charley en bas.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=20mm, width=70mm]{z_images/3_methodes/2_systemes/3_separation_afro-latins.png}
-	\caption{\textbf{forme rythmique} 4-4 afro-latin}
+	\includegraphics[height=20mm, width=70mm]{
+    z_images/3_methodes/2_systemes/3_separation_afro-latins.png}
+	\caption{\textbf{Forme rythmique} 4-4 afro-latin}
 	\label{afro_latin}
 \end{figure}
 
-La figure \ref{afro_latin} montre un exemple minimaliste de \textbf{forme rythmique} afro-latin \cite{system_drums}. 
-Ce \textbf{forme rythmique} doit être écrite sur trois voix car la voix centrale est
-souvent plus complexe qu’ici où elle ne contient que des noires et la mélanger
-avec le haut ou le bas serait surchargé et peu lisible.
+La figure \ref{afro_latin} montre un exemple minimaliste de
+\textbf{forme rythmique} afro-latin \cite{system_drums}.
+
+Cette \textbf{forme rythmique} doit être écrite sur trois voix car la voix
+centrale est souvent plus complexe que sur la figure et la mélanger avec le
+haut ou le bas serait surchargé et peu lisible.
 
 \subsubsection{Simplification de l’écriture}
 
 Les règles de \textbf{simplification} (les combinaisons de réécritures) seront
 extraites des voix séparées des \textbf{formes rythmiques}.
-Les explications qui suivent seront appuyé par une réécriture guidée par une
-\textbf{forme rythmique} dans la section \ref{reecriture_guidee}.
+Les explications qui suivent seront appuyées par une réécriture guidée dans la
+section \ref{reecriture_guidee}.
 
-Les \textbf{gammes} qui accompagnent les \textbf{motifs} d’un \textbf{forme rythmique} étayent toutes les combinaisons d’un \textbf{forme rythmique} et elles permettent, combinées avec le \textbf{motif} d’un \textbf{forme rythmique}, de définir les règles de simplification propres à celui-ci.
+Les \textbf{gammes} qui accompagnent les \textbf{motifs} étayent toutes les
+combinaisons d’un \textbf{FR} et elles permettent, combinées avec le
+\textbf{motif}, de définir ses propres règles de simplification.\\
 
 Voici les différentes étapes à suivre :
 \begin{itemize}
-	\item Pour chaque \textbf{gamme} du \textbf{forme rythmique}, faire un arbre de rythme représentant la \textbf{gamme} combinée avec le \textbf{motif} du \textbf{forme rythmique} ;
-	\item Pour chaque arbre de rythmes obtenus, séparer les voix et faire un arbre de rythme par voix ;
-	\item Pour chaque voix (arbre de rythmes) obtenus, extraire tous les nœuds qui nécessitent une simplification et écrire la règle.
+	\item pour chaque \textbf{gamme} d’une \textbf{forme rythmique}, faire un
+        arbre de rythme représentant la \textbf{gamme} combinée avec le
+        \textbf{motif} de la \textbf{FR} ;
+	\item pour chaque arbre de rythmes obtenus, séparer les voix et faire un
+        arbre de rythme par voix ;
+	\item pour chaque voix (arbres de rythmes) obtenus, extraire tous les nœuds
+        qui nécessitent une simplification et écrire la règle.\\
 \end{itemize}
 
 Certaines précisions concernant l’extraction de ces règles sont nécessaires. 
-Il s’agit de précisions à propos de la durée, des silences et de la présence ou non d’ouverture de charley dans les instruments joués. 
-Nous avons discuté de ces problèmes dans le chapitre \ref{methodes}.
+Il s’agit de précisions à propos de la durée, des silences et de la présence ou
+non d’ouvertures de charley dans les instruments joués. 
+Nous avons discuté de ces problèmes plus haut dans ce chapitre.\\
 
-Voici quelques règles inhérentes à la simplication de l’écriture pour la batterie :
-Toutes les continuations (t) qui se trouvent en début de temps 
-(figures \ref{2}, \ref{4} et \ref{5}) sont transformées en silences (r) sauf si la note précédente est un charley ouvert ?
-\florent{ce sont des figures et notations du chapitre suivant!}
+Voici quelques règles inhérentes à la simplication de l’écriture pour la
+batterie :
 
 Même si on favorise l’usage des silences pour l’écart entre les notes
-n’appartenant pas au même temps, on les supprime systèmatiquement pour 2 notes
-au sein d’un même temps et favorise, une liaison si co, un point si pas co et
-nécessaire, un simple ajustement de la figure de note si suffisant. <dam>reprendre un peu la rédaction</dam>
+n’appartenant pas au même temps, on les remplace systèmatiquement par un point
+pour 2 notes au sein d’un même temps.
 
 \begin{figure}[h]
 	\centering
-	Arbre 1
-	\resizebox{70pt}{!} {
-		\Tree[.1/4 [a ][b ][c ][d ] ]
-	}\\
-	Arbre 2\ \ \ \ \ \ \ \ 
-	\resizebox{50pt}{!} {
-		\Tree[.2/4 
-		[ [.a ]] 
-		[ [b ][c ]] ]
-	}
-	\caption{Simplification}
-	\label{simplification}
-\end{figure}
-\begin{figure}[h]
-	\centering
-	\includegraphics[height=50mm, width=20mm]{z_images/3_methodes/2_systemes/4_simplification_0.png}
-	\includegraphics[height=50mm, width=20mm]{z_images/3_methodes/2_systemes/4_simplification_1.png}
-	\caption{}
-	\label{suites}
+	\includegraphics[height=45mm, width=50mm]{
+    z_images/3_methodes/2_systemes/simplification_0.png}
+	\includegraphics[height=50mm, width=40mm]{
+    z_images/3_methodes/2_systemes/simplification_2.png}
+	\caption{Simplifications — arbres et notations possibles}
+	\label{simpl}
 \end{figure}
 
-Soit l’arbre 1 de la figure \ref{simplification} dans lequel :
-\florent{itemize}
-a et d sont des instruments de la batterie (x) ;\\
-b et c sont des continuations (t) ;
+Dans la figure \ref{simpl}, les « suites » sont des notations possibles
+relatives aux arbres 1 ou 2.\\
 
-Pour chacune des conditions suivantes, une suite<dam>pas défini</dam> de la
-figure \ref{suites} est attribuée :
+\textit{Rappel :\\cf = charley fermé joué à la main ;\\co = charley ouvert joué
+à la main ;\\ pf = charley fermé joué au pied.}\newpage
+
+Soit l’arbre 1 de la figure \ref{simpl} dans lequel :
+\begin{itemize}
+    \item a et d sont des instruments de la batterie (x) ;
+    \item b et c sont des continuations (t).
+\end{itemize}
+Pour chacune des conditions suivantes, une suite de la
+figure \ref{simpl} est attribuée :
 \begin{itemize}
 	\item Si a n’est pas un co :\\
 	$\Rightarrow$ Suite 1a.
@@ -785,10 +832,11 @@ figure \ref{suites} est attribuée :
 		$\Rightarrow$ Suite 3a : d deviens un silence (r).\\
 	\end{itemize}
 \end{itemize}
-Soit l’arbre 2 de la figure \ref{simplification} dans lequel :\\
+Soit l’arbre 2 de la figure \ref{simpl} dans lequel :\\
 a et c sont des instruments de la batterie (x) ;\\
 b est une continuation (t) ;
-Pour chacune des conditions suivantes, une suite de la figure \ref{suites} est attribuée :
+Pour chacune des conditions suivantes, une suite de la figure \ref{simpl} est
+attribuée :
 \begin{itemize}
 	\item Si a n’est pas un co :\\
 	$\Rightarrow$ Suite 1b, b devient un silence.
@@ -797,17 +845,22 @@ Pour chacune des conditions suivantes, une suite de la figure \ref{suites} est a
 		\item Si c est un cf :\\
 		$\Rightarrow$ Suite 2b, b devient une liaison et c devient un cf.
 		\item Si c est un pf :\\
-		$\Rightarrow$ Suite 3b : b deviens une liaison et c devient un silence.\\
+		$\Rightarrow$ Suite 3b : b deviens une liaison et c devient un silence.
 	\end{itemize}
 \end{itemize}
-\textit{Rappel :\\cf = charley fermé joué à la main ;\\co = charley ouvert joué à la main ;\\ pf = charley fermé joué au pied.}\\
 
 \section*{Conclusion}
-<dam>à développer un peu plus</dam>
-Nous avons formalisé une notation de la batterie, modélisé cette notation pour
-la transcription de données MIDI en partition, nous avons décrit Qparse.
+Dans ce chapitre, nous avons formalisé une notation de la batterie inspirée des
+méthodes de batterie Dante Agostini, modélisé cette notation pour
+la transcription de données MIDI en partition.
+Nous avons ensuite parlé de l’outil utilisé pour les transcriptions manuelles
+en mettant en avant que cet outil devrait être utilisé pour la transcription de
+la batterie et en précisant que tous les codes lilypond pour la création des
+figures et partition de ce mémoire sont en accès libre sur github. Nous avons
+ensuite décrit qparse qui l’outil que le travail de ce mémoire cherche à
+améliorer.
 
-Enfin, nous avons exposé une approche de type dictionnaire (les « forme
+Enfin, nous avons exposé une approche de type dictionnaire (les « formes
 rythmiques ») pour détecter une signature rythmique, choisir une grammaire
 pondérée appropriée et énoncer des règles de séparation des voix et de
 simplification de l’écriture.

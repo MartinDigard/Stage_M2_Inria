@@ -1,3 +1,38 @@
+\begin{figure}[h]
+	\centering
+	\resizebox{50pt}{!} {
+		\Tree[.1/4 [t ][ [x ][x ]]]
+	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+	\resizebox{50pt}{!} {
+		\Tree[.1/4 [r ][ [x ][x ]]]
+	}\\
+	\resizebox{70pt}{!} {
+		\Tree[.1/4 [t ][x ][x ][x ] ]
+	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
+	\resizebox{70pt}{!} {
+		\Tree[.1/4 [r ][x ][x ][x ] ]
+	}
+	\caption{}
+	\label{5}
+\end{figure}
+
+
+%\begin{figure}[h]
+%	\centering
+%	Arbre 1
+%	\resizebox{70pt}{!} {
+%		\Tree[.1/4 [a ][b ][c ][d ] ]
+%	}\\
+%	Arbre 2\ \ \ \ \ \ \ \ 
+%	\resizebox{50pt}{!} {
+%		\Tree[.2/4 
+%		[ [.a ]] 
+%		[ [b ][c ]] ]
+%	}
+%	\caption{Simplification}
+%	\label{simplification}
+%\end{figure}
+
 % !TEX root = 1_memoire.tex
 En règle générale, l'introduction et la conclusion sont les deux sections de
 contenu à ne pas être numérotées. Idéalement, chaque chapitre commence par une

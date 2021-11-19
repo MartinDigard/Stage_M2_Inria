@@ -271,37 +271,11 @@ illustrer avec les exemples précédents.}
 Tests effectués avec le fichier midi suivant :
 \includegraphics[height=50mm, width=160mm]{z_images/4_experimentations/3_developpement/0_midi_2bars_fill.png}
 
+Pour les expériences effectuées avec le Groove MIDI Data Set, 
+\florent{Groove MIDI Data Set pas présenté}
+le style et la signature rythmique sont récupérables par les noms des fichiers MIDI, 
+\florent{méta-données}
 Un premier test convaincant est effectué avec la grammaire suivante :\\\\
-<dam>incompréhensible ainsi, c'est dommage</dam>
-// bar level\\
-0 -> C0                1\\
-0 -> E1                1\\
-0 -> U4(1, 1, 1, 1)    1\\
-
-// half bar level\\
-9 -> C0                1\\
-9 -> E1                1\\
-
-// beat level\\
-1 -> C0                1\\
-1 -> E1                1\\
-1 -> T2(2, 2)          1\\
-1 -> T4(4, 4, 4, 4)    1\\
-
-// croche level\\
-2 -> C0                1\\
-2 -> E1                1\\
-
-// double level\\
-4 -> C0                1\\
-4 -> E1                1\\
-4 -> E2                1\\
-4 -> T2(6, 6)          1\\
-
-// triple level\\
-6 -> E1                1\\\\
-Cette grammaire sépare les ligatures par temps au niveau de la mesure. Puis, au niveau du temps, elle autorise les divisions par deux (croches) et par quatre (doubles-croches). Tous les poids sont réglés sur 1. L’arbre de parsing en résultant est considéré comme « convaincant » car il découpe correctement les mesures et les temps.
-\\\\
 \resizebox{450pt}{!} {
 \Tree[.Mesure\ 1
 [.Temps\ 1 [0-ON\\1-ON\\2-ON ][3-OFF\\4-OFF\\5-OFF ][6-ON\\7-ON ][8-OFF\\9-OFF ]]
@@ -532,23 +506,6 @@ z_images/4_experimentations/2_reecriture_guidee/simplification_9.png}
 	\caption{}
 	\label{4}
 \end{figure}
-%\begin{figure}[h]
-%	\centering
-%	\resizebox{50pt}{!} {
-%		\Tree[.1/4 [t ][ [x ][x ]]]
-%	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-%	\resizebox{50pt}{!} {
-%		\Tree[.1/4 [r ][ [x ][x ]]]
-%	}\\
-%	\resizebox{70pt}{!} {
-%		\Tree[.1/4 [t ][x ][x ][x ] ]
-%	}\ \ \ \ \ $\Rightarrow$\ \ \ \ \
-%	\resizebox{70pt}{!} {
-%		\Tree[.1/4 [r ][x ][x ][x ] ]
-%	}
-%	\caption{}
-%	\label{5}
-%\end{figure}
 %\newpage
 Ces règles ont été tirées de l’ensemble des arbres de la forme rythmique. Les
 arbres manquants seront mis en annexe.
