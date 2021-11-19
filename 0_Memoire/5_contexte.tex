@@ -165,7 +165,6 @@ représentation d’un morceau de musique ; 2) La génération d’une partition
 partir de la représentation du morceau.
  
 \section{La transcription automatique de la batterie}
-%\florent{tres bonne section}
 La batterie est née au début du vingtième siècle \cite{histoire_drum_1}. C’est
 donc un instrument récent qui s’est longtemps passé de partition. En effet
 pour un batteur, la qualité de lecteur lorsqu’elle était nécessaire,
@@ -207,6 +206,111 @@ plus larges tels que l’éducation musicale et la production musicale.
 
 \section{Les représentations de la musique}
 \florent{citer M. Müller FMP pour cette section?}
+\subsection*{Les partitions}
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=10mm, width=25mm]{
+    z_images/3_methodes/0_notation_de_la_batterie/0_figures_de_notes.png}
+    \caption{}
+    \label{4_notes}
+\end{figure}
+La figure \ref{4_notes} montre 4 figures de notes les plus courantes dont les
+noms et les durées 
+\florent{durées exprimées en unité de temps musicale, appelée le \emph{temps},
+cf. section...}
+sont respectivement, de gauche à droite :
+\begin{itemize}
+    \item La ronde, elle vaut 4 ; \florent{4 temps}
+    \item La blanche, elle vaut 2 ;
+    \item La noire, elle vaut 1 ;
+    \item La croche, elle vaut 1/2.
+\end{itemize}
+Une figure de note \cite{danhauser} de musique combine plusieurs critères
+\florent{plusieurs éléments}
+\footnote{\url{https://fr.wikipedia.org/wiki/Note_de_musique}} :
+\florent{plutôt que wikipedia cite Dannhauser ou autre ref. F.M. ou encore
+Gould 2011 Behind Bars}
+\begin{itemize}
+	\item Une tête de note :\\
+	Sa position sur la portée indique la hauteur de la note. La tête de note
+    peut aussi indiquer une durée.
+	\item Une hampe :\\
+	barre verticale liée à la tête de note
+	Indicatrice d’appartenance à une voix en fonction de sa direction (haut ou
+    bas) et indicatrice d’une durée représentée par sa présence ou non (blanche
+    ≠ ronde)
+	\item Un crochet : La durée d’une note est divisée par deux à chaque
+     crochet ajouté à la hampe d’une figure de note.
+\end{itemize}
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=50mm, width=80mm]{
+    z_images/3_methodes/0_notation_de_la_batterie/1_rapport_figures_notes.png}
+	\caption{Rapport des figures de notes}\cite{danhauser}
+	\label{rapp_fig_notes}
+\end{figure}
+
+La figure \ref{rapp_fig_notes} montre les rapports de durée entre les figures
+de notes. Plus les durées sont longues, plus elles sont marquées par la tête de
+note ou la présence ou non de la hampe. À partir de la noire (3ème lignes en
+partant du haut), on ajoute un crochet à la hampe d’une figure de notes pour
+diviser sa durée par 2. 
+Les notes à crochet (croche, double-croche, triple-croche…) 
+peuvent être reliées ou non par des ligatures (voir les 4 dernières lignes de
+la figure \ref{rapp_fig_notes}).
+\florent{ce premier paragraphe (jusqu'ici) est redondant avec \S 1.4 (sub.
+    partitions). déplacer en 1.4?
+         cf. proposition plus loin}
+
+Expliquer aussi la notation générale des silences
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=25mm, width=95mm]{
+    z_images/3_methodes/0_notation_de_la_batterie/4_silences.png}
+	\caption{Les silences}
+	\label{silences}
+\end{figure}
+
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=30mm, width=120mm]{
+    z_images/1_contexte/5_partition_piano.png}
+	\caption{Exemple de partition de piano}
+\end{figure}
+<dam>dis quel est ce morceau fais en sorte que  l’air soit connu</dam>
+
+
+Une partition de musique
+\footnote{\url{https://fr.wikipedia.org/wiki/Partition\_(musique)}} est un
+document qui porte la représentation systématique du langage musical sous forme
+écrite. Cette représentation est appelée transcription et elle sert à traduire
+les quatre caractéristiques du son musical :
+\begin{itemize}
+	\item la hauteur ;
+	\item la durée ;
+	\item l’intensité ;
+	\item le timbre.
+\end{itemize}
+<dam>si tu arrives à metrre les types / valeurs possibles pour chacun...</dam>
+\florent{expliquer un peu plus avec exemple. 
+ce serait mieux d’avoir un ex. avec des nuances, accents, appogiatures...}
+
+Ainsi que de leurs combinaisons appelées à former l’ossature de l’œuvre
+musicale dans son déroulement temporel, à la fois :
+\begin{itemize}
+	\item diachronique (succession des instants, ce qui constitue en musique la
+        mélodie) ;
+	\item et synchronique (simultanéité des sons, c’est-à-dire l’harmonie).
+\end{itemize}
+\florent{explications sur l’aspect structuré (hiérarchie) : les mesures, les
+    groupes ryhtmiques...
+         c’est important ici}
+
+
 
 \subsection*{Les données audio}
 \florent{trop technique. ne pas recopier wikipédia}
@@ -284,113 +388,6 @@ contraignant) dans le cadre de notre travail, dans la mesure où de nombreux
 logiciels l'utilisent. Pour la transcription musicale, il constitue une strate
 intermédiaire très utile entre le signal audio (enregistrement) et la
 représentation musicale lisible par un humain (partition)"</dam>
-\subsection*{Les partitions}
-\florent{pour clarifier 3.1(sub les durées), décrire en 1.4 (ici) la notation
-conventionnelles (piano etc) et 3.1(sub les durées) uniquement ce qui est
-spécifique à la batterie, en expliquant les différences.}
-
-Expliquer aussi la notation générale des silences
-\begin{figure}[h]
-	\centering
-	\includegraphics[height=25mm, width=95mm]{
-    z_images/3_methodes/0_notation_de_la_batterie/4_silences.png}
-	\caption{Les silences}
-	\label{silences}
-\end{figure}
-
-
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[height=10mm, width=25mm]{
-    z_images/3_methodes/0_notation_de_la_batterie/0_figures_de_notes.png}
-    \caption{}
-    \label{4_notes}
-\end{figure}
-La figure \ref{4_notes} montre 4 figures de notes les plus courantes dont les
-noms et les durées 
-\florent{durées exprimées en unité de temps musicale, appelée le \emph{temps},
-cf. section...}
-sont respectivement, de gauche à droite :
-\begin{itemize}
-    \item La ronde, elle vaut 4 ; \florent{4 temps}
-    \item La blanche, elle vaut 2 ;
-    \item La noire, elle vaut 1 ;
-    \item La croche, elle vaut 1/2.
-\end{itemize}
-Une figure de note \cite{danhauser} de musique combine plusieurs critères
-\florent{plusieurs éléments}
-\footnote{\url{https://fr.wikipedia.org/wiki/Note_de_musique}} :
-\florent{plutôt que wikipedia cite Dannhauser ou autre ref. F.M. ou encore
-Gould 2011 Behind Bars}
-\begin{itemize}
-	\item Une tête de note :\\
-	Sa position sur la portée indique la hauteur de la note. La tête de note
-    peut aussi indiquer une durée.
-	\item Une hampe :\\
-	barre verticale liée à la tête de note
-	Indicatrice d’appartenance à une voix en fonction de sa direction (haut ou
-    bas) et indicatrice d’une durée représentée par sa présence ou non (blanche
-    ≠ ronde)
-	\item Un crochet : La durée d’une note est divisée par deux à chaque
-     crochet ajouté à la hampe d’une figure de note.
-\end{itemize}
-\begin{figure}[h]
-	\centering
-	\includegraphics[height=50mm, width=80mm]{
-    z_images/3_methodes/0_notation_de_la_batterie/1_rapport_figures_notes.png}
-	\caption{Rapport des figures de notes}\cite{danhauser}
-	\label{rapp_fig_notes}
-\end{figure}
-
-La figure \ref{rapp_fig_notes} montre les rapports de durée entre les figures
-de notes. Plus les durées sont longues, plus elles sont marquées par la tête de
-note ou la présence ou non de la hampe. À partir de la noire (3ème lignes en
-partant du haut), on ajoute un crochet à la hampe d’une figure de notes pour
-diviser sa durée par 2. 
-Les notes à crochet (croche, double-croche, triple-croche…) 
-peuvent être reliées ou non par des ligatures (voir les 4 dernières lignes de
-la figure \ref{rapp_fig_notes}).
-\florent{ce premier paragraphe (jusqu'ici) est redondant avec \S 1.4 (sub.
-    partitions). déplacer en 1.4?
-         cf. proposition plus loin}
-
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[height=30mm, width=120mm]{
-    z_images/1_contexte/5_partition_piano.png}
-	\caption{Exemple de partition de piano}
-\end{figure}
-<dam>dis quel est ce morceau fais en sorte que  l’air soit connu</dam>
-
-
-Une partition de musique
-\footnote{\url{https://fr.wikipedia.org/wiki/Partition\_(musique)}} est un
-document qui porte la représentation systématique du langage musical sous forme
-écrite. Cette représentation est appelée transcription et elle sert à traduire
-les quatre caractéristiques du son musical :
-\begin{itemize}
-	\item la hauteur ;
-	\item la durée ;
-	\item l’intensité ;
-	\item le timbre.
-\end{itemize}
-<dam>si tu arrives à metrre les types / valeurs possibles pour chacun...</dam>
-\florent{expliquer un peu plus avec exemple. 
-ce serait mieux d’avoir un ex. avec des nuances, accents, appogiatures...}
-
-Ainsi que de leurs combinaisons appelées à former l’ossature de l’œuvre
-musicale dans son déroulement temporel, à la fois :
-\begin{itemize}
-	\item diachronique (succession des instants, ce qui constitue en musique la
-        mélodie) ;
-	\item et synchronique (simultanéité des sons, c’est-à-dire l’harmonie).
-\end{itemize}
-\florent{explications sur l’aspect structuré (hiérarchie) : les mesures, les
-    groupes ryhtmiques...
-         c’est important ici}
-
 \subsection*{Les formats XML}
 <dam>si tu as la date d'apparition du format, éventuellement une citation un
 peu originelle</dam>
