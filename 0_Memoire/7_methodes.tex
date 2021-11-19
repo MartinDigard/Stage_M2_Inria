@@ -8,7 +8,7 @@ qparse\footnote{https://qparse.gitlabpages.inria.fr/}, un outil de
 transcription qui est développé à l'Inria, l'Université de Nagoya et plusieurs
 développeurs au sein du laboratoire Cedric au CNAM.
 
-Enfin, nous présenterons les formes rythmiques, <flo>une représentation
+Enfin, nous présenterons les \textbf{formes rythmiques}, <flo>une représentation
 théorique qui permet…</flo> 
 
 \section{La notation de la batterie}
@@ -198,7 +198,7 @@ suivante pour l’écriture :
     \item si c’est un charley fermé joué au pied $\Rightarrow$ la note sera un
         silence.
 \end{enumerate}
-La deuxième règle sera soumise au cadre imposé par certaines formes rythmiques
+La deuxième règle sera soumise au cadre imposé par certaines \textbf{formes rythmiques}
 pour lesquelles le charley joué au pied devra rester tel quel. 
 
 \subsection*{Les équivalences rythmiques}
@@ -282,8 +282,8 @@ Les accents sont marqués par le symbole~«~>~». Ils sont positionnés au-dessu
 des notes représentant des cymbales et en-dessous des notes représentant des
 toms ou la caisse claire. Ce choix a été fait pour la partition de la figure
 \ref{partition_ref} car elle est plus lisible ainsi, mais ces choix devront
-être adaptés en fonction des différentes formes rythmiques reconnues (voir la
-section \ref{systemes_methodes}). Par exemple, pour les formes rythmiques jazz,
+être adaptés en fonction des différentes \textbf{formes rythmiques} reconnues (voir la
+section \ref{systemes_methodes}). Par exemple, pour les \textbf{formes rythmiques} jazz,
 les ligatures pour les toms et la caisse claire seront dirigées vers le bas, il
 faudra donc mettre les symboles d’accentuation correspondants au-dessus des
 têtes de notes.
@@ -547,83 +547,86 @@ syntaxique global est créé ;
     <dam>rédiger un peu mieux réécriture 1 et 2</dam>
 \end{itemize}
 
-\section{Les formes rythmiques}
+\section{Les \textbf{formes rythmiques}}
 \label{systemes_methodes}
 Il existe en batterie des motifs rythmiques répétés (joués en boucle). Ces
 motifs sont le résultat de la coordination de plusieurs instruments de la
 batterie, je les nommerai \textbf{motifs} dans la suite du document. Très
-souvent, un autre instrument est joué de manière indépendante sur le motif mais
-en respectant la cohérence rythmique du motif. Je nommerai \textbf{gamme}
-l’ensemble des combinaisons possibles pour cet autre instrument. La gamme d’un
-motif est toujours relative à sa signature rythmique. Enfin, j’ai nommé
-\textbf{forme rythmique} le couple motif-gamme.
+souvent, un autre instrument est joué de manière indépendante sur le
+\textbf{motif} mais en respectant la cohérence rythmique du \textbf{motif}. Je
+nommerai \textbf{gamme} l’ensemble des combinaisons possibles pour cet autre
+instrument. La \textbf{gamme} d’un \textbf{motif} est toujours relative à sa
+signature rythmique. Enfin, j’ai nommé \textbf{forme rythmique} (\textbf{FR})
+le couple \textbf{motif}-\textbf{gamme}.
 
-Le but est d'avoir des schemas types (forme rythmique) pour calculer la
-séparation en voix. Cela constituerait une heuristique pour éviter d'avoir à
-explorer une grande combinatoire. Une fois la forme rythmique déterminée, la
-séparation se fait par réécriture du modèle (règles de projection et
-simplification).
+\subsection*{Objectifs}
+Le but est d'avoir des schemas types (les \textbf{formes rythmiques}) pour
+calculer la séparation en voix. Cela constituerait une heuristique pour éviter
+d'avoir à explorer une grande combinatoire.
 
-\subsection*{Définitions}
-\florent{est-ce que le motif est fixe et les gammes variables? 
-est-ce le motif qui détermine la signature rythmique et les voix?}
+Un ensemble de \textbf{formes rythmiques} comprenant leur signatures rythmiques
+respectives et leurs règles spécifiques de réécriture sera nécessaire.
 
+Une fois un système défini, la transcription à partir de l'entrée MIDI sera
+facilitée par la reconnaissance de la FR qui contraindra le processus, il
+premettra de :
 \begin{itemize}
-    \item \textbf{Motif :} rythmes coordonnés joués avec deux ou trois
-        instruments coordonnés en boucle (répartis sur 1 ou 2 voix) ;
-    \item \textbf{gamme :} Ensemble des combinaisons jouées par un autre
-        instrument sur le motif (réparti sur 1 voix) ;
-    \item \textit{\textbf{forme rythmique :}} motif + gamme
+	\item définir une signature rythmique ;
+	\item choisir une grammaire appropriée ;
+	\item fournir les règles de réécriture (séparation des voix et
+        simplification.
 \end{itemize}
 
-Les motif sont fixes et les gammes regroupent un ensemble de possibilités qui
-peuvent être rencontrées en situation réelle (sur une partition ou lors d’une
-performance de batterie).
+\subsection*{Définitions}
 
-Les motifs déterminent les signatures rythmiques des formes rythmiques, et donc
-de leur gammes respectives. Ils déterminent aussi avec quels instrument seront
-jouées les gammes.
+\begin{itemize}
+    \item \textbf{motif} : rythmes coordonnés joués avec deux ou trois
+        instruments coordonnés en boucle (répartis sur 1 ou 2 voix) ;
+    \item \textbf{gamme} : Ensemble des combinaisons jouées par un autre
+        instrument sur le \textbf{motif} (réparti sur 1 voix) ;
+    \item \textbf{forme rythmique} : \textbf{motif} + \textbf{gamme}\\
+\end{itemize}
 
-Un ensemble de formes rythmiques comprenant leur signature rythmique et leurs
-règles spécifiques de réécriture sera nécessaire. 
+Les \textbf{motifs} sont fixes, contrairement aux \textbf{gammes} regroupent
+l’ensemble des possibilités qui peuvent être rencontrées en situation réelle
+(sur une partition ou lors d’une performance de batterie).
 
-\florent{signature rythmique n'est pas défini. règles de réécriture non plus}
-Les formes rythmiques devront être distribués dans 4 grandes catégories :
+Un \textbf{motif} détermine la signature rythmique d’une
+\textbf{forme rythmique} , et donc de sa \textbf{gamme}. Il détermine aussi
+avec quel instrument unique sera jouée la \textbf{gamme} et comment tous les
+instruments de la \textbf{forme rythmique} se répartiront en voix.\\
+
+
+
+
+Les \textbf{formes rythmiques} devront être distribuées dans 4 grandes
+catégories\footnote{SR du tableau signifie « signature rythmique »}
+\cite{system_drums} :
 \begin{table}[h]
-	\centering
-	\begin{tabular}{|c|c|c|c|c|} \hline
-		formes rythmiques & signature rythmiques & Subdivisions & Possibles & nb voix \\ \hline
-		binaires & simple & doubles-croches & triolets, sextolets & 2 \\
-		jazz & simple & triolets & croches et doubles-croches & 2 \\
-		ternaires & complexe & croches & duolets, quartelets & 2 \\
-		afros-cubains & simple & croches & - & 3 \\ \hline
-	\end{tabular}
-	\caption{Sytèmes}
+\centering
+\begin{tabular}{|c|c|c|c|c|} \hline
+\textbf{FR} & SR & Subdivisions & Possibles & nb
+voix \\ \hline
+binaires & simple & doubles-croches & triolets, sextolets & 2 \\
+jazz & simple & triolets & croches et doubles & 2 \\
+ternaires & complexe & croches & duolets, quartelets & 2 \\
+afros-cubains & simple & croches & - & 3 \\ \hline
+\end{tabular}
+\caption{Sytèmes}
 \end{table}\\
-Nous exposerons 3 formes rythmiques afin d’illustrer les propos de cette section :
+Nous exposerons 3 \textbf{formes rythmiques} afin d’illustrer les propos de
+cette section :
 \begin{itemize}
 	\item 4/4 binaire 
 	\item 4/4 jazz
 	\item 4/4 afro-cubain
 \end{itemize}
-\subsection*{Objectif des formes rythmiques}
-Les formes rythmiques devront être matchés sur l’input MIDI afin de :<dam>là aussi, rédige ça un peu mieux
-"Une fois un système défini, la transcription à partir de l'entrée MIDI sera facilitée par la reconnaissance du système qui contraindra la processus de transcription, il premettra de :"</dam>
-\begin{itemize}
-	\item définir une signature rythmique ;
-	\item choisir une grammaire appropriée ;
-	\item fournir les règles de réécriture (séparation des voix et simplification.\\
-\end{itemize}
 
-\florent{bien. il faudrait expliquer ça avant.}
-La partie \textit{motif} des formes rythmiques sera utilisée pour la \textbf{définition des signature rythmiques}. 
-Le \textit{motif} et la gammes des formes rythmiques seront utilisés pour la \textbf{séparation des voix}. 
-Les règles de \textbf{simplification} (les combinaisons de réécritures) seront extraites des voix séparées des formes rythmiques.
-\florent{pas exactement. les règles de projection et simplification font la séparation en voix: 
-à partir d'un arbre syntaxique comme celui de 3.2, elles extraient 2 arbres, chacun contenant les 
-évenements d'une seule voix}
+Le \textit{\textbf{motif}} et la
 
-\subsubsection{Détection d’indication de mesure}
+\subsubsection{Détection de la signature rythmique}
+La partie \textbf{motif} des \textbf{FR} sera utilisée pour la
+\textbf{définition des signature rythmiques}. 
 La détection de la signature rythmique est importante, 
 non seulement pour connaître le nombre de temps par mesure ainsi que le nombre
 de subdivisions pour chacun de ces temps, mais aussi pour savoir comment écrire
@@ -631,15 +634,18 @@ l’unité de temps et ses subdivisions.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[height=40mm, width=40mm]{z_images/3_methodes/2_systemes/0_simple_VS_complexe.png}
+	\includegraphics[height=40mm, width=40mm]{
+    z_images/3_methodes/2_systemes/0_simple_VS_complexe.png}
 	\caption{signature rythmique}
 	\label{subdivisions}
 \end{figure} %\newpage
 
-La figure \ref{subdivisions} montre deux indications de mesure différentes. 
-L’une (exemple 1) est \textit{simple} (2 temps binaires sur lesquels sont joués des triolets), 
-l’autre (exemple 2) est \textit{complexe} (2 temps ternaires). 
-Le jazz est traditionnellement écrit en binaire avec ou sans triolet (même si cette musique est dite ternaire alors que le rock ternaire sera plutôt écrit comme dans l’exemple 2).
+La figure \ref{subdivisions} montre deux signatures rythmiques différentes. 
+L’une (exemple 1) est \textit{simple} (2 temps binaires sur lesquels sont joués
+des triolets), l’autre (exemple 2) est \textit{complexe} (2 temps ternaires). 
+Le jazz est traditionnellement écrit en binaire avec ou sans triolet (même si
+cette musique est dite ternaire alors que le rock ternaire sera plutôt écrit
+comme dans l’exemple 2).
 
 \subsubsection{Choix d’une grammaire}
 Il faut prendre en compte l’existence potentielle de plusieurs grammaires dédiées chacune à un type de contenu MIDI. 
@@ -649,21 +655,23 @@ Le choix d’une grammaire pondérée doit être fait avant le parsing puisque Q
 
 Pour les expériences effectuées avec le Groove MIDI Data Set, 
 \florent{Groove MIDI Data Set pas présenté}
-le style et l’indication de mesure sont récupérables par les noms des fichiers MIDI, 
+le style et la signature rythmique sont récupérables par les noms des fichiers MIDI, 
 \florent{méta-données}
 mais il faudra par la suite les trouver automatiquement sans autres indications 
 que les données \florent{contenu} MIDI elles-mêmes. 
-Par conséquent, les motifs des formes rythmiques devront être recherchés sur l’input \textit{(fichiers MIDI)} 
+Par conséquent, les \textbf{motifs} des \textbf{formes rythmiques} devront être recherchés sur l’input \textit{(fichiers MIDI)} 
 avant le lancement du parsing, afin de déterminer la signature rythmique en amont. 
 Cette tâche devra probablement être effectuée par utilisation d'apprentissage automatique. %\newpage
 
 
 \subsubsection{Séparation des voix}
+\textbf{gammes} des \textbf{formes rythmiques} seront utilisés pour la
+\textbf{séparation des voix}. 
 \label{sys_sep_voix}
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=60mm, width=40mm]{z_images/3_methodes/2_systemes/1_separation_4-4_binaire.png}
-	\caption{Motif 4-4 binaire}
+	\caption{\textbf{motif} 4-4 binaire}
 	\label{binaire}
 \end{figure}
 
@@ -671,10 +679,10 @@ Cette tâche devra probablement être effectuée par utilisation d'apprentissage
 avant de détailler des exemples, il faudrait décrire les objectifs et 
 le principe de la procédure.}
 <dam>assez dur à suivre ici, essayes de prendre de la hauteur et juste de t'appuyer sur l'exemple (sans trop le décrire en détail) pour dire quelles sont les difficultés et les choix de séparation de voix et comment un algorithme pourrait faire ces choix.</dam>
-Ici, le forme rythmique est construit sur un modèle rock en 4/4 : after-beat
+Ici, le \textbf{forme rythmique} est construit sur un modèle rock en 4/4 : after-beat
 sur les 2 et 4 avec un choix de répartition des cymbales type fast-jazz. La
-forme rythmique est constituée par défaut du motif rd/pf/cc (voir
-\ref{pitchs_instru}) et d’un gamme jouée à la grosse caisse. La première ligne
+\textbf{forme rythmique} est constituée par défaut du \textbf{motif} rd/pf/cc (voir
+\ref{pitchs_instru}) et d’un \textbf{gamme} jouée à la grosse caisse. La première ligne
 de la figure \ref{binaire} est appelée « Irréductible » car il n’y a pas
 d’autre choix pertinent pour la répartition de la ride et du charley au pied.
 La troisième séparation proposée est privilégiée car elle répartit selon 2
@@ -686,35 +694,38 @@ bas.
 \centering
 \includegraphics[height=45mm, width=60mm]{
 z_images/3_methodes/2_systemes/2_separation_4-4_jazz.png}
-\caption{Motif 4-4 jazz}
+\caption{\textbf{motif} 4-4 jazz}
 \label{jazz}
 \end{figure}\\
 Dans la plupart des méthodes, le charley n’est pas écrit car il est considéré comme évident en jazz traditionnel. Ce qui facilite grandement l’écriture : la ride et les crash <dam>termes non introduits... expliquer ou enlever</dam> sur la voix du haut et le reste sur la voix du bas. Ici, le parti pris est de tout écrire. 
 Dans l’exemple ci-dessus, 
 \florent{quel exemple?}
-les mesures 1 et 2 combinées avec le \textit{motif} de la première ligne, sont des cas typiques de la batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la grosse caisse entre très souvent dans le flot des combinaisons de toms et de caisse claire et son écriture séparée serait inutilement compliquée et peu intuitive pour le lecteur. Le choix de séparation sera donc de laisser les cymbales en haut et toms, caisse claire, grosse caisse et pédale de charley en bas.
+les mesures 1 et 2 combinées avec le \textit{\textbf{motif}} de la première ligne, sont des cas typiques de la batterie jazz. Tout mettre sur la voix haute serait surchargé. De plus, la grosse caisse entre très souvent dans le flot des combinaisons de toms et de caisse claire et son écriture séparée serait inutilement compliquée et peu intuitive pour le lecteur. Le choix de séparation sera donc de laisser les cymbales en haut et toms, caisse claire, grosse caisse et pédale de charley en bas.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=20mm, width=70mm]{z_images/3_methodes/2_systemes/3_separation_afro-latins.png}
-	\caption{forme rythmique 4-4 afro-latin}
+	\caption{\textbf{forme rythmique} 4-4 afro-latin}
 	\label{afro_latin}
 \end{figure}
 
-La figure \ref{afro_latin} montre un exemple minimaliste de forme rythmique afro-latin \cite{system_drums}. 
-Ce forme rythmique doit être écrite sur trois voix car la voix centrale est
+La figure \ref{afro_latin} montre un exemple minimaliste de \textbf{forme rythmique} afro-latin \cite{system_drums}. 
+Ce \textbf{forme rythmique} doit être écrite sur trois voix car la voix centrale est
 souvent plus complexe qu’ici où elle ne contient que des noires et la mélanger
 avec le haut ou le bas serait surchargé et peu lisible.
 
 \subsubsection{Simplification de l’écriture}
-Les explications qui suivent seront appuyé par une réécriture guidée par une
-forme rythmique dans la section \ref{reecriture_guidee}.
 
-Les gammes qui accompagnent les motifs d’un forme rythmique étayent toutes les combinaisons d’un forme rythmique et elles permettent, combinées avec le motif d’un forme rythmique, de définir les règles de simplification propres à celui-ci.
+Les règles de \textbf{simplification} (les combinaisons de réécritures) seront
+extraites des voix séparées des \textbf{formes rythmiques}.
+Les explications qui suivent seront appuyé par une réécriture guidée par une
+\textbf{forme rythmique} dans la section \ref{reecriture_guidee}.
+
+Les \textbf{gammes} qui accompagnent les \textbf{motifs} d’un \textbf{forme rythmique} étayent toutes les combinaisons d’un \textbf{forme rythmique} et elles permettent, combinées avec le \textbf{motif} d’un \textbf{forme rythmique}, de définir les règles de simplification propres à celui-ci.
 
 Voici les différentes étapes à suivre :
 \begin{itemize}
-	\item Pour chaque gamme du forme rythmique, faire un arbre de rythme représentant la gamme combinée avec le motif du forme rythmique ;
+	\item Pour chaque \textbf{gamme} du \textbf{forme rythmique}, faire un arbre de rythme représentant la \textbf{gamme} combinée avec le \textbf{motif} du \textbf{forme rythmique} ;
 	\item Pour chaque arbre de rythmes obtenus, séparer les voix et faire un arbre de rythme par voix ;
 	\item Pour chaque voix (arbre de rythmes) obtenus, extraire tous les nœuds qui nécessitent une simplification et écrire la règle.
 \end{itemize}
