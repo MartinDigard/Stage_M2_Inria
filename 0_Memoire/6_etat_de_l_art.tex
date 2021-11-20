@@ -110,37 +110,43 @@ L'approche de \cite{foscarin:hal-01988990} est fondée sur la conviction
 que la complexité de la structure musicale dépasse les modèles linéaires.
 
 \section{Approche linéaire et approche hiérarchique}
-<dam>qu'est-ce q'un modèle linéaire</dam>\\
-
-Plusieurs travaux ont d’abord privilégié l’approche stochastique. Par exemple,
-Shibata \textit{et al.} \cite{SHIBATA2021262} ont utilisé des modèles de Markov
-Caché (MMC) pour la reconnaissance
-des signatures rythmiques. Les auteurs utilisent d’abord deux réseaux de
-neurones profonds, l’un pour la reconnaissance des \textit{pitchs} et l’autre
-pour la reconnaissance de la vélocité. Pour la dernière couche, la probabilité
-est obtenue par une fonction sigmoïde. Ils construisent ensuite plusieurs MMC
-étendus pour la musique polyphonique correspondant à des métriques possibles,
-puis ils calculent la probalitité maximale pour chaque modèle afin d’obtenir la
-métrique la plus probable.\\
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=50mm, width=90mm]{
     z_images/2_etat_de_l_art/0_hmm.png}
-	\caption[MMC]{MMC\footnotemark}
+	\caption[Le modèle de Markov caché]{Le modèle de Markov caché\footnotemark}
+    \label{mmc}
 \end{figure}
+
+<dam>qu'est-ce q'un modèle linéaire</dam>\\
+La figure \ref{mmc} montre un exemple de modèle linéaire et mentionne notamment
+ce type de modèle sont utilisé en reconnaissance de la parole. Une différence
+notable entre la reconnaissance de la parole et le traitement de la musique est
+que la parole est un type de données linéaires : les informations sonores
+arrivent les unes après les autres. Mais l’expression musicale provient en
+grande partie du mélange des sons. Certaines information musicales sont
+nécessairement issues de plusieurs sons produit simultanément.
+
+Plusieurs travaux ont d’abord privilégié l’approche stochastique. Par exemple,
+Shibata \textit{et al.} \cite{SHIBATA2021262} ont utilisé des MMC pour la
+reconnaissance des signatures rythmiques. Les auteurs utilisent d’abord deux
+réseaux de neurones profonds, l’un pour la reconnaissance des \textit{pitchs}
+et l’autre pour la reconnaissance de la vélocité. Ils construisent ensuite
+plusieurs MMC étendus pour la musique polyphonique correspondant à des
+signatures rythmiques possibles, puis ils calculent la probalitité maximale
+pour chaque modèle afin d’obtenir la signature rythmique la plus probable.\\
 
 L’évaluation finale des résultats de \cite{SHIBATA2021262} montre qu’il faut
 \footnotetext{Source : cours de Damien Nouvel
 \url{https://damien.nouvels.net/fr/enseignement}}
 rediriger l’attention vers les valeurs des notes, la séparation des voix et
 d'autres éléments délicats de la partition musicale qui sont significatifs pour
-l'exécution<dam>tu veux dire jouer la musique ?</dam> de la musique. 
-Or, même si la quantification du rythme se fait le plus souvent par la
-manipulation de données linéaires allant notamment des \textit{real time units}
-(secondes) vers les musical \textit{time units} (temps, métrique,…), de
-nombreux travaux suggèrent d’utiliser une approche hiérarchique puisque le
-langage musical est lui-même structuré.
+son interprétation.
+
+Même si la quantification du rythme se fait le plus souvent par la
+manipulation de données linéaires, de nombreux travaux suggèrent d’utiliser
+une approche hiérarchique puisque le langage musical est lui-même structuré.
 
 \florent{je ne comprend pas bien l'explication. le pb est plutot vue locale 
 (déduction de la proba d'une durée à partir de la durée précédente, par ex.
