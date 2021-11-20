@@ -212,7 +212,7 @@ appelée transcription.
 	\centering
 	\includegraphics[height=10mm, width=25mm]{
     z_images/3_methodes/0_notation_de_la_batterie/0_figures_de_notes.png}
-    \caption{Figures de notes}
+    \caption{Les figures de notes}
     \label{4_notes}
 \end{figure}
 La figure \ref{4_notes} montre 4 figures de notes les plus courantes dont les
@@ -315,12 +315,12 @@ représente une performance musicale symbolique.
 	\caption{Exemple d’évènements MIDI}
 	\label{piano_roll}
 \end{figure}
-Les données midi sont représentées sous forme de piano-roll. Chaque trait
-coloré en vert sur la figure \ref{piano_roll} correspond à une notes jouée par
-un instrument. Le début et la fin d’un trait sont appelé « évènement MIDI ». Il
-existe des évènements ON et des évènements OFF qui ont chacun une date sur la
-séquence MIDI. La durée d’une note est représentée la distance entre les
-évènements ON et OFF qui lui correspondent.\\
+Les données midi sont représentées sous forme de piano-roll. Chaque bande verte
+sur la figure \ref{piano_roll} correspond à une notes jouée par un instrument.
+Le début (onset) et la fin (offset) d’une bande verte sont appelés « évènement
+MIDI ». Il existe des évènements ON et des évènements OFF qui ont chacun une
+date sur la séquence MIDI. La durée d’une note est représentée la distance
+entre les évènements ON et OFF qui lui correspondent.\\
 
 Liste des évènements principaux d’un évènement MIDI :
 \begin{itemize}
@@ -330,6 +330,12 @@ Liste des évènements principaux d’un évènement MIDI :
         instrument pour la batterie)
     \item velocité, volume sonore de l’évènement.\\
 \end{itemize}
+
+\florent{cela pourra être utile d'avoir une
+explication (ici ou en 1.4) sur la différence entre les timings de performance
+(dont le MIDI non-quantifié est un enregistrement symbolique) et les timing des
+partitions. avec 2 unités temporelles différentes (secondes et temps), en
+relation par tempo.}
 
 \subsection*{Les formats XML}
 <dam>si tu as la date d'apparition du format, éventuellement une citation un
@@ -357,8 +363,9 @@ Le figure \ref{MusicXML}
 représente un do en clef de sol de la durée d’une ronde sur une mesure en 4/4
 écrit au format MusicXML.
 Un des avantages de ce format est qu’il peut être converti aussi bien en
-données MIDI qu’en partition musicale, ce qui en fait une interface
-homme/machine.
+données MIDI qu’en partition musicale, ce qui en fait un bon format
+intermédiaire pour manipuler les données musicales et les échanger entre les
+programmes.
 <dam>c'est un peu ce que je mettais plus haut pour le MIDI, là on a une autre
 représentation, moins "audio" et plus "musique" bref tu peux développer cet
 aspect de représentation formelle et le questionner un peu.

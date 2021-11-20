@@ -31,89 +31,45 @@ ce défi est majeur .
 Les performances des systèmes actuels ne sont pas encore suffisantes pour
 permettre la création d'un système automatisé capable de transcrire de la
 musique polyphonique sans restrictions sur le degré de polyphonie ou le type
-d'instrument. Cette question reste donc encore ouverte. 
+d'instrument. Cette question reste donc encore ouverte.
 
 \section{De l’enregistrement audio vers le MIDI}
 \label{audio_to_midi}
-Le but de cette partie est seulement la génération d’un MIDI non-quantifié.\\
 Jusqu’à aujourd’hui, les recherches se sont majoritairement concentrées sur le
-traitement de signaux audio vers la génération du MIDI non-quantifié (= une
-performance — à expliquer) \cite{AMT_for_2_Instru}.\\
+traitement de signaux audio vers la génération de contenu MIDI non-quantifié
+(une performance — à expliquer) \cite{AMT_for_2_Instru}. Cette tâche englobe
+plusieurs sous-tâches dont séparation des sources audio, la détection
+multi-\textit{pitchs} \footnote{La détection multi-\textit{pitchs} est la
+détection des hauteurs simultanées pour les instruments polyphoniques. Il peut
+s’agir de notes d’un même instrument ou de plusieurs instruments différents.}
+et la détection des \textit{onsets} et des \textit{offsets}.
 
-<dam>pas évident à suivre cette partie, peut être être plus clair sur la
-question de chaque paragraphe et ajouter une petite conclusion à la fin ?
-</dam>\\
+\florent{avant la TAB, il faudrait dire 2 mots sur les techniques utilisées
+(cf. survey AMT Benetos et al.)}
 
-Cette partie englobe plusieurs sous-tâches dont la détection multi-pitchs, 
-la détection des onset et des offset, séparation des sources
-\florent{cela pourra être utile d'avoir une explication (ici ou en 1.4) 
-sur la différence entre les timings de performance (dont le MIDI non-quantifié
-est un enregistrement symbolique) et les timing des partitions. avec 2 unités
-temporelles différentes (secondes et temps), en relation par tempo.}
+En transcription automatique de la batterie \cite{Review_ADT}, plusieurs
+stratégies de répartition pré/post-\textit{processing} sont possibles pour la
+détection multi-\textit{pitchs}. La détection peut être entamée dès le
+pré-\textit{processing}, en supprimant les \textit{features}\footnote{
+Features : caractéristiques individuelles mesurables d'un phénomène dans le
+domaine de l'apprentissage automatique et de la reconnaissance des formes}
+non-pertinentes pendant la séparation des sources afin d’obtenir une meilleure
+détection des instruments de la batterie, par exemple en supprimant la
+structure harmonique pour atténuer l’influence des instruments à hauteurs sur
+la détection grosse caisse et caisse claire. Mais certaines études montrent que
+la suppression des instruments à hauteurs peut avoir des effets néfastes sur
+les performances de la transcription de batterie. En outre, les systèmes de TAB
+basés sur des réseaux de neurones récurrents ou sur des factorisations
+matricielles font la séparation des sources pendant l’optimisation, ce qui
+réduit la nécessité de la faire pendant le pré-processing. Pour la
+reconnaissance des instruments de la batterie, une autre approche possible est
+d’utiliser un modèle probabiliste (MMC) pour classifier les différents sons de
+la batterie \cite{Eronen}. L’approche AdaMa \cite{adama_1}, qui commence par
+une estimation initiale des sons de la batterie en les raffinant itérativement,
+est une autre approche de la même catégorie.
 
-\florent{avant la TAB, il faudrait dire 2 mots sur les techniques utilisées (cf.
-survey AMT Benetos et al.)}
-
-La TAM contient plusieurs sous-tâches :
-\begin{itemize}
-	\item La séparation des sources à partir de l’audio.
-	\item Le système de transcription :
-	\begin{itemize}
-		\item Cœur du système :\\
-		$\Rightarrow$ Algorithmes de détection des multi-pitchs<dam>un autre
-        terme plus compréhensible ?</dam> et de suivi des \tab notes.\\
-		Quatres sous-tâches optionnelles accompagnent ces algorithmes :
-		\begin{itemize}
-			\item identification de l’instrument ;
-			\item estimation de la tonalité et de l’accord ;
-			\item détection de l’apparition et du décalage ;
-			\item estimation du tempo et du rythme.
-            \item <dam> ça serait bien d'avoir une vision approximative des
-                données :
-- identification de l’instrument : valeur symbolique prise dans une liste
-  prédéfinie ?
-- estimation de la tonalité et de l’accord : en note la gamme ou Hz ?
-- détection de l’apparition et du décalage : mesure de temps / durée
-- estimation du tempo et du rythme : ?</dam>
-		\end{itemize}
-	\end{itemize}
-	\item Apprentissage sur des modèles accoustiques et musicologiques.
-	\item \textit{Optionnel :} Informations fournies de manière externe, soit
-        fournie en amont (genre, instruments,…), soit par interaction avec un
-        utilisateur (infos sur une partition incomplète).
-\end{itemize}
-En TAB \cite{Review_ADT}, plusieurs stratégies de répartition
-pré/post-processing sont possibles pour la détection multi-pitchs. Entamer la
-détection dès le pré-processing, en supprimant les features non-pertinentes
-pendant la séparation des sources afin d’obtenir une meilleure détection des
-instruments de la batterie, est une démarche intuitive : supprimer la structure
-harmonique pour atténuer l’influence des instruments à hauteurs \florent{haute
-fréquence, aigus ?} sur la détection grosse caisse et caisse claire en est un
-exemple. 
-Mais [certaines études montrent que des expériences similaires ont donné des
-résultats non-concluants]<dam>pas très clair…</dam> et que la suppression des
-instruments à hauteurs peut avoir des effets néfastes sur les performances de
-la transcription de batterie. En outre, les systèmes de TAB basés sur des
-réseaux de neurones récurrents (RNN) ou sur des factorisations matricielles non
-négative font la séparation des sources pendant l’optimisation, ce qui réduit
-la nécessité de la faire pendant le pré-processing.
-
-Pour la reconnaissance des instruments<dam>en général, ou seulement ceux de
-batterie ?</dam>, une approche possible \cite{Eronen} est d’utiliser un modèle
-probabiliste dans l’étape de la classification des évènements
-\florent{classification des évènements? la phrase semble redondante} afin de
-classer les différents sons de la batterie. Cette méthode permet de se
-passer de samples audio isolés en modélisant la progression temporelle des
-\textit{features}\footnote{Features : caractéristiques individuelles mesurables
-d'un phénomène dans le domaine de l'apprentissage automatique et de la
-reconnaissance des formes} avec un modèle de markow caché (HMM). Les
-\textit{features} sont transformés en représentations statistiques
-indépendantes. \florent{pas clair... peut–être juste mentionner les modèles
-probabilistes utilisés} L’approche AdaMa \cite{adama_1} est une autre approche
-de la même catégorie ; elle commence par une estimation initiale des sons de la
-batterie qui sont itérativement raffinés pour correspondre à (pour matcher)
-l’enregistrement visé.
-%- Extraction of rhythmic information (tempo, beat, and musical timing)\\
+Toutes ces méthodes elles visent toutes la génération d’un contenu MIDI
+non-quantifié qui est la représentation symbolique d’une performance musicale.
 
 \section{Du format MIDI vers une partition}
 Les approches mentionnées en section \ref{audio_to_midi} produisent en sortie
@@ -125,7 +81,7 @@ différence entre contenu MIDI et musique écrite en section 1.4). On parle de
 quantification rhythmique.
 
 Nakamura et al. 2016 présentent une approche de quantification rhythmique avec
-modèles de probabilités (HMM) qui prend en entrée un fichier MIDI non quantifié
+modèles de probabilités (MMC) qui prend en entrée un fichier MIDI non quantifié
 et fourni en sortie un fichier MIDI quantifié. \cite{SHIBATA2021262} étendent
 ensuite l'approche à une transcription d'enregistrement audio vers un fichier
 MIDI quantifié. Ce dernier format, linéaire, ne correspond toutefois pas encore
@@ -157,29 +113,26 @@ que la complexité de la structure musicale dépasse les modèles linéaires.
 <dam>qu'est-ce q'un modèle linéaire</dam>\\
 
 Plusieurs travaux ont d’abord privilégié l’approche stochastique. Par exemple,
-Shibata \textit{et al.} \cite{SHIBATA2021262} ont utilisé le modèle de Markov
-caché (HMM)\footnote{
-\url{https://fr.wikipedia.org/wiki/Modèle_de_Markov_caché}\\
-\url{https://en.wikipedia.org/wiki/Hidden_Markov_model}} pour la reconnaissance
-de la métrique<dam>tu n’as pas défini «métrique»</dam>. Les auteurs utilisent
-d’abord deux réseaux de neurones profonds, l’un pour la reconnaissance des
-pitchs et l’autre pour la reconnaissance de la vélocité. 
-Pour la dernière couche, la probabilité est obtenue par une fonction sigmoïde.
-Ils construisent ensuite plusieurs HMM métriques étendus pour la musique
-polyphonique correspondant à des métriques possibles, puis ils calculent la
-probalitité maximale pour chaque modèle afin d’obtenir la métrique la plus
-probable.
+Shibata \textit{et al.} \cite{SHIBATA2021262} ont utilisé des modèles de Markov
+Caché (MMC) pour la reconnaissance
+des signatures rythmiques. Les auteurs utilisent d’abord deux réseaux de
+neurones profonds, l’un pour la reconnaissance des \textit{pitchs} et l’autre
+pour la reconnaissance de la vélocité. Pour la dernière couche, la probabilité
+est obtenue par une fonction sigmoïde. Ils construisent ensuite plusieurs MMC
+étendus pour la musique polyphonique correspondant à des métriques possibles,
+puis ils calculent la probalitité maximale pour chaque modèle afin d’obtenir la
+métrique la plus probable.\\
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=50mm, width=90mm]{
     z_images/2_etat_de_l_art/0_hmm.png}
-	\caption{HMM}
+	\caption[MMC]{MMC\footnotemark}
 \end{figure}
-\textit{Source : Cours de Damien Nouvel
-\footnote{\url{https://damien.nouvels.net/fr/enseignement}}}\\\\
 
 L’évaluation finale des résultats de \cite{SHIBATA2021262} montre qu’il faut
+\footnotetext{Source : cours de Damien Nouvel
+\url{https://damien.nouvels.net/fr/enseignement}}
 rediriger l’attention vers les valeurs des notes, la séparation des voix et
 d'autres éléments délicats de la partition musicale qui sont significatifs pour
 l'exécution<dam>tu veux dire jouer la musique ?</dam> de la musique. 
@@ -191,7 +144,7 @@ langage musical est lui-même structuré.
 
 \florent{je ne comprend pas bien l'explication. le pb est plutot vue locale 
 (déduction de la proba d'une durée à partir de la durée précédente, par ex.
-dans un HMM) 
+dans un MMC) 
 vs vue globale, dans une hiérarchie}
 
 En effet, l’usage d’arbres syntaxiques semble approprié pour représenter le
