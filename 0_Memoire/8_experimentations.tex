@@ -255,20 +255,32 @@ lisible pour un musicien (Voir la section \ref{modelisation_transcription}).
 
 
 \section{Transcription polyphonique par parsing}
-<flo>Sujet de cette partie -> première problématique / contribution
-principale : transcription polyphonique par parsing (verrou): jams etc</flo>
+\subsection*{Le parsing}
+\florent{revenir (rapidement) sur la méthodologie suivie.}
+\florent{il faut revenir ici sur le parsing, et la notion d'alignement sur
+arbres syntaxiques pour définir les jams. illustrer avec les exemples
+précédents.}
+
 
 \subsection*{Les Jams}
 Les Jams permettent de passer du monophonique au polyphonique.
-\label{jam_tests}
-\florent{il faut revenir ici sur le parsing, et la notion d'alignement sur arbres syntaxiques pour définir les jams.
-illustrer avec les exemples précédents.}
+On regroupe tous les évènements qu’on estime être à des dates suffisamment
+proches dans des clusters que nous avons appelés « Jam ».
+Un Jam représente une séquence de points successifs dans un segment d'entrée
+avec des informations supplémentaires sur leur rôle respectif, en supposant
+qu'ils sont tous alignés à la même date lors de la quantification. Un Jam est
+caractérisé par l'index de son premier point dans le segment d'entrée et sa
+longueur (nombre de points).
+Une fois dans les Jams, les évènements sont identifiés selon les critères
+suivants :
+\begin{itemize}
+    \item Ignored, les offsets sont ignorés ;
+    \item Note, si c’est une note simple ;
+    \item Rest, si c’est un silence ;
+    \item GraceNote, si c’est un fla ;
+    \item Error.
+\end{itemize}
 
-\subsection*{Le parsing}
-\label{gram_pond}
-\florent{revenir (rapidement) sur la méthodologie suivie.}
-
-\newpage
 
 
 \section{Réécriture guidée par une forme rythmique}
