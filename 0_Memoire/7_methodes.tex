@@ -588,7 +588,8 @@ Un premier test convaincant est effectué avec la grammaire suivante :\\\\
 
 %C signifie ??\\
 %E signifie \textit{Event}\\
-%U signifie \textit{Unbeamed} $\Rightarrow$ Au niveau de la mesure, quand il y a
+%U signifie \textit{Unbeamed} $\Rightarrow$ Au niveau de la mesure, quand il y
+%a
 %4 éléments de type 1, il ne doivent pas être liés par des ligatures.\\
 %
 %Dans la prochaine figure, nous sommes au niveau des temps (musical)
@@ -598,14 +599,21 @@ Un premier test convaincant est effectué avec la grammaire suivante :\\\\
 %
 %
 %Les temps de la première mesure du fichier MIDI sont bien quantifié mais ceux
-%de la deuxième mesure présentent quelques défauts de quantification visibles dès le premier temps.\\\\
+%de la deuxième mesure présentent quelques défauts de quantification visibles
+%dès le premier temps.\\\\
 %\resizebox{300pt}{!} {
 %\Tree[.Mesure\ 2
-%[.Temps\ 1 [38-ON ][ [39-OFF ][40-ON ] ][ [41-OFF\\42-ON ][43-ON ] ][ [44-OFF\\45-OFF ][46-ON ] ]]
+%[.Temps\ 1 [38-ON ][ [39-OFF ][40-ON ] ][ [41-OFF\\42-ON ][43-ON ] ][
+%[44-OFF\\45-OFF ][46-ON ] ]]
 %]}\\\\\\
-%Les Onsets sont correctement triés au niveau des doubles croches mais certaines doubles croches sont inutilement subdivisées en triples croches (les 2ème, 3ème et 4ème doubles croches sur le premier temps ci-dessus).\\\\
+%Les Onsets sont correctement triés au niveau des doubles croches mais
+%certaines doubles croches sont inutilement subdivisées en triples croches (les
+%2ème, 3ème et 4ème doubles croches sur le premier temps ci-dessus).\\\\
 %\textbf{2ème exemple :}\\
-%Après une augmentation du poids des triples croches dans la grammaire (monté de 1 à 5)et une baisse de tous les autres poids (descendu de 1 à 0.5), et mis à part le troisième temps de la 2ème mesure, tous les Onsets sont bien triés et aucuns ne sont subdivisés.
+%Après une augmentation du poids des triples croches dans la grammaire (monté
+%de 1 à 5)et une baisse de tous les autres poids (descendu de 1 à 0.5), et mis
+%à part le troisième temps de la 2ème mesure, tous les Onsets sont bien triés
+%%et aucuns ne sont subdivisés.
 %
 
 \subsection*{Le parsing}
