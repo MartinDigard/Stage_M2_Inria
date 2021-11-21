@@ -2,9 +2,8 @@ Ce mémoire de recherche, effectué en parallèle d’un stage à l’Inria dans
 cadre du master de traitement automatique des langues de l’Inalco, contient
 une proposition originale ainsi que diverses contributions dans le domaine de
 la transcription automatique de la musique. Les travaux qui seront exposés ont
-tous pour objectif d’améliorer \textbf{qparse}, un outil de transcription
-automatique de la musique, et seront axés spécifiquement sur le cas de la
-batterie.
+tous pour objectif d’améliorer qparse, un outil de transcription automatique de
+la musique, et seront axés spécifiquement sur le cas de la batterie.
 
 Nous parlerons de transcription musicale, en suivant des méthodes communes au
 domaine du traitement automatique des langues (TAL) plutôt que directement de
@@ -14,94 +13,79 @@ que la musique à l’instar des langues naturelles est un moyen qui nous sert �
 exprimer nos ressentis sur le monde et les choses, ce travail reposera sur une
 citation de l’ouvrage de Danhauser \cite{danhauser} : « La musique s’écrit et
 se lit aussi facilement qu’on lit et écrit les paroles que nous prononçons. »
+
 L’exercice exposé dans ce mémoire nécessitera donc la manipulation d’un langage
-musical qui peut être analysé à l’aide de théories formelles et d’outils
-adéquats comme des grammaires (solfège, durées, nuances, volumes) et
-soulèvera des problématiques qui peuvent être résolues par l’utilisation de
-méthodes issues de l’informatique et de l’analyse des langues et des
-langages.\\
+codifié (solfège, durées, nuances, volumes) qui peut être analysé à l’aide de
+théories formelles et d’outils adéquats comme des grammaires  et soulèvera des
+problématiques qui peuvent être résolues par l’utilisation de méthodes issues
+de l’informatique et de l’analyse des langues et des langages.\\
 
-POURQUOI ?
-\begin{itemize}
-	\item sujet traité : la batterie
-	\item intérêt spécifique de la génération de partition de batterie comparativement
-  au autres instrument
-	\item patrimoine
-	\item rapidité de génération (musicien ou enseignement)
-	\item …\\
-\end{itemize}
-
-<flo>il faut revoir la fin, avec une description rapide du problème, de la
-méthode suivie et des contributions suivi d'un petit plan par parties.</flo> 
-
-
-COMMENT ?\\
-$\to$ Problèmatique :\\
 L’écriture musicale offre de nombreuses possibilités pour la transcription d’un
 rythme donné. Le contexte musical ainsi que la lisibilité d’une partition pour
 un batteur entraîné conditionnent les choix d’écriture. Reconnaître la
-signature rythmique principale d’un rythme, la façon de regrouper les notes par des
-ligatures, ou simplement décider d’un usage pour une durée parmi les
+signature rythmique principale d’un rythme, la façon de regrouper les notes par
+des ligatures, ou simplement décider d’un usage pour une durée parmi les
 différentes continuations possibles (notes pointées, liaisons, silences, etc.)
-constituent autant de possibilités que de difficultés <dam>que de choix de
-représentation à réaliser ?</dam>. De plus, la batterie est dotée d’une écriture
-spécifique par rapport à la majorité des instruments.\\
-
-$\to$ Méthodes :\\
-$\to$ Contributions :\\
-<louison>liste des contributions : donner une échelle, un point de comparaison, du
-contexte, pour pouvoir mesurer l'importance de chaque contribution</louison>
+constituent autant de possibilités que de choix de représentation à réaliser.
+De plus, la batterie est dotée d’une écriture spécifique par rapport à la
+majorité des instruments.\\
 
 La proposition principale de ce mémoire est basée sur la recherche de rythmes
 génériques sur l’\textit{input}. Ces rythmes sont des \textit{patterns}
 standards de batterie définis au préalable et accompagnés par les différentes
-combinaisons qui leur sont propres. On les nomme systèmes (voir sections
-\ref{systemes_methodes}, \ref{expe_theo}). L’objectif des systèmes est de fixer
+combinaisons qui leur sont propres. On les nomme formes rythmiques (voir
+section \ref{systemes_methodes}). L’objectif des formes rythmiques est de fixer
 des choix le plus tôt possible afin de simplifier le reste des calculs en
-éliminant une partie d’entre eux. Ces choix concernent notamment la signature rythmique
-et les règles de réécriture.\\
+éliminant une partie d’entre eux. Ces choix concernent notamment la signature
+rythmique (voir section \ref{sign_rythm}) et les règles de réécriture (voir
+section \ref{regles}).\\
 
 La proposition ci-dessus a nécessité plusieurs sous-tâches :
 \begin{itemize}
-    \item une modélisation de la notation de la batterie
-        (fusion de \ref{notation_batterie} et de
-        \ref{modelisation_transcription}) qui était jusqu’à présent
-        inexistante.
+    \item une description de la notation de la batterie (voir
+        \ref{notation_batterie} ainsi qu’une modélisation pour la transcription
+        de la batterie \ref{modelisation_transcription}) qui était jusqu’à
+        présent inexistante ;
+    \item l’écriture de script lilypond \footnote{
+        \url{http://lilypond.org/index.fr.html}} pour toutes les figures de ce
+        mémoire qui correspondent à des partitions de batterie (voir la section
+        \ref{tm}). Tous les codes lilypond sont disponibles sur \url{
+        https://github.com/MartinDigard/Stage_M2_Inria} ;
     \item plusieurs trancriptions manuelles dans le but d’analyser les contenus
-        des fichiers MIDI et Audio (\ref{analyse_midi_audio}) et de faire des
-        comparaisons de transcription avec des outils déjà existants
-        \footnote{MuseScore3}.
+        des fichiers MIDI (voir section \ref{analyses_et_TM}) et de faire des
+        comparaisons de transcriptions avec des outils déjà existants
+        \footnote{MuseScore3} ;
     \item une partition de référence transcrite manuellement sur l’entièreté
         d’une performance du jeu de données afin de repérer les éléments
-        importants pour la modélisation et de faire les liens entre les
-        critères des données d’\textit{input} avec l’écriture finale
-        (\ref{partition_ref}). Cette partition avait aussi pour objectif
-        d’effectuer des tests et des évaluations.
-    \item le passage au polyphonique en théorie et en implémentation impliquant
-        la théorie sur la détection de l’identité de notes dans un Jam
-        \footnote{groupe de notes rassemblées en raison d’un faible écart entre
-            leur emplacements temporels} et l’implémentation de tests unitaires
-            sur le traitement des Jams (\ref{jam_tests}).
-    \item  la création de grammaires pondérées spécifiques à
-        la batterie (\ref{gram_pond})\\
+        importants pour la modélisation et d’établir le rapport entre les
+        données d’\textit{input} et l’écriture finale (voir
+        \ref{partition_ref}). Cette partition avait aussi pour objectif
+        d’effectuer des tests et des évaluations ;
+    \item  la création de grammaires hors-contextes pondérées spécifiques à
+        la batterie (\ref{gram}) ;
+    \item le passage au polyphonique (théorie et implémentation de tests
+        unitaires) impliquant la dissociation d’évènements MIDI simultanés
+        ainsi que leur identification (voir section \ref{jam}. 
 \end{itemize}
 
 L’ensemble de ces sous-tâches a permis deux réalisations principales :
 1) Obtenir des arbres de rythmes corrects en \textit{output} de qparse avec des
-exemples courts proches de la partition de référence. \\
-2) La création d’une expérimentation théorique d’un système \ref{expe_theo}
-dont le but premier est de démontrer qu’elle est implémentable et applicable à
-d’autres type de rythmes et dont le second objectif est de donner une méthode
-de création d’un système à partir d’une partition.\\
-Ces deux réalisations recouvrent une partie du chemin à parcourir puisque pour
-effectuer des évaluations conséquentes sur résultat, la chaîne de traitement
-doit être finie afin de pouvoir vérifier de manière empirique que les systèmes,
-qui constituent ma contribution principale pour ce mémoire, ont permis
-d’améliorer qparse pour la transcription automatique de la batterie.\\
+exemples courts proches de la partition de référence (voir section
+\ref{gram}.\\
+2) La création d’une réécriture guidée par une forme rythmique
+\ref{reecriture_guidee} dont le but premier est de démontrer qu’elle est
+implémentable et applicable à d’autres types de rythmes et dont le second
+objectif est de donner une méthode de création des formes rythmiques à partir
+d’une partition.\\
 
-PLAN\\
-Nous présenterons le contexte (chapitre \ref{contexte}) suivi d’un état de l’art
-(chapitre \ref{etat_de_l_art}) et nous définirons de manière générale le
+Ces deux réalisations recouvrent une partie du chemin à parcourir puisque pour
+effectuer des évaluations conséquentes sur résultats, la chaîne de traitement
+doit être finie afin de pouvoir vérifier de manière empirique que les formes
+rythmiques, qui constituent la proposition originale de ce mémoire, ont
+permis d’améliorer qparse pour la transcription automatique de la batterie.\\
+
+Nous présenterons le contexte (chapitre \ref{contexte}) suivi d’un état de
+l’art (chapitre \ref{etat_de_l_art}) et nous définirons de manière générale le
 processus de transcription automatique de la musique pour enfin étayer les
 méthodes (chapitre \ref{methodes}) utilisées pour la transcription automatique
 de la batterie.  Nous décrirons ensuite le corpus ainsi que les différentes
