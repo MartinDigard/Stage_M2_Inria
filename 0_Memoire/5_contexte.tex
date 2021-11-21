@@ -18,35 +18,33 @@ langage musical et de langues naturelles. Nous traiterons également du problèm
 de la TAM et de ses applications. Enfin, nous décrirons les représentations de
 la musique qui sont nécessaires à la compréhension du présent travail.
 
-\section{Langues naturelles et musique en informatique}
-COMPUTER MUSIC\\
+\section{Informatique musicale et langues naturelles}
 L’informatique musicale ou \textit{Computer Music} regroupe l’ensemble des
 méthodes permettant de créer ou d’analyser des données musicales à l’aide
 d’outils informatiques \cite{book_muller}. Ce domaine implique l’utilisation de
-méthodes numériques pour l’analyse et la synthèse de musique\footnote{Voir la
-transformée de Fourier pour la musique dans \cite{fourier}}, qu’il s’agisse
-d’informations audio, ou symboliques (aide à l’écriture, transcription, base de
-partitions...). Un exemple de tâche dans ce domaine pourrait être l’analyse de
-la structure de la musique et de la reconnaissance des accords\footnote{En
-musique, un accord est un ensemble de notes considéré comme formant un tout du
-point de vue de l’harmonie. Le plus souvent, ces notes sont jouées
-simultanément ; mais les accords peuvent aussi s’exprimer par des notes
-successive}.\\
+méthodes numériques pour l’analyse et la synthèse de la musique \cite{fourier},
+qu’il s’agisse d’informations audio \footnote{Fichiers wav, formats
+spectraux,…}, ou symboliques \footnote{Fichier MIDI, aide à l’écriture,
+transcription, base de partitions...}. Un exemple d’application dans ce domaine
+pourrait être l’analyse de la structure de la musique et de la reconnaissance
+des accords\footnote{En musique, un accord est un ensemble de notes considéré
+comme formant un tout du point de vue de l’harmonie. Le plus souvent, ces notes
+sont jouées simultanément ; mais les accords peuvent aussi s’exprimer par des
+notes successive}.
 
-RIM\\
 La RIM est née du domaine de l’informatique musicale et apparaît vers le début
 des années 2000 \cite{MIR_1}. L’objectif de cette science est la recherche et
 l’extraction d’informations à partir de données musicales. Il s’agit d’un vaste
-champ de recherche pluridisciplinaire, à l’intersection de acoustique, signal,
-synthèse sonore, informatique, sciences cognitives, neurosciences, musicologie,
-psycho-acoustique, etc. Cette discipline récente a notamment été soutenue par
+champ de recherche pluridisciplinaire, à l’intersection des domaines de
+l’acoustique, du signal, de la synthèse sonore, de l’informatique, des sciences
+cognitives, des neurosciences, de la musicologie, de la psycho-acoustique,…
+Cette discipline récente a notamment été soutenue par
 de grandes entreprises technologiques\footnote{\url{
-https://research.deezer.com/}} \footnote{\url{https://magenta.tensorflow.org/}}
-\footnote{\url{https://research.atspotify.com/}} qui veulent développer des
-systèmes de recommandation de musique ou des moteurs de recherche dédiés au son
-et à la musique.\\
+https://research.deezer.com/}\\\url{https://magenta.tensorflow.org/}\\\url{
+https://research.atspotify.com/}} qui veulent développer des systèmes de
+recommandation de musique ou des moteurs de recherche dédiés au son et à la
+musique.\\
 
-RIM et TAL \\
 Aborder la musique comme un langage avec des méthodes de TAL nécessite une
 réflexion autour de la musique en tant que langage ainsi que la possibilité de
 comparer ce même langage avec les langues naturelles. Léonard Bernstein
@@ -56,147 +54,155 @@ exposées dans son livre « Language and Mind ». Lors de la première conféren
 qui a eu lieu le 9 octobre 1973, Bernstein a avoué être hanté par la notion
 d’une grammaire musicale mondiale innée et il analyse dans ses trois premières
 conférences, la musique en termes linguistiques (phonologie, syntaxe et
-sémantique). Quelques travaux en neurosciences ont
-également abordé ces questions, notamment par observation des processus
-cognitifs et neuronaux que les systèmes de traitement de ces deux productions
-humaines avaient en commun. Dans le travail de Poulin-Charronnat
-\textit{et al.} \cite{poulincharronnat:hal-01985213}, la musique est reconnue
-comme étant un système complexe spécifique à l’être humain dont une des
-similitudes avec les langues naturelles est l’émergence de régularités
-reconnues implicitement par le système cognitif. La question de la pertinence
-de l’analogie entre langues naturelles et langage musical a également été
-soulevée à l’occasion de projets de recherche en TAL. Keller \textit{et al.}
-\cite{keller:hal-03279850} ont exploré le potentiel de ces techniques à travers
-les plongements de mots et le mécanisme d’attention pour la modélisation de
-données musicales. La question de la sémantique d’une phrase musicale apparaît,
-selon eux, à la fois comme une limite et un défi majeur pour l’étude de cette
-analogie. Ces considérations nous rapproche de la sémiologie de F. de Saussure
-en tant que science générale des signes et dont la langue ne serait qu’un cas
-particulier, caractérisé par l’arbitrariété totale de ses unités
-\cite{wunderli2017ferdinand}.
+sémantique).
+
+Quelques travaux en neurosciences ont également abordé ces questions, notamment
+par observation des processus cognitifs et neuronaux que les systèmes de
+traitement de ces deux productions humaines avaient en commun. Dans le travail
+de Poulin-Charronnat \textit{et al.} \cite{poulincharronnat}, la musique est
+reconnue comme étant un système complexe spécifique à l’être humain dont une
+des similitudes avec les langues naturelles est l’émergence de régularités
+reconnues par le système cognitif.
+
+La question de la pertinence de l’analogie entre langues naturelles et langage
+musical a également été soulevée à l’occasion de projets de recherche en TAL.
+Keller \textit{et al.} \cite{keller} ont exploré le potentiel de
+ces techniques à travers les plongements de mots et le mécanisme d’attention
+pour la modélisation de données musicales. La question de la sémantique d’une
+phrase musicale apparaît, selon eux, à la fois comme une limite et un défi
+majeur pour l’étude de cette analogie. Ces considérations nous rapproche de la
+sémiologie de F. de Saussure en tant que science générale des signes et dont la
+langue ne serait qu’un cas particulier, caractérisé par l’arbitrariété totale
+de ses unités \cite{wunderli2017ferdinand}.
 
 
-D’autres travaux
-très récents, ont aussi été révélés lors de la \textit{première conférence sur
-le NLP pour la musique et l’audio (NLP4MusA 2020)}. Lors de cette conférence,
-Jiang \textit{et al.} \cite{Jiang2020DiscoveringMR} ont présenté leur
-implémentation d’un modèle de langage musical visant à améliorer le mécanisme
-d’attention par élément, déjà très largement utilisé dans les modèles de
-séquence modernes pour le texte et la musique.\\
-Le domaine du TAL qui se rapproche le plus du RIM est la reconnaissance de la
-parole (Speech to text). En effet, la séparation des sources ont des approches
-similaires dans les deux domaines. De plus, il existe un lien entre partition
-musicale comme manière d’écrire la musique et texte comme manière d’écrire la
-parole. La transcription musicale étant la notation d’une œuvre musicale
-initialement non écrite, l’analogie avec l’écriture de la parole est aisée. Le
-tableau \ref{spToTxt_vs_TAM} montre des différences et des similitudes entre
-les deux domaines.
+D’autres travaux très récents, ont aussi été révélés lors de la première
+conférence sur le NLP pour la musique et l’audio \footnote{NLP4MusA 2020}. Lors
+de cette conférence, Jiang \textit{et al.} \cite{Jiang2020DiscoveringMR} ont
+présenté leur implémentation d’un modèle de langage musical visant à améliorer
+le mécanisme d’attention par élément, déjà très largement utilisé dans les
+modèles de séquence modernes pour le texte et la musique.\\
+
+Le domaine du TAL qui se rapproche le plus de la RIM est la reconnaissance de
+la parole (\textit{Speech to text}). La transcription musicale étant la notation d’une
+œuvre musicale initialement non écrite, l’analogie avec l’écriture de la parole
+est aisée. De plus, ces deux domaines ont des manières similaires d’aborder
+la séparation des sources audio. Le tableau \ref{spToTxt_vs_TAM} montre
+certaines différences et similitudes de ce point de vu entre les deux
+disciplines.
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|} \hline
 	Domaines & Similitudes & Différences \\ \hline
-	Speech to text & signal $\Rightarrow$ phonèmes $\Rightarrow$
-    texte & données linéaires\\
+	\textit{Speech to text} & signal $\Rightarrow$ phonèmes $\Rightarrow$
+    texte & données linéaires \footnotemark\\
 	AMT & signal $\Rightarrow$ notes, accords $\Rightarrow$ partition & données
-    structurées\\ \hline
+    structurées\footnotemark\\ \hline
 	\end{tabular}
-	\caption{Speech to text et transcription automatique musicale}
+	\caption{\textit{Speech to text} et transcription automatique musicale}
 	\label{spToTxt_vs_TAM}
 \end{table}
-Non seulement les objectifs sont similaires, mais les problèmes et les
-applications, eux aussi, sont comparables (transcription, synthèse, séparation
-de sources, … ). Il faut néanmoins relever que les informations sont traitées
-sont de nature différente (voir \textit{mettre ref vers sous-tâches comme beat
-tracking et inférence de tempo en musique}).
+Dans ce tableau, « données linéaires » signifie que les informations arrivent
+les unes après les autres dans un texte écrit et que la structure n’apparaît
+qu’à la fin de la lecture d’une phrase par exemple. « Données structurées » (ou
+hiérarchiques) signifie que les informations peuvent arriver simultanément et
+que la structure d’une phrase musicale est représentée visuellement dans une
+partition.
+
+Non seulement les objectifs du \textit{speech to text} et de la TAM sont
+similaires, mais les problèmes et les applications, eux aussi, sont comparables
+(transcription, synthèse, séparation de sources, … ). Il faut néanmoins relever
+que les informations sont traitées sont de nature différente puisque la mesure
+du temps, qui fait parti intégrante de l’information musicale, n’a aucune
+valeur pour des données textuelles.
 
 \section{La transcription automatique de la musique}
-1. OBJECTIF\\
 Lorsqu’un musicien est chargé de créer une partition à partir d’un
 enregistrement et qu’il écrit les notes qui composent le morceau en notation
 musicale, on dit qu’il a créé une transcription musicale de cet enregistrement.
 L’objectif de la TAM \cite{future_directions} est de convertir la performance
 d’un musicien en notation musicale — à l’instar de la conversion de la parole
-en texte dans le traitement du langage naturel. Cette définition peut être
-comprise de deux manières différentes selon les articles scientifiques :
-1) Processus de conversion d’un enregistrement audio en une notation pianoroll
-(une représentation bidimensionnelle des notes de musique dans le temps)
-2) Processus de conversion d’un enregistrement en notation musicale commune
-\footnote{Ici, on parle de notation occidentale.} (c’est-à-dire une
-partition).\\
+en texte dans le traitement des langues naturelles. Cette définition est
+interprétée, en fonction des articles scientifiques, de deux manières
+différentes  :
+\begin{enumerate}
+    \item processus de conversion d’un enregistrement audio en une notation
+        pianoroll \footnote{Une représentation bidimensionnelle des notes de
+            musique dans le temps, comme un orgue de barbarie.}
+    \item processus de conversion d’un enregistrement en notation musicale
+        commune \footnote{Ici, on parle de notation occidentale.} (c’est-à-dire
+        une partition).\\
+\end{enumerate}
 
-2. APPLICATIONS\\
 La TAM a des applications multiples \cite{future_directions} dont la plus
 directe est de donner la possibilité à un musicien de générer la partition
 d’une improvisation en temps réel afin de pouvoir reproduire sa performance
-ultérieurement. Une autre application notable est la préservation du patrimoine
-par exemple dans les styles musicaux où il n’existe peu de partitions (le
-jazz, la pop, les musiques de tradition orale \footnote{ethno-musicologie}, …).
+ultérieurement. Une autre application notable est la préservation du
+patrimoine, par exemple dans les styles musicaux où il existe peu de partitions
+(le jazz, la pop, les musiques de tradition orale \footnote{Ethno-musicologie}
+, …). En outre, un grand nombre de fichiers audio et vidéos musicaux sont
+disponibles sur le Web, et pour la plupart d’entre eux, il est difficile de
+trouver les partitions musicales correspondantes, qui sont pourtant nécessaires
+pour pratiquer la musique, faire des reprises ou effectuer une analyse musicale
+détaillée.
+
 La TAM est aussi utile pour la recherche et l’annotation automatique
-d’informations musicales, pour l’analyse musicologique\footnote{par exemple
+d’informations musicales, pour l’analyse musicologique \footnote{Par exemple
 par la constitution de corpus musicologiques} ou encore pour les systèmes
-musicaux interactifs.
+musicaux interactifs. Cette discipline a également pour intérêt la génération
+de partitions dont les contenus sont exploitables, avec des formats texte ou
+XML (entre autres…) qui permettent de manipuler les données, contrairement à de
+simples images en pdf \footnote{Voir \url{
+    https://archive.fosdem.org/2017/schedule/event/openscore/}}.\\
 
-Un grand nombre de fichiers audio et vidéos musicaux sont disponibles sur le
-Web, et pour la plupart d’entre eux, il est difficile de trouver les partitions
-musicales correspondantes, qui sont pourtant nécessaires pour pratiquer la
-musique, faire des reprises ou effectuer une analyse musicale détaillée.
+La transcription automatique de la musique est un problème ancien et difficile.
+C’est un « graal » de l’informatique musicale. En 1976, H. C. Longuet-Higgins
+\cite{first_one} évoquait déjà la représentation musicale en arbre syntaxique
+dans le but d’écrire automatiquement des partitions à partir de données audio
+en se basant sur un mimétisme psychologique de l’approche humaine.
 
+La tâche de la TAM comprend actuellement deux activités distinctes :
+\begin{enumerate}
+    \item l’analyse et la représentation d’un morceau de musique ;
+    \item La génération d’une partition à partir de cette représentation.
+\end{enumerate}
 
-Mais l’intérêt de la TAM est aussi d’avoir des partitions au contenu
-exploitable, avec des formats texte ou XML (entre autres…) dont les données
-sont manipulables, contrairement à de simples images en pdf
-\footnote{Voir \url{https://archive.fosdem.org/2017/schedule/event/openscore/}
-    et 0\_slides-Martin.pdf.}.\\
-
-3. PROBLÈMES ET MÉTHODES SCIENTIFIQUES\\
-L’analyse de la structure hiérarchique des séquences d’accords par utilisation
-de modèles grammaticaux s’est avérée très utiles dans les analyses récentes de
-l’harmonie du jazz \cite{harasimjazz}. Comme déjà évoqué précédemment, il
-s’agit d’un problème ancien et difficile. C’est un « graal » de l’informatique
-musicale. En 1976, H. C. Longuet-Higgins \cite{first_one} évoquait déjà la
-représentation musicale en arbre syntaxique dans le but d’écrire
-automatiquement des partitions à partir de données audio en se basant sur un
-mimétisme psychologique de l’approche humaine.
-La tâche de la TAM comprend deux activités distinctes : 1) l’analyse et la
-représentation d’un morceau de musique ; 2) La génération d’une partition à
-partir de la représentation du morceau.
- 
 \section{La transcription automatique de la batterie}
-La batterie est née au début du vingtième siècle \cite{histoire_drum_1}. C’est
-donc un instrument récent qui s’est longtemps passé de partition. En effet
-pour un batteur, la qualité de lecteur lorsqu’elle était nécessaire,
+La batterie est née au début du vingtième siècle \cite{histoire_drum_1}. Il
+s’agit donc d’un instrument récent qui s’est longtemps passé de partition. En
+effet pour un batteur, la qualité de lecteur lorsqu’elle était nécessaire,
 résidait essentiellement dans sa capacité à lire les partitions des autres
-instrumentistes (par exemple, les grilles d’accords et la mélodie du thème en
-jazz) afin d’improviser un accompagnement approprié que personne ne pouvait
-écrire pour lui à sa place.
+instrumentistes (par exemple, les grilles d’accords et les mélodies des thèmes
+en jazz) afin d’improviser des accompagnements appropriés que personne ne
+pouvait écrire pour lui à sa place.
  
 Les partitions de batterie sont arrivées par nécessité avec la pédagogie et
-l’émergence d’écoles de batterie partout dans le monde. 
-Un autre facteur qui a contribué à l’expansion des partitions de batterie est
-l’émergence de la musique assistée par ordinateur (MAO). En effet, l’usage de
-boîtes à rythmes \footnote{Roland TR-808} ou de séquenceurs\footnote{SQ-1}
-permettant d’expérimenter soi-même l’écriture de rythmes en les écoutant mixés
-avec d’autres instruments sur des machines a permis aux compositeurs de
-s’émanciper de la création d’un batteur en lui fournissant une partition
-contenant les parties exactes qu’ils voulaient entendre sur leur musique.
+l’émergence d’écoles de batterie\footnote{Les écoles de batterie Dante Agostini
+en sont un exemple très représentatif (\url{ https://www.danteagostini.com/fr/}
+).} partout dans le monde. Un autre facteur qui a contribué à l’expansion des
+partitions de batterie est l’émergence de la musique assistée par ordinateur.
+En effet, l’usage de boîtes à rythmes \footnote{Roland TR-808} ou de
+séquenceurs\footnote{SQ-1} permettant d’expérimenter soi-même l’écriture de
+rythmes en les écoutant mixés avec d’autres instruments sur des machines a
+permis aux compositeurs de s’émanciper de la création d’un batteur en lui
+fournissant une partition contenant les parties exactes qu’ils voulaient
+entendre sur leur musique.\\
 
-La batterie a un statut à part dans l’univers de l’AMT puisqu’il s’agit
+La batterie a un statut à part dans l’univers de la TAM puisqu’il s’agit
 d’instruments sans hauteur (du point de vue harmonique), d’événements sonores
-auxquels une durée est rarement attribuée et de notations spécifiques (symboles
-des têtes de notes) \cite{Review_ADT}.
+auxquels une durée est rarement attribuée et de notations spécifiques
+\cite{Review_ADT}.
 
-Les applications de la transcription automatique de la batterie (TAB) seraient
-utiles, non seulement dans tous les domaines musicaux concernés par la batterie
-dont certains manquent de partitions, notamment les musiques d’improvisation
-\cite{future_directions}, mais aussi de manière plus générale dans le domaine
-de la RIM : si les ordinateurs étaient capables d’analyser la partie de la
-batterie dans la musique enregistrée, cela permettrait de faciliter de
-nombreuses tâches de traitement de la musique liées au rythme. En particulier,
-la détection et la classification des événements sonores de la batterie par des
-méthodes informatiques est considérée comme un problème de recherche important
-et stimulant dans le domaine plus large de la recherche d’informations
-musicales \cite{Review_ADT}.\\
+Les applications de la transcription automatique de la
+batterie (TAB) seraient utiles, non seulement dans tous les domaines musicaux
+concernés par la batterie dont certains manquent de partitions, notamment les
+musiques d’improvisation \cite{future_directions}, mais aussi de manière plus
+générale dans le domaine de la RIM. En effet, si les ordinateurs étaient
+capables d’analyser la partie de la batterie dans la musique enregistrée, cela
+permettrait de faciliter de nombreuses tâches de traitement de la musique liées
+au rythme \cite{Review_ADT}.\\
+
 La TAB est un sujet de recherche crucial pour la compréhension des aspects
 rythmiques de la musique, et a potentiellement un fort impact sur des domaines
 plus larges tels que l’éducation musicale et la production musicale.
@@ -215,8 +221,8 @@ appelée transcription.
     \label{4_notes}
 \end{figure}
 La figure \ref{4_notes} montre 4 figures de notes les plus courantes dont les
-noms et les durées, exprimées en unité de temps musicale, appelée le
-\emph{temps} sont respectivement, de gauche à droite :
+noms et les durées, exprimées en unité de temps musicale, appelée le « temps »
+sont respectivement, de gauche à droite :
 \begin{itemize}
     \item La ronde, elle vaut 4 temps ;
     \item La blanche, elle vaut 2 temps ;
@@ -231,8 +237,8 @@ Une figure de note \cite{danhauser} de musique combine plusieurs éléments
     peut aussi indiquer une durée.
 	\item Une hampe :\\
 	c’est une barre verticale liée à la tête de note. Elle est indicatrice
-    d’une durée représentée par sa présence ou non (différence entre la blanche
-    et la ronde)
+    d’une durée représentée par sa présence ou non (différence entre la ronde
+    et la blanche)
 	\item Un crochet : La durée d’une note est divisée par deux à chaque
      crochet ajouté à la hampe d’une figure de note.\\
 \end{itemize}
@@ -249,14 +255,15 @@ de notes. Plus les durées sont longues, plus elles sont marquées par la tête 
 note ou la présence ou non de la hampe. À partir de la noire (3ème lignes en
 partant du haut), on ajoute un crochet à la hampe d’une figure de notes pour
 diviser sa durée par 2. 
-Les notes à crochet (croche, double-croche, triple-croche…) 
+Les notes à crochet (croches, doubles-croches, triples-croches,…) 
 peuvent être reliées ou non par des ligatures (voir les 4 dernières lignes de
 la figure \ref{rapp_fig_notes}).\newpage
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=25mm, width=95mm]{
     z_images/3_methodes/0_notation_de_la_batterie/4_silences.png}
-	\caption{Les silences}
+	\caption{Les silences}\cite{danhauser}
+
 	\label{silences}
 \end{figure}
 « Les silences sont des signes qui indiquent l’interruption du son. »
