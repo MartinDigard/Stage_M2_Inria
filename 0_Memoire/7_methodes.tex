@@ -526,40 +526,87 @@ Quelles sont les limites du monophonique ?\\
 Impossibilité de traiter plusieurs voix et de reconnaître les accords.
 
 \subsection*{La grammaire}
-Il s’agit d’une grammaire hors-contexte pondérée…
-<dam>incompréhensible ainsi, c'est dommage</dam>
-// bar level\\
-0 -> C0                1\\
-0 -> E1                1\\
-0 -> U4(1, 1, 1, 1)    1\\
+Il s’agit d’une grammaire hors-contexte pondérée dont la structure agit comme
+un langage a priori de notation rythmique. Les règles de la grammaire et
+certaines valeurs de poids indiquent des rythmes et des écritures (pour les
+ligatures notamment) à favoriser.\\
 
-// half bar level\\
-9 -> C0                1\\
-9 -> E1                1\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[height=40mm, width=90mm]{
+    z_images/4_experimentations/3_developpement/0_midi_2bars_fill.png}
+    \caption{Fichier MIDI pour les tests de grammaires}
+    \label{midi_gram}
+\end{figure}
 
-// beat level\\
-1 -> C0                1\\
-1 -> E1                1\\
-1 -> T2(2, 2)          1\\
-1 -> T4(4, 4, 4, 4)    1\\
+Les exemples suivants ont été écrits pour le fichier MIDI de la figure
+\ref{midi_gram}. Ce fichier contient les informations de trois mesures dont les
+deux premières contiennent des noires, des croches (et des doubles-croches pour
+la deuxième) et dont la troisième est vide. La signature rythmique est
+4/4.  
 
-// croche level\\
-2 -> C0                1\\
-2 -> E1                1\\
+% framebox ? (suggestion Louis)
+\begin{figure}[h]
+    \centering
+    \begin{verbatim}
+        0 -> C0                1
+        0 -> E1                1
+        0 -> U4(1, 1, 1, 1)    1
+        1 -> C0                1
+        1 -> E1                1
+        1 -> T2(2, 2)          1
+        1 -> T4(4, 4, 4, 4)    1
+        2 -> C0                1
+        2 -> E1                1
+        4 -> C0                1
+        4 -> E1                1
+        4 -> E2                1
+        \end{verbatim}
+        \caption{Exemple de grammaire}
+        \label{ex_gram}
+\end{figure}
 
-// double level\\
-4 -> C0                1\\
-4 -> E1                1\\
-4 -> E2                1\\
-4 -> T2(6, 6)          1\\
+Sur la figure \ref{ex_gram}, chaque ligne est une règle. La colonne de gauche
+contient des symboles non-terminaux (0, 1, 2, 4).\\
 
-// triple level\\
-6 -> E1                1\\\\
-Cette grammaire sépare les ligatures par temps au niveau de la mesure. Puis, au
-niveau du temps, elle autorise les divisions par deux (croches) et par quatre
-(doubles-croches). Tous les poids sont réglés sur 1. L’arbre de parsing en
+Cette grammaire sépare les temps par ligatures au niveau de la mesure. Puis
+elle autorise, au niveau du temps, les divisions par deux (croches) et par
+quatre (doubles-croches). Ces divisions seront reliés par des ligatures.
+
+Tous les poids sont réglés sur 1 à titre expérimental. L’arbre de parsing en
 résultant est considéré comme « convaincant » car il découpe correctement les
 mesures et les temps.
+
+Un premier test convaincant est effectué avec la grammaire suivante :\\\\
+\resizebox{450pt}{!} {
+\Tree[.Mesure\ 1
+[.Temps\ 1 [0-ON\\1-ON\\2-ON ][3-OFF\\4-OFF\\5-OFF ][6-ON\\7-ON ][8-OFF\\9-OFF ]]
+[.Temps\ 2 [10-ON\\11-ON ][12-OFF\\13-OFF ][14-ON\\15-ON ][16-OFF\\17-OFF ]]
+[.Temps\ 3 [18-ON\\19-ON\\20-ON ][21-OFF\\22-OFF\\23-OFF ][24-ON\\25-ON ][26-OFF\\27-OFF ]]
+[.Temps\ 4 [28-ON\\29-ON\\30-ON ][31-OFF\\32-OFF\\33-OFF ][34-ON\\35-ON ][36-OFF\\37-OFF ]]
+]}
+
+%C signifie ??\\
+%E signifie \textit{Event}\\
+%U signifie \textit{Unbeamed} $\Rightarrow$ Au niveau de la mesure, quand il y a
+%4 éléments de type 1, il ne doivent pas être liés par des ligatures.\\
+%
+%Dans la prochaine figure, nous sommes au niveau des temps (musical)
+%
+%Ici, on indique que s’il y a 2 éléments de type 2 (croches) ou 4 éléments de
+%type 4 (doubles-croches), il doivent être reliés au par des ligatures.
+%
+%
+%Les temps de la première mesure du fichier MIDI sont bien quantifié mais ceux
+%de la deuxième mesure présentent quelques défauts de quantification visibles dès le premier temps.\\\\
+%\resizebox{300pt}{!} {
+%\Tree[.Mesure\ 2
+%[.Temps\ 1 [38-ON ][ [39-OFF ][40-ON ] ][ [41-OFF\\42-ON ][43-ON ] ][ [44-OFF\\45-OFF ][46-ON ] ]]
+%]}\\\\\\
+%Les Onsets sont correctement triés au niveau des doubles croches mais certaines doubles croches sont inutilement subdivisées en triples croches (les 2ème, 3ème et 4ème doubles croches sur le premier temps ci-dessus).\\\\
+%\textbf{2ème exemple :}\\
+%Après une augmentation du poids des triples croches dans la grammaire (monté de 1 à 5)et une baisse de tous les autres poids (descendu de 1 à 0.5), et mis à part le troisième temps de la 2ème mesure, tous les Onsets sont bien triés et aucuns ne sont subdivisés.
+%
 
 \subsection*{Le parsing}
 Les données MIDI sont quantifiées, les notes de dates proches sont alignées et
