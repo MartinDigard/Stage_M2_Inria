@@ -283,43 +283,48 @@ musicale dans son déroulement temporel, à la fois :
 \begin{itemize}
 	\item diachronique (succession des instants, ce qui constitue en musique la
         mélodie) ;
-	\item et synchronique (simultanéité des sons, c’est-à-dire l’harmonie).
+	\item et synchronique (simultanéité des sons, c’est-à-dire l’harmonie).\\
 \end{itemize}
 
-IMPORTANT :\\
-Explication sur :
+Les partitions ont un aspect structuré (hiérarchique). Elles sont divisées en
+parties égales que l’on nomme « mesures ». Les mesures sont séparées par des
+barres verticales et sont elles-mêmes divisées implicitement en temps, qui sont
+eux-mêmes subdivisés. Le nombre de temps par mesure et le type de leurs
+subdivisions par défaut (binaire, ternaire,…) sont déterminés par une fraction
+que l’on nomme « indication de mesure » ou « signature rythmique ».\\
+
 \begin{itemize}
-    \item aspect structuré (hiérarchie)\\
-        Une partition de musique représente visuellement la hiérarchie entre
-        les évènements musicaux.
-    \item mesures\\
-            Elle est divisée en mesure. Le contenu de ces mesures est 
-    \item les groupes rythmiques
+    \item $\frac{4}{4}$ $\to$ mesure à 4 temps binaire dont l’unité de temps
+        est la noire ;\\
+    \item $\frac{3}{4}$ $\to$ mesure à 3 temps binaire dont l’unité de temps
+        est la noire ;\\
+    \item $\frac{6}{8}$ $\to$ mesure à 2 temps ternaire dont l’unité de temps
+        est la noire pointée \footnote{« Pointée » signifie que l’on rajoute à
+        la durée d’une note la moitié de sa valeur. Une noire pointée vaut
+    trois croches.}.\\
 \end{itemize}
-\subsubsection*{voix}
+
+La fraction de la signature rythmique est construite par rapport à la ronde.
+La fraction 4/4 signifie quatre quarts d’une ronde.\\
+
 Pour les instruments mélodiques, un groupe de notes peut être organisé en
-\emph{voix}, représentant des flots mélodiques joués en parallèle, avec une
-synchronisation plus ou moins stricte \cite{SHIBATA2021262}
-\cite{Guiomard-Kagan}.
-\subsubsection*{signature rythmique}
-\label{sign_rythm}
-<flo>présenter rapidement la notation des signatures rythmiques</flo>
-\subsubsection*{appogiatures}
-<flo>Parler des appogiatures ici ?</flo>
+voix, représentant des flots mélodiques joués en parallèle, avec une
+synchronisation plus ou moins stricte \cite{SHIBATA2021262} \cite{
+Guiomard-Kagan}.
 
 \subsection*{Les données MIDI}
 Le format MIDI\footnote{https://www.midi.org/} est originellement une norme
-technique mais peut également être considéré comme une représentation musicale.
-Celle-ci peut effectivement être enregistrée par des instruments compatibles,
-et visualisée ou jouée par un l’ordinateur. Ce format historique, encore très
-largement utilisé, est très important (mais aussi contraignant) dans le cadre
-de notre travail, dans la mesure où de nombreux logiciels l'utilisent. Pour la
-transcription musicale, il constitue une strate intermédiaire très utile entre
-le signal audio (enregistrement) et la représentation musicale lisible par un
-humain (partition).
+technique mais il peut également être considéré comme une représentation
+musicale. Celle-ci peut effectivement être enregistrée par des instruments
+compatibles, et visualisée ou jouée par un ordinateur. Ce format historique,
+encore très largement utilisé, est très important (mais aussi contraignant)
+dans le cadre de notre travail, dans la mesure où de nombreux logiciels
+l’utilisent. Pour la transcription musicale, il constitue une strate
+intermédiaire très utile entre le signal audio (enregistrement) et la
+représentation musicale lisible par un humain (partition).
 
-Il s’agit d’un protocole temps réel pour échanger des messages (événement) et
-un format de fichier. Un fichier MIDI est une séquence d’évènements datés et il
+Il s’agit d’un protocole en temps réel pour échanger des messages et un format
+de fichier. Un fichier MIDI est une séquence d’évènements datés et il
 représente une performance musicale symbolique.
 
 \begin{figure}[h]
@@ -329,31 +334,31 @@ représente une performance musicale symbolique.
 	\caption{Exemple d’évènements MIDI}
 	\label{piano_roll}
 \end{figure}
-Les données midi sont représentées sous forme de piano-roll. Chaque bande verte
-sur la figure \ref{piano_roll} correspond à une notes jouée par un instrument.
-Le début (onset) et la fin (offset) d’une bande verte sont appelés « évènement
-MIDI ». Il existe des évènements ON et des évènements OFF qui ont chacun une
-date sur la séquence MIDI. La durée d’une note est représentée la distance
-entre les évènements ON et OFF qui lui correspondent.\\
+Les données MIDI sont représentées sous forme de piano-roll. Chaque bande verte
+sur la figure \ref{piano_roll} correspond à une note jouée par un instrument.
+Le début (\textit{onset}) et la fin (\textit{offset}) d’une bande verte sont
+appelés « évènement MIDI ». Il existe des évènements ON et des évènements OFF
+qui ont chacun une date sur la séquence MIDI. La durée d’une note est
+représentée par la distance entre les évènements ON et OFF qui lui
+correspondent.\\
 
-Liste des évènements principaux d’un évènement MIDI :
+Liste des élèments principaux d’un évènement MIDI :
 \begin{itemize}
     \item type de l’évènement, ON ou OFF ;
-    \item date de l’évènement, Sa position sur la séquence ;
+    \item date de l’évènement, sa position sur la séquence ;
     \item pitch de l’évènement, à quelle note il correspond (à quelle
-        instrument pour la batterie)
+        instrument pour la batterie) ;
     \item velocité, volume sonore de l’évènement.\\
 \end{itemize}
 
-\florent{cela pourra être utile d'avoir une
-explication (ici ou en 1.4) sur la différence entre les timings de performance
-(dont le MIDI non-quantifié est un enregistrement symbolique) et les timing des
-partitions. avec 2 unités temporelles différentes (secondes et temps), en
-relation par tempo.}
+%\florent{cela pourra être utile d’avoir une
+%explication (ici ou en 1.4) sur la différence entre les timings de performance
+%(dont le MIDI non-quantifié est un enregistrement symbolique) et les timing
+%des
+%partitions. avec 2 unités temporelles différentes (secondes et temps), en
+%relation par tempo.}
 
 \subsection*{Les formats XML}
-<dam>si tu as la date d'apparition du format, éventuellement une citation un
-peu originelle</dam>
 Il existe plusieurs formats XML dédiés à la musique : MusicXML, MEI, MNX, …
 
 L’inconvénient de ces formats est qu’ils sont verbeux et ambigus, c’est
@@ -365,7 +370,7 @@ abstraite décrite plus loin.
 	\centering
 	\includegraphics[height=50mm, width=50mm]{
     z_images/1_contexte/6_musicxml_0.png}
-    \includegraphics[height=20mm, width=40mm]{
+    \includegraphics[height=15mm, width=30mm]{
     z_images/1_contexte/6_musicxml_1.png}
 	\caption{Exemple de représentation MusicXML} 
 	\label{MusicXML}
@@ -380,19 +385,14 @@ Un des avantages de ce format est qu’il peut être converti aussi bien en
 données MIDI qu’en partition musicale, ce qui en fait un bon format
 intermédiaire pour manipuler les données musicales et les échanger entre les
 programmes.
-<dam>c'est un peu ce que je mettais plus haut pour le MIDI, là on a une autre
-représentation, moins "audio" et plus "musique" bref tu peux développer cet
-aspect de représentation formelle et le questionner un peu.
-si tu as le temps et l'envie, tu pourrais poser le problème. qu'est)ce qu'une
-bonne représentation (et informatisable) de la musiqu ? quels sont les
-avantages / inconvénients de MIDI / MusicXML ?
-et enfin, la question centrale que tu pourrais déjà évoquer ici : dans quelle
-mesure les correspondances MIDI <=> MusicXML sont elles univoques, ou y-a-t-il
-plusieurs choix possibles (spoiler oui)</dam>
 
 \section*{Conclusion}
 Dans ce chapitre, nous avons établi que la RIM a connu un fort développement
-ces dernières années, et qu'il s'inspire de plus en plus de méthodes TAL, et
-que, par ce biais, il y a des liens possibles entre le traitement du langage
-musical et celui des langues naturelles, le plus proche étant probablement le
-phénomène de transcription (par analogie avec le \textit{speech to text}).
+ces dernières années, et qu’elle s’inspire de plus en plus de méthodes TAL. Par
+ce biais, nous avons déduit qu’il existait des liens possibles entre le
+traitement du langage musical et celui des langues naturelles, le plus proche
+étant probablement le phénomène de transcription (par analogie avec le
+\textit{speech to text}). Nous avons contextualisé la transcription de la
+musique en générale et plus spécifiquement, de la batterie, en évoquant les
+applications possibles dans ses deux domaines. Enfin, nous avons présenté les
+représentations de la musique qui concernent directement ce mémoire.
