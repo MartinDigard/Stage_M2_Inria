@@ -50,8 +50,8 @@ Caisse claire & cc & caisse claire \\
 Tom médium & tm & tom médium \\
 Tom alto & ta & tom alto \\
 Cymbales charleston & cf ou co & charley fermé ou ouvert à la main \\
-Cymbales ride & rd & ride \\
-Cymbales crash & cr & crash \\ \hline
+Cymbale ride & rd & ride \\
+Cymbale crash & cr & crash \\ \hline
 	\end{tabular}
 	\caption{Les noms des instruments de la batterie}
 	\label{nom_instru_batt}
@@ -59,7 +59,7 @@ Cymbales crash & cr & crash \\ \hline
 La figure \ref{instru_batt}\footnote{Les noms des instruments ont été changés
     sur cette image qui provient du site \url{
 https://www.superprof.fr/blog/composition-instrument-percussion/}} montre une
-batterie standard avec tous les instruments habituellement présent sur une
+batterie standard avec tous les instruments habituellement présents sur une
 batterie et la figure \ref{haut} donne leur représentation sur une partition.\\
 
 Le tableau \ref{nom_instru_batt} donne dans l’ordre :
@@ -69,7 +69,7 @@ Le tableau \ref{nom_instru_batt} donne dans l’ordre :
     \item les noms que j’utiliserai dans le présent document pour y référer.
 \end{enumerate}
 Les figures \ref{instru_batt}, \ref{haut} et le tableau \ref{nom_instru_batt}
-peuvent aider à comprendre pourquoi je trouve la notation agostinienne
+peuvent aider à comprendre pourquoi je trouve la notation des méthodes Agostini
 cohérente et intuitive. En effet, les hauteurs sur la portée représentent :
 \begin{enumerate}
 	\item La hauteur physique des instruments :\\
@@ -93,9 +93,9 @@ instruments de la batterie sont représentés par les têtes des notes. De plus,
 peut être arrêté de manière quantifiée et dont la durée sonore nous intéresse
 est le charley\footnote{Je ne prendrais pas en compte l’arrêt des cymbales à la
 main car ce phénomène n’existe pas dans les fichiers MIDI.}.
-\florent{certaines têtes de notes vides alors que leur durée n'est pas celle
-des blanches? expliquer les différences avec la notation conventionnelle cf
-1.4}
+%\florent{certaines têtes de notes vides alors que leur durée n'est pas celle
+%des blanches? expliquer les différences avec la notation conventionnelle cf
+%1.4}
 
 Par conséquent :
 \begin{enumerate}
@@ -125,16 +125,16 @@ En résumé :
 \end{itemize}
 La durée d’une note peut être prolongée par divers symboles :
 \begin{itemize}
-	\item Le point : il rallonge la durée d’une note de la moitié de sa valeur.
-        Dans la deuxième note de l’exemple 3 de la figure \ref{point_liaison}
+	\item le point : il rallonge la durée d’une note de la moitié de sa valeur.
+        Dans l’exemple 3 de la figure \ref{point_liaison}, la deuxième note
         est une noire pointée, elle vaut donc la durée d’une noire + une croche
         (ou de trois croche) ;
-	\item La liaison : elle rallonge la durée de la première note de la durée
+	\item la liaison : elle rallonge la durée de la première note de la durée
         de la deuxième. La deuxième note de l’exemple 4 de la figure
         \ref{point_liaison} est une croche qui est liée à une noire, sa durée
         est donc équivalente à celle d’une croche + une noire (ou de trois
         croches) ;
-    \item les silences (pas pour les ouvertures de charley).
+    \item les silences (pas pour les ouvertures de charley).\\
 \end{itemize}
 
 \begin{figure}[h]
@@ -146,7 +146,7 @@ La durée d’une note peut être prolongée par divers symboles :
 \end{figure}
 
 Un autre élément concernant la notation des durées en batterie est la nécessité
-de faire ressortir la pulsation\footnote{La position des temps} de la rendre
+de faire ressortir la pulsation\footnote{La position des temps}, de la rendre
 visuelle. La première chose à prendre en compte pour analyser la figure
 \ref{point_liaison} est donc la nécessité de regrouper les notes par temps à
 l’aide des ligatures. Le deuxième point est de s’arranger pour qu’il y ait une
@@ -164,9 +164,9 @@ indication visuelle au début de chaque temps.
 
 En cas de nécessité de prolonger la durée d’une note au-delà 
 de son temps de départ (syncope) et si cette note ne correspond pas à une
-ouverture de charley, elle sera prolongerée sur le temps suivant à l’aide de
+ouverture de charley, elle sera prolongée sur le temps suivant à l’aide de
 silences dont le premier sera positionné sur le temps. Si la note syncopée est
-une ouverture de charley, on privilégiera la liaison pour sa prolongation.
+une ouverture de charley, on privilégiera la liaison pour sa prolongation (exemple 4).
 
 \subsection*{Les silences}
 Les silences sont parfois utilisés pour noter les fermetures de charley (après
@@ -200,16 +200,16 @@ suivante pour l’écriture :
     \item si c’est un charley fermé joué au pied $\Rightarrow$ la note sera un
         silence.
 \end{enumerate}
-La deuxième règle sera soumise au cadre imposé par certaines
-\textbf{formes rythmiques} pour lesquelles le charley joué au pied devra rester
-tel quel. 
+%La deuxième règle sera soumise au cadre imposé par certaines
+%\textbf{formes rythmiques} pour lesquelles le charley joué au pied devra rester
+%tel quel. 
 
 \subsection*{Les équivalences rythmiques}
 Pour les instruments mélodiques, dans le cas de notes dont la durée de l’une à
 l’autre est ininterrompue et si leur durée initiale est prolongée, seuls la
-liaison et le point permettent des notations équivalente. Mais pour la
+liaison et le point permettent des notations équivalentes. Mais pour la
 batterie et à part dans le cas des ouvertures de charley (voir section
-\ref{hho}), seules comptent des dates de début (onsets) : la durée du son n’a
+\ref{hho}), seules comptent des dates de début (\textit{onsets}) : la durée du son n’a
 pas d’importance. L’usage des silences pour combler la distance rythmique entre
 deux notes devient donc possible.
 
@@ -240,7 +240,7 @@ seuls, constituent une phrase rythmique. Mais en pratique, les instruments
 peuvent aussi être divisés par voix dans le but de ne pas surcharger la
 notation ou pour que leur disposition soit représentée sur la
 partition (voir section \ref{notation_batterie}).
-Les voix sont charactérisées par l’orientation des hampes et plus présicément
+Les voix sont charactérisées par l’orientation des hampes et plus précisément
 par les ligatures si les hampes sont dans la même direction (voir figure
 \ref{afro_latin}).
 
@@ -254,7 +254,7 @@ par les ligatures si les hampes sont dans la même direction (voir figure
 Sur la figure \ref{sep_voix}, il faudra faire un choix entre les exemples 1, 2
 et 3 qui sont trois façons équivalentes d’écrire le même rythme.
 Ce choix se fera en fonction des instruments joués, de la nature plus ou moins
-systèmatique de leurs phrasés, et des associations logiques entre les
+systématique de leurs phrasés, et des associations logiques entre les
 instruments dans la distribution des rythmes sur la batterie (voir la section
 \ref{sys_sep_voix}).
 
@@ -272,10 +272,11 @@ z_images/3_methodes/0_notation_de_la_batterie/8_accents_et_ghost-notes_0.png}
 
 Théoriquement, tous les instruments peuvent être accentués (voir la section
 \ref{velocite}), mais la figure \ref{accents_et_gn} représentent ceux dont les
-accents ne demandent pas un grand niveau de maîtrise et sont presque toujours
-bien articulés. En outre, les instruments qui ne sont pas représentés sur cette
+accents sont presque toujours bien articulés dans le jeu standard des batteurs.
+En outre, les instruments qui ne sont pas représentés sur cette
 figure ne sont presque jamais accentués dans les partitions et ne sont pas
-présents de manière significative dans le GMD.
+présents de manière significative dans le jeu de donnée utilisé dans ce
+travail.
 
 Les accents sont marqués par le symbole~«~>~». Ils sont positionnés au-dessus
 des notes représentant des cymbales et en-dessous des notes représentant des
@@ -319,7 +320,7 @@ le premier est une ghost note et le deuxième une note normale ou accentuée.
 \label{tm}
 Mis à part les figures du chapitre 1 et certains exemples d’analyses de la
 section \ref{analyses_et_TM}, toutes les partitions et figures de ce document
-ont généré avec lilypond\footnote{\url{http://lilypond.org/index.fr.html}}.\\
+ont été généré avec lilypond\footnote{\url{http://lilypond.org/index.fr.html}}.\\
 
 \subsection*{Présentation de lilypond}
 « LilyPond est un logiciel de gravure musicale, destiné à produire des
@@ -327,15 +328,9 @@ partitions de qualité optimale. Ce projet apporte à l’édition musicale
 informatisée l’esthétique typographique de la gravure traditionnelle. LilyPond
 est un logiciel libre rattaché au projet GNU. »\\
 
-En raison de :
-\begin{itemize}
-    \item notation agostini
-    \item grande liberté de choix
-    \item …
-\end{itemize}
-
-Lilypond est actuellement le meilleur de logiciel de gravure musicale pour la
-batterie.
+En raison de la grande liberté de choix que permet lilypond et du fait qu’une
+configuration pour la notation de type Agostini est disponible, je considère
+que lilypond est le meilleur choix actuellement pour transcrire de la batterie.
 
 \begin{figure}[h]
     \centering
@@ -349,9 +344,10 @@ batterie.
 
 Sur la figure \ref{extrait_code} :
 \begin{itemize}
-    \item à gauche : configuration aménagée pour la notation de type agostini.
-    \item à droite : le début de code mesure par mesure pour la voix haute
-        d’une partition (en haut du fichier, inclusion du fichier de config)
+    \item à gauche, une configuration aménagée pour la notation de type agostini.
+    \item à droite, le début de code mesure par mesure pour la voix haute
+        d’une partition (la première ligne sert à prendre en compte le fichier
+        de gauche).
 \end{itemize}
 
 \begin{figure}[h]
@@ -362,8 +358,8 @@ Sur la figure \ref{extrait_code} :
 \end{figure}
 
 La partition de la figure \ref{partition_ref} est le résultat du code de la
-figure \ref{extrait_code} (la totalité du code est mis en annexe et est
-accessible sur le git). Cette partition a été totalement transcrite
+figure \ref{extrait_code} (la totalité du code est sur
+\url{https://github.com/MartinDigard/Stage_M2_Inria}). Cette partition a été totalement transcrite
 manuellement avec lilypond par analyse des fichiers MIDI et audio
 correspondants.
 
@@ -373,16 +369,16 @@ correspondants.
         beaucoup de recherches ont été nécessaires pour comprendre l’ensemble
         des fonctionnalités permettant de faire fonctionner la notation
         « agostinienne » ainsi que les diverses subtilités de notations
-        (accents, ghost-notes, flas, …).\\
+        (accents, ghost notes, flas, …).\\
         lylipond reste néanmoins un choix très agréable, une fois ces
         difficultés surmontées.
-    \item Écrire la partition de la figure \ref{partition_ref} m’a pris
+    \item écrire la partition de la figure \ref{partition_ref} m’a pris
         beaucoup de temps car j’ai dû chercher comment écrire chaque nouvel
         évènement mais les autres transcriptions ont été beaucoup plus rapide
         et très aisées.
-    \item Même si cela représente un investissement au départ, je recommande
+    \item même si cela représente un investissement au départ, je recommande
         lylipond pour écrire la batterie et je pense que c’est meilleur outil
-        pour cette tâche pour le moment. On peut configurer absolument tout.
+        pour cette tâche pour le moment.
     \item dans les autres logiciel d’édition de type musescore, la batterie
         est toujours confiné au système de notation américain.
     \item pour une comparaison entre système américain et système agostinien,
@@ -420,13 +416,15 @@ instruments, leur identité (instrument ou parti d’un instrument — joué ave
 mains ou avec les pieds), le ou les pitchs qui lui sont associés.
 
 Plusieurs pitchs peuvent parfois désigner le même instrument afin de pouvoir
-supporter des kits de batterie plus larges (avec par exemple plusieurs toms
-basses qui n’auraient pas tous exactement la même sonorité) ou simplement de
-styles différents (pour chaque kits standard, ce sont les mêmes intruments mais
-de styles différents)\footnote{Par exemple, les peaux des
-toms jazz raisonnent alors que les toms rock sont mat.}.
-J’ai regroupé les pitchs des différents types d’un même instrument dans une
-seule ligne du tableau portant le nom du type de cet instrument. Ainsi,
+supporter des kits \footnote{Les batteries électroniques permettent de choisir
+les sons que l’on veut donner à chaque instruments parmis des kits prédéfinis
+adaptés à différents style.} de batterie plus larges (avec par exemple plusieurs
+toms basses qui n’auraient pas tous exactement la même sonorité) ou simplement
+de styles différents (pour chaque kits standard, ce sont les mêmes intruments
+mais de styles différents)\footnote{Par exemple, les peaux des toms jazz
+raisonnent alors que celles des toms rock sont mates.}. J’ai regroupé les pitchs des
+différents types d’un même instrument dans une seule ligne du tableau portant
+le nom du type de cet instrument. Ainsi,
 plusieurs toms basses différents dans les données MIDI deviennent tous un tom
 basse d’une batterie standard et la partition finale pourra être jouée sur
 n’importe quel kit de batterie standard.
@@ -436,7 +434,7 @@ désigne le charley ouvert joué au pied (« po » de la figure \ref{haut}).
 Pourtant, dans la batterie moderne, plusieurs rythmes ne peuvent fournir le son
 du charley ouvert qu’avec le pied car les mains jouent autre chose en même
 temps. Cela doit en partie être dû à l’utilisation des boîtes à rythmes
-en MAO qui ne nécessitent pas de faire des choix conditionnés par les
+en musique assistée par ordinateur qui ne nécessitent pas de faire des choix conditionnés par les
 limitations humaines (2 pieds, 2 mains, et beaucoup plus d’instruments…)
 
 \subsection*{La vélocité} \label{velocite}
@@ -449,37 +447,46 @@ seront donnée dans la section \ref{partition_entiere}.
 \subsection*{Les arbres de rythmes}
 Les arbres de rythmes représentent un rythme dont les possibilités de notation
 sur une partition sont théoriquement multiples. Les branchements sont des
-divisions d’interval temporel, les feuilles sont des évènements musicaux
+divisions d’intervals temporels et les feuilles sont des évènements musicaux
 commençant au début de l’interval \cite{Laurson1996PatchWorkA}
 \cite{Bresson_openmusicvisual} .\\
-Voici une représentation qui fonctionne avec les 3 exemples de la figure
-\ref{sep_voix} en arbre de rythmes avec les codes de chaque instrument :
+
+La figure \ref{ex_arbre_1} est une représentation qui fonctionne avec les 3 exemples de la figure
+\ref{sep_voix} en arbre de rythmes avec les codes de chaque instrument :\\
+
 \begin{figure}[h]
 	\Tree[ [ [rd\\gc ][ [rd\\pf ][rd ]]]
 	[ [rd\\cc ][ [rd\\pf ][rd ]]]
 	[ [rd\\gc ][ [rd\\pf ][rd ]]]
 	[ [rd\\cc ][ [rd\\pf ][rd ]]] ]
+    \caption{Exemple d’un arbre de rythme avec les codes des instruments}
+    \label{ex_arbre_1}
 \end{figure}
 
-Ci-dessous, le même arbre dont les codes des instruments sont remplacés par
-leurs données MIDI respectives :
+La figure \ref{ex_arbre_2} montre le même arbre dont les codes des instruments sont remplacés par
+leurs données MIDI respectives :\\
+
 \begin{figure}[h]
 	\Tree[ [ [51\\36 ][ [51\\44 ][51 ]]]
 	[ [51\\38 ][ [51\\44 ][51 ]]]
 	[ [51\\36 ][ [51\\44 ][51 ]]]
 	[ [51\\38 ][ [51\\44 ][51 ]]] ]
+    \caption{Exemple d’un arbre de rythme avec les pitchs des instruments}
+    \label{ex_arbre_2}
 \end{figure}
 
-Chacun des trois exemples de la figure \ref{sep_voix} est représenté par un des
-deux arbres syntaxiques ci-dessus.
-<dam>complète un peu en précisant qu'on voit bien ici l'avantage des arbres
-pour analyser ou construire la structure (les phrases ?) musicale</dam>
+Chacun des trois exemples de la figure \ref{sep_voix} sont représentés par chacun des
+deux arbres syntaxiques ci-dessus. On voit bien ici l’avantage de cette représentation
+pure des rythmes car elle permet de tester plusieurs notations équivalentes pour un même rythme.
+
+%<dam>complète un peu en précisant qu'on voit bien ici l'avantage des arbres
+%pour analyser ou construire la structure (les phrases ?) musicale</dam>
 
 \section{Analyse syntaxique pour la transcription}
 
 \begin{figure}[h]
 \centering
-\includegraphics[height=70mm, width=110mm]{
+\includegraphics[height=80mm, width=125mm]{
 z_images/3_methodes/1_Analyse_syntaxique/schema_qparse.png}
 \caption{Présentation de qparse}
 \label{presentation_qparse}
@@ -487,8 +494,8 @@ z_images/3_methodes/1_Analyse_syntaxique/schema_qparse.png}
 
 Comme le montre la figure \ref{presentation_qparse}, qparse\footnote{
 \url{https://qparse.gitlabpages.inria.fr}} est un outil pour la transcription
-musicale, qui, à partir d'une performance symbolique, séquentielle et non
-quantifiée, produit une partition structurée. Il effectue conjointement des
+musicale qui produit une partition structurée à partir d'une performance symbolique séquentielle et non
+quantifiée, . Il effectue conjointement des
 tâches de quantification rhythmique et d'inférence de la structure de la
 partition à l'aide de techniques d’analyse syntaxique (\textit{parsing}). Le
 but du \textit{parsing} est en effet la structuration d'une représentation
@@ -503,7 +510,7 @@ arborescentes pondérées. En prenant en entrée une performance musicale
 symbolique (séquence de notes avec dates et durées en temps réel, typiquement
 un fichier MIDI), et une grammaire hors-contexte pondérée décrivant un langage
 de rythmes préférés, il produit une partition musicale. Plusieurs formats de
-sortie sont possibles, dont les formats XML (MEI, MusicXML,…), lilypond,…
+sortie sont possibles, dont les formats XML (MEI, MusicXML,…) ou lilypond.\\
 
 Les principaux contributeurs sont :
 \begin{itemize}
@@ -518,15 +525,17 @@ Les principaux contributeurs sont :
 \end{itemize}
 
 \subsection*{Les enjeux}
-Plusieurs enjeux : <dam>idem à rédiger je suppose... un assez gros morceau
-puisqu'il contiendra une partie de ta problématique appliquée</dam>
-Le problème du MIDI avec Qparse\\
-ON-OFF en entrée $\Rightarrow$ 1 seul symbole en sortie.\\
-Minimiser la distance entre le midi et la représentation en arbre.\\
-Un des problèmes de Qparse était qu’il était limité au monophonique.\\
-Quelles sont les limites du monophonique ?\\
-Impossibilité de traiter plusieurs voix et de reconnaître les accords.
-
+Un des problèmes de qparse était qu’il soit limité au monophonique. Il était
+donc impossible de traiter plusieurs voix et de reconnaître les accords. Ce qui
+est problématique pour la batterie étant donné que c’est un instrument dont l’essence
+est la coordination de plusieurs sons à la fois. Ce problème a été en partie résolu
+en regroupant les notes de faibles distances mutuelles dans des clusters appelés
+« Jam » dont nous parlerons plus loin.
+Un autre problème du MIDI avec qparse est le fait d’avoir deux symboles en entrée
+pour un seul généré en sortie. Ce problème est moins génant pour la batterie car
+nous avons pu ignorer tous \textit{offsets}.
+La quantification nécessite d’ajuster les dates des notes une fois leur emplacement
+déduit tout en minimisant la distance entre le midi et la représentation en arbre. La grammaire pondérée sert à gérer cet équilibre.
 \subsection*{La grammaire}
 \label{gram}
 Il s’agit d’une grammaire hors-contexte pondérée dont la structure agit comme
@@ -570,25 +579,23 @@ la deuxième) et dont la troisième est vide. La signature rythmique est
 \end{figure}
 
 Sur la figure \ref{ex_gram}, chaque ligne est une règle. La colonne de gauche
-contient des symboles non-terminaux (0, 1, 2, 4).\\
-
-Cette grammaire sépare les temps par ligatures au niveau de la mesure. Puis
+contient des symboles non-terminaux (0, 1, 2, 4). Cette grammaire sépare les temps par ligatures au niveau de la mesure. Puis
 elle autorise, au niveau du temps, les divisions par deux (croches) et par
-quatre (doubles-croches). Ces divisions seront reliés par des ligatures.
-
-Tous les poids sont réglés sur 1 à titre expérimental. L’arbre de parsing en
-résultant est considéré comme « convaincant » car il découpe correctement les
+quatre (doubles-croches). Ces divisions seront reliées par des ligatures. Tous les poids sont réglés sur 1 à titre expérimental. L’arbre de parsing en
+résultant (figure \ref{sortie_arbre}) est considéré comme « convaincant » car il découpe correctement les
 mesures et les temps.
-
-Un premier test convaincant est effectué avec la grammaire suivante :\\\\
-\resizebox{450pt}{!} {
+\begin{figure}[h]
+    \centering
+\resizebox{350pt}{!} {
 \Tree[.Mesure\ 1
 [.Temps\ 1 [0-ON\\1-ON\\2-ON ][3-OFF\\4-OFF\\5-OFF ][6-ON\\7-ON ][8-OFF\\9-OFF ]]
 [.Temps\ 2 [10-ON\\11-ON ][12-OFF\\13-OFF ][14-ON\\15-ON ][16-OFF\\17-OFF ]]
 [.Temps\ 3 [18-ON\\19-ON\\20-ON ][21-OFF\\22-OFF\\23-OFF ][24-ON\\25-ON ][26-OFF\\27-OFF ]]
 [.Temps\ 4 [28-ON\\29-ON\\30-ON ][31-OFF\\32-OFF\\33-OFF ][34-ON\\35-ON ][36-OFF\\37-OFF ]]
 ]}
-
+\caption{Arbre en sortie de qparse}
+\label{sortie_arbre}
+\end{figure}
 %C signifie ??\\
 %E signifie \textit{Event}\\
 %U signifie \textit{Unbeamed} $\Rightarrow$ Au niveau de la mesure, quand il y
@@ -622,7 +629,7 @@ Un premier test convaincant est effectué avec la grammaire suivante :\\\\
 \subsection*{Le parsing}
 Les données MIDI sont quantifiées, les notes de dates proches sont alignées et
 les relations entre les notes sont identifiées (accords, fla, etc…) ; un arbre
-syntaxique global est créé ;
+syntaxique global est créé (figure \ref{sortie_arbre}). 
 
 \subsection*{La représentation intermédiaire}
 \label{regles}
@@ -633,10 +640,9 @@ syntaxique global est créé ;
     séparation des voix $\Rightarrow$ un arbre par voix
     $\Rightarrow$ représentation intermédiaire (RI) ;
     \item réécriture 2 :\\
-    simplification de l’écriture de chaque voix dans la RI.
-    <dam>rédiger un peu mieux réécriture 1 et 2</dam>
+    simplification de l’écriture de chaque voix de la RI.\\
 \end{itemize}
-
+Cette procédure sera détaillée dans la section \ref{reecriture_guidee}.
 \section{Les formes rythmiques}
 \label{systemes_methodes}
 Il existe en batterie des motifs rythmiques répétés (joués en boucle). Ces
@@ -712,8 +718,6 @@ cette section :
 	\item 4/4 afro-cubain
 \end{itemize}
 
-Le \textit{\textbf{motif}} et la
-
 \subsubsection{Détection de la signature rythmique}
 La partie \textbf{motif} des \textbf{FR} sera utilisée pour la
 \textbf{définition des signature rythmiques}. 
@@ -752,13 +756,6 @@ d'apprentissage automatique.
 
 
 \subsubsection{Séparation des voix}
-
-L’objectif de la procédure : ?
-
-Le principe de la procédure : ?
-
-Quelles sont les difficultés et les choix de séparation de voix et comment un
-algorithme pourrait faire ces choix ?
 
 \label{sys_sep_voix}
 \begin{figure}[h]
@@ -867,7 +864,7 @@ Dans la figure \ref{simpl}, les « suites » sont des notations possibles
 relatives aux arbres 1 ou 2.\\
 
 \textit{Rappel :\\cf = charley fermé joué à la main ;\\co = charley ouvert joué
-à la main ;\\ pf = charley fermé joué au pied.}\newpage
+à la main ;\\ pf = charley fermé joué au pied.}\\
 
 Soit l’arbre 1 de la figure \ref{simpl} dans lequel :
 \begin{itemize}
@@ -912,7 +909,7 @@ Nous avons ensuite parlé de l’outil utilisé pour les transcriptions manuelle
 en mettant en avant que cet outil devrait être utilisé pour la transcription de
 la batterie et en précisant que tous les codes lilypond pour la création des
 figures et partition de ce mémoire sont en accès libre sur github. Nous avons
-ensuite décrit qparse qui l’outil que le travail de ce mémoire cherche à
+ensuite décrit qparse qui est l’outil que le travail de ce mémoire cherche à
 améliorer.
 
 Enfin, nous avons exposé une approche de type dictionnaire (les « formes
