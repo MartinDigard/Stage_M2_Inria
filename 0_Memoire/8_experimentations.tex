@@ -131,7 +131,7 @@ z_images/4_experimentations/1_analyses/0_drummer1_session3/2_musescore.png}
         décalés d’un temps vers la droite.
 	\item Les toms basses des temps 1 et 2 de la mesure 2 de la TM ont été
         décalés d’une double croche vers la droite dans la TA.
-	\item La première caisse-claire de la mesure 1 devient binaire dans la TA
+	\item La première caisse claire de la mesure 1 devient binaire dans la TA
         alors qu’elle appartenait à un triolet dans la TM.
 	\item Le triolet de tom-basse du temps 4 de la mesure 2 de la TA n’existe
         pas la TM.\\
@@ -211,16 +211,16 @@ lilypond sur le git \url{https://github.com/MartinDigard/Stage_M2_Inria}). Il
 s’agit d’une partition d’un 4/4 binaire dont le fichier MIDI est annoncé dans
 le GMD de style «jazz-funk» probablement en raison de la ride de type shabada
 rapide (le ternaire devient binaire avec la vitesse) combiné avec l’after-beat
-de type rock (caisse-claire sur les deux et quatre).
+de type rock (caisse claire sur les deux et quatre).
 
 La transcription manuelle de la partition de la figure \ref{partition_ref} et
 l'analyse d'autre fichiers MIDI (voir section \ref{analyses_et_TM}) m’ont mené
 aux observations suivantes :
 \begin{itemize}
-	\item Vélocité inférieure à 40 : ghost-note ;
-	\item Vélocité supérieure à 90 : accent ;
+	\item Vélocité inférieure à 40 : ghost-note.
+	\item Vélocité supérieure à 90 : accent.
 	\item Pas d’intention d’accent ni de ghost-note pour une vélocité entre 40
-        et 89 ;
+        et 89.
 	\item Les accents et les ghosts-notes ne sont significatifs ni pour les
         instruments joués au pied, ni pour les cymbales crash.\\
 	En effet, certaines vélocités en dessous de 40 étant détectées et inscrites
@@ -270,7 +270,7 @@ directement extraite.\\
 Nous allons montrer :
 \begin{itemize}
     \item la composition de cette forme rythmique ;
-    \item son état finale, c’est à dire toutes les combinaisons entièrement
+    \item son état final, c’est à dire toutes les combinaisons entièrement
         écrites en notation correcte sur partition ;
 
         $\Rightarrow$ cela constituera une référence pour la réécriture ;
@@ -284,7 +284,7 @@ Nous allons montrer :
         parlons. 
 \end{itemize}
 L’objectif de cette démonstration est de montrer comment un jeu de plusieurs
-formes rythmiques pourrait être implémenter dans le cadre d’une approche
+formes rythmiques pourrait être implémenté dans le cadre d’une approche
 dictionnaire.
 
 \subsection*{Motifs et gammes}
@@ -318,9 +318,8 @@ en contre-temps. Ces deux possibilités sont combinées de manière circulaire
 dans les lignes 4 et 5 qui contiennent chacunes 3 mesures.
 
 \subsection*{Formes rythmiques — motifs et gammes combinés}
-Pour la suite de cette démonstration, je utiliserai le motif 1 de la
-figure \ref{motifs_gammes}.<dam>à commenter un peu plus, notamment pour dire si
-la combinaison est faite automatiquement ou non</dam> 
+Pour la suite de cette démonstration, j’utiliserai le motif 1 de la
+figure \ref{motifs_gammes}.
 \begin{figure}[h]
 \centering
 \includegraphics[height=75mm, width=85mm]{
@@ -358,7 +357,7 @@ en termes de durée.
 \subsection*{Réécriture — séparation des voix et simplification}
 \subsubsection{La séparation des voix}
 Ainsi l’arbre syntaxique de départ est divisé en autant d’instruments qui le
-constituent et les voix seront regroupées en suivant les régles du forme
+constituent et les voix sont regroupées en suivant les régles de la forme
 rythmique.
 \begin{figure}[h]
 	\centering
@@ -377,7 +376,7 @@ rythmique.
 	\caption{Arbre de rythme — voix haute}
 	\label{voix_haute}
 \end{figure}\\
-La voix haute (figure \ref{voix_haute}) regroupe la ride et la caisse-claire
+La voix haute (figure \ref{voix_haute}) regroupe la ride et la caisse claire
 sur les ligatures du haut.
 \begin{figure}[h]
 	\centering
@@ -396,13 +395,13 @@ sur les ligatures du haut.
 	\caption{Arbre de rythme — voix basse}
 	\label{voix_basse}
 \end{figure}\\
-La voix basse (figure \ref{voix_basse} regroupe la grosse-caisse et le charley
+La voix basse (figure \ref{voix_basse} regroupe la grosse caisse et le charley
 au pied sur les ligatures du bas.
 \subsubsection{Les règles de simplifications}
-L’objectif des règles de simplifications est de réécrire les écarts de durées
+L’objectif des règles de simplifications est de réécrire les écarts de durée
 qui séparent les notes d’une manière appropriée pour la batterie et qui soit la
 plus simple possible. Les ligatures relient les notes d’un temps entre elles
-afin de rendre la pulsation visuelle).\\\\
+afin de rendre la pulsation visuelle.\\\\
 Pour les figures ci-dessous :
 \begin{itemize}
 	\item x = une note ;
@@ -485,16 +484,16 @@ ouvertures de charley, cela n’est pas toujours applicable.
 La méthode des formes rythmiques étant basée sur une approche dictionnaire,
 Le premier objectif de cette réécriture guidée est d’orienter la recherche
 d’autres formes rythmiques par observation du jeu de données et de montrer
-comment les construire pour agrandir la base de connaissance de Qparse pour la
+comment les construire pour agrandir la base de connaissance de qparse pour la
 transcription de la batterie.
 
 \section{BILAN : résultats — évaluation — discussion}
 la pertinence des choix qui ont été faits et les moyens d’évaluer les
-résultats potentiels
+résultats obtenus.
 Cette section regroupe les avancées qui ont été réalisées par rapport aux
 objectifs de départ ainsi qu’une réflexion sur le moyen d’évaluer les résultats
-de l’ADT avec Qparse. Nous avons améliorer le système de quantification de
-Qparse pour la batterie, notamment le passage à la polyphonie avec les Jams. 
+de l’ADT avec qparse. Nous avons améliorer le système de quantification de
+qparse pour la batterie, notamment le passage à la polyphonie avec les Jams. 
 
 Nous avons pu obtenir des arbres de parsing corrects en améliorant les
 grammaires avec des fichiers MIDI courts. 
