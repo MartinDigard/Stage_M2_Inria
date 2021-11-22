@@ -1,33 +1,14 @@
 \section*{Introduction}
-Dans ce chapitre, nous présenterons le jeu de données, les analyses MIDI-Audio
-accompagnées de conclusions sur l’ensemble des transcriptions manuelles et des
-analyses. Nous aborderons le passage du monophonique au polyphonique,
-indispensable pour la suite du travaile et pour l’usage des formes rythmiques.
-
-Problèmatique :
-
-choix d’un outil de transcription ?
-
-passage au polyphonique indispensable pour la suite du travail
-et pour l’usage des formes rythmiques.
-
-Finir la chaîne de traitement indispensable pour obtenir des résultats chiffrés
-possible à évaluer.
-
-Nous présenterons mes trois contributions principales :
-\begin{itemize}
-    \item le code lilypond normalisé pour la transcription de la batterie avec
-        la notation de type agostini.
-    \item les différentes étapes de résolution du passage au polyphonique.
-    \item l’expérimentation d’un forme rythmique implémentable qui devra être
-        utilisé comme base de connaissances pour augmenter la rapidité et la
-        qualité en sortie de Qparse et comme une méthode de création de
-        nouvelles formes rythmiques.
-\end{itemize}
-
-Enfin, nous finirons par une discussion sur les avancées réalisées dans ce
-travail, la pertinence des choix qui ont été faits et les moyens d’évaluer les
-résultats potentiels.
+Dans ce chapitre, nous présenterons le jeu de données. Des analyses MIDI-Audio
+seront effectuées sur ce jeu de données par le biais de comparaisons de
+transcription et transcriptions manuelles avec lilypond. Nous aborderons aussi,
+le passage du monophonique au polyphonique, indispensable pour l’application
+des formes rythmiques dans la chaîne de traitement. Nous présenterons une
+réécriture guidée par une forme rythmique qui devra être utilisé comme base de
+connaissances pour augmenter la rapidité et la qualité en sortie de qparse et
+comme une méthode de création de nouvelles formes rythmiques. Enfin, nous
+discuterons sur l’ensemble des travaux finis, notamment les avancées réalisées
+dans ce travail.
 
 \section{Le jeu de données}
 \label{gmd}
@@ -260,6 +241,7 @@ lisible pour un musicien (Voir la section \ref{modelisation_transcription}).
 
 
 \section{Transcription polyphonique par parsing}
+Les différentes étapes de résolution du passage au polyphonique.
 \label{jam}
 Les Jams permettent de passer du monophonique au polyphonique.
 On regroupe tous les évènements qu’on estime être à des dates suffisamment
@@ -507,7 +489,8 @@ comment les construire pour agrandir la base de connaissance de Qparse pour la
 transcription de la batterie.
 
 \section{BILAN : résultats — évaluation — discussion}
-
+la pertinence des choix qui ont été faits et les moyens d’évaluer les
+résultats potentiels
 Cette section regroupe les avancées qui ont été réalisées par rapport aux
 objectifs de départ ainsi qu’une réflexion sur le moyen d’évaluer les résultats
 de l’ADT avec Qparse. Nous avons améliorer le système de quantification de
