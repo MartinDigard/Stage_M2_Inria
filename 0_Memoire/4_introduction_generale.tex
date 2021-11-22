@@ -9,9 +9,9 @@ Nous parlerons de transcription musicale, en suivant des méthodes communes au
 domaine du traitement automatique des langues (TAL) plutôt que directement de
 langues naturelles, et nous parlerons aussi de génération automatique de
 partitions de musique à partir de données audio ou symboliques. En considérant
-que la musique à l’instar des langues naturelles est un moyen qui nous sert à
-exprimer nos ressentis sur le monde et les choses, ce travail reposera sur une
-citation de l’ouvrage de Danhauser \cite{danhauser} : « La musique s’écrit et
+que la musique, à l’instar des langues naturelles, est un moyen qui nous sert à
+exprimer nos ressentis du monde et des choses, ce travail reposera sur une
+citation de l’ouvrage de Danhauser \cite{danhauser}~ : « La musique s’écrit et
 se lit aussi facilement qu’on lit et écrit les paroles que nous prononçons. »
 
 L’exercice exposé dans ce mémoire nécessitera donc la manipulation d’un langage
@@ -40,38 +40,38 @@ des choix le plus tôt possible afin de simplifier le reste des calculs en
 rythmique (voir section \ref{sign_rythm}) et les règles de réécriture (voir
 section \ref{regles}).\\
 
-La proposition ci-dessus a nécessité plusieurs sous-tâches :
+La proposition ci-dessus a nécessité plusieurs sous-tâches~ :
 \begin{itemize}
     \item une description de la notation de la batterie (voir
         \ref{notation_batterie} ainsi qu’une modélisation pour la transcription
         de la batterie \ref{modelisation_transcription}) qui était jusqu’à
-        présent inexistante ;
+        présent inexistante~ ;
     \item l’écriture de script lilypond \footnote{
         \url{http://lilypond.org/index.fr.html}} pour toutes les figures de ce
         mémoire qui correspondent à des partitions de batterie (voir la section
-        \ref{tm}). Tous les codes lilypond sont disponibles sur \url{
-        https://github.com/MartinDigard/Stage_M2_Inria} ;
+        \ref{tm})~ ; tous les codes lilypond sont disponibles sur \url{
+        https://github.com/MartinDigard/Stage_M2_Inria}~ ;
     \item plusieurs trancriptions manuelles dans le but d’analyser les contenus
         des fichiers MIDI (voir section \ref{analyses_et_TM}) et de faire des
         comparaisons de transcriptions avec des outils déjà existants
-        \footnote{MuseScore3} ;
+        \footnote{MuseScore3}~ ;
     \item une partition de référence transcrite manuellement sur l’entièreté
         d’une performance du jeu de données afin de repérer les éléments
         importants pour la modélisation et d’établir le rapport entre les
         données d’\textit{input} et l’écriture finale (voir
-        \ref{partition_ref}). Cette partition avait aussi pour objectif
-        d’effectuer des tests et des évaluations ;
-    \item  la création de grammaires hors-contextes pondérées spécifiques à
-        la batterie (\ref{gram}) ;
+        \ref{partition_ref})~ ; cette partition avait aussi pour objectif
+        d’effectuer des tests et des évaluations~ ;
+    \item  la création de grammaires hors-contexte pondérées spécifiques à
+        la batterie (\ref{gram})~ ;
     \item le passage au polyphonique (théorie et implémentation de tests
         unitaires) impliquant la dissociation d’évènements MIDI simultanés
         ainsi que leur identification (voir section \ref{jam}. 
 \end{itemize}
 
-L’ensemble de ces sous-tâches a permis deux réalisations principales :
-1) Obtenir des arbres de rythmes corrects en \textit{output} de qparse avec des
-exemples courts proches de la partition de référence (voir section
-\ref{gram}.\\
+L’ensemble de ces sous-tâches a permis deux réalisations principales~ :
+1) L’obtention d’arbres de rythmes corrects en \textit{output} de qparse avec
+des exemples courts proches de la partition de référence (voir section
+\ref{gram}).\\
 2) La création d’une réécriture guidée par une forme rythmique
 \ref{reecriture_guidee} dont le but premier est de démontrer qu’elle est
 implémentable et applicable à d’autres types de rythmes et dont le second
