@@ -1,23 +1,25 @@
 \section*{Introduction}
-Dans ce chapitre, nous expliquerons en détail les méthodes que nous avons
-employées pour l’ADT.\\
-Pour commencer, nous exposerons une description de la notation de la batterie
-ainsi qu’une modélisation de celle-ci pour la représentation des données
-rythmiques en arbres syntaxiques. Nous poursuivrons avec une présentation de
-qparse\footnote{https://qparse.gitlabpages.inria.fr/}, un outil de
-transcription qui est développé à l'Inria, l'Université de Nagoya et plusieurs
-développeurs au sein du laboratoire Cedric au CNAM.
-
-Enfin, nous présenterons les \textbf{formes rythmiques}, <flo>une
-représentation
-théorique qui permet…</flo> 
+Dans ce chapitre, nous détaillerons les méthodes que nous avons employées pour
+la TAB. Nous commencerons par donner une description de la notation de la
+batterie ainsi que des précisions sur lilypond, l’outil utilisé pour les
+transcriptions manuelles et les raisons qui ont motivé le choix de cet outil.
+Nous présenterons ensuite une modélisation de notation de la batterie pour sa
+représentation en arbres syntaxiques suivie d’une présentation de qparse
+\footnote{\url{https://qparse.gitlabpages.inria.fr/}}, un outil de transcription qui
+est développé à l'Inria, l'Université de Nagoya et plusieurs développeurs au
+sein du laboratoire Cedric au CNAM. Enfin, nous présenterons les
+\textbf{formes rythmiques}, une représentation théorique qui
+permet, par le biais de \textit{patterns} accompagnés de leur combinaisons
+spécifiques associées, de détecter les signatures rythmiques de performances
+non-quantifiées et de restreindre les choix de règles à appliquer afin de 
+simplifier les calculs de réécriture.
 
 \section{La notation de la batterie}
 \label{notation_batterie}
 Pour la transcription, j’ai choisi d’utiliser une notation inspirée du recueil
 de pièces pour batterie de J.-F. Juskowiak \cite{jusko} et des méthodes de
-batterie Agostini \cite{ago_meth_3}, car je trouve la position des éléments
-cohérente et intuitive (voir section \ref{hauteurs}).\newpage
+batterie Dante Agostini \cite{ago_meth_3}, car je trouve la position des éléments
+cohérente et intuitive.
 
 %\subsection*{Les hauteurs et les têtes de notes}
 %\label{hauteurs}
@@ -54,10 +56,11 @@ Cymbales crash & cr & crash \\ \hline
 	\caption{Les noms des instruments de la batterie}
 	\label{nom_instru_batt}
 \end{table}\newpage
-La figure \ref{instru_batt}\footnote{Source : \url{
+La figure \ref{instru_batt}\footnote{Les noms des instruments ont été changés
+    sur cette image qui provient du site \url{
 https://www.superprof.fr/blog/composition-instrument-percussion/}} montre une
 batterie standard avec tous les instruments habituellement présent sur une
-batterie et la figure \ref{haut} donne leur représentation sur une partition.
+batterie et la figure \ref{haut} donne leur représentation sur une partition.\\
 
 Le tableau \ref{nom_instru_batt} donne dans l’ordre :
 \begin{enumerate}
@@ -67,9 +70,7 @@ Le tableau \ref{nom_instru_batt} donne dans l’ordre :
 \end{enumerate}
 Les figures \ref{instru_batt}, \ref{haut} et le tableau \ref{nom_instru_batt}
 peuvent aider à comprendre pourquoi je trouve la notation agostinienne
-cohérente et intuitive.
-
-En effet, les hauteurs sur la portée représentent :
+cohérente et intuitive. En effet, les hauteurs sur la portée représentent :
 \begin{enumerate}
 	\item La hauteur physique des instruments :\\
 	La caisse claire est centrale sur la portée et sur la batterie (au niveau
@@ -87,8 +88,8 @@ En effet, les hauteurs sur la portée représentent :
 
 \subsection*{Les durées}
 \label{hho}
-Comme nous venons de la voir, la majorité des instruments de la batterie sont
-représentés par les têtes des notes. De plus, le seul instrument dont le son
+Comme nous venons de le voir sur la figure \ref{haut}, la majorité des
+instruments de la batterie sont représentés par les têtes des notes. De plus, le seul instrument dont le son
 peut être arrêté de manière quantifiée et dont la durée sonore nous intéresse
 est le charley\footnote{Je ne prendrais pas en compte l’arrêt des cymbales à la
 main car ce phénomène n’existe pas dans les fichiers MIDI.}.
@@ -314,7 +315,7 @@ le premier est une ghost note et le deuxième une note normale ou accentuée.
     \caption{La notation du fla}
 \end{figure}
 
-\section{La transcription manuelle}
+\section{La transcription manuelle avec lilypond}
 \label{tm}
 Mis à part les figures du chapitre 1 et certains exemples d’analyses de la
 section \ref{analyses_et_TM}, toutes les partitions et figures de ce document
