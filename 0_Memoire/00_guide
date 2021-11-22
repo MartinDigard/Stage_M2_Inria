@@ -1,3 +1,24 @@
+
+
+%\item Le ternaire jazz (voir expérience 2)
+%\item Reconnaissance d’un motif sur le MIDI\\
+%Reconnaître un motif (forme rythmique) sur une mesure de l’input (un fichier
+%midi
+%représentant des données audios)\\
+%$\Rightarrow$ Motif (forme rythmique) reconnu : true ou false\\
+%Si true :\\
+%- Choisir la grammaire correspondante~ ;\\
+%- Parser le MIDI~ ;\\
+%- Appliquer les règles de réécritures (Séparation des voix et
+%simplification)
+%\item Nous travaillerons aussi sur la détection de répétitions sur
+%plusieurs mesures afin de pouvoir corriger des erreurs sur une des mesures
+%qui aurait dû être identique aux autres mais qui présente des différences.
+%\item dans quelle catégorie mettre le shuffle ?\\
+%\item écrire des règles de réécriture spécifique aux charley avec un forme
+% rythmique
+%approprié.
+
 \begin{figure}[h]
 	\centering
 	\resizebox{50pt}{!} {

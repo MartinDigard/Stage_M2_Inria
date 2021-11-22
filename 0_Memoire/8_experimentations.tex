@@ -32,9 +32,9 @@ TD-11\footnotemark}
 	\label{electro_drums}
 	
 \end{figure}
-\footnotetext{\textit{Source :} \url{
+\footnotetext{\textit{Source~ :} \url{
     https://www.youtube.com/watch?v=BX1V_IE0g2c}}
-Autres critères spécifiques au GMD :
+Autres critères spécifiques au GMD~ :
 \begin{itemize}
 	\item Toutes les performances ont été jouées au métronome et à un tempo
         choisi par le batteur.
@@ -58,11 +58,11 @@ Autres critères spécifiques au GMD :
 
 \subsection*{Format des données}
 Le Roland TD-11 enregistre les données dans des fichiers MIDI et les divise en
-plusieurs pistes distinctes :
+plusieurs pistes distinctes~ :
 \begin{itemize}
-	\item une pour le tempo et l’indication de mesure ;
+	\item une pour le tempo et l’indication de mesure~ ;
 	\item une pour les changements de contrôle (position de la pédale de
-        charley) ;
+        charley)~ ;
 	\item une pour les notes.\\
 \end{itemize}
 Les changements de contrôle sont placés sur le canal 0 et les notes sur le
@@ -93,8 +93,8 @@ z_images/4_experimentations/1_analyses/0_drummer1_session3/1_manuelle.png}
 z_images/4_experimentations/1_analyses/0_drummer1_session3/0_musescore.png}
 \end{figure}
 \begin{itemize}
-	\item Erreur d’indication de mesure (3/4 au lieu de 4/4) ;
-	\item Les silences de la mesure 1 de la TA sont inutilement surchargés ;
+	\item Erreur d’indication de mesure (3/4 au lieu de 4/4)~ ;
+	\item Les silences de la mesure 1 de la TA sont inutilement surchargés~ ;
 	\item La noire du temps 4 de la mesure 1 de la TM est devenue les deux
         premières notes (une double-croche et une croche) d’un triolet sur le
         temps 1 de la mesure 2 de la TA.
@@ -175,7 +175,7 @@ z_images/4_experimentations/1_analyses/2_flas/1_124_funk_95_fill_4-4.png}\\
         noire (pf, voir le tableau \ref{pitchs_instru}) sur le temps 1 de la
         mesure 2 de la TM suivie d’un demi-soupir devient une croche pointée
         sur le temps 3 de la TA.
-	\item Autre problème : certaines têtes de notes sont mal attribuées. Par
+	\item Autre problème~ : certaines têtes de notes sont mal attribuées. Par
         exemple, le charley ouvert en contre-temps sur le temps 2 de la mesure
         2 de la TM devrait avoir le même symbole sur la TA. Idem pour les
         cross-sticks.
@@ -192,7 +192,7 @@ permettrait aussi de supprimer les aberrations du type de celle de l’exemple
 d’analyse 4, puisque l’erreur sur cet exemple serait reconnue comme un élément
 qui ne rentre pas dans le cadre de la forme de rythme en question. La dernière
 raison qui rend le travail difficile est l’identification des flas, comment
-savoir si deux notes jouées très proches sont :
+savoir si deux notes jouées très proches sont~ :
 \begin{itemize}
     \item séparées et rapides,
     \item mal jouées à l’unisson (accord),
@@ -209,16 +209,16 @@ La figure \ref{partition_ref} est la transcription manuelle des fichiers
 Cette transcription a été entièrement faite avec Lilypond (voir le code
 lilypond sur le git \url{https://github.com/MartinDigard/Stage_M2_Inria}). Il
 s’agit d’une partition d’un 4/4 binaire dont le fichier MIDI est annoncé dans
-le GMD de style «jazz-funk» probablement en raison de la ride de type shabada
+le GMD de style «~jazz-funk~» probablement en raison de la ride de type shabada
 rapide (le ternaire devient binaire avec la vitesse) combiné avec l’after-beat
 de type rock (caisse claire sur les deux et quatre).
 
 La transcription manuelle de la partition de la figure \ref{partition_ref} et
-l'analyse d'autre fichiers MIDI (voir section \ref{analyses_et_TM}) m’ont mené
-aux observations suivantes :
+l’analyse d’autre fichiers MIDI (voir section \ref{analyses_et_TM}) m’ont mené
+aux observations suivantes~ :
 \begin{itemize}
-	\item Vélocité inférieure à 40 : ghost-note.
-	\item Vélocité supérieure à 90 : accent.
+	\item Vélocité inférieure à 40~ : ghost-note.
+	\item Vélocité supérieure à 90~ : accent.
 	\item Pas d’intention d’accent ni de ghost-note pour une vélocité entre 40
         et 89.
 	\item Les accents et les ghosts-notes ne sont significatifs ni pour les
@@ -245,20 +245,20 @@ Les différentes étapes de résolution du passage au polyphonique.
 \label{jam}
 Les Jams permettent de passer du monophonique au polyphonique.
 On regroupe tous les évènements qu’on estime être à des dates suffisamment
-proches dans des clusters que nous avons appelés « Jam ».
-Un Jam représente une séquence de points successifs dans un segment d'entrée
+proches dans des clusters que nous avons appelés «~Jam~».
+Un Jam représente une séquence de points successifs dans un segment d’entrée
 avec des informations supplémentaires sur leur rôle respectif, en supposant
-qu'ils sont tous alignés à la même date lors de la quantification. Un Jam est
-caractérisé par l'index de son premier point dans le segment d'entrée et sa
+qu’ils sont tous alignés à la même date lors de la quantification. Un Jam est
+caractérisé par l’index de son premier point dans le segment d’entrée et sa
 longueur (nombre de points).
 Une fois dans les Jams, les évènements sont identifiés selon les critères
-suivants :
+suivants~ :
 \begin{itemize}
-    \item Ignored, les offsets sont ignorés ;
-    \item Note, si c’est une note simple ;
-    \item Rest, si c’est un silence ;
-    \item GraceNote, si c’est un fla ;
-    \item Error.
+    \item \textit{Ignored}, les offsets sont ignorés~ ;
+    \item \textit{Note}, si c’est une note simple~ ;
+    \item \textit{Rest}, si c’est un silence~ ;
+    \item \textit{GraceNote}, si c’est un fla~ ;
+    \item \textit{Error}.
 \end{itemize}
 
 \section{Réécriture guidée par une forme rythmique}
@@ -267,19 +267,19 @@ La démonstration qui suit est basée sur la partition de référence de la figu
 \ref{partition_ref} puisque la forme rythmique qui sera utilisée en est
 directement extraite.\\
 
-Nous allons montrer :
+Nous allons montrer~ :
 \begin{itemize}
-    \item la composition de cette forme rythmique ;
+    \item la composition de cette forme rythmique~ ;
     \item son état final, c’est à dire toutes les combinaisons entièrement
-        écrites en notation correcte sur partition ;
+        écrites en notation correcte sur partition~ ;
 
-        $\Rightarrow$ cela constituera une référence pour la réécriture ;
+        $\Rightarrow$ cela constituera une référence pour la réécriture~ ;
     \item un exemple de transformation de la forme rythmique en arbre de
-        rythme ;
+        rythme~ ;
     \item l’application de la séparation des voix sur cet exemple basé sur la
-        référence citée précédemment (la forme rythmique en question) ;\\
+        référence citée précédemment (la forme rythmique en question)~ ;\\
         $\Rightarrow$ l’arbre de départ sera alors séparé en autant d’arbres
-        qu’il y a de voix (deux arbres pour cette forme rythmique) ;
+        qu’il y a de voix (deux arbres pour cette forme rythmique)~ ;
     \item les règles de simplification propres à la forme rythmique dont nous
         parlons. 
 \end{itemize}
@@ -373,7 +373,7 @@ rythmique.
 		[.Temps\ 2 [rd\\cc ][ [rd ][rd ]]]
 		[.Temps\ 3 [rd ][ [rd ][rd ]]]
 		[.Temps\ 4 [rd\\cc ][ [rd ][rd ]]] ]]}
-	\caption{Arbre de rythme — voix haute}
+	\caption{arbre de rythmes — voix haute}
 	\label{voix_haute}
 \end{figure}\\
 La voix haute (figure \ref{voix_haute}) regroupe la ride et la caisse claire
@@ -392,7 +392,7 @@ sur les ligatures du haut.
 		[.Temps\ 2 [t ][ [bd\\pf ][t ]]]
 		[.Temps\ 3 [t ][ [bd\\pf ][t ]]]
 		[.Temps\ 4 [t ][ [bd\\pf ][t ]]] ]]}
-	\caption{Arbre de rythme — voix basse}
+	\caption{arbre de rythmes — voix basse}
 	\label{voix_basse}
 \end{figure}\\
 La voix basse (figure \ref{voix_basse} regroupe la grosse caisse et le charley
@@ -402,10 +402,10 @@ L’objectif des règles de simplifications est de réécrire les écarts de dur
 qui séparent les notes d’une manière appropriée pour la batterie et qui soit la
 plus simple possible. Les ligatures relient les notes d’un temps entre elles
 afin de rendre la pulsation visuelle.\\\\
-Pour les figures ci-dessous :
+Pour les figures ci-dessous~ :
 \begin{itemize}
-	\item x = une note ;
-	\item r = un silence ;
+	\item x = une note~ ;
+	\item r = un silence~ ;
 	\item t = une continuation (point ou liaison)
 \end{itemize}
 \begin{figure}[h]
@@ -473,8 +473,7 @@ z_images/4_experimentations/2_reecriture_guidee/simplification_9.png}
 	\label{4}
 \end{figure}
 %\newpage
-Ces règles ont été tirées de l’ensemble des arbres de la forme rythmique. Les
-arbres manquants seront mis en annexe.
+Ces règles ont été tirées de l’ensemble des arbres de la forme rythmique.
 
 Les règles remplacent par un silence les continuations (t) qui sont au début
 d’un temps. Cela est valable pour cette forme rythmique mais lorsqu’il y a des
@@ -482,17 +481,17 @@ ouvertures de charley, cela n’est pas toujours applicable.
 
 \subsection*{Conclusion sur cette réécriture guidée}
 La méthode des formes rythmiques étant basée sur une approche dictionnaire,
-Le premier objectif de cette réécriture guidée est d’orienter la recherche
+le premier objectif de cette réécriture guidée est d’orienter la recherche
 d’autres formes rythmiques par observation du jeu de données et de montrer
 comment les construire pour agrandir la base de connaissance de qparse pour la
 transcription de la batterie.
 
-\section{BILAN : résultats — évaluation — discussion}
+\section{BILAN~ : résultats — évaluation — discussion}
 la pertinence des choix qui ont été faits et les moyens d’évaluer les
 résultats obtenus.
 Cette section regroupe les avancées qui ont été réalisées par rapport aux
 objectifs de départ ainsi qu’une réflexion sur le moyen d’évaluer les résultats
-de l’ADT avec qparse. Nous avons améliorer le système de quantification de
+de la TAB avec qparse. Nous avons améliorer le système de quantification de
 qparse pour la batterie, notamment le passage à la polyphonie avec les Jams. 
 
 Nous avons pu obtenir des arbres de parsing corrects en améliorant les
@@ -516,9 +515,9 @@ faites ou non et nous tenterons d’en expliquer la ou les raisons.
         regroupements de notes\footnote{fla ou accords entre autres…})
         $\Rightarrow$ Quelques arbres ont été obtenus sur des exemples simples
         (\footnote{exemple de 2 mesures, voir …})
-    \item 2 dimensions de le travail fourni :\\
+    \item 2 dimensions de le travail fourni~ :\\
         - La volonté de pousser un exemple simple jusqu’au bout de la chaîne
-        pour obtenir des résultats et une évaluation sur au moins un exemple ;
+        pour obtenir des résultats et une évaluation sur au moins un exemple~ ;
         - La réalité du travail à fournir pour faire avancer sur la chaîne de
         traitement.
         $\Rightarrow$ Une solution aurait été de considérer les arbres de
@@ -535,8 +534,8 @@ faites ou non et nous tenterons d’en expliquer la ou les raisons.
      Matcher les motifs aurait été indispensable pour obtenir une quantité
         de résultats qui justifieraient une évaluation automatique permettant
         de faire des graphiques.\\
-	 L’évaluation fut entièrement manuelle car :\\
-	$\Rightarrow$ Très dure automatiquement : il faut comparer 2 partitions
+	 L’évaluation fut entièrement manuelle car~ :\\
+	$\Rightarrow$ Très dure automatiquement~ : il faut comparer 2 partitions
     (réf \tab VS output)
 Pour l’évaluation, il aurait fallu produire un module.\\
 <dam>je ne sais pas si tu auras encore le temps de faire ça, sinon il faudra
@@ -546,7 +545,7 @@ L’évaluation est-elle automatique ou manuelle ?\\
 Possibilité d’un export lilypond en arbre pour comparer l’ouput avec la
 transcription manuelle.\\
 Possibilité de transformer lilypond(output) et lilypond(ref) en ScoreModel ou
-MEI pour les comparer et faire des statistiques. Si transformés en MEI :
+MEI pour les comparer et faire des statistiques. Si transformés en MEI~ :
 diffscore de Francesco.
 Possibilité de transformer lilypond(output) et lilypond(ref) en MusicXML pour
 les comparer ou dans Music21.
@@ -554,30 +553,10 @@ L’expérimentation peut-être considérer comme une évaluation manuelle ?
 (magicien d’Oz)\\
 Lilypond vers MIDI + ouput vers MIDI $\Rightarrow$ Comparaison des MIDI
 dumpés.\\
-
-%\item Le ternaire jazz (voir expérience 2)
-%\item Reconnaissance d’un motif sur le MIDI\\
-%Reconnaître un motif (forme rythmique) sur une mesure de l’input (un fichier
-%midi
-%représentant des données audios)\\
-%$\Rightarrow$ Motif (forme rythmique) reconnu : true ou false\\
-%Si true :\\
-%- Choisir la grammaire correspondante ;\\
-%- Parser le MIDI ;\\
-%- Appliquer les règles de réécritures (Séparation des voix et
-%simplification)
-%\item Nous travaillerons aussi sur la détection de répétitions sur
-%plusieurs mesures afin de pouvoir corriger des erreurs sur une des mesures
-%qui aurait dû être identique aux autres mais qui présente des différences.
-%\item dans quelle catégorie mettre le shuffle ?\\
-%\item écrire des règles de réécriture spécifique aux charley avec un forme
-% rythmique
-%approprié.
-
 \end{itemize}
 
 La transcription automatique de la batterie est un sujet passionnant mais
-difficile : Obtenir la totalité des éléments nécessaires pour le mémoire
+difficile~ : Obtenir la totalité des éléments nécessaires pour le mémoire
 nécessiterait plus de temps. Une base solide spécifique à la batterie a
 néanmoins été générée. Elle sera un bon point de départ pour les travaux futurs
 dont plusieurs propositions sont énoncés dans le présent document.
