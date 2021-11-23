@@ -486,9 +486,8 @@ comment les construire pour agrandir la base de connaissance de qparse pour la
 transcription de la batterie.
 
 \section{Discussion}
-
-TRAVAUX EFFECTUÉS
-\subsection*{Formes rythmiques, notation et modélisation de la batterie}
+\subsection*{Travaux effectués}
+\subsubsection{Formes rythmiques, notation et modélisation de la batterie}
 Un système de formes rythmiques imposant chacune ses régles propres pour
 l’écriture de partitions de batterie a été formalisé. Une démonstration
 théorique de ce système a permis de montrer comment créer des formes rythmiques
@@ -514,7 +513,7 @@ traitement du polyphonique comme un résultat local possible à évaluer au lieu
 d’attendre que la chaîne arrive jusqu’à la génération d’une partition mais cela
 n’était pas prioritaire pendant le stage.
 
-\subsection*{Scripts lilypond}
+\subsubsection{Scripts lilypond}
 Le choix de travailler avec lilypond au lieu de musescore a été pertinent car
 il m’a permis d’établir une modélisation de la batterie avec une notation
 cohérente accompagnée d’un fichier de configuration lilypond inspiré de la
@@ -522,7 +521,7 @@ notation Agostini et de nombreux exemples de scripts lilypond recouvrant
 plusieurs phénomènes de notation en batterie utiles dans des contextes binaires
 ou ternaires.
 
-\subsection*{Passage au polyphonique}
+\subsubsection{Passage au polyphonique}
 Nous avons améliorer le système de quantification de qparse pour la batterie,
 notamment le passage à la polyphonie grâce aux Jams qui ont permis
 l’identification des regroupements de notes. Dans ce cadre, j’ai formalisé des
@@ -535,8 +534,8 @@ Ce travail a permis d’obtenir, avec la création de grammaire adéquates, des
 arbres de \textit{parsing} corrects en sortie de qparse avec des exemples simples de
 fichiers MIDI en entrée.\\
 
-TRAVAUX FUTURS
-\subsection*{Agrandir le dictionnaire de formes rythmiques}
+\subsection*{Travaux futurs}
+\subsubsection{Agrandir le dictionnaire de formes rythmiques}
 Les formes rythmiques, qui constituent la proposition de ce mémoire,
 nécessitent encore beaucoup de travail pour pouvoir être évaluées. Comme il
 s’agit d’une approche dictionnaire, il faudrait créer beaucoup de formes
@@ -544,7 +543,7 @@ différentes avec chacune leur propres règles. L’objectif étant que cette
 approche dictionnaire laisse la place à une génération de formes rythmiques en
 par apprentissage sur des données.
 
-\subsection*{Finir la chaîne de traitement}
+\subsubsection{Finir la chaîne de traitement}
 Pour qu’une réelle évaluation soit possible, il faut que la chaîne de
 traitement aille jusqu’à la génération d’une partition finale (après séparation
 des voix et règles de réécriture). Expérimenter les motifs sur plusieurs
@@ -554,7 +553,7 @@ d’éprouver efficacement le système des formes rythmiques. Il faudrait donc
 élaborer plus d’exemples de grammaires qui puissent fonctionner avec des
 signatures rythmiques différentes.\\
 
-\subsection*{lilypond pour l’évaluation}
+\subsubsection{lilypond pour l’évaluation}
 Le fait que lilypond utilise du texte (scripts) pour générer des partitions en
 pdf pourrait permettre d’élaborer un système d’évaluation en utilisant la
 comparaison de données textuelles. On pourrait par exemple, configurer
