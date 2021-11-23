@@ -497,9 +497,9 @@ rythmiques. La théorie pour l’application des formes rythmiques sur un arbres
 de \textit{parsing} en \textit{input} de qparse pour appliquer les règles de réécriture
 a été formalisé. Durant ce travail, la modélisation de la notation particulière
 de la batterie a été effectuée, notamment sur toutes les particularités qui
-concerne l’écriture des distances temporelles entre les notes.\\
+concernent l’écriture des distances temporelles entre les notes.\\
 
-Il y a deux dimensions de le travail fourni~ :
+Le travail fourni comporte deux dimensions~ :
 \begin{enumerate}
     \item la volonté de pousser un exemple simple jusqu’au bout de la chaîne
         pour obtenir des résultats et une évaluation sur au moins un exemple~ ;
@@ -510,23 +510,23 @@ Il y a deux dimensions de le travail fourni~ :
 
 Une solution aurait été de considérer les arbres de \textit{parsing} obtenus après le
 traitement du polyphonique comme un résultat local possible à évaluer au lieu
-d’attendre que la chaîne arrive jusqu’à la génération d’une partition mais cela
+d’attendre que la chaîne arrive jusqu’à la génération d’une partition, mais cela
 n’était pas prioritaire pendant le stage.
 
 \subsubsection{Scripts lilypond}
 Le choix de travailler avec lilypond au lieu de musescore a été pertinent car
-il m’a permis d’établir une modélisation de la batterie avec une notation
+il a permis d’établir une modélisation de la batterie avec une notation
 cohérente accompagnée d’un fichier de configuration lilypond inspiré de la
 notation Agostini et de nombreux exemples de scripts lilypond recouvrant
 plusieurs phénomènes de notation en batterie utiles dans des contextes binaires
 ou ternaires.
 
 \subsubsection{Passage au polyphonique}
-Nous avons améliorer le système de quantification de qparse pour la batterie,
+Nous avons amélioré le système de quantification de qparse pour la batterie,
 notamment le passage à la polyphonie grâce aux Jams qui ont permis
 l’identification des regroupements de notes. Dans ce cadre, j’ai formalisé des
 régles pour la reconnaissance des flas et proposé un système de seuil basé sur
-la distance entre deux notes proches (donc regroupées dans un Jam) et qui
+la distance entre deux notes proches (donc regroupées dans un Jam) ce qui
 permet de définir si les deux notes sont proches et quantifiables, si elles
 forment un fla ou si elles forment simplement un accord.
 
@@ -539,9 +539,9 @@ fichiers MIDI en entrée.\\
 Les formes rythmiques, qui constituent la proposition de ce mémoire,
 nécessitent encore beaucoup de travail pour pouvoir être évaluées. Comme il
 s’agit d’une approche dictionnaire, il faudrait créer beaucoup de formes
-différentes avec chacune leur propres règles. L’objectif étant que cette
-approche dictionnaire laisse la place à une génération de formes rythmiques en
-par apprentissage sur des données.
+différentes avec chacune leurs propres règles, l’objectif étant que cette
+approche dictionnaire laisse la place à une génération de formes rythmiques par
+apprentissage sur des données.
 
 \subsubsection{Finir la chaîne de traitement}
 Pour qu’une réelle évaluation soit possible, il faut que la chaîne de
@@ -550,13 +550,13 @@ des voix et règles de réécriture). Expérimenter les motifs sur plusieurs
 exemples aurait été indispensable pour obtenir une quantité de résultats qui
 justifieraient une évaluation automatique permettant de faire des graphiques afin
 d’éprouver efficacement le système des formes rythmiques. Il faudrait donc
-élaborer plus d’exemples de grammaires qui puissent fonctionner avec des
+élaborer d’avantage d’exemples de grammaires qui puissent fonctionner avec des
 signatures rythmiques différentes.\\
 
 \subsubsection{lilypond pour l’évaluation}
 Le fait que lilypond utilise du texte (scripts) pour générer des partitions en
 pdf pourrait permettre d’élaborer un système d’évaluation en utilisant la
-comparaison de données textuelles. On pourrait par exemple, configurer
+comparaison de données textuelles. On pourrait, par exemple, configurer
 l’\textit{ouput} de qparse au format lilypond pour ensuite comparer une
 partition de référence transcrite manuellement avec lilypond sur la sortie.
 Comme il s’agit de comparer deux scripts, cette comparaison pourrait être
