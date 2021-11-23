@@ -45,7 +45,7 @@ Autres critères spécifiques au GMD~ :
 	\item Les batteurs avaient pour instruction de jouer des séquences de
         plusieurs minutes ainsi que des fills\footnote{Un \textit{fill} est une
         séquence de relance dont la durée dépasse rarement 2 mesures. Il est
-        souvent joué à la fin d’un cycle pour annoncer le suivant.}
+        souvent joué à la fin d’un cycle pour annoncer le suivant.}.
 	\item Chaque performance est annotée d’un style (fourni par le batteur),
         d’une signature rythmique et d’un tempo ainsi que d’une identification
         anonyme du batteur.
@@ -241,7 +241,6 @@ lisible pour un musicien (Voir la section \ref{modelisation_transcription}).
 
 
 \section{Transcription polyphonique par parsing}
-Les différentes étapes de résolution du passage au polyphonique.
 \label{jam}
 Les Jams permettent de passer du monophonique au polyphonique.
 On regroupe tous les évènements qu’on estime être à des dates suffisamment
@@ -486,12 +485,57 @@ d’autres formes rythmiques par observation du jeu de données et de montrer
 comment les construire pour agrandir la base de connaissance de qparse pour la
 transcription de la batterie.
 
-\section{BILAN~ : résultats — évaluation — discussion}
-la pertinence des choix qui ont été faits et les moyens d’évaluer les
-résultats obtenus.
+\section{Discussion}
+Le choix de travailler avec lilypond au lieu de musescore est pertinent car
+une modélisation de la batterie avec une notation cohérente a pu être établi
+ainsi que de nombreux exemple de scripts lilypond recouvrant plusieurs style
+d’évènements de batterie qui s’avérer très utiles dans des contextes binaires
+ou ternaire.
+
+De plus, le fait que lilypond utilise du texte (scripts) pour générer des
+partitions en pdf pourrait permettre d’élaborer un système d’évaluation en
+utilisant le traitement de données textuelles.
+
+On pourrait par exemple, configurer l’\textit{ouput} de qparse au format
+lilypond pour ensuite comparer une partition de référence transcrite
+manuellement avec lilypond avec la sortie. cette comparaison pourrait être
+effectuée avec la commande «~diff~».
+
+
+
+
+qui peuvent déjà servir de référence pour la transcription automatique et la
+création d’un système d’évaluation.
+
+
+
+
+
+
 Cette section regroupe les avancées qui ont été réalisées par rapport aux
 objectifs de départ ainsi qu’une réflexion sur le moyen d’évaluer les résultats
-de la TAB avec qparse. Nous avons améliorer le système de quantification de
+de la TAB avec qparse. pertinence de l’ensemble des choix
+
+BILAN DES DIFFÉRENTES AVANCÉS QUI ONT ÉTÉ FAITES
+
+
+
+fichier lilypond de référence avec la sortie 
+disponibilité d’un set de notation de type agostini. C’est la seule application qui me permettait d’écrire la notation de la batterie
+exactement comme je le souhaitais.
+
+Le passage au polyphonique a bien fonctionné car nous avons obtenu des arbres
+correct en sortie
+
+
+TRAVAUX FUTURS
+
+
+L’ensemble des travaux finis, notamment les avancées réalisées
+dans ce travail
+la pertinence des choix qui ont été faits et les moyens d’évaluer les
+résultats obtenus.
+ Nous avons améliorer le système de quantification de
 qparse pour la batterie, notamment le passage à la polyphonie avec les Jams. 
 
 Nous avons pu obtenir des arbres de parsing corrects en améliorant les
@@ -501,15 +545,9 @@ Puis, une sortie MEI a aussi été obtenu (encore à vérifier).
 
 
 
-Dans cette section, nous discuterons sur la pertinence de l’ensemble des choix
-qui ont été faits. Nous ferons un bilan des différentes avancés qui ont été
-faites ou non et nous tenterons d’en expliquer la ou les raisons.
+Dans cette section, nous discuterons sur la  Nous ferons un .
 \begin{itemize}
-    \item Le choix de travailler avec lilypond et non verovio. Ce choix était
-        motivé par la liberté totale concernant la notation de la batterie dont
-        un et la disponibilité d’un set de notation de type agostini. C’est la
-        seule application qui me permettait d’écrire la notation de la batterie
-        exactement comme je le souhaitais.
+    \item 
     \item Avancé de la chaîne de traitement (nous sommes arrivé au arbres de
         parsing, nous avons traité le polyphonique (identification des
         regroupements de notes\footnote{fla ou accords entre autres…})
