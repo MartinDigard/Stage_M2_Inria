@@ -497,8 +497,8 @@ Comme le montre la figure \ref{presentation_qparse}, qparse\footnote{
 musicale qui produit une partition structurée à partir d’une performance symbolique séquentielle et non
 quantifiée, . Il effectue conjointement des
 tâches de quantification rhythmique et d’inférence de la structure de la
-partition à l’aide de techniques d’analyse syntaxique (\textit{parsing}). Le
-but du \textit{parsing} est en effet la structuration d’une représentation
+partition à l’aide de techniques d’analyse syntaxique (\textit{\textit{parsing}}). Le
+but du \textit{\textit{parsing}} est en effet la structuration d’une représentation
 séquentielle en entrée (un mot fini), suivant un modèle de langage
 \cite{grune2007parsing}.
 
@@ -581,7 +581,7 @@ la deuxième) et dont la troisième est vide. La signature rythmique est
 Sur la figure \ref{ex_gram}, chaque ligne est une règle. La colonne de gauche
 contient des symboles non-terminaux (0, 1, 2, 4). Cette grammaire sépare les temps par ligatures au niveau de la mesure. Puis
 elle autorise, au niveau du temps, les divisions par deux (croches) et par
-quatre (doubles-croches). Ces divisions seront reliées par des ligatures. Tous les poids sont réglés sur 1 à titre expérimental. L’arbre de parsing en
+quatre (doubles-croches). Ces divisions seront reliées par des ligatures. Tous les poids sont réglés sur 1 à titre expérimental. L’arbre de \textit{parsing} en
 résultant (figure \ref{sortie_arbre}) est considéré comme «~convaincant~» car il découpe correctement les
 mesures et les temps.
 \begin{figure}[h]
@@ -626,7 +626,7 @@ mesures et les temps.
 %%et aucuns ne sont subdivisés.
 %
 
-\subsection*{Le parsing}
+\subsection*{Le \textit{parsing}}
 Les données MIDI sont quantifiées, les notes de dates proches sont alignées et
 les relations entre les notes sont identifiées (accords, fla, etc…)~ ; un arbre
 syntaxique global est créé (figure \ref{sortie_arbre}). 
@@ -746,13 +746,13 @@ comme dans l’exemple 2).
 \subsubsection{Choix d’une grammaire}
 Il faut prendre en compte l’existence potentielle de plusieurs grammaires
 qui regroupent les contenus MIDI par signature rythmique. Le choix d’une
-grammaire pondérée doit être fait avant le parsing puisque qparse prend en
+grammaire pondérée doit être fait avant le \textit{parsing} puisque qparse prend en
 entrée un fichier MIDI et un fichier wta (grammaire). C’est pour cette raison
 que la signature rythmique doit être définie avant le choix de la grammaire.
 Il faudrait les trouver automatiquement sans autres indications que les
 contenus MIDI. Par conséquent, les motifs des
 formes rythmiques devront être recherchés sur l’input (fichiers MIDI)
-avant le lancement du parsing, afin de déterminer la signature rythmique en
+avant le lancement du \textit{parsing}, afin de déterminer la signature rythmique en
 amont. Cette tâche devra probablement être effectuée par utilisation
 d’apprentissage automatique.
 
