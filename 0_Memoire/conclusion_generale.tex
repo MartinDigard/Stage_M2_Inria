@@ -1,31 +1,31 @@
 Dans ce mémoire, nous avons traité de la problématique de la transcription
-automatique de la batterie. Son objectif était de transcrire, à partir de leur
+automatique de la batterie. Son objectif est de transcrire, à partir de leur
 représentation symbolique MIDI, des performances de batteur de différents
 niveaux et dans différents styles en partitions écrites.\\
 
 Nous avons avancé sur le \textit{parsing} des données MIDI établissant un processus de
 regroupement des évènements MIDI qui nous a permis de faire la transition du
-monophonique vers le polyphonique. Une des données importante de ce processus
-était de différencier les nature des notes d’un \textit{accord}, notamment de
+monophonique vers le polyphonique. Une des données importantes de ce processus
+était de différencier la nature des notes d’un \textit{accord}, notamment de
 distinguer lorsque 2 notes constituent un \textit{accord} ou un \textit{fla}.\\
-Nous avons établis des \textit{grammaires pondérées} pour le \textit{parsing} qui
+Nous avons établi des \textit{grammaires pondérées} pour le \textit{parsing} qui
 correspondent respectivement à des signatures rythmiques spécifiques. Celles-ci
 étant sélectionnables en amont du \textit{parsing}, soit par indication des noms des
 fichiers MIDI, soit par reconnaissance de la signature rythmique avec une approche dictionnaire de
-patterns prédéfinis \footnote{\textit{Motifs} dans les \textit{forme rythmiques} de la
+patterns prédéfinis \footnote{\textit{Motifs} dans les \textit{formes rythmiques} de la
 présente proposition.} qu’il serait pertinent de mettre en œuvre avec des
 méthodes d’apprentissage en amont sur les données MIDI avant le \textit{parsing}.\\
-Nous avons démontré que l’usage des \textit{forme rythmiques} élimine un grand nombre
+Nous avons démontré que l’usage des \textit{formes rythmiques} élimine un grand nombre
 de calcul lors de la réécriture. Pour la séparation des voix grâce au motif
 d’une forme rythmique et pour la simplification grâce aux gammes du motif d’une forme rythmique.
 Nous avons aussi montré comment, dans des travaux futurs, une forme rythmique dont le
 motif serait reconnu en amont dans un fichier MIDI pourrait prédéfinir le choix
 d’une grammaire par la reconnaissance d’une signature rythmique et ainsi améliorer le
-\textit{parsing} et accélérer les choix ultérieurs dans la chaîne de traitement en terme
+\textit{parsing} et accélérer les choix ultérieurs dans la chaîne de traitement en termes
 de réécriture.\\
 
 La transcription automatique de la batterie est un sujet passionnant mais
-difficile~ : Obtenir la totalité des éléments nécessaires pour le mémoire
+difficile. Obtenir la totalité des éléments nécessaires pour le mémoire
 nécessiterait plus de temps. Une base solide spécifique à la batterie a
-néanmoins été générée. Elle sera un bon point de départ pour les travaux futurs
-dont plusieurs propositions sont énoncés dans le présent document.
+néanmoins été générée. Elle constituera un bon point de départ pour les travaux futurs
+dont plusieurs axees sont énoncés dans le présent document.
