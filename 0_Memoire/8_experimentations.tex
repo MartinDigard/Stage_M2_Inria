@@ -486,112 +486,88 @@ comment les construire pour agrandir la base de connaissance de qparse pour la
 transcription de la batterie.
 
 \section{Discussion}
-Le choix de travailler avec lilypond au lieu de musescore est pertinent car
-une modélisation de la batterie avec une notation cohérente a pu être établi
-ainsi que de nombreux exemple de scripts lilypond recouvrant plusieurs style
-d’évènements de batterie qui s’avérer très utiles dans des contextes binaires
-ou ternaire.
 
-De plus, le fait que lilypond utilise du texte (scripts) pour générer des
-partitions en pdf pourrait permettre d’élaborer un système d’évaluation en
-utilisant le traitement de données textuelles.
+TRAVAUX EFFECTUÉS\\
 
-On pourrait par exemple, configurer l’\textit{ouput} de qparse au format
-lilypond pour ensuite comparer une partition de référence transcrite
-manuellement avec lilypond avec la sortie. cette comparaison pourrait être
-effectuée avec la commande «~diff~».
+Un système de formes rythmiques imposant chacune ses régles propres pour
+l’écriture de partition de batterie a été formalisé. Une démonstration
+théorique de ce système a permis de montrer comment créer des formes rythmiques
+avec leurs régles propres
+à partir de partition de référence pour agrandir le dictionnaire de formes
+rythmiques. La théorie pour l’application de formes rythmiques sur un arbres
+de parsing en \textit{input} de qparse pour appliquer les règles de réécriture
+a été formalisé.\\ 
 
-
-
-
-qui peuvent déjà servir de référence pour la transcription automatique et la
-création d’un système d’évaluation.
-
-
-
-
-
-
-Cette section regroupe les avancées qui ont été réalisées par rapport aux
-objectifs de départ ainsi qu’une réflexion sur le moyen d’évaluer les résultats
-de la TAB avec qparse. pertinence de l’ensemble des choix
-
-BILAN DES DIFFÉRENTES AVANCÉS QUI ONT ÉTÉ FAITES
-
-
-
-fichier lilypond de référence avec la sortie 
-disponibilité d’un set de notation de type agostini. C’est la seule application qui me permettait d’écrire la notation de la batterie
-exactement comme je le souhaitais.
-
-Le passage au polyphonique a bien fonctionné car nous avons obtenu des arbres
-correct en sortie
-
-
-TRAVAUX FUTURS
-
-
-L’ensemble des travaux finis, notamment les avancées réalisées
-dans ce travail
-la pertinence des choix qui ont été faits et les moyens d’évaluer les
-résultats obtenus.
- Nous avons améliorer le système de quantification de
-qparse pour la batterie, notamment le passage à la polyphonie avec les Jams. 
-
-Nous avons pu obtenir des arbres de parsing corrects en améliorant les
-grammaires avec des fichiers MIDI courts. 
-
-Puis, une sortie MEI a aussi été obtenu (encore à vérifier).
-
-
-
-Dans cette section, nous discuterons sur la  Nous ferons un .
-\begin{itemize}
-    \item 
-    \item Avancé de la chaîne de traitement (nous sommes arrivé au arbres de
-        parsing, nous avons traité le polyphonique (identification des
-        regroupements de notes\footnote{fla ou accords entre autres…})
-        $\Rightarrow$ Quelques arbres ont été obtenus sur des exemples simples
-        (\footnote{exemple de 2 mesures, voir …})
-    \item 2 dimensions de le travail fourni~ :\\
-        - La volonté de pousser un exemple simple jusqu’au bout de la chaîne
+Il y a deux dimensions de le travail fourni~ :
+\begin{enumerate}
+    \item La volonté de pousser un exemple simple jusqu’au bout de la chaîne
         pour obtenir des résultats et une évaluation sur au moins un exemple~ ;
-        - La réalité du travail à fournir pour faire avancer sur la chaîne de
+    \item La réalité du travail à fournir pour faire avancer sur la chaîne de
         traitement.
-        $\Rightarrow$ Une solution aurait été de considérer les arbres de
-        parsing obtenus après le traitement du polyphonique comme un résultat
-        local possible à évaluer au lieu d’attendre que la chaîne arrive
-        jusqu’à la génération d’une partition mais cela n’était pas prioritaire
-        pendant le stage.
-    \item Création d’un jeu de forme rythmique basique réprésentatif des
+\end{enumerate}
+
+Une solution aurait été de considérer les arbres de parsing obtenus après le
+traitement du polyphonique comme un résultat local possible à évaluer au lieu
+d’attendre que la chaîne arrive jusqu’à la génération d’une partition mais cela
+n’était pas prioritaire pendant le stage.\\
+
+Le choix de travailler avec lilypond au lieu de musescore a été pertinent car
+il m’a permis d’établir une modélisation de la batterie avec une notation
+cohérente accompagnée d’un fichier de configuration lilypond inspiré de la
+notation Agostini et de nombreux exemples de scripts lilypond recouvrant
+plusieurs phénomènes de notation en batterie utiles dans des contextes binaires
+ou ternaires.\\
+
+Nous avons améliorer le système de quantification de qparse pour la batterie,
+notamment le passage à la polyphonie grâce aux Jams qui ont permis
+l’identification des regroupements de note. En effet, avec la création de
+grammaire adéquates, nous avons pu obtenir des arbres de parsing corrects en
+sortie de qparse avec des exemples simples de fichiers MIDI.\\
+
+TRAVAUX FUTURS\\
+Le fait que lilypond utilise du texte (scripts) pour générer des partitions en
+pdf pourrait permettre d’élaborer un système d’évaluation en utilisant la
+comparaison de données textuelles. On pourrait par exemple, configurer
+l’\textit{ouput} de qparse au format lilypond pour ensuite comparer une
+partition de référence transcrite manuellement avec lilypond avec la sortie.
+Comme il s’agit de comparer deux scripts, cette comparaison pourrait être
+effectuée avec la commande «~diff~» .\\
+
+Pour qu’une réelle évaluation soit possible, il faut que la chaîne de
+traitement aille jusqu’à la génération d’une partition finale (après séparation
+des voix et règles de réécriture). 
+Matcher les motifs aurait été indispensable pour obtenir une quantité de
+résultats qui justifieraient une évaluation automatique permettant de faire des
+graphiques.\\
+
+
+Il faudrait donc élaborer au moins suffisamment d’exemples pour que la
+partition de référence soit entièrement générée afin de réaliser des
+évaluations sur la sortie.\\
+
+Création d’un jeu de forme rythmique basique réprésentatif des
         différents styles à recouvrir. Ce jeu n’a pas pu être créé, car comme
         vu plus haut, je me suis focalisé sur un exemple pour pouvoir le
         vérifier entièrement et dans l’espoir de pouvoir le tester en fin de
-        chaîne.
-\textbf{Évaluation}
-     Matcher les motifs aurait été indispensable pour obtenir une quantité
-        de résultats qui justifieraient une évaluation automatique permettant
-        de faire des graphiques.\\
-	 L’évaluation fut entièrement manuelle car~ :\\
-	$\Rightarrow$ Très dure automatiquement~ : il faut comparer 2 partitions
-    (réf \tab VS output)
-Pour l’évaluation, il aurait fallu produire un module.\\
-<dam>je ne sais pas si tu auras encore le temps de faire ça, sinon il faudra
-décrire comment tu aurais aimé évaluer, proprement et sans résultats
-chiffrés</dam>
-L’évaluation est-elle automatique ou manuelle ?\\
-Possibilité d’un export lilypond en arbre pour comparer l’ouput avec la
-transcription manuelle.\\
-Possibilité de transformer lilypond(output) et lilypond(ref) en ScoreModel ou
-MEI pour les comparer et faire des statistiques. Si transformés en MEI~ :
-diffscore de Francesco.
-Possibilité de transformer lilypond(output) et lilypond(ref) en MusicXML pour
-les comparer ou dans Music21.
-L’expérimentation peut-être considérer comme une évaluation manuelle ?
-(magicien d’Oz)\\
-Lilypond vers MIDI + ouput vers MIDI $\Rightarrow$ Comparaison des MIDI
-dumpés.\\
-\end{itemize}
+        chaîne.\\
+
+SUITE\\
+
+LLes formes rythmiques, qui constituent la proposition de ce mémoire,
+nécessitent encore beaucoup de travail pour pouvoir être évaluées. Comme il
+s’agit d’une approche dictionnaire, il faudrait créer beaucoup de formes
+différentes avec chacune leur propres règles. L’objectif étant que cette
+approche dictionnaire laisse la place à une génération de formes rythmiques en
+apprentissage sur des données.
+
+es formes rythmiques, qui constituent la proposition de ce mémoire,
+nécessitent encore beaucoup de travail pour pouvoir être évaluées. Comme il
+s’agit d’une approche dictionnaire, il faudrait créer beaucoup de formes
+différentes avec chacune leur propres règles. L’objectif étant que cette
+approche dictionnaire laisse la place à une génération de formes rythmiques en
+apprentissage sur des données.
+
+
 
 La transcription automatique de la batterie est un sujet passionnant mais
 difficile~ : Obtenir la totalité des éléments nécessaires pour le mémoire
